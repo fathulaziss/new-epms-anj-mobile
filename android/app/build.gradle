@@ -23,6 +23,22 @@ if (flutterVersionName == null) {
 }
 
 android {
+    flavorDimensions "flavor-dimension"
+
+    productFlavors {
+        development {
+            dimension "flavor-dimension"
+            applicationId "com.anj.epms"
+            resValue "string", "app_name", "ePMS Dev"
+        }
+
+        production {
+            dimension "flavor-dimension"
+            applicationId "com.anj.epms"
+            resValue "string", "app_name", "ePMS Prod"
+        }
+    }
+
     namespace "com.anj.epms"
     compileSdk 34
     ndkVersion flutter.ndkVersion
@@ -50,13 +66,40 @@ android {
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         multiDexEnabled true
+        ndk { abiFilters "armeabi", "x86", "armeabi-v7a","x86_64", "mips",
+         "mips64", "arm64-v8a" }
     }
 
     buildTypes {
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
+            // Change to signingConfigs.release when build App Bundle
+            // Don't Forget change to signingConfigs.debug when run App or signingConfigs.release when build App Bundle
             signingConfig signingConfigs.debug
+            // Enables code shrinking, obfuscation, and optimization for only
+            // your project's release build type.
+            minifyEnabled true
+
+            // Enables resource shrinking, which is performed by the
+            // Android Gradle plugin.
+            shrinkResources true
+
+            ndk {
+                abiFilters 'armeabi-v7a','arm64-v8a','x86_64'
+            }
+        }
+        debug {
+            signingConfig signingConfigs.debug
+            // Enables code shrinking, obfuscation, and optimization for only
+            // your project's release build type.
+            minifyEnabled true
+
+            // Enables resource shrinking, which is performed by the
+            // Android Gradle plugin.
+            shrinkResources true
+
+            ndk {
+                abiFilters 'armeabi-v7a','arm64-v8a','x86_64'
+            }
         }
     }
 }
