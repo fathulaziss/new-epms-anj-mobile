@@ -335,12 +335,6 @@ class _InspectionApprovalViewState extends State<InspectionApprovalView> {
   }
 
   Future<void> getDataInspection(BuildContext context) async {
-    final now = DateTime.now();
-    await StorageManager.saveData(
-        "lastSynchTimeInspection", TimeManager.timeWithColon(now));
-    await StorageManager.saveData(
-        "lastSynchDateInspection", TimeManager.dateWithDash(now));
-
     await InspectionRepository().getMyInspectionClose(
       context,
       (context, data) async {
@@ -400,6 +394,15 @@ class _InspectionApprovalViewState extends State<InspectionApprovalView> {
                                     .addAllDataNew(data.inspection);
                                 await DatabaseAttachmentInspection.addAllData(
                                     data);
+
+                                final now = DateTime.now();
+                                await StorageManager.saveData(
+                                    "lastSynchTimeInspection",
+                                    TimeManager.timeWithColon(now));
+                                await StorageManager.saveData(
+                                    "lastSynchDateInspection",
+                                    TimeManager.dateWithDash(now));
+
                                 _dialogService.popDialog();
                                 _navigationService.pop();
                                 FlushBarManager.showFlushBarSuccess(
