@@ -287,6 +287,12 @@ class _InspectionAssignmentDetailViewState
   }
 
   Future<void> getDataInspection(BuildContext context) async {
+    final now = DateTime.now();
+    await StorageManager.saveData(
+        "lastSynchTimeInspection", TimeManager.timeWithColon(now));
+    await StorageManager.saveData(
+        "lastSynchDateInspection", TimeManager.dateWithDash(now));
+
     await InspectionRepository().getMyInspectionClose(
       context,
       (context, data) async {
@@ -346,14 +352,6 @@ class _InspectionAssignmentDetailViewState
                                     .addAllDataNew(data.inspection);
                                 await DatabaseAttachmentInspection.addAllData(
                                     data);
-
-                                final now = DateTime.now();
-                                await StorageManager.saveData(
-                                    "lastSynchTimeInspection",
-                                    TimeManager.timeWithColon(now));
-                                await StorageManager.saveData(
-                                    "lastSynchDateInspection",
-                                    TimeManager.dateWithDash(now));
 
                                 _dialogService.popDialog();
                                 _navigationService.pop();

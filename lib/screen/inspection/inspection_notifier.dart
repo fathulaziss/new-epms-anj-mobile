@@ -98,6 +98,11 @@ class InspectionNotifier extends ChangeNotifier {
     final isInternetExist = await InspectionService.isInternetConnectionExist();
     if (isInternetExist) {
       _dialogService.showLoadingDialog(title: "Sync Data");
+      final now = DateTime.now();
+      await StorageManager.saveData(
+          "lastSynchTimeInspection", TimeManager.timeWithColon(now));
+      await StorageManager.saveData(
+          "lastSynchDateInspection", TimeManager.dateWithDash(now));
 
       await InspectionRepository().getMyInspectionClose(
         context,
@@ -168,14 +173,6 @@ class InspectionNotifier extends ChangeNotifier {
                                   await DatabaseAttachmentInspection.addAllData(
                                       data);
                                   await updateSubordinateInspectionFromLocal();
-
-                                  final now = DateTime.now();
-                                  await StorageManager.saveData(
-                                      "lastSynchTimeInspection",
-                                      TimeManager.timeWithColon(now));
-                                  await StorageManager.saveData(
-                                      "lastSynchDateInspection",
-                                      TimeManager.dateWithDash(now));
 
                                   updateTotalInspection();
                                   FlushBarManager.showFlushBarSuccess(
