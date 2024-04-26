@@ -13,6 +13,8 @@ import 'package:epms/common_manager/flushbar_manager.dart';
 import 'package:epms/common_manager/inspection_service.dart';
 import 'package:epms/common_manager/location_service.dart';
 import 'package:epms/common_manager/navigator_service.dart';
+import 'package:epms/common_manager/storage_manager.dart';
+import 'package:epms/common_manager/time_manager.dart';
 import 'package:epms/common_manager/value_service.dart';
 import 'package:epms/database/helper/convert_helper.dart';
 import 'package:epms/database/service/database_action_inspection.dart';
@@ -344,6 +346,15 @@ class _InspectionAssignmentDetailViewState
                                     .addAllDataNew(data.inspection);
                                 await DatabaseAttachmentInspection.addAllData(
                                     data);
+
+                                final now = DateTime.now();
+                                await StorageManager.saveData(
+                                    "lastSynchTimeInspection",
+                                    TimeManager.timeWithColon(now));
+                                await StorageManager.saveData(
+                                    "lastSynchDateInspection",
+                                    TimeManager.dateWithDash(now));
+
                                 _dialogService.popDialog();
                                 _navigationService.pop();
                                 FlushBarManager.showFlushBarSuccess(

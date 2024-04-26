@@ -5,6 +5,8 @@ import 'package:epms/common_manager/dialog_services.dart';
 import 'package:epms/common_manager/flushbar_manager.dart';
 import 'package:epms/common_manager/inspection_service.dart';
 import 'package:epms/common_manager/navigator_service.dart';
+import 'package:epms/common_manager/storage_manager.dart';
+import 'package:epms/common_manager/time_manager.dart';
 import 'package:epms/database/service/database_attachment_inspection.dart';
 import 'package:epms/database/service/database_response_inspection.dart';
 import 'package:epms/database/service/database_subordinate_inspection.dart';
@@ -166,6 +168,14 @@ class InspectionNotifier extends ChangeNotifier {
                                   await DatabaseAttachmentInspection.addAllData(
                                       data);
                                   await updateSubordinateInspectionFromLocal();
+
+                                  final now = DateTime.now();
+                                  await StorageManager.saveData(
+                                      "lastSynchTimeInspection",
+                                      TimeManager.timeWithColon(now));
+                                  await StorageManager.saveData(
+                                      "lastSynchDateInspection",
+                                      TimeManager.dateWithDash(now));
 
                                   updateTotalInspection();
                                   FlushBarManager.showFlushBarSuccess(
