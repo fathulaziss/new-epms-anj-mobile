@@ -570,7 +570,8 @@ class _InspectionFormViewState extends State<InspectionFormView> {
       context,
       ticketInspection,
       (context, successMessage) async {
-        await DatabaseTicketInspection.deleteTicketByCode(ticketInspection);
+        await DatabaseTicketInspection.deleteTicketByCode(
+            ticketInspection.code);
         // await DatabaseAttachmentInspection.deleteInspectionByCode(
         //     ticketInspection);
         await getDataInspection(context);

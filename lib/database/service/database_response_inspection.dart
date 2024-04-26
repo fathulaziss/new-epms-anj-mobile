@@ -1,7 +1,11 @@
 import 'package:epms/database/entity/response_inspection_entity.dart';
 import 'package:epms/database/helper/database_helper.dart';
 import 'package:epms/database/helper/database_table.dart';
+import 'package:epms/database/service/database_attachment_inspection.dart';
+import 'package:epms/database/service/database_subordinate_inspection.dart';
+import 'package:epms/database/service/database_ticket_inspection.dart';
 import 'package:epms/model/response_inspection_model.dart';
+import 'package:intl/intl.dart';
 import 'package:sqflite/sqflite.dart';
 
 class DatabaseResponseInspection {
@@ -176,6 +180,36 @@ class DatabaseResponseInspection {
       responseInspectionTable,
       where: '${ResponseInspectionEntity.code}=?',
       whereArgs: [code],
+    );
+  }
+
+  static Future<void> deleteResponseOneWeekAgo() async {
+    Database db = await DatabaseHelper().database;
+    var date = DateTime.now();
+    var newDate = new DateTime(date.year, date.month, date.day - 7);
+    String oneWeekAgoDate = DateFormat('yyyy-MM-dd HH:mm:ss').format(newDate);
+
+    var mapList = await db.query(
+      responseInspectionTable,
+      where:
+          "${ResponseInspectionEntity.trTime}<=? AND ${ResponseInspectionEntity.status}=? AND ${ResponseInspectionEntity.isSynchronize}=?",
+      whereArgs: ['$oneWeekAgoDate%', 'close', 1],
+    );
+
+    var listResponse = List<ResponseInspectionModel>.from(mapList.map((e) {
+      return ResponseInspectionModel.fromDatabase(e);
+    }));
+    await Future.forEach(listResponse, (response) async {
+      await DatabaseAttachmentInspection.deleteDataByCode(
+          response.tInspectionId);
+      await DatabaseTicketInspection.deleteTicketByCode(response.tInspectionId);
+      await DatabaseSubordinateInspection.deleteSubordinateByCode(
+          response.tInspectionId);
+    });
+
+    await db.rawDelete(
+      'DELETE FROM $responseInspectionTable WHERE ${ResponseInspectionEntity.trTime} <= ? AND ${ResponseInspectionEntity.status} = ? AND ${ResponseInspectionEntity.isSynchronize} = ?',
+      ['$oneWeekAgoDate%', 'close', 1],
     );
   }
 

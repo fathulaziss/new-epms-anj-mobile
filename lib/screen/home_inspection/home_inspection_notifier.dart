@@ -4,6 +4,7 @@ import 'package:epms/common_manager/dialog_services.dart';
 import 'package:epms/common_manager/navigator_service.dart';
 import 'package:epms/common_manager/storage_manager.dart';
 import 'package:epms/database/helper/database_helper.dart';
+import 'package:epms/database/service/database_response_inspection.dart';
 import 'package:epms/database/service/database_subordinate_inspection.dart';
 import 'package:epms/database/service/database_ticket_inspection.dart';
 import 'package:epms/database/service/database_todo_inspection.dart';
@@ -44,8 +45,9 @@ class HomeInspectionNotifier extends ChangeNotifier {
 
   void initData(BuildContext context) async {
     await getDataUser();
-    await DatabaseTicketInspection.deleteTicketOneWeekAgo();
-    await DatabaseSubordinateInspection.deleteSubordinateOneWeekAgo();
+    // await DatabaseTicketInspection.deleteTicketOneWeekAgo();
+    // await DatabaseSubordinateInspection.deleteSubordinateOneWeekAgo();
+    await DatabaseResponseInspection.deleteResponseOneWeekAgo();
     // await getDataInspection(context);
     await updateCountInspection();
   }

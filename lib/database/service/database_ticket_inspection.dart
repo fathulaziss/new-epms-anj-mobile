@@ -418,12 +418,12 @@ class DatabaseTicketInspection {
     return data;
   }
 
-  static Future<void> deleteTicketByCode(TicketInspectionModel data) async {
+  static Future<void> deleteTicketByCode(String code) async {
     Database db = await DatabaseHelper().database;
     db.delete(
       ticketInspectionTable,
       where: '${TicketInspectionEntity.code}=?',
-      whereArgs: [data.code],
+      whereArgs: [code],
     );
   }
 

@@ -448,6 +448,15 @@ class DatabaseSubordinateInspection {
     );
   }
 
+  static Future<void> deleteSubordinateByCode(String code) async {
+    Database db = await DatabaseHelper().database;
+    db.delete(
+      subordinateInspectionTable,
+      where: '${SubordinateInspectionEntity.code}=?',
+      whereArgs: [code],
+    );
+  }
+
   static Future<void> deleteTable() async {
     Database db = await DatabaseHelper().database;
     db.delete(subordinateInspectionTable);

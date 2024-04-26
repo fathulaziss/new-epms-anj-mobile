@@ -412,7 +412,8 @@ class InspectionNotifier extends ChangeNotifier {
             inspection,
             (context, successMessage) async {
               log('Ticket Inspection Code : ${inspection.code} $successMessage');
-              await DatabaseTicketInspection.deleteTicketByCode(inspection);
+              await DatabaseTicketInspection.deleteTicketByCode(
+                  inspection.code);
               // await DatabaseAttachmentInspection.deleteDataByCode(
               //     inspection.code);
 
@@ -668,7 +669,8 @@ class InspectionNotifier extends ChangeNotifier {
             inspection,
             (context, successMessage) async {
               log('Ticket Inspection Code : ${inspection.code} $successMessage');
-              await DatabaseTicketInspection.deleteTicketByCode(inspection);
+              await DatabaseTicketInspection.deleteTicketByCode(
+                  inspection.code);
               // await DatabaseAttachmentInspection.deleteDataByCode(
               //     inspection.code);
 
