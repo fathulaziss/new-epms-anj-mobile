@@ -27,4 +27,14 @@ class AppConfig {
         return 'Production';
     }
   }
+
+  static String get appName {
+    switch (appFlavor) {
+      case Flavor.development:
+        return 'EPMS Dev';
+
+      case Flavor.production:
+        return 'EPMS';
+    }
+  }
 }

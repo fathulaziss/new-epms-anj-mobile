@@ -53,8 +53,8 @@
     ]
     
     // APK
-    // flutter build apk --split-per-abi --flavor development -t lib/main_development.dart --release
-    // flutter build apk --split-per-abi --flavor production -t lib/main_production.dart --release
+    // flutter build apk --split-per-abi --flavor development -t lib/main_development.dart --release --no-tree-shake-icons
+    // flutter build apk --split-per-abi --flavor production -t lib/main_production.dart --release --no-tree-shake-icons
 
     // AppBundle
     // flutter build appbundle --flavor development -t lib/main_development.dart

@@ -1,6 +1,7 @@
 import 'package:epms/app.dart';
 import 'package:epms/app_config.dart';
 import 'package:epms/base/api/firebase_api.dart';
+import 'package:epms/base/common/locator.dart';
 import 'package:epms/enum.dart';
 import 'package:epms/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -14,6 +15,7 @@ Future<void> setupApp({
   WidgetsFlutterBinding.ensureInitialized();
   AppConfig.appFlavor = isProduction ? Flavor.production : Flavor.development;
   await initFirebase();
+  await setupLocator();
   start();
 }
 

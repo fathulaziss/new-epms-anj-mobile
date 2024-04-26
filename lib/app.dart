@@ -1,5 +1,13 @@
-import 'package:epms/home_page.dart';
+import 'package:epms/base/common/locator.dart';
+import 'package:epms/base/common/routes.dart';
+import 'package:epms/base/common/routes_manager.dart' as router;
+import 'package:epms/base/ui/screen_style.dart';
+import 'package:epms/base/ui/theme_notifier.dart';
+import 'package:epms/common_manager/navigator_service.dart';
+import 'package:epms/screen/splash/splash_screen.dart';
+import 'package:epms/widget/manager_dialog.dart' as dialog;
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void start() {
   runApp(const App());
@@ -15,28 +23,26 @@ class App extends StatefulWidget {
 class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(lazy: false, create: (_) => ThemeNotifier()),
+      ],
+      child: Consumer<ThemeNotifier>(
+        builder: (context, theme, child) => MaterialApp(
+          theme: theme.getTheme(),
+          darkTheme: theme.darkTheme,
+          debugShowCheckedModeBanner: false,
+          navigatorKey: locator<NavigatorService>().navigatorKey,
+          onGenerateRoute: router.generateRoute,
+          initialRoute: Routes.ROOT,
+          builder: (context, child) {
+            child = dialog.builderDialog(context, child);
+            child = ScreenStyle.responsiveBuilder(context, child);
+            return child;
+          },
+          home: SplashScreen(),
+        ),
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
