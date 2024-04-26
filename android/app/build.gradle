@@ -111,4 +111,11 @@ flutter {
     source '../..'
 }
 
-dependencies {}
+dependencies {
+    implementation "androidx.multidex:multidex:2.0.1"
+    implementation platform('com.google.firebase:firebase-bom:31.1.0')
+    implementation 'com.google.firebase:firebase-analytics'
+}
+configurations.all {
+    exclude group: 'com.google.android.gms', module: 'play-services-safetynet'
+}
