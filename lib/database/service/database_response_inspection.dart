@@ -199,18 +199,20 @@ class DatabaseResponseInspection {
     var listResponse = List<ResponseInspectionModel>.from(mapList.map((e) {
       return ResponseInspectionModel.fromDatabase(e);
     }));
+
     await Future.forEach(listResponse, (response) async {
       await DatabaseAttachmentInspection.deleteDataByCode(
           response.tInspectionId);
+      await DatabaseAttachmentInspection.deleteDataByCode(response.code);
       await DatabaseTicketInspection.deleteTicketByCode(response.tInspectionId);
       await DatabaseSubordinateInspection.deleteSubordinateByCode(
           response.tInspectionId);
+      await db.delete(
+        responseInspectionTable,
+        where: '${ResponseInspectionEntity.tInspectionId}=?',
+        whereArgs: [response.tInspectionId],
+      );
     });
-
-    await db.rawDelete(
-      'DELETE FROM $responseInspectionTable WHERE ${ResponseInspectionEntity.trTime} <= ? AND ${ResponseInspectionEntity.status} = ? AND ${ResponseInspectionEntity.isSynchronize} = ?',
-      ['$oneWeekAgoDate%', 'close', 1],
-    );
   }
 
   static void deleteTable() async {
