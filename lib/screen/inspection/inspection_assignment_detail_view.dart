@@ -186,15 +186,6 @@ class _InspectionAssignmentDetailViewState
         );
         return false;
       }
-
-      if (listInspectionPhoto.isEmpty) {
-        FlushBarManager.showFlushBarWarning(
-          context,
-          "Form Belum Lengkap",
-          "Mohon melampirkan bukti foto",
-        );
-        return false;
-      }
     }
 
     if (actionController.text.isEmpty) {
