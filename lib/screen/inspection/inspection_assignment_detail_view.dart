@@ -188,22 +188,24 @@ class _InspectionAssignmentDetailViewState
       }
     }
 
-    if (actionController.text.isEmpty) {
-      FlushBarManager.showFlushBarWarning(
-        context,
-        "Form Belum Lengkap",
-        "Mohon mengisi deskripsi tindakan terlebih dahulu",
-      );
-      return false;
-    }
+    if (selectedAction != null && selectedAction != 'reassign') {
+      if (actionController.text.isEmpty) {
+        FlushBarManager.showFlushBarWarning(
+          context,
+          "Form Belum Lengkap",
+          "Mohon mengisi deskripsi tindakan terlebih dahulu",
+        );
+        return false;
+      }
 
-    if (listInspectionPhoto.isEmpty) {
-      FlushBarManager.showFlushBarWarning(
-        context,
-        "Form Belum Lengkap",
-        "Mohon melampirkan bukti foto",
-      );
-      return false;
+      if (listInspectionPhoto.isEmpty) {
+        FlushBarManager.showFlushBarWarning(
+          context,
+          "Form Belum Lengkap",
+          "Mohon melampirkan bukti foto",
+        );
+        return false;
+      }
     }
 
     return true;
