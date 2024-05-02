@@ -669,7 +669,7 @@ class _InspectionApprovalViewState extends State<InspectionApprovalView> {
         );
       } else {
         await DatabaseResponseInspection.insertData(dataResponse);
-        // await DatabaseTodoInspection.updateData(dataInspection);
+        await DatabaseTodoInspection.updateData(dataInspection);
         _navigationService.pop();
       }
 

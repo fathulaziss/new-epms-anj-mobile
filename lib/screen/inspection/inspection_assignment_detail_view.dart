@@ -619,7 +619,7 @@ class _InspectionAssignmentDetailViewState
         );
       } else {
         await DatabaseResponseInspection.insertData(dataResponse);
-        // await DatabaseTodoInspection.updateData(dataInspection);
+        await DatabaseTodoInspection.updateData(dataInspection);
         _navigationService.pop();
       }
 
