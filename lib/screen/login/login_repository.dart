@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
 
+import 'package:epms/app_config.dart';
 import 'package:epms/base/api/api_configuration.dart';
 import 'package:epms/base/api/api_endpoint.dart';
 import 'package:epms/common_manager/storage_manager.dart';
@@ -71,11 +72,13 @@ class LoginRepository extends APIConfiguration {
       //     'https://etrace-dev.anj-group.co.id/inspection/public/index.php/api/v1/signin';
       // var urlInspectionDev =
       //     'http://10.10.10.91/inspection/public/index.php/api/v1/signin';
-      var urlInspectionProd =
-          'https://inspection.anj-group.co.id/public/index.php/api/v1/signin';
+      // var urlInspectionProd =
+      //     'https://inspection.anj-group.co.id/public/index.php/api/v1/signin';
+      var urlInspection = '${AppConfig.baseUrl}signin';
+
       var responseInspection =
-          await ioClient!.post(Uri.parse(urlInspectionProd), body: map);
-      log('cek url : $urlInspectionProd');
+          await ioClient!.post(Uri.parse(urlInspection), body: map);
+      log('cek url : $urlInspection');
       log('cek body : $map');
       log('cek response : ${responseInspection.body}');
       LoginInspectionResponse res = LoginInspectionResponse.fromJson(

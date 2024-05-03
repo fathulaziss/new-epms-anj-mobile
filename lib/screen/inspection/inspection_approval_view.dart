@@ -1132,6 +1132,8 @@ class _InspectionApprovalViewState extends State<InspectionApprovalView> {
                                           onChanged: (String? value) {
                                             if (value != null) {
                                               selectedAction = value;
+                                              selectedUserReassign = null;
+                                              selectedUserConsultant = null;
                                               noteController.clear();
                                               setState(() {});
                                             }

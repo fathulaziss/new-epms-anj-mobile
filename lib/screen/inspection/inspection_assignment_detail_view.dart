@@ -1110,6 +1110,7 @@ class _InspectionAssignmentDetailViewState
                                           onChanged: (String? value) {
                                             if (value != null) {
                                               selectedAction = value;
+                                              selectedUserInspection = null;
                                               setState(() {});
                                             }
                                           },

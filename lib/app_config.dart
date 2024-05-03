@@ -2,7 +2,7 @@ import 'package:epms/enum.dart';
 
 class AppConfig {
   static const _urlDevelopment =
-      'https://inspection.anj-group.co.id/public/index.php/api/v1/';
+      'http://10.10.10.91/inspection/public/index.php/api/v1/';
   static const _urlProduction =
       'https://inspection.anj-group.co.id/public/index.php/api/v1/';
 
