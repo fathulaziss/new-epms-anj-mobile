@@ -965,8 +965,7 @@ class _InspectionFormViewState extends State<InspectionFormView> {
                                       final data =
                                           await _navigationService.push(
                                         Routes.INSPECTION_USER,
-                                        arguments:
-                                            selectedUserInspection!.mCompanyId,
+                                        arguments: selectedCompany!.id,
                                       );
 
                                       if (data != null) {
@@ -1048,8 +1047,7 @@ class _InspectionFormViewState extends State<InspectionFormView> {
                                   onTap: () async {
                                     final data = await _navigationService.push(
                                       Routes.INSPECTION_USER,
-                                      arguments:
-                                          selectedUserInspection!.mCompanyId,
+                                      arguments: selectedCompany!.id,
                                     );
 
                                     if (data != null) {
