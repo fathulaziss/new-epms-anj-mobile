@@ -9,17 +9,17 @@ class MCSPBCardSchema {
   String? spbCardDivision;
   // String? spbCardStatus;
 
-  MCSPBCardSchema(
-      {this.spbCardId,
-      // this.createdBy,
-      // this.createdDate,
-      // this.createdTime,
-      // this.updatedBy,
-      // this.updatedDate,
-      // this.updatedTime,
-      this.spbCardDivision,
-      // this.spbCardStatus
-      });
+  MCSPBCardSchema({
+    this.spbCardId,
+    // this.createdBy,
+    // this.createdDate,
+    // this.createdTime,
+    // this.updatedBy,
+    // this.updatedDate,
+    // this.updatedTime,
+    this.spbCardDivision,
+    // this.spbCardStatus
+  });
 
   MCSPBCardSchema.fromJson(Map<String, dynamic> json) {
     spbCardId = json['spb_card_id'];

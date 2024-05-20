@@ -2,8 +2,8 @@ import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 
 class FlushBarManager {
-
-  static showFlushBarSuccess(BuildContext context, String title, String message) {
+  static showFlushBarSuccess(
+      BuildContext context, String title, String message) {
     Flushbar(
       message: "$message",
       title: "$title",
@@ -30,7 +30,8 @@ class FlushBarManager {
     ).show(context);
   }
 
-  static showFlushBarWarning(BuildContext context, String title, String message) {
+  static showFlushBarWarning(
+      BuildContext context, String title, String message) {
     Flushbar(
       message: "$message",
       title: "$title",

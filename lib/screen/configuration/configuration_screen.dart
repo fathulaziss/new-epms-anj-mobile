@@ -91,7 +91,8 @@ class _ConfigurationScreenState extends State<ConfigurationScreen> {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Icon(Icons.arrow_back_rounded,
-                                          size: 15, color: Palette.primaryColorProd),
+                                          size: 15,
+                                          color: Palette.primaryColorProd),
                                       InkWell(
                                         onTap: () {
                                           NavigatorService.navigateTo(

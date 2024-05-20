@@ -178,20 +178,25 @@ class _SupervisorSPBHistoryScreenState
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
                                           children: [
-                                            notifier.listSPBSuperviseResult[index]
-                                                .supervisiSpbMethod ==
-                                                3
+                                            notifier
+                                                        .listSPBSuperviseResult[
+                                                            index]
+                                                        .supervisiSpbMethod ==
+                                                    3
                                                 ? Text("Vendor:")
                                                 : Text("Supir:"),
-                                            notifier.listSPBSuperviseResult[index]
-                                                .supervisiSpbDriverEmployeeCode ==
-                                                notifier
-                                                    .listSPBSuperviseResult[index]
-                                                    .supervisiSpbDriverEmployeeName
+                                            notifier
+                                                        .listSPBSuperviseResult[
+                                                            index]
+                                                        .supervisiSpbDriverEmployeeCode ==
+                                                    notifier
+                                                        .listSPBSuperviseResult[
+                                                            index]
+                                                        .supervisiSpbDriverEmployeeName
                                                 ? Text(
-                                                "${notifier.listSPBSuperviseResult[index].supervisiSpbDriverEmployeeCode}")
+                                                    "${notifier.listSPBSuperviseResult[index].supervisiSpbDriverEmployeeCode}")
                                                 : Text(
-                                                "${notifier.listSPBSuperviseResult[index].supervisiSpbDriverEmployeeCode} ${notifier.listSPBSupervise[index].supervisiSpbDriverEmployeeName}"),
+                                                    "${notifier.listSPBSuperviseResult[index].supervisiSpbDriverEmployeeCode} ${notifier.listSPBSupervise[index].supervisiSpbDriverEmployeeName}"),
                                           ],
                                         ),
                                         SizedBox(height: 8),

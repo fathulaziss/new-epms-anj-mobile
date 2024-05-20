@@ -30,9 +30,9 @@ class DatabaseMCostControlSchema {
     int count = 0;
     List<MCostControlSchema> listCost = await selectMCostControlSchema();
     for (int i = 0; i < object.length; i++) {
-      if(!(listCost.contains(object[i]))) {
+      if (!(listCost.contains(object[i]))) {
         int saved =
-        await db.insert(mCostControlSchemaTable, object[i].toJson());
+            await db.insert(mCostControlSchemaTable, object[i].toJson());
         count = count + saved;
       }
     }
@@ -45,7 +45,7 @@ class DatabaseMCostControlSchema {
     List<MCostControlSchema> list = [];
     for (int i = 0; i < mapList.length; i++) {
       MCostControlSchema mCostControlSchema =
-      MCostControlSchema.fromJson(mapList[i]);
+          MCostControlSchema.fromJson(mapList[i]);
       list.add(mCostControlSchema);
     }
     return list;

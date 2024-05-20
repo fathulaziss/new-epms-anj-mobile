@@ -21,43 +21,45 @@ class _SupervisorTBSSortasiState extends State<SupervisorTBSSortasi> {
           child: Padding(
             padding: const EdgeInsets.all(22.0),
             child: Column(children: [
-              Container(height: 60,
-                  padding: EdgeInsets.symmetric(horizontal: 40),
-                  child: Row(
-                    children: <Widget>[
-                      Text("Tipe Input"),
-                      Flexible(child:
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Flexible(
-                            child: ListTile(
-                              title: const Text('Kg'),
-                              leading: Radio<int>(
-                                value: 1,
-                                groupValue: notifier.formType,
-                                onChanged: (int? value) {
-                                  notifier.onChangeFormType(value!);
-                                },
-                              ),
+              Container(
+                height: 60,
+                padding: EdgeInsets.symmetric(horizontal: 40),
+                child: Row(
+                  children: <Widget>[
+                    Text("Tipe Input"),
+                    Flexible(
+                        child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Flexible(
+                          child: ListTile(
+                            title: const Text('Kg'),
+                            leading: Radio<int>(
+                              value: 1,
+                              groupValue: notifier.formType,
+                              onChanged: (int? value) {
+                                notifier.onChangeFormType(value!);
+                              },
                             ),
                           ),
-                          Flexible(
-                            child: ListTile(
-                              title: const Text('%'),
-                              leading: Radio<int>(
-                                value: 2,
-                                groupValue: notifier.formType,
-                                onChanged: (int? value) {
-                                  notifier.onChangeFormType(value!);
-                                },
-                              ),
+                        ),
+                        Flexible(
+                          child: ListTile(
+                            title: const Text('%'),
+                            leading: Radio<int>(
+                              value: 2,
+                              groupValue: notifier.formType,
+                              onChanged: (int? value) {
+                                notifier.onChangeFormType(value!);
+                              },
                             ),
                           ),
-                        ],
-                      ))
-                    ],
-                  ),),
+                        ),
+                      ],
+                    ))
+                  ],
+                ),
+              ),
               Divider(),
               Table(
                   defaultVerticalAlignment: TableCellVerticalAlignment.middle,
@@ -100,7 +102,6 @@ class _SupervisorTBSSortasiState extends State<SupervisorTBSSortasi> {
                             keyboardType: TextInputType.number,
                             textAlign: TextAlign.center,
                             style: Style.textBold20,
-
                             decoration: InputDecoration(hintText: "0"),
                             onChanged: (value) {
                               notifier.countBunchesTBSLuar(
@@ -116,7 +117,6 @@ class _SupervisorTBSSortasiState extends State<SupervisorTBSSortasi> {
                             keyboardType: TextInputType.number,
                             textAlign: TextAlign.center,
                             style: Style.textBold20,
-
                             decoration: InputDecoration(hintText: "0"),
                             onChanged: (value) {
                               notifier.countBunchesTBSLuar(
@@ -132,7 +132,6 @@ class _SupervisorTBSSortasiState extends State<SupervisorTBSSortasi> {
                             keyboardType: TextInputType.number,
                             textAlign: TextAlign.center,
                             style: Style.textBold20,
-
                             decoration: InputDecoration(hintText: "0"),
                             onChanged: (value) {
                               notifier.countBunchesTBSLuar(
@@ -180,7 +179,6 @@ class _SupervisorTBSSortasiState extends State<SupervisorTBSSortasi> {
                             keyboardType: TextInputType.number,
                             textAlign: TextAlign.center,
                             style: Style.textBold20,
-
                             decoration: InputDecoration(hintText: "0"),
                             onChanged: (value) {
                               notifier.countBunchesTBSLuar(
@@ -196,7 +194,6 @@ class _SupervisorTBSSortasiState extends State<SupervisorTBSSortasi> {
                             keyboardType: TextInputType.number,
                             textAlign: TextAlign.center,
                             style: Style.textBold20,
-
                             decoration: InputDecoration(hintText: "0"),
                             onChanged: (value) {
                               notifier.countBunchesTBSLuar(
@@ -212,7 +209,6 @@ class _SupervisorTBSSortasiState extends State<SupervisorTBSSortasi> {
                             keyboardType: TextInputType.number,
                             textAlign: TextAlign.center,
                             style: Style.textBold20,
-
                             decoration: InputDecoration(hintText: "0"),
                             onChanged: (value) {
                               notifier.countBunchesTBSLuar(
@@ -260,10 +256,10 @@ class _SupervisorTBSSortasiState extends State<SupervisorTBSSortasi> {
                             keyboardType: TextInputType.number,
                             textAlign: TextAlign.center,
                             style: Style.textBold20,
-
                             decoration: InputDecoration(hintText: "0"),
                             onChanged: (value) {
-                              notifier.countBunchesTBSLuar(context, notifier.rubbish);
+                              notifier.countBunchesTBSLuar(
+                                  context, notifier.rubbish);
                             },
                           ),
                         ),
@@ -275,10 +271,10 @@ class _SupervisorTBSSortasiState extends State<SupervisorTBSSortasi> {
                             keyboardType: TextInputType.number,
                             textAlign: TextAlign.center,
                             style: Style.textBold20,
-
                             decoration: InputDecoration(hintText: "0"),
                             onChanged: (value) {
-                              notifier.countBunchesTBSLuar(context, notifier.water);
+                              notifier.countBunchesTBSLuar(
+                                  context, notifier.water);
                             },
                           ),
                         ),
@@ -290,7 +286,6 @@ class _SupervisorTBSSortasiState extends State<SupervisorTBSSortasi> {
                             keyboardType: TextInputType.number,
                             textAlign: TextAlign.center,
                             style: Style.textBold20,
-
                             decoration: InputDecoration(hintText: "0"),
                             onChanged: (value) {
                               notifier.countBunchesTBSLuar(
@@ -427,7 +422,6 @@ class _SupervisorTBSSortasiState extends State<SupervisorTBSSortasi> {
                             keyboardType: TextInputType.number,
                             textAlign: TextAlign.center,
                             style: Style.textBold20,
-
                             decoration: InputDecoration(hintText: "0"),
                             onChanged: (value) {
                               notifier.countBunchesTBSLuar(
@@ -444,7 +438,6 @@ class _SupervisorTBSSortasiState extends State<SupervisorTBSSortasi> {
                             keyboardType: TextInputType.number,
                             textAlign: TextAlign.center,
                             style: Style.textBold20,
-
                             decoration: InputDecoration(hintText: "0"),
                             onChanged: (value) {
                               notifier.countBunchesTBSLuar(

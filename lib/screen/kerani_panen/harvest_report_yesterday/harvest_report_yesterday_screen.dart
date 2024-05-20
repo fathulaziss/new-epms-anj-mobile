@@ -77,7 +77,8 @@ class _HarvestReportYesterdayScreenState
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text("Total Janjang:"),
-                        Text("${ValueService.thousandSeparator(laporanKemarin.totalBunches)}")
+                        Text(
+                            "${ValueService.thousandSeparator(laporanKemarin.totalBunches)}")
                       ],
                     ),
                     SizedBox(height: 12),
@@ -85,7 +86,8 @@ class _HarvestReportYesterdayScreenState
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text("Total Brondolan (Kg):"),
-                        Text("${ValueService.thousandSeparator(laporanKemarin.totalLooseFruits)}")
+                        Text(
+                            "${ValueService.thousandSeparator(laporanKemarin.totalLooseFruits)}")
                       ],
                     ),
                     SizedBox(height: 12),
@@ -93,7 +95,8 @@ class _HarvestReportYesterdayScreenState
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text("Jumlah janjang masak:"),
-                        Text("${ValueService.thousandSeparator(laporanKemarin.totalBunchesRipe)}")
+                        Text(
+                            "${ValueService.thousandSeparator(laporanKemarin.totalBunchesRipe)}")
                       ],
                     ),
                     SizedBox(height: 12),
@@ -101,7 +104,8 @@ class _HarvestReportYesterdayScreenState
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text("Jumlah janjang lewat masak:"),
-                        Text("${ValueService.thousandSeparator(laporanKemarin.totalBunchesOverRipe)}")
+                        Text(
+                            "${ValueService.thousandSeparator(laporanKemarin.totalBunchesOverRipe)}")
                       ],
                     ),
                     SizedBox(height: 12),
@@ -109,7 +113,8 @@ class _HarvestReportYesterdayScreenState
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text("Jumlah janjang mengkal:"),
-                        Text("${ValueService.thousandSeparator(laporanKemarin.totalBunchesHalfRipe)}")
+                        Text(
+                            "${ValueService.thousandSeparator(laporanKemarin.totalBunchesHalfRipe)}")
                       ],
                     ),
                     SizedBox(height: 12),
@@ -117,7 +122,8 @@ class _HarvestReportYesterdayScreenState
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text("Jumlah janjang mentah:"),
-                        Text("${ValueService.thousandSeparator(laporanKemarin.totalBunchesUnRipe)}")
+                        Text(
+                            "${ValueService.thousandSeparator(laporanKemarin.totalBunchesUnRipe)}")
                       ],
                     ),
                     SizedBox(height: 12),
@@ -125,7 +131,8 @@ class _HarvestReportYesterdayScreenState
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text("Jumlah janjang tidak normal:"),
-                        Text("${ValueService.thousandSeparator(laporanKemarin.totalBunchesAbNormal)}")
+                        Text(
+                            "${ValueService.thousandSeparator(laporanKemarin.totalBunchesAbNormal)}")
                       ],
                     ),
                     SizedBox(height: 12),
@@ -133,7 +140,8 @@ class _HarvestReportYesterdayScreenState
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text("Jumlah janjang kosong:"),
-                        Text("${ValueService.thousandSeparator(laporanKemarin.totalBunchesEmpty)}")
+                        Text(
+                            "${ValueService.thousandSeparator(laporanKemarin.totalBunchesEmpty)}")
                       ],
                     ),
                     SizedBox(height: 12),
@@ -141,7 +149,8 @@ class _HarvestReportYesterdayScreenState
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text("Jumlah janjang tidak dikirim:"),
-                        Text("${ValueService.thousandSeparator(laporanKemarin.totalBunchesNotSent)}")
+                        Text(
+                            "${ValueService.thousandSeparator(laporanKemarin.totalBunchesNotSent)}")
                       ],
                     ),
                   ],
@@ -182,7 +191,8 @@ class _HarvestReportYesterdayScreenState
                                         children: [
                                           Table(
                                             defaultVerticalAlignment:
-                                                TableCellVerticalAlignment.middle,
+                                                TableCellVerticalAlignment
+                                                    .middle,
                                             children: <TableRow>[
                                               TableRow(
                                                 children: <Widget>[
@@ -328,8 +338,8 @@ class _HarvestReportYesterdayScreenState
                                                           width: 100,
                                                           child: Text(
                                                             "Janjang Tidak Dikirim",
-                                                            textAlign:
-                                                                TextAlign.center,
+                                                            textAlign: TextAlign
+                                                                .center,
                                                           )),
                                                       SizedBox(height: 8),
                                                     ]),

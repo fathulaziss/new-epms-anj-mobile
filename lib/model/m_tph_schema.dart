@@ -16,24 +16,24 @@ class MTPHSchema {
   // String? tphLatitude;
   // String? tphLongitude;
 
-  MTPHSchema(
-      {this.tphId,
-      // this.tphCompanyCode,
-      this.tphEstateCode,
-      // this.tphDivisionCode,
-      this.tphBlockCode,
-      this.tphCode,
-      // this.tphValidFrom,
-      // this.tphValidTo,
-      // this.createdBy,
-      // this.createdDate,
-      // this.createdTime,
-      // this.updatedBy,
-      // this.updatedDate,
-      // this.updatedTime,
-      // this.tphLatitude,
-      // this.tphLongitude
-      });
+  MTPHSchema({
+    this.tphId,
+    // this.tphCompanyCode,
+    this.tphEstateCode,
+    // this.tphDivisionCode,
+    this.tphBlockCode,
+    this.tphCode,
+    // this.tphValidFrom,
+    // this.tphValidTo,
+    // this.createdBy,
+    // this.createdDate,
+    // this.createdTime,
+    // this.updatedBy,
+    // this.updatedDate,
+    // this.updatedTime,
+    // this.tphLatitude,
+    // this.tphLongitude
+  });
 
   MTPHSchema.fromJson(Map<String, dynamic> json) {
     tphId = json['tph_id'];

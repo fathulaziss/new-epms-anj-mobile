@@ -38,7 +38,7 @@ class DatabaseMCSPBCardSchema {
     // }
     Batch batch = db.batch();
     object.forEach((val) {
-      MCSPBCardSchema mcspbCardSchema =  val;
+      MCSPBCardSchema mcspbCardSchema = val;
       batch.insert(mCSPBCardSchemaTable, mcspbCardSchema.toJson());
     });
     List<Object?> i = await batch.commit();

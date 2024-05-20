@@ -1,4 +1,3 @@
-
 import 'package:epms/base/common/locator.dart';
 import 'package:epms/base/common/routes.dart';
 import 'package:epms/common_manager/dialog_services.dart';
@@ -8,7 +7,6 @@ import 'package:epms/model/spb.dart';
 import 'package:flutter/material.dart';
 
 class HistorySPBNotifier extends ChangeNotifier {
-
   NavigatorService _navigationService = locator<NavigatorService>();
 
   NavigatorService get navigationService => _navigationService;
@@ -31,7 +29,7 @@ class HistorySPBNotifier extends ChangeNotifier {
 
   getDataSPBHistory() async {
     _listSPB = await DatabaseSPB().selectSPB();
-    for(int i = 0; i < _listSPB.length; i++) {
+    for (int i = 0; i < _listSPB.length; i++) {
       _totalBunches = _totalBunches + _listSPB[i].spbTotalBunches!;
       _totalLooseFruits = _totalLooseFruits + _listSPB[i].spbTotalLooseFruit!;
     }
@@ -39,10 +37,7 @@ class HistorySPBNotifier extends ChangeNotifier {
   }
 
   void onClickSPB(SPB spb, String method) {
-    _navigationService.push(Routes.SPB_DETAIL_PAGE, arguments: {
-      "spb" : spb,
-      "method" : method
-    });
+    _navigationService.push(Routes.SPB_DETAIL_PAGE,
+        arguments: {"spb": spb, "method": method});
   }
-
 }

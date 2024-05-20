@@ -15,6 +15,9 @@ class _HistorySPBPageState extends State<HistorySPBPage> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-        create: (context) => HistorySPBNotifier(), child: HistorySPBScreen(method: widget.method,));
+        create: (context) => HistorySPBNotifier(),
+        child: HistorySPBScreen(
+          method: widget.method,
+        ));
   }
 }

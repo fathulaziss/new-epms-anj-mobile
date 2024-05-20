@@ -36,11 +36,13 @@ class HistorySuperviseAncakNotifier extends ChangeNotifier {
   int get totalLooseFruits => _totalLooseFruits;
 
   onInit() async {
-    _listOPHSupervise = await DatabaseOPHSuperviseAncak().selectOPHSuperviseAncak();
-    for(int i=0; i < _listOPHSupervise.length; i++) {
+    _listOPHSupervise =
+        await DatabaseOPHSuperviseAncak().selectOPHSuperviseAncak();
+    for (int i = 0; i < _listOPHSupervise.length; i++) {
       _totalPokokPanen += int.parse(_listOPHSupervise[i].pokokSample!);
       _totalLooseFruits += _listOPHSupervise[i].looseFruits!;
-      if(!listDivision.contains(listOPHSupervise[i].supervisiAncakDivisionCode)) {
+      if (!listDivision
+          .contains(listOPHSupervise[i].supervisiAncakDivisionCode)) {
         _listDivision.add(_listOPHSupervise[i].supervisiAncakDivisionCode!);
       }
     }
@@ -81,8 +83,8 @@ class HistorySuperviseAncakNotifier extends ChangeNotifier {
     } else {
       _listOPHSupervise.forEach((element) {
         if (element.supervisiAncakDivisionCode!
-            .toLowerCase()
-            .contains(division.toLowerCase()) &&
+                .toLowerCase()
+                .contains(division.toLowerCase()) &&
             element.supervisiAncakPemanenEmployeeName!
                 .toLowerCase()
                 .contains(kemandoran.toLowerCase()))

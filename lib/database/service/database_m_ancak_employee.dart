@@ -18,7 +18,7 @@ class DatabaseMAncakEmployee {
     int count = 0;
     List<MAncakEmployee> listAncak = await selectMAncakEmployeeSchema();
     for (int i = 0; i < object.length; i++) {
-      if(!(listAncak.contains(object[i]))) {
+      if (!(listAncak.contains(object[i]))) {
         int saved = await db.insert(mAncakEmployeeTable, object[i].toJson());
         count = count + saved;
       }

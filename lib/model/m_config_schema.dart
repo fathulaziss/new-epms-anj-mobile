@@ -1,4 +1,3 @@
-
 class MConfigSchema {
   String? userToken;
   String? userLogin;
@@ -28,30 +27,30 @@ class MConfigSchema {
 
   MConfigSchema(
       {this.userToken,
-        this.userLogin,
-        this.employeeCode,
-        this.employeeName,
-        this.userId,
-        this.serverDate,
-        this.serverTime,
-        this.configId,
-        this.companyCode,
-        this.companyName,
-        this.profileCode,
-        this.profileName,
-        this.estateCode,
-        this.estateName,
-        this.plantCode,
-        this.createdBy,
-        this.createdDate,
-        this.createdTime,
-        this.updatedBy,
-        this.updatedDate,
-        this.updatedTime,
-        this.configIdOld,
-        this.loginDate,
-        this.loginTime,
-        this.apiRoot});
+      this.userLogin,
+      this.employeeCode,
+      this.employeeName,
+      this.userId,
+      this.serverDate,
+      this.serverTime,
+      this.configId,
+      this.companyCode,
+      this.companyName,
+      this.profileCode,
+      this.profileName,
+      this.estateCode,
+      this.estateName,
+      this.plantCode,
+      this.createdBy,
+      this.createdDate,
+      this.createdTime,
+      this.updatedBy,
+      this.updatedDate,
+      this.updatedTime,
+      this.configIdOld,
+      this.loginDate,
+      this.loginTime,
+      this.apiRoot});
 
   MConfigSchema.fromJson(Map<String, dynamic> json) {
     userToken = json['user_token'];

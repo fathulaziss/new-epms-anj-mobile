@@ -39,7 +39,7 @@ class DatabaseMCOPHSchema {
     // }
     Batch batch = db.batch();
     object.forEach((val) {
-      MCOPHCardSchema mcophCardSchema =  val;
+      MCOPHCardSchema mcophCardSchema = val;
       batch.insert(mCOPHCardSchemaTable, mcophCardSchema.toJson());
     });
     List<Object?> i = await batch.commit();
@@ -62,7 +62,7 @@ class DatabaseMCOPHSchema {
     Database db = await DatabaseHelper().database;
     var mapList = await db.query(mCOPHCardSchemaTable,
         where: "${MCOPHEntity.ophCardId} = ?", whereArgs: [ophCardID]);
-    if(mapList.isNotEmpty) {
+    if (mapList.isNotEmpty) {
       mCOPHSchema = MCOPHCardSchema.fromJson(mapList[0]);
     }
     return mCOPHSchema;

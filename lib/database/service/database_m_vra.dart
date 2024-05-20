@@ -42,7 +42,7 @@ class DatabaseMVRASchema {
     // return count;
     Batch batch = db.batch();
     object.forEach((val) {
-      MVRASchema mvraSchema =  val;
+      MVRASchema mvraSchema = val;
       batch.insert(mVRASchemaTable, mvraSchema.toJson());
     });
     List<Object?> i = await batch.commit();

@@ -1,4 +1,3 @@
-
 class MDivisionEntity {
   static String divisionId = "division_id";
   static String divisionCompanyCode = "division_company_code";
@@ -13,5 +12,4 @@ class MDivisionEntity {
   static String updatedBy = "updated_by";
   static String updatedDate = "updated_date";
   static String updatedTime = "updated_time";
-
 }

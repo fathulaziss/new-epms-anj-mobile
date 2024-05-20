@@ -43,21 +43,30 @@ class _SupervisorTBSLuarFormTabState extends State<SupervisorTBSLuarFormTab> {
               padding: const EdgeInsets.all(8.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [Text("Tanggal:"), Text("${notifier.date} ${notifier.time}")],
+                children: [
+                  Text("Tanggal:"),
+                  Text("${notifier.date} ${notifier.time}")
+                ],
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [Text("Nama:"), Text("${notifier.mConfigSchema?.employeeName}")],
+                children: [
+                  Text("Nama:"),
+                  Text("${notifier.mConfigSchema?.employeeName}")
+                ],
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [Text("GPS Geolocation:"), Text("${notifier.gpsLocation}")],
+                children: [
+                  Text("GPS Geolocation:"),
+                  Text("${notifier.gpsLocation}")
+                ],
               ),
             ),
             Padding(
@@ -73,8 +82,7 @@ class _SupervisorTBSLuarFormTabState extends State<SupervisorTBSLuarFormTab> {
                         textCapitalization: TextCapitalization.characters,
                         controller: notifier.quantity,
                         textAlign: TextAlign.center,
-                        decoration:
-                        InputDecoration(hintText: "Quantity"),
+                        decoration: InputDecoration(hintText: "Quantity"),
                       ),
                     ),
                   ),
@@ -94,8 +102,7 @@ class _SupervisorTBSLuarFormTabState extends State<SupervisorTBSLuarFormTab> {
                         textCapitalization: TextCapitalization.characters,
                         controller: notifier.contractNumber,
                         textAlign: TextAlign.center,
-                        decoration:
-                        InputDecoration(hintText: "No Kontrak"),
+                        decoration: InputDecoration(hintText: "No Kontrak"),
                       ),
                     ),
                   ),
@@ -117,8 +124,7 @@ class _SupervisorTBSLuarFormTabState extends State<SupervisorTBSLuarFormTab> {
                         value: notifier.vendor,
                         items: notifier.listVendor.map((value) {
                           return DropdownMenuItem(
-                            child: Text(
-                                "${value.vendorName}"),
+                            child: Text("${value.vendorName}"),
                             value: value,
                           );
                         }).toList(),
@@ -144,8 +150,7 @@ class _SupervisorTBSLuarFormTabState extends State<SupervisorTBSLuarFormTab> {
                         textCapitalization: TextCapitalization.characters,
                         controller: notifier.driver,
                         textAlign: TextAlign.center,
-                        decoration:
-                        InputDecoration(hintText: "Nama Supir"),
+                        decoration: InputDecoration(hintText: "Nama Supir"),
                       ),
                     ),
                   ),
@@ -192,9 +197,7 @@ class _SupervisorTBSLuarFormTabState extends State<SupervisorTBSLuarFormTab> {
                                     textCapitalization:
                                         TextCapitalization.characters,
                                     onChanged: (value) {
-                                      if(value.length >= 17) {
-
-                                      }
+                                      if (value.length >= 17) {}
                                     },
                                     textAlign: TextAlign.center,
                                     decoration: InputDecoration(
@@ -230,7 +233,7 @@ class _SupervisorTBSLuarFormTabState extends State<SupervisorTBSLuarFormTab> {
                                 MaterialPageRoute(
                                     builder: (context) => QRReaderScreen()));
                             if (result != null) {
-                                notifier.setQRResult(result);
+                              notifier.setQRResult(result);
                             }
                           },
                           child: Card(

@@ -61,7 +61,7 @@ class HistoryOPHNotifier extends ChangeNotifier {
 
   onSelectedOPH(OPH oph, String method) {
     _navigationService.push(Routes.OPH_DETAIL_PAGE,
-        arguments: {"oph": oph, "method": method, "restan" : false});
+        arguments: {"oph": oph, "method": method, "restan": false});
   }
 
   onChangeFilterBlock(String blockValue) {

@@ -138,7 +138,6 @@ class SupervisorAncakFormNotifier extends ChangeNotifier {
 
   double get loosesBrondolan => _loosesBrondolan;
 
-
   getLocation() async {
     _position = await LocationService.getGPSLocation();
     if (_position != null) {
@@ -205,7 +204,8 @@ class SupervisorAncakFormNotifier extends ChangeNotifier {
   void blockNumberCheck(BuildContext context, String block) async {
     if (block.isNotEmpty) {
       block.toUpperCase();
-      _mBlockSchema = await ValidationService.checkBlockSchema(block, _mConfigSchema!.estateCode!);
+      _mBlockSchema = await ValidationService.checkBlockSchema(
+          block, _mConfigSchema!.estateCode!);
       _mBlockSchema ??
           FlushBarManager.showFlushBarWarning(
               context, "Kode Blok", "Tidak sesuai");
@@ -289,7 +289,8 @@ class SupervisorAncakFormNotifier extends ChangeNotifier {
     ophSuperviseAncak.supervisiAncakAssignToId = _ancakEmployee?.userId;
     ophSuperviseAncak.supervisiAncakAssignToName = _ancakEmployee?.userName;
     ophSuperviseAncak.supervisiAncakPhoto = _pickedFile;
-    ophSuperviseAncak.supervisiAncakDivisionCode = _mBlockSchema?.blockDivisionCode;
+    ophSuperviseAncak.supervisiAncakDivisionCode =
+        _mBlockSchema?.blockDivisionCode;
     ophSuperviseAncak.pokokSample = _pokokPanen.text;
     ophSuperviseAncak.bunchesVCut = int.parse(_vCut.text);
     ophSuperviseAncak.bunchesRat = int.parse(_rat.text);
@@ -297,7 +298,8 @@ class SupervisorAncakFormNotifier extends ChangeNotifier {
     ophSuperviseAncak.pelepahSengkleh = int.parse(_pelepahSengkleh.text);
     ophSuperviseAncak.bunchesTinggal = int.parse(_janjangTinggal.text);
     ophSuperviseAncak.bunchesTinggalPercentage = loosesBuahTinggal;
-    ophSuperviseAncak.bunchesBrondolanTinggal = int.parse(_brondolanTinggal.text);
+    ophSuperviseAncak.bunchesBrondolanTinggal =
+        int.parse(_brondolanTinggal.text);
     ophSuperviseAncak.bunchesBrondolanTinggalPercentage = loosesBrondolan;
     ophSuperviseAncak.bunchesTotal = int.parse(_totalJanjang.text);
     ophSuperviseAncak.looseFruits = int.parse(_totalBrondolan.text);
@@ -337,16 +339,20 @@ class SupervisorAncakFormNotifier extends ChangeNotifier {
   }
 
   countLoosesBuahTinggal(String janjangTinggal, String pokokPanen) {
-    if(janjangTinggal.isNotEmpty && pokokPanen.isNotEmpty) {
-      _loosesBuahTinggal = double.parse((double.parse(janjangTinggal) / double.parse(pokokPanen)).toStringAsFixed(3));
+    if (janjangTinggal.isNotEmpty && pokokPanen.isNotEmpty) {
+      _loosesBuahTinggal = double.parse(
+          (double.parse(janjangTinggal) / double.parse(pokokPanen))
+              .toStringAsFixed(3));
       _loosesBuahTinggal.toStringAsFixed(3);
     }
     notifyListeners();
   }
 
   countLoosesBrondolan(String brondolanTinggal, String pokokPanen) {
-    if(brondolanTinggal.isNotEmpty && pokokPanen.isNotEmpty) {
-      _loosesBrondolan = double.parse((double.parse(brondolanTinggal) / double.parse(pokokPanen)).toStringAsFixed(3));
+    if (brondolanTinggal.isNotEmpty && pokokPanen.isNotEmpty) {
+      _loosesBrondolan = double.parse(
+          (double.parse(brondolanTinggal) / double.parse(pokokPanen))
+              .toStringAsFixed(3));
     }
     notifyListeners();
   }

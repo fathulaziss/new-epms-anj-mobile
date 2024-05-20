@@ -52,12 +52,13 @@ class DatabaseLaporanSPBKemarin {
   Future<int> insertLaporanSPBKemarin(List<LaporanSPBKemarin> object) async {
     Database db = await DatabaseHelper().database;
     int count = 0;
-    List<LaporanSPBKemarin> listLaporanKemarin = await selectLaporanSPBKemarin();
+    List<LaporanSPBKemarin> listLaporanKemarin =
+        await selectLaporanSPBKemarin();
     for (int i = 0; i < object.length; i++) {
-     if(!(listLaporanKemarin.contains(object[i]))) {
-       int saved = await db.insert(laporanSPBKemarinTable, object[i].toJson());
-       count = count + saved;
-     }
+      if (!(listLaporanKemarin.contains(object[i]))) {
+        int saved = await db.insert(laporanSPBKemarinTable, object[i].toJson());
+        count = count + saved;
+      }
     }
     return count;
   }

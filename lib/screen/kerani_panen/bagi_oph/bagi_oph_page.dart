@@ -14,7 +14,6 @@ class _BagiOPHPageState extends State<BagiOPHPage> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-        create: (context) => BagiOPHNotifier(),
-        child: BagiOPHScreen());
+        create: (context) => BagiOPHNotifier(), child: BagiOPHScreen());
   }
 }

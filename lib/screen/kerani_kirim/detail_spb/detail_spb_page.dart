@@ -9,7 +9,8 @@ class DetailSPBPage extends StatefulWidget {
   final String method;
   final SPB spb;
 
-  const DetailSPBPage({Key? key, required this.spb, required this.method}) : super(key: key);
+  const DetailSPBPage({Key? key, required this.spb, required this.method})
+      : super(key: key);
 
   @override
   State<DetailSPBPage> createState() => _DetailSPBPageState();
@@ -21,7 +22,8 @@ class _DetailSPBPageState extends State<DetailSPBPage> {
     return ChangeNotifierProvider(
         create: (context) => DetailSPBNotifier(),
         child: DetailSPBScreen(
-          spb: widget.spb, method: widget.method,
+          spb: widget.spb,
+          method: widget.method,
         ));
   }
 }

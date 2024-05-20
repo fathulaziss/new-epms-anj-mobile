@@ -6,10 +6,12 @@ import 'package:provider/provider.dart';
 
 class SupervisorSPBDetailPage extends StatefulWidget {
   final SPBSupervise spbSupervise;
-  const SupervisorSPBDetailPage({Key? key, required this.spbSupervise}) : super(key: key);
+  const SupervisorSPBDetailPage({Key? key, required this.spbSupervise})
+      : super(key: key);
 
   @override
-  State<SupervisorSPBDetailPage> createState() => _SupervisorSPBDetailPageState();
+  State<SupervisorSPBDetailPage> createState() =>
+      _SupervisorSPBDetailPageState();
 }
 
 class _SupervisorSPBDetailPageState extends State<SupervisorSPBDetailPage> {

@@ -1,5 +1,4 @@
 class TWorkPlanSchemaEntity {
-
   static String workplanId = "workplan_id";
   static String workplanDate = "workplan_date";
   static String workplanEstateCode = "workplan_estate_code";
@@ -10,8 +9,10 @@ class TWorkPlanSchemaEntity {
   static String workplanTarget = "workplan_target";
   static String workplanTotalHk = "workplan_total_hk";
   static String workplanRemark = "workplan_remark";
-  static String workplanAssistantEmployeeCode = "workplan_assistant_employee_code";
-  static String workplanAssistantEmployeeName = "workplan_assistant_employee_name";
+  static String workplanAssistantEmployeeCode =
+      "workplan_assistant_employee_code";
+  static String workplanAssistantEmployeeName =
+      "workplan_assistant_employee_name";
   static String workplanBlockCode = "workplan_block_code";
   static String workplanOrderNumber = "workplan_order_number";
   static String workplanAucNumber = "workplan_auc_number";
@@ -27,5 +28,4 @@ class TWorkPlanSchemaEntity {
   static String updatedBy = "updated_by";
   static String updatedDate = "updated_date";
   static String updatedTime = "updated_time";
-
 }

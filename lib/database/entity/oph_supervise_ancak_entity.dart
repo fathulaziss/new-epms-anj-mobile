@@ -6,10 +6,14 @@ class OPHSuperviseAncakEntity {
   static String supervisiAncakLong = "supervisi_ancak_long";
   static String supervisiAncakLatEnd = "supervisi_ancak_lat_end";
   static String supervisiAncakLongEnd = "supervisi_ancak_long_end";
-  static String supervisiAncakMandorEmployeeCode = "supervisi_ancak_mandor_employee_code";
-  static String supervisiAncakMandorEmployeeName = "supervisi_ancak_mandor_employee_name";
-  static String supervisiAncakPemanenEmployeeCode = "supervisi_ancak_pemanen_employee_code";
-  static String supervisiAncakPemanenEmployeeName = "supervisi_ancak_pemanen_employee_name";
+  static String supervisiAncakMandorEmployeeCode =
+      "supervisi_ancak_mandor_employee_code";
+  static String supervisiAncakMandorEmployeeName =
+      "supervisi_ancak_mandor_employee_name";
+  static String supervisiAncakPemanenEmployeeCode =
+      "supervisi_ancak_pemanen_employee_code";
+  static String supervisiAncakPemanenEmployeeName =
+      "supervisi_ancak_pemanen_employee_name";
   static String supervisiAncakAssignToId = "supervisi_ancak_assign_to_id";
   static String supervisiAncakAssignToName = "supervisi_ancak_assign_to_name";
   static String supervisiAncakPhoto = "supervisi_ancak_photo";
@@ -22,7 +26,8 @@ class OPHSuperviseAncakEntity {
   static String bunchesTinggal = "bunches_tinggal";
   static String bunchesTinggalPercentage = "bunches_tinggal_percentage";
   static String bunchesBrondolanTinggal = "bunches_brondolan_tinggal";
-  static String bunchesBrondolanTinggalPercentage = "bunches_brondolan_tinggal_percentage";
+  static String bunchesBrondolanTinggalPercentage =
+      "bunches_brondolan_tinggal_percentage";
   static String bunchesTotal = "bunches_total";
   static String looseFruits = "loose_fruits";
   static String supervisiAncakNotes = "supervisi_ancak_notes";

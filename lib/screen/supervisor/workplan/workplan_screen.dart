@@ -117,20 +117,29 @@ class _WorkPlanScreenState extends State<WorkPlanScreen> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text("Jumlah Material:"),
-                                        Text("${notifier.listWorkPlan[index].materials?.length ?? 0}")
+                                        Text(
+                                            "${notifier.listWorkPlan[index].materials?.length ?? 0}")
                                       ],
                                     ),
                                     Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: ListView.builder(
-                                          physics: const NeverScrollableScrollPhysics(),
+                                          physics:
+                                              const NeverScrollableScrollPhysics(),
                                           shrinkWrap: true,
-                                          itemCount: notifier.listWorkPlan[index].materials != null ? notifier.listWorkPlan[index].materials?.length : 0,
-                                          itemBuilder:
-                                              (BuildContext context, int indexInt) {
+                                          itemCount: notifier
+                                                      .listWorkPlan[index]
+                                                      .materials !=
+                                                  null
+                                              ? notifier.listWorkPlan[index]
+                                                  .materials?.length
+                                              : 0,
+                                          itemBuilder: (BuildContext context,
+                                              int indexInt) {
                                             return Card(
                                                 child: Padding(
-                                              padding: const EdgeInsets.all(8.0),
+                                              padding:
+                                                  const EdgeInsets.all(8.0),
                                               child: Column(
                                                 mainAxisAlignment:
                                                     MainAxisAlignment.start,
@@ -146,7 +155,8 @@ class _WorkPlanScreenState extends State<WorkPlanScreen> {
                                                         MainAxisAlignment
                                                             .spaceBetween,
                                                     children: [
-                                                      Text("Kuantitas Material:"),
+                                                      Text(
+                                                          "Kuantitas Material:"),
                                                       Text(
                                                           "${notifier.listWorkPlan[index].materials?[indexInt].workplanMaterialQty} ${notifier.listWorkPlan[index].materials?[indexInt].workplanMaterialUom}"),
                                                     ],

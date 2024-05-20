@@ -7,10 +7,12 @@ class SupervisorTBSLuarHistoryPage extends StatefulWidget {
   const SupervisorTBSLuarHistoryPage({Key? key}) : super(key: key);
 
   @override
-  State<SupervisorTBSLuarHistoryPage> createState() => _SupervisorTBSLuarHistoryPageState();
+  State<SupervisorTBSLuarHistoryPage> createState() =>
+      _SupervisorTBSLuarHistoryPageState();
 }
 
-class _SupervisorTBSLuarHistoryPageState extends State<SupervisorTBSLuarHistoryPage> {
+class _SupervisorTBSLuarHistoryPageState
+    extends State<SupervisorTBSLuarHistoryPage> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(

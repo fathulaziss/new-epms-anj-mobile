@@ -124,90 +124,93 @@ class _SupervisorSPBDetailTabState extends State<SupervisorSPBDetailTab> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text("Estate:"),
-                        Text(
-                            "${notifier.spbSupervise.supervisiEstateCode}")
+                        Text("${notifier.spbSupervise.supervisiEstateCode}")
                       ],
                     ),
                     SizedBox(height: 8),
-                    notifier.onEdit ?
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(16.0),
-                          child: Column(
+                    notifier.onEdit
+                        ? Row(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Row(
-                                children: [
-                                  Column(
-                                    children: [
-                                      Text("No ID SPB"),
-                                      Container(
-                                        width: 160,
-                                        child: Focus(
-                                          child: TextFormField(
-                                            enabled: notifier.activeText,
-                                            controller: notifier.spbID,
-                                            textAlign: TextAlign.center,
-                                            decoration: InputDecoration(
-                                                hintText: "Tulis No Kartu SPB"),
+                              Padding(
+                                padding: const EdgeInsets.all(16.0),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Column(
+                                          children: [
+                                            Text("No ID SPB"),
+                                            Container(
+                                              width: 160,
+                                              child: Focus(
+                                                child: TextFormField(
+                                                  enabled: notifier.activeText,
+                                                  controller: notifier.spbID,
+                                                  textAlign: TextAlign.center,
+                                                  decoration: InputDecoration(
+                                                      hintText:
+                                                          "Tulis No Kartu SPB"),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        Column(
+                                          children: [
+                                            Text("Aktifkan Tulisan"),
+                                            Container(
+                                              width: 160,
+                                              child: Switch(
+                                                  activeColor:
+                                                      Palette.greenColor,
+                                                  value: notifier.activeText,
+                                                  onChanged: (value) {
+                                                    notifier.onChangeActiveText(
+                                                        value);
+                                                  }),
+                                            ),
+                                          ],
+                                        )
+                                      ],
+                                    ),
+                                    SizedBox(height: 18),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: InkWell(
+                                        onTap: () {
+                                          notifier.dialogNFC(context);
+                                        },
+                                        child: Card(
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(10.0),
+                                          ),
+                                          color: Colors.green,
+                                          child: Padding(
+                                            padding: const EdgeInsets.all(16.0),
+                                            child: Text(
+                                              "Scan SPB",
+                                              style: Style.whiteBold14,
+                                            ),
                                           ),
                                         ),
                                       ),
-                                    ],
-                                  ),
-                                  Column(
-                                    children: [
-                                      Text("Aktifkan Tulisan"),
-                                      Container(
-                                        width: 160,
-                                        child: Switch(
-                                            activeColor: Palette.greenColor,
-                                            value: notifier.activeText,
-                                            onChanged: (value) {
-                                              notifier.onChangeActiveText(value);
-                                            }),
-                                      ),
-                                    ],
-                                  )
-                                ],
-                              ),
-                              SizedBox(height: 18),
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: InkWell(
-                                  onTap: () {
-                                    notifier.dialogNFC(context);
-                                  },
-                                  child: Card(
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10.0),
-                                    ),
-                                    color: Colors.green,
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(16.0),
-                                      child: Text(
-                                        "Scan SPB",
-                                        style: Style.whiteBold14,
-                                      ),
-                                    ),
-                                  ),
+                                    )
+                                  ],
                                 ),
-                              )
+                              ),
+                            ],
+                          )
+                        : Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text("No ID SPB:"),
+                              Text("${notifier.spbSupervise.spbId}")
                             ],
                           ),
-                        ),
-                      ],
-                    ) : Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text("No ID SPB:"),
-                        Text(
-                            "${notifier.spbSupervise.spbId}")
-                      ],
-                    ),
                   ]),
             ),
             SizedBox(height: 10),

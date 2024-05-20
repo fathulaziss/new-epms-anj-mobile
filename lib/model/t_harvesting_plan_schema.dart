@@ -22,25 +22,25 @@ class THarvestingPlanSchema {
 
   THarvestingPlanSchema(
       {this.harvestingPlanId,
-        this.harvestingPlanDate,
-        this.harvestingPlanEstateCode,
-        this.harvestingPlanDivisionCode,
-        this.harvestingPlanBlockCode,
-        this.harvestingPlanTotalHk,
-        this.harvestingPlanHectarage,
-        this.harvestingPlanAssistantEmployeeCode,
-        this.harvestingPlanAssistantEmployeeName,
-        this.isApproved,
-        this.harvestingPlanApprovedBy,
-        this.harvestingPlanApprovedByName,
-        this.harvestingPlanApprovedDate,
-        this.harvestingPlanApprovedTime,
-        this.createdBy,
-        this.createdDate,
-        this.createdTime,
-        this.updatedBy,
-        this.updatedDate,
-        this.updatedTime});
+      this.harvestingPlanDate,
+      this.harvestingPlanEstateCode,
+      this.harvestingPlanDivisionCode,
+      this.harvestingPlanBlockCode,
+      this.harvestingPlanTotalHk,
+      this.harvestingPlanHectarage,
+      this.harvestingPlanAssistantEmployeeCode,
+      this.harvestingPlanAssistantEmployeeName,
+      this.isApproved,
+      this.harvestingPlanApprovedBy,
+      this.harvestingPlanApprovedByName,
+      this.harvestingPlanApprovedDate,
+      this.harvestingPlanApprovedTime,
+      this.createdBy,
+      this.createdDate,
+      this.createdTime,
+      this.updatedBy,
+      this.updatedDate,
+      this.updatedTime});
 
   THarvestingPlanSchema.fromJson(Map<String, dynamic> json) {
     harvestingPlanId = json['harvesting_plan_id'];
@@ -51,9 +51,9 @@ class THarvestingPlanSchema {
     harvestingPlanTotalHk = json['harvesting_plan_total_hk'];
     harvestingPlanHectarage = json['harvesting_plan_hectarage'];
     harvestingPlanAssistantEmployeeCode =
-    json['harvesting_plan_assistant_employee_code'];
+        json['harvesting_plan_assistant_employee_code'];
     harvestingPlanAssistantEmployeeName =
-    json['harvesting_plan_assistant_employee_name'];
+        json['harvesting_plan_assistant_employee_name'];
     isApproved = json['is_approved'];
     harvestingPlanApprovedBy = json['harvesting_plan_approved_by'];
     harvestingPlanApprovedByName = json['harvesting_plan_approved_by_name'];

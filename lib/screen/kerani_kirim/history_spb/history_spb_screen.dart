@@ -49,7 +49,8 @@ class _HistorySPBScreenState extends State<HistorySPBScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text("Total Janjang"),
-                      Text("${ValueService.thousandSeparator(historySPB.totalBunches)}")
+                      Text(
+                          "${ValueService.thousandSeparator(historySPB.totalBunches)}")
                     ],
                   ),
                 ),
@@ -59,7 +60,8 @@ class _HistorySPBScreenState extends State<HistorySPBScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text("Total Brondolan:"),
-                      Text("${ValueService.thousandSeparator(historySPB.totalLooseFruits)}")
+                      Text(
+                          "${ValueService.thousandSeparator(historySPB.totalLooseFruits)}")
                     ],
                   ),
                 ),
@@ -72,7 +74,8 @@ class _HistorySPBScreenState extends State<HistorySPBScreen> {
                             itemBuilder: (BuildContext context, int index) {
                               return InkWell(
                                 onTap: () {
-                                  historySPB.onClickSPB(historySPB.listSPB[index], widget.method);
+                                  historySPB.onClickSPB(
+                                      historySPB.listSPB[index], widget.method);
                                 },
                                 child: Card(
                                   child: Container(
@@ -89,7 +92,8 @@ class _HistorySPBScreenState extends State<HistorySPBScreen> {
                                           SizedBox(height: 10),
                                           Row(
                                               mainAxisAlignment:
-                                                  MainAxisAlignment.spaceBetween,
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
                                               children: [
                                                 Text("Total Janjang:"),
                                                 Text(
@@ -97,31 +101,39 @@ class _HistorySPBScreenState extends State<HistorySPBScreen> {
                                               ]),
                                           Row(
                                               mainAxisAlignment:
-                                                  MainAxisAlignment.spaceBetween,
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
                                               children: [
                                                 Text("Total Brondolan:"),
                                                 Text(
                                                     "${historySPB.listSPB[index].spbTotalLooseFruit}")
                                               ]),
-                                          historySPB.listSPB[index].spbType != 1 ? Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.spaceBetween,
-                                              children: [
-                                                Text("Vendor:"),
-                                                Text(
-                                                    "${historySPB.listSPB[index].spbDriverEmployeeName ?? ""}")
-                                              ]) : Container(),
-                                          historySPB.listSPB[index].spbType == 1 ? Row(
-                                              mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                              children: [
-                                                Text("Supir:"),
-                                                Text(
-                                                    "${historySPB.listSPB[index].spbDriverEmployeeName ?? ""}")
-                                              ]) : Container(),
+                                          historySPB.listSPB[index].spbType != 1
+                                              ? Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                      Text("Vendor:"),
+                                                      Text(
+                                                          "${historySPB.listSPB[index].spbDriverEmployeeName ?? ""}")
+                                                    ])
+                                              : Container(),
+                                          historySPB.listSPB[index].spbType == 1
+                                              ? Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                      Text("Supir:"),
+                                                      Text(
+                                                          "${historySPB.listSPB[index].spbDriverEmployeeName ?? ""}")
+                                                    ])
+                                              : Container(),
                                           Row(
                                               mainAxisAlignment:
-                                                  MainAxisAlignment.spaceBetween,
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
                                               children: [
                                                 Text(
                                                     "Truk: ${historySPB.listSPB[index].spbLicenseNumber}"),
@@ -130,7 +142,8 @@ class _HistorySPBScreenState extends State<HistorySPBScreen> {
                                               ]),
                                           Row(
                                               mainAxisAlignment:
-                                                  MainAxisAlignment.spaceBetween,
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
                                               children: [
                                                 Text("Tujuan:"),
                                                 Text(
@@ -138,7 +151,8 @@ class _HistorySPBScreenState extends State<HistorySPBScreen> {
                                               ]),
                                           Row(
                                               mainAxisAlignment:
-                                                  MainAxisAlignment.spaceBetween,
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
                                               children: [
                                                 Text(
                                                     "Tanggal: ${historySPB.listSPB[index].createdDate}"),

@@ -23,6 +23,7 @@ import 'package:epms/model/m_customer_code_schema.dart';
 import 'package:epms/model/m_employee_schema.dart';
 import 'package:epms/model/oph.dart';
 import 'package:epms/model/t_abw_schema.dart';
+import 'package:epms/model/t_harvesting_plan_schema.dart';
 import 'package:flutter/material.dart';
 import 'package:nfc_manager/nfc_manager.dart';
 
@@ -110,6 +111,10 @@ class DetailOPHNotifier extends ChangeNotifier {
   bool _restan = false;
 
   bool get restan => _restan;
+
+  List<THarvestingPlanSchema> _listHarvestingPlan = [];
+
+  List<THarvestingPlanSchema> get listHarvestingPlan => _listHarvestingPlan;
 
   onSuccessRead(BuildContext context, OPH oph) {
     checkOPHExist(oph);

@@ -7,10 +7,12 @@ class SupervisorAncakHarvestFormPage extends StatefulWidget {
   const SupervisorAncakHarvestFormPage({Key? key}) : super(key: key);
 
   @override
-  State<SupervisorAncakHarvestFormPage> createState() => _SupervisorAncakHarvestFormPageState();
+  State<SupervisorAncakHarvestFormPage> createState() =>
+      _SupervisorAncakHarvestFormPageState();
 }
 
-class _SupervisorAncakHarvestFormPageState extends State<SupervisorAncakHarvestFormPage> {
+class _SupervisorAncakHarvestFormPageState
+    extends State<SupervisorAncakHarvestFormPage> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(

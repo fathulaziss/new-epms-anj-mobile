@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -9,7 +8,8 @@ class HistorySuperviseAncakPage extends StatefulWidget {
   const HistorySuperviseAncakPage({Key? key}) : super(key: key);
 
   @override
-  State<HistorySuperviseAncakPage> createState() => _HistorySuperviseAncakPageState();
+  State<HistorySuperviseAncakPage> createState() =>
+      _HistorySuperviseAncakPageState();
 }
 
 class _HistorySuperviseAncakPageState extends State<HistorySuperviseAncakPage> {

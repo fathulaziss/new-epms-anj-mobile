@@ -44,7 +44,7 @@ class _SearchDriverScreenState extends State<SearchDriverScreen> {
   getEmployeeList() async {
     isLoading = true;
     List<MEmployeeSchema> listEmployee =
-    await DatabaseMEmployeeSchema().selectMEmployeeSchema();
+        await DatabaseMEmployeeSchema().selectMEmployeeSchema();
     setState(() {
       _employeeDetails = listEmployee;
       isLoading = false;
@@ -55,8 +55,8 @@ class _SearchDriverScreenState extends State<SearchDriverScreen> {
     MConfigSchema mConfigSchema = await DatabaseMConfig().selectMConfig();
     isLoading = true;
     List<TUserAssignmentSchema> listUserAssignment =
-    await DatabaseTUserAssignment()
-        .selectEmployeeTUserAssignment(mConfigSchema);
+        await DatabaseTUserAssignment()
+            .selectEmployeeTUserAssignment(mConfigSchema);
     setState(() {
       _tUserAssignmentList = listUserAssignment;
       isLoading = false;
@@ -91,326 +91,376 @@ class _SearchDriverScreenState extends State<SearchDriverScreen> {
               //     ],
               //   ),
               // ),
-              isFiltered ? Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Card(
-                  child: Container(
-                    child: ListTile(
-                      leading: Icon(Icons.search),
-                      title: TextField(
-                        controller: typeAssignmentController,
-                        decoration: InputDecoration(
-                            hintText: "Pencarian", border: InputBorder.none),
-                        onChanged: onSearchTextChanged,
+              isFiltered
+                  ? Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Card(
+                        child: Container(
+                          child: ListTile(
+                            leading: Icon(Icons.search),
+                            title: TextField(
+                              controller: typeAssignmentController,
+                              decoration: InputDecoration(
+                                  hintText: "Pencarian",
+                                  border: InputBorder.none),
+                              onChanged: onSearchTextChanged,
+                            ),
+                            trailing: IconButton(
+                              icon: Icon(Icons.cancel),
+                              onPressed: () {
+                                typeAssignmentController.clear();
+                                onSearchTextChangedTUserAssignment('');
+                              },
+                            ),
+                          ),
+                        ),
                       ),
-                      trailing: IconButton(
-                        icon: Icon(Icons.cancel),
-                        onPressed: () {
-                          typeAssignmentController.clear();
-                          onSearchTextChangedTUserAssignment('');
-                        },
+                    )
+                  : Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Card(
+                        child: Container(
+                          child: ListTile(
+                            leading: Icon(Icons.search),
+                            title: TextField(
+                              controller: typeEmployeeController,
+                              decoration: InputDecoration(
+                                  hintText: "Pencarian",
+                                  border: InputBorder.none),
+                              onChanged: onSearchTextChanged,
+                            ),
+                            trailing: IconButton(
+                              icon: Icon(Icons.cancel),
+                              onPressed: () {
+                                typeEmployeeController.clear();
+                                onSearchTextChanged('');
+                              },
+                            ),
+                          ),
+                        ),
                       ),
                     ),
-                  ),
-                ),
-              ) : Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Card(
-                  child: Container(
-                    child: ListTile(
-                      leading: Icon(Icons.search),
-                      title: TextField(
-                        controller: typeEmployeeController,
-                        decoration: InputDecoration(
-                            hintText: "Pencarian", border: InputBorder.none),
-                        onChanged: onSearchTextChanged,
-                      ),
-                      trailing: IconButton(
-                        icon: Icon(Icons.cancel),
-                        onPressed: () {
-                          typeEmployeeController.clear();
-                          onSearchTextChanged('');
-                        },
-                      ),
-                    ),
-                  ),
-                ),
-              ),
               isLoading
                   ? CircularProgressIndicator()
-                  : !isFiltered ? _employeeDetails.isNotEmpty
-                  ? Flexible(
-                child: Container(
-                  child: _searchEmployeeResult.length != 0 ||
-                      typeEmployeeController.text.isNotEmpty
-                      ? ListView.builder(
-                      controller: scrollController,
-                      physics: AlwaysScrollableScrollPhysics(),
-                      itemCount: _searchEmployeeResult.length,
-                      itemBuilder: (context, index) => Container(
-                        child: Card(
-                          child: Container(
-                            child: ListTile(
-                              title: Column(
-                                mainAxisAlignment:
-                                MainAxisAlignment.start,
-                                crossAxisAlignment:
-                                CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "${_searchEmployeeResult[index].employeeCode}",
-                                    style: Style.textBold14,
-                                  ),
-                                  Text(
-                                      "${_searchEmployeeResult[index].employeeName}"),
-                                ],
+                  : !isFiltered
+                      ? _employeeDetails.isNotEmpty
+                          ? Flexible(
+                              child: Container(
+                                child: _searchEmployeeResult.length != 0 ||
+                                        typeEmployeeController.text.isNotEmpty
+                                    ? ListView.builder(
+                                        controller: scrollController,
+                                        physics:
+                                            AlwaysScrollableScrollPhysics(),
+                                        itemCount: _searchEmployeeResult.length,
+                                        itemBuilder: (context, index) =>
+                                            Container(
+                                              child: Card(
+                                                child: Container(
+                                                  child: ListTile(
+                                                    title: Column(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .start,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Text(
+                                                          "${_searchEmployeeResult[index].employeeCode}",
+                                                          style:
+                                                              Style.textBold14,
+                                                        ),
+                                                        Text(
+                                                            "${_searchEmployeeResult[index].employeeName}"),
+                                                      ],
+                                                    ),
+                                                    trailing: InkWell(
+                                                      onTap: () {
+                                                        Navigator.pop(
+                                                            context,
+                                                            _searchEmployeeResult[
+                                                                index]);
+                                                      },
+                                                      child: Card(
+                                                        color: Palette
+                                                            .primaryColorProd,
+                                                        child: Padding(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                  .all(8.0),
+                                                          child: Icon(
+                                                            Icons
+                                                                .check_circle_outline,
+                                                            color: Colors.white,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ))
+                                    : _employeeDetails.length != 0
+                                        ? ListView.builder(
+                                            controller: scrollController,
+                                            physics:
+                                                AlwaysScrollableScrollPhysics(),
+                                            itemCount: _employeeDetails.length,
+                                            itemBuilder: (context, index) =>
+                                                Container(
+                                              child: Card(
+                                                child: Container(
+                                                  child: ListTile(
+                                                    title: Column(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .start,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Text(
+                                                          "${_employeeDetails[index].employeeCode}",
+                                                          style:
+                                                              Style.textBold14,
+                                                        ),
+                                                        Text(
+                                                            "${_employeeDetails[index].employeeName}"),
+                                                      ],
+                                                    ),
+                                                    trailing: InkWell(
+                                                      onTap: () {
+                                                        Navigator.pop(
+                                                            context,
+                                                            _employeeDetails[
+                                                                index]);
+                                                      },
+                                                      child: Card(
+                                                        color: Palette
+                                                            .primaryColorProd,
+                                                        child: Padding(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                  .all(8.0),
+                                                          child: Icon(
+                                                            Icons
+                                                                .check_circle_outline,
+                                                            color: Colors.white,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          )
+                                        : Flexible(
+                                            child: Center(
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Icon(RpgAwesome.palm_tree,
+                                                      color: Colors.orange,
+                                                      size: 60),
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsets.only(
+                                                            top: 20.0),
+                                                    child: Text(
+                                                        "Belum ada Pekerja"),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
                               ),
-                              trailing: InkWell(
-                                onTap: () {
-                                  Navigator.pop(
-                                      context,
-                                      _searchEmployeeResult[
-                                      index]);
-                                },
-                                child: Card(
-                                  color:
-                                  Palette.primaryColorProd,
-                                  child: Padding(
-                                    padding:
-                                    const EdgeInsets.all(
-                                        8.0),
-                                    child: Icon(
-                                      Icons
-                                          .check_circle_outline,
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ))
-                      : _employeeDetails.length != 0
-                      ? ListView.builder(
-                    controller: scrollController,
-                    physics: AlwaysScrollableScrollPhysics(),
-                    itemCount: _employeeDetails.length,
-                    itemBuilder: (context, index) =>
-                        Container(
-                          child: Card(
-                            child: Container(
-                              child: ListTile(
-                                title: Column(
-                                  mainAxisAlignment:
-                                  MainAxisAlignment.start,
-                                  crossAxisAlignment:
-                                  CrossAxisAlignment.start,
+                            )
+                          : Flexible(
+                              child: Center(
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    Text(
-                                      "${_employeeDetails[index].employeeCode}",
-                                      style: Style.textBold14,
+                                    Icon(RpgAwesome.palm_tree,
+                                        color: Colors.orange, size: 60),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 20.0),
+                                      child: Text("Belum ada Pekerja"),
                                     ),
-                                    Text(
-                                        "${_employeeDetails[index].employeeName}"),
                                   ],
                                 ),
-                                trailing: InkWell(
-                                  onTap: () {
-                                    Navigator.pop(context,
-                                        _employeeDetails[index]);
-                                  },
-                                  child: Card(
-                                    color:
-                                    Palette.primaryColorProd,
-                                    child: Padding(
-                                      padding:
-                                      const EdgeInsets.all(
-                                          8.0),
-                                      child: Icon(
-                                        Icons
-                                            .check_circle_outline,
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                  ),
-                                ),
                               ),
-                            ),
-                          ),
-                        ),
-                  )
-                      : Flexible(
-                    child: Center(
-                      child: Column(
-                        mainAxisAlignment:
-                        MainAxisAlignment.center,
-                        children: [
-                          Icon(RpgAwesome.palm_tree,
-                              color: Colors.orange, size: 60),
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                top: 20.0),
-                            child: Text("Belum ada Pekerja"),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              )
-                  : Flexible(
-                child: Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(RpgAwesome.palm_tree,
-                          color: Colors.orange, size: 60),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 20.0),
-                        child: Text("Belum ada Pekerja"),
-                      ),
-                    ],
-                  ),
-                ),
-              ) : _tUserAssignmentList.isNotEmpty
-                  ? Flexible(
-                child: Container(
-                  child: _tUserAssignmentResult.length != 0 ||
-                      typeAssignmentController.text.isNotEmpty
-                      ? ListView.builder(
-                      controller: scrollController,
-                      physics: AlwaysScrollableScrollPhysics(),
-                      itemCount: _tUserAssignmentResult.length,
-                      itemBuilder: (context, index) => Container(
-                        child: Card(
-                          child: Container(
-                            child: ListTile(
-                              title: Column(
-                                mainAxisAlignment:
-                                MainAxisAlignment.start,
-                                crossAxisAlignment:
-                                CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "${_tUserAssignmentResult[index].employeeCode}",
-                                    style: Style.textBold14,
-                                  ),
-                                  Text(
-                                      "${_tUserAssignmentResult[index].employeeName}"),
-                                ],
+                            )
+                      : _tUserAssignmentList.isNotEmpty
+                          ? Flexible(
+                              child: Container(
+                                child: _tUserAssignmentResult.length != 0 ||
+                                        typeAssignmentController.text.isNotEmpty
+                                    ? ListView.builder(
+                                        controller: scrollController,
+                                        physics:
+                                            AlwaysScrollableScrollPhysics(),
+                                        itemCount:
+                                            _tUserAssignmentResult.length,
+                                        itemBuilder: (context, index) =>
+                                            Container(
+                                              child: Card(
+                                                child: Container(
+                                                  child: ListTile(
+                                                    title: Column(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .start,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Text(
+                                                          "${_tUserAssignmentResult[index].employeeCode}",
+                                                          style:
+                                                              Style.textBold14,
+                                                        ),
+                                                        Text(
+                                                            "${_tUserAssignmentResult[index].employeeName}"),
+                                                      ],
+                                                    ),
+                                                    trailing: InkWell(
+                                                      onTap: () {
+                                                        String string = jsonEncode(
+                                                            _tUserAssignmentResult[
+                                                                index]);
+                                                        Map<String, dynamic>
+                                                            map =
+                                                            jsonDecode(string);
+                                                        MEmployeeSchema
+                                                            employee =
+                                                            MEmployeeSchema
+                                                                .fromJson(map);
+                                                        Navigator.pop(
+                                                            context, employee);
+                                                      },
+                                                      child: Card(
+                                                        color: Palette
+                                                            .primaryColorProd,
+                                                        child: Padding(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                  .all(8.0),
+                                                          child: Icon(
+                                                            Icons
+                                                                .check_circle_outline,
+                                                            color: Colors.white,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ))
+                                    : _tUserAssignmentList.length != 0
+                                        ? ListView.builder(
+                                            controller: scrollController,
+                                            physics:
+                                                AlwaysScrollableScrollPhysics(),
+                                            itemCount:
+                                                _tUserAssignmentList.length,
+                                            itemBuilder: (context, index) =>
+                                                Container(
+                                              child: Card(
+                                                child: Container(
+                                                  child: ListTile(
+                                                    title: Column(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .start,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Text(
+                                                          "${_tUserAssignmentList[index].employeeCode}",
+                                                          style:
+                                                              Style.textBold14,
+                                                        ),
+                                                        Text(
+                                                            "${_tUserAssignmentList[index].employeeName}"),
+                                                      ],
+                                                    ),
+                                                    trailing: InkWell(
+                                                      onTap: () {
+                                                        String string = jsonEncode(
+                                                            _tUserAssignmentList[
+                                                                index]);
+                                                        Map<String, dynamic>
+                                                            map =
+                                                            jsonDecode(string);
+                                                        MEmployeeSchema
+                                                            employee =
+                                                            MEmployeeSchema
+                                                                .fromJson(map);
+                                                        Navigator.pop(
+                                                            context, employee);
+                                                      },
+                                                      child: Card(
+                                                        color: Palette
+                                                            .primaryColorProd,
+                                                        child: Padding(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                  .all(8.0),
+                                                          child: Icon(
+                                                            Icons
+                                                                .check_circle_outline,
+                                                            color: Colors.white,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          )
+                                        : Flexible(
+                                            child: Center(
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Icon(RpgAwesome.palm_tree,
+                                                      color: Colors.orange,
+                                                      size: 60),
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsets.only(
+                                                            top: 20.0),
+                                                    child: Text(
+                                                        "Belum ada Pekerja"),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
                               ),
-                              trailing: InkWell(
-                                onTap: () {
-                                  String string = jsonEncode(_tUserAssignmentResult[index]);
-                                  Map<String, dynamic> map = jsonDecode(string);
-                                  MEmployeeSchema employee = MEmployeeSchema.fromJson(map);
-                                  Navigator.pop(context, employee);
-                                },
-                                child: Card(
-                                  color:
-                                  Palette.primaryColorProd,
-                                  child: Padding(
-                                    padding:
-                                    const EdgeInsets.all(
-                                        8.0),
-                                    child: Icon(
-                                      Icons
-                                          .check_circle_outline,
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ))
-                      : _tUserAssignmentList.length != 0
-                      ? ListView.builder(
-                    controller: scrollController,
-                    physics: AlwaysScrollableScrollPhysics(),
-                    itemCount: _tUserAssignmentList.length,
-                    itemBuilder: (context, index) =>
-                        Container(
-                          child: Card(
-                            child: Container(
-                              child: ListTile(
-                                title: Column(
-                                  mainAxisAlignment:
-                                  MainAxisAlignment.start,
-                                  crossAxisAlignment:
-                                  CrossAxisAlignment.start,
+                            )
+                          : Flexible(
+                              child: Center(
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    Text(
-                                      "${_tUserAssignmentList[index].employeeCode}",
-                                      style: Style.textBold14,
+                                    Icon(RpgAwesome.palm_tree,
+                                        color: Colors.orange, size: 60),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 20.0),
+                                      child: Text("Belum ada Pekerja"),
                                     ),
-                                    Text(
-                                        "${_tUserAssignmentList[index].employeeName}"),
                                   ],
                                 ),
-                                trailing: InkWell(
-                                  onTap: () {
-                                    String string = jsonEncode(_tUserAssignmentList[index]);
-                                    Map<String, dynamic> map = jsonDecode(string);
-                                    MEmployeeSchema employee = MEmployeeSchema.fromJson(map);
-                                    Navigator.pop(context, employee);
-                                  },
-                                  child: Card(
-                                    color:
-                                    Palette.primaryColorProd,
-                                    child: Padding(
-                                      padding:
-                                      const EdgeInsets.all(
-                                          8.0),
-                                      child: Icon(
-                                        Icons
-                                            .check_circle_outline,
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                  ),
-                                ),
                               ),
                             ),
-                          ),
-                        ),
-                  )
-                      : Flexible(
-                    child: Center(
-                      child: Column(
-                        mainAxisAlignment:
-                        MainAxisAlignment.center,
-                        children: [
-                          Icon(RpgAwesome.palm_tree,
-                              color: Colors.orange, size: 60),
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                top: 20.0),
-                            child: Text("Belum ada Pekerja"),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              )
-                  : Flexible(
-                child: Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(RpgAwesome.palm_tree,
-                          color: Colors.orange, size: 60),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 20.0),
-                        child: Text("Belum ada Pekerja"),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
             ],
           ),
         ),
@@ -426,8 +476,8 @@ class _SearchDriverScreenState extends State<SearchDriverScreen> {
     }
     _employeeDetails.forEach((farmerDetail) {
       if (farmerDetail.employeeName!
-          .toLowerCase()
-          .contains(text.toLowerCase()) ||
+              .toLowerCase()
+              .contains(text.toLowerCase()) ||
           farmerDetail.employeeCode!.toLowerCase().contains(text.toLowerCase()))
         _searchEmployeeResult.add(farmerDetail);
     });
@@ -442,8 +492,8 @@ class _SearchDriverScreenState extends State<SearchDriverScreen> {
     }
     _tUserAssignmentList.forEach((farmerDetail) {
       if (farmerDetail.employeeName!
-          .toLowerCase()
-          .contains(text.toLowerCase()) ||
+              .toLowerCase()
+              .contains(text.toLowerCase()) ||
           farmerDetail.employeeCode!.toLowerCase().contains(text.toLowerCase()))
         _tUserAssignmentResult.add(farmerDetail);
     });

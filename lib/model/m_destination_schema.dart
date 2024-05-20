@@ -9,17 +9,17 @@ class MDestinationSchema {
   // String? updatedDate;
   // String? updatedTime;
 
-  MDestinationSchema(
-      {this.destinationId,
-      this.destinationCode,
-      this.destinationName,
-      // this.createdBy,
-      // this.createdDate,
-      // this.createdTime,
-      // this.updatedBy,
-      // this.updatedDate,
-      // this.updatedTime
-      });
+  MDestinationSchema({
+    this.destinationId,
+    this.destinationCode,
+    this.destinationName,
+    // this.createdBy,
+    // this.createdDate,
+    // this.createdTime,
+    // this.updatedBy,
+    // this.updatedDate,
+    // this.updatedTime
+  });
 
   MDestinationSchema.fromJson(Map<String, dynamic> json) {
     destinationId = json['destination_id'];

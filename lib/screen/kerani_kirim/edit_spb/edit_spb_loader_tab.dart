@@ -59,228 +59,247 @@ class _EditSPBLoaderTabState extends State<EditSPBLoaderTab> {
                   editSPB.spbLoaderList.isEmpty
                       ? Text("Tidak Ada loader yang dibuat")
                       : Flexible(
-                    child: ListView.builder(
-                        controller: editSPB.scrollController,
-                        itemCount: editSPB.spbLoaderList.length,
-                        itemBuilder: (BuildContext context, int index) {
-                          return Padding(
-                            padding: const EdgeInsets.all(4.0),
-                            child: Card(
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Column(children: [
-                                  Row(
-                                    mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Text(
-                                          "${index + 1}",
-                                          style: Style.textBold18,
-                                        ),
-                                      ),
-                                      InkWell(
-                                        onTap: () {
-                                          editSPB.onDeleteLoader(index);
-                                        },
-                                        child: Card(
-                                          child: Padding(
-                                            padding: const EdgeInsets.all(12.0),
-                                            child: Icon(Icons.delete,
-                                                color: Colors.red),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 6.0, right: 6.0),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Text("Jenis Loader:"),
-                                        Flexible(
-                                          child: Container(
-                                            width: 170,
-                                            child: DropdownButton(
-                                              isExpanded: true,
-                                              value: editSPB.loaderType[index],
-                                              items: editSPB.typeDeliver
-                                                  .map((value) {
-                                                return DropdownMenuItem(
-                                                  child: Text(value),
-                                                  value: value,
-                                                );
-                                              }).toList(),
-                                              onChanged: (String? value) {
-                                                editSPB.onChangeLoaderType(
-                                                    index, value!);
-                                              },
+                          child: ListView.builder(
+                              controller: editSPB.scrollController,
+                              itemCount: editSPB.spbLoaderList.length,
+                              itemBuilder: (BuildContext context, int index) {
+                                return Padding(
+                                  padding: const EdgeInsets.all(4.0),
+                                  child: Card(
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Column(children: [
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.all(8.0),
+                                              child: Text(
+                                                "${index + 1}",
+                                                style: Style.textBold18,
+                                              ),
                                             ),
+                                            InkWell(
+                                              onTap: () {
+                                                editSPB.onDeleteLoader(index);
+                                              },
+                                              child: Card(
+                                                child: Padding(
+                                                  padding: const EdgeInsets.all(
+                                                      12.0),
+                                                  child: Icon(Icons.delete,
+                                                      color: Colors.red),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 6.0, right: 6.0),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Text("Jenis Loader:"),
+                                              Flexible(
+                                                child: Container(
+                                                  width: 170,
+                                                  child: DropdownButton(
+                                                    isExpanded: true,
+                                                    value: editSPB
+                                                        .loaderType[index],
+                                                    items: editSPB.typeDeliver
+                                                        .map((value) {
+                                                      return DropdownMenuItem(
+                                                        child: Text(value),
+                                                        value: value,
+                                                      );
+                                                    }).toList(),
+                                                    onChanged: (String? value) {
+                                                      editSPB
+                                                          .onChangeLoaderType(
+                                                              index, value!);
+                                                    },
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
                                           ),
                                         ),
-                                      ],
+                                        editSPB.loaderType[index] == "Internal"
+                                            ? Padding(
+                                                padding: const EdgeInsets.only(
+                                                    left: 6.0, right: 6.0),
+                                                child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
+                                                    children: [
+                                                      Text("Nama Loader:"),
+                                                      Flexible(
+                                                        child: Container(
+                                                          width: 170,
+                                                          child: DropdownButton(
+                                                            isExpanded: true,
+                                                            value: editSPB
+                                                                    .loaderName[
+                                                                index],
+                                                            items: editSPB
+                                                                .driverNameList
+                                                                .map((value) {
+                                                              return DropdownMenuItem(
+                                                                child: Text(
+                                                                  "${value.employeeName}",
+                                                                  overflow:
+                                                                      TextOverflow
+                                                                          .ellipsis,
+                                                                ),
+                                                                value: value,
+                                                              );
+                                                            }).toList(),
+                                                            onChanged:
+                                                                (MEmployeeSchema?
+                                                                    value) {
+                                                              editSPB
+                                                                  .onChangeLoaderName(
+                                                                      index,
+                                                                      value!);
+                                                            },
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ]),
+                                              )
+                                            : Padding(
+                                                padding: const EdgeInsets.only(
+                                                    left: 6.0, right: 6.0),
+                                                child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
+                                                    children: [
+                                                      Text("Nama Vendor:"),
+                                                      Flexible(
+                                                        child: Container(
+                                                          width: 170,
+                                                          child: DropdownButton(
+                                                              isExpanded: true,
+                                                              value: editSPB
+                                                                      .vendorName[
+                                                                  index],
+                                                              items: editSPB
+                                                                  .vendorList
+                                                                  .map((value) {
+                                                                return DropdownMenuItem(
+                                                                  child: Text(
+                                                                      "${value.vendorName}",
+                                                                      overflow:
+                                                                          TextOverflow
+                                                                              .ellipsis),
+                                                                  value: value,
+                                                                );
+                                                              }).toList(),
+                                                              onChanged:
+                                                                  (MVendorSchema?
+                                                                      value) {
+                                                                editSPB
+                                                                    .onChangeVendorName(
+                                                                        index,
+                                                                        value!);
+                                                              }),
+                                                        ),
+                                                      ),
+                                                    ]),
+                                              ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 6.0, right: 6.0),
+                                          child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Text("Jenis Angkut:"),
+                                                Flexible(
+                                                  child: Container(
+                                                    width: 170,
+                                                    child: DropdownButton(
+                                                      isExpanded: true,
+                                                      value: editSPB
+                                                              .jenisAngkutValue[
+                                                          index],
+                                                      items: editSPB.jenisAngkut
+                                                          .map((value) {
+                                                        return DropdownMenuItem(
+                                                            child: Text(
+                                                                "$value",
+                                                                overflow:
+                                                                    TextOverflow
+                                                                        .ellipsis),
+                                                            value: value);
+                                                      }).toList(),
+                                                      onChanged:
+                                                          (String? value) {
+                                                        editSPB
+                                                            .onChangeJenisAngkut(
+                                                                index, value!);
+                                                      },
+                                                    ),
+                                                  ),
+                                                ),
+                                              ]),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Text("Presentase Angkut (%):"),
+                                                Flexible(
+                                                  child: Container(
+                                                    width: 170,
+                                                    child: TextFormField(
+                                                      maxLength: 3,
+                                                      inputFormatters: [
+                                                        FilteringTextInputFormatter
+                                                            .allow(RegExp(
+                                                                r'[0-9]')),
+                                                        BunchesFormatter()
+                                                      ],
+                                                      onChanged: (value) {
+                                                        editSPB
+                                                            .onChangePercentageAngkut(
+                                                                context,
+                                                                index,
+                                                                value);
+                                                      },
+                                                      keyboardType:
+                                                          TextInputType.number,
+                                                      controller: editSPB
+                                                              .percentageAngkut[
+                                                          index],
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                      decoration:
+                                                          InputDecoration(
+                                                              hintText:
+                                                                  "presentase"),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ]),
+                                        ),
+                                      ]),
                                     ),
                                   ),
-                                  editSPB.loaderType[index] == "Internal"
-                                      ? Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 6.0, right: 6.0),
-                                    child: Row(
-                                        mainAxisAlignment:
-                                        MainAxisAlignment
-                                            .spaceBetween,
-                                        children: [
-                                          Text("Nama Loader:"),
-                                          Flexible(
-                                            child: Container(
-                                              width: 170,
-                                              child: DropdownButton(
-                                                isExpanded: true,
-                                                value: editSPB
-                                                    .loaderName[index],
-                                                items: editSPB
-                                                    .driverNameList
-                                                    .map((value) {
-                                                  return DropdownMenuItem(
-                                                    child: Text(
-                                                      "${value.employeeName}",
-                                                      overflow:
-                                                      TextOverflow
-                                                          .ellipsis,
-                                                    ),
-                                                    value: value,
-                                                  );
-                                                }).toList(),
-                                                onChanged:
-                                                    (MEmployeeSchema?
-                                                value) {
-                                                  editSPB
-                                                      .onChangeLoaderName(
-                                                      index, value!);
-                                                },
-                                              ),
-                                            ),
-                                          ),
-                                        ]),
-                                  )
-                                      : Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 6.0, right: 6.0),
-                                    child: Row(
-                                        mainAxisAlignment:
-                                        MainAxisAlignment
-                                            .spaceBetween,
-                                        children: [
-                                          Text("Nama Vendor:"),
-                                          Flexible(
-                                            child: Container(
-                                              width: 170,
-                                              child: DropdownButton(
-                                                  isExpanded: true,
-                                                  value: editSPB
-                                                      .vendorName[index],
-                                                  items: editSPB
-                                                      .vendorList
-                                                      .map((value) {
-                                                    return DropdownMenuItem(
-                                                      child: Text(
-                                                          "${value.vendorName}",
-                                                          overflow:
-                                                          TextOverflow
-                                                              .ellipsis),
-                                                      value: value,
-                                                    );
-                                                  }).toList(),
-                                                  onChanged:
-                                                      (MVendorSchema?
-                                                  value) {
-                                                    editSPB
-                                                        .onChangeVendorName(
-                                                        index,
-                                                        value!);
-                                                  }),
-                                            ),
-                                          ),
-                                        ]),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 6.0, right: 6.0),
-                                    child: Row(
-                                        mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Text("Jenis Angkut:"),
-                                          Flexible(
-                                            child: Container(
-                                              width: 170,
-                                              child: DropdownButton(
-                                                isExpanded: true,
-                                                value: editSPB
-                                                    .jenisAngkutValue[index],
-                                                items: editSPB.jenisAngkut
-                                                    .map((value) {
-                                                  return DropdownMenuItem(
-                                                      child: Text("$value",
-                                                          overflow: TextOverflow
-                                                              .ellipsis),
-                                                      value: value);
-                                                }).toList(),
-                                                onChanged: (String? value) {
-                                                  editSPB.onChangeJenisAngkut(
-                                                      index, value!);
-                                                },
-                                              ),
-                                            ),
-                                          ),
-                                        ]),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Row(
-                                        mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Text("Presentase Angkut (%):"),
-                                          Flexible(
-                                            child: Container(
-                                              width: 170,
-                                              child: TextFormField(
-                                                maxLength: 3,
-                                                inputFormatters: [
-                                                  FilteringTextInputFormatter
-                                                      .allow(RegExp(r'[0-9]')),
-                                                  BunchesFormatter()
-                                                ],
-                                                onChanged: (value) {
-                                                  editSPB
-                                                      .onChangePercentageAngkut(
-                                                      context,
-                                                      index,
-                                                      value);
-                                                },
-                                                keyboardType:
-                                                TextInputType.number,
-                                                controller: editSPB
-                                                    .percentageAngkut[index],
-                                                textAlign: TextAlign.center,
-                                                decoration: InputDecoration(
-                                                    hintText: "presentase"),
-                                              ),
-                                            ),
-                                          ),
-                                        ]),
-                                  ),
-                                ]),
-                              ),
-                            ),
-                          );
-                        }),
-                  ),
+                                );
+                              }),
+                        ),
                 ]),
           ),
         );

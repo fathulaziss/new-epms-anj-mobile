@@ -152,7 +152,10 @@ class _DetailSupervisorAncakFormFruitState
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
-                            Text("Pelepah Sengkleh", textAlign: TextAlign.center,),
+                            Text(
+                              "Pelepah Sengkleh",
+                              textAlign: TextAlign.center,
+                            ),
                             SizedBox(height: 20),
                           ]),
                         ),
@@ -160,7 +163,10 @@ class _DetailSupervisorAncakFormFruitState
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
-                            Text("Janjang Tinggal", textAlign: TextAlign.center,),
+                            Text(
+                              "Janjang Tinggal",
+                              textAlign: TextAlign.center,
+                            ),
                             SizedBox(height: 20),
                           ]),
                         ),
@@ -168,7 +174,10 @@ class _DetailSupervisorAncakFormFruitState
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
-                            Text("Brondolan Tinggal", textAlign: TextAlign.center,),
+                            Text(
+                              "Brondolan Tinggal",
+                              textAlign: TextAlign.center,
+                            ),
                             SizedBox(height: 20),
                           ]),
                         ),

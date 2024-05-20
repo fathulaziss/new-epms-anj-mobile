@@ -4,10 +4,7 @@ import 'package:flutter/material.dart';
 class LoadingDialog extends StatefulWidget {
   final String title;
 
-  const LoadingDialog(
-      {Key? key,
-        required this.title})
-      : super(key: key);
+  const LoadingDialog({Key? key, required this.title}) : super(key: key);
 
   @override
   State<LoadingDialog> createState() => _LoadingDialogState();

@@ -37,10 +37,10 @@ class SPBSupervise {
 
   SPBSupervise(
       {this.spbSuperviseId,
-        this.spbId,
+      this.spbId,
       this.supervisiSpbEmployeeCode,
       this.supervisiSpbEmployeeName,
-        this.supervisiEstateCode,
+      this.supervisiEstateCode,
       this.supervisiSpbLat,
       this.supervisiSpbLong,
       this.supervisiSpbDriverEmployeeCode,
@@ -59,7 +59,7 @@ class SPBSupervise {
       this.looseFruits,
       this.bunchesTotal,
       this.bunchesTotalNormal,
-        this.bunchesTangkaiPanjang,
+      this.bunchesTangkaiPanjang,
       this.bunchesSampah,
       this.bunchesBatu,
       this.catatanBunchesTangkaiPanjang,

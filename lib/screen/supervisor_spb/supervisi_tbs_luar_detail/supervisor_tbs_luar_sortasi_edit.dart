@@ -22,13 +22,14 @@ class _SupervisorTBSSortasiEditState extends State<SupervisorTBSSortasiEdit> {
           child: Padding(
             padding: const EdgeInsets.all(22.0),
             child: Column(children: [
-              Container(height: 60,
+              Container(
+                height: 60,
                 padding: EdgeInsets.symmetric(horizontal: 40),
                 child: Row(
                   children: <Widget>[
                     Text("Tipe Input"),
-                    Flexible(child:
-                    Row(
+                    Flexible(
+                        child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Flexible(
@@ -58,7 +59,8 @@ class _SupervisorTBSSortasiEditState extends State<SupervisorTBSSortasiEdit> {
                       ],
                     ))
                   ],
-                ),),
+                ),
+              ),
               Divider(),
               Table(
                   defaultVerticalAlignment: TableCellVerticalAlignment.middle,
@@ -257,7 +259,8 @@ class _SupervisorTBSSortasiEditState extends State<SupervisorTBSSortasiEdit> {
                             style: Style.textBold20,
                             decoration: InputDecoration(hintText: "0"),
                             onChanged: (value) {
-                              notifier.countBunchesTBSLuar(context, notifier.rubbish);
+                              notifier.countBunchesTBSLuar(
+                                  context, notifier.rubbish);
                             },
                           ),
                         ),
@@ -271,7 +274,8 @@ class _SupervisorTBSSortasiEditState extends State<SupervisorTBSSortasiEdit> {
                             style: Style.textBold20,
                             decoration: InputDecoration(hintText: "0"),
                             onChanged: (value) {
-                              notifier.countBunchesTBSLuar(context, notifier.water);
+                              notifier.countBunchesTBSLuar(
+                                  context, notifier.water);
                             },
                           ),
                         ),

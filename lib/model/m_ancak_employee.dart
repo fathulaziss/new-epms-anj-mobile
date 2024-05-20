@@ -1,4 +1,3 @@
-
 class MAncakEmployee {
   dynamic userId;
   String? userName;
@@ -17,4 +16,3 @@ class MAncakEmployee {
     return data;
   }
 }
-

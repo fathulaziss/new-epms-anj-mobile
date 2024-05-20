@@ -11,19 +11,19 @@ class MVRASchema {
   // String? updatedDate;
   // String? updatedTime;
 
-  MVRASchema(
-      {this.vraId,
-      this.vraLicenseNumber,
-      this.vraMaxCap,
-      // this.vraValidFrom,
-      // this.vraValidTo,
-      // this.createdBy,
-      // this.createdDate,
-      // this.createdTime,
-      // this.updatedBy,
-      // this.updatedDate,
-      // this.updatedTime
-      });
+  MVRASchema({
+    this.vraId,
+    this.vraLicenseNumber,
+    this.vraMaxCap,
+    // this.vraValidFrom,
+    // this.vraValidTo,
+    // this.createdBy,
+    // this.createdDate,
+    // this.createdTime,
+    // this.updatedBy,
+    // this.updatedDate,
+    // this.updatedTime
+  });
 
   MVRASchema.fromJson(Map<String, dynamic> json) {
     vraId = json['vra_id'];

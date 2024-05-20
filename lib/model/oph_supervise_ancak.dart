@@ -38,41 +38,41 @@ class OPHSuperviseAncak {
 
   OPHSuperviseAncak(
       {this.supervisiAncakId,
-        this.supervisiAncakEstateCode,
-        this.supervisiAncakBlockCode,
-        this.supervisiAncakLat,
-        this.supervisiAncakLong,
-        this.supervisiAncakLatEnd,
-        this.supervisiAncakLongEnd,
-        this.supervisiAncakMandorEmployeeCode,
-        this.supervisiAncakMandorEmployeeName,
-        this.supervisiAncakPemanenEmployeeCode,
-        this.supervisiAncakPemanenEmployeeName,
-        this.supervisiAncakAssignToId,
-        this.supervisiAncakAssignToName,
-        this.supervisiAncakPhoto,
-        this.supervisiAncakDivisionCode,
-        this.pokokSample,
-        this.bunchesVCut,
-        this.bunchesRat,
-        this.bunchesTangkaiPanjang,
-        this.pelepahSengkleh,
-        this.bunchesTinggal,
-        this.bunchesTinggalPercentage,
-        this.bunchesBrondolanTinggal,
-        this.bunchesBrondolanTinggalPercentage,
-        this.bunchesTotal,
-        this.looseFruits,
-        this.supervisiAncakNotes,
-        this.createdBy,
-        this.supervisiAncakEmployeeCode,
-        this.supervisiAncakEmployeeName,
-        this.supervisiAncakDate,
-        this.createdDate,
-        this.createdTime,
-        this.updatedBy,
-        this.updatedDate,
-        this.updatedTime});
+      this.supervisiAncakEstateCode,
+      this.supervisiAncakBlockCode,
+      this.supervisiAncakLat,
+      this.supervisiAncakLong,
+      this.supervisiAncakLatEnd,
+      this.supervisiAncakLongEnd,
+      this.supervisiAncakMandorEmployeeCode,
+      this.supervisiAncakMandorEmployeeName,
+      this.supervisiAncakPemanenEmployeeCode,
+      this.supervisiAncakPemanenEmployeeName,
+      this.supervisiAncakAssignToId,
+      this.supervisiAncakAssignToName,
+      this.supervisiAncakPhoto,
+      this.supervisiAncakDivisionCode,
+      this.pokokSample,
+      this.bunchesVCut,
+      this.bunchesRat,
+      this.bunchesTangkaiPanjang,
+      this.pelepahSengkleh,
+      this.bunchesTinggal,
+      this.bunchesTinggalPercentage,
+      this.bunchesBrondolanTinggal,
+      this.bunchesBrondolanTinggalPercentage,
+      this.bunchesTotal,
+      this.looseFruits,
+      this.supervisiAncakNotes,
+      this.createdBy,
+      this.supervisiAncakEmployeeCode,
+      this.supervisiAncakEmployeeName,
+      this.supervisiAncakDate,
+      this.createdDate,
+      this.createdTime,
+      this.updatedBy,
+      this.updatedDate,
+      this.updatedTime});
 
   OPHSuperviseAncak.fromJson(Map<String, dynamic> json) {
     supervisiAncakId = json['supervisi_ancak_id'];
@@ -83,13 +83,13 @@ class OPHSuperviseAncak {
     supervisiAncakLatEnd = json['supervisi_ancak_lat_end'];
     supervisiAncakLongEnd = json['supervisi_ancak_long_end'];
     supervisiAncakMandorEmployeeCode =
-    json['supervisi_ancak_mandor_employee_code'];
+        json['supervisi_ancak_mandor_employee_code'];
     supervisiAncakMandorEmployeeName =
-    json['supervisi_ancak_mandor_employee_name'];
+        json['supervisi_ancak_mandor_employee_name'];
     supervisiAncakPemanenEmployeeCode =
-    json['supervisi_ancak_pemanen_employee_code'];
+        json['supervisi_ancak_pemanen_employee_code'];
     supervisiAncakPemanenEmployeeName =
-    json['supervisi_ancak_pemanen_employee_name'];
+        json['supervisi_ancak_pemanen_employee_name'];
     supervisiAncakAssignToId = json['supervisi_ancak_assign_to_id'];
     supervisiAncakAssignToName = json['supervisi_ancak_assign_to_name'];
     supervisiAncakPhoto = json['supervisi_ancak_photo'];
@@ -102,7 +102,8 @@ class OPHSuperviseAncak {
     bunchesTinggal = json['bunches_tinggal'];
     bunchesTinggalPercentage = json['bunches_tinggal_percentage'];
     bunchesBrondolanTinggal = json['bunches_brondolan_tinggal'];
-    bunchesBrondolanTinggalPercentage = json['bunches_brondolan_tinggal_percentage'];
+    bunchesBrondolanTinggalPercentage =
+        json['bunches_brondolan_tinggal_percentage'];
     bunchesTotal = json['bunches_total'];
     looseFruits = json['loose_fruits'];
     supervisiAncakNotes = json['supervisi_ancak_notes'];

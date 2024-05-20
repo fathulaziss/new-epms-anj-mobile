@@ -14,17 +14,17 @@ class LaporanPanenKemarin {
 
   LaporanPanenKemarin(
       {this.employeeCode,
-        this.employeeName,
-        this.bunchesRipe,
-        this.bunchesOverripe,
-        this.bunchesHalfripe,
-        this.bunchesUnripe,
-        this.bunchesAbnormal,
-        this.bunchesEmpty,
-        this.looseFruits,
-        this.bunchesTotal,
-        this.bunchesNotSent,
-        this.createdDate});
+      this.employeeName,
+      this.bunchesRipe,
+      this.bunchesOverripe,
+      this.bunchesHalfripe,
+      this.bunchesUnripe,
+      this.bunchesAbnormal,
+      this.bunchesEmpty,
+      this.looseFruits,
+      this.bunchesTotal,
+      this.bunchesNotSent,
+      this.createdDate});
 
   LaporanPanenKemarin.fromJson(Map<String, dynamic> json) {
     employeeCode = json['employee_code'];

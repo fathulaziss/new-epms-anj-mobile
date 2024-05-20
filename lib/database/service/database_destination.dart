@@ -41,7 +41,7 @@ class DatabaseMDestinationSchema {
     // return count;
     Batch batch = db.batch();
     object.forEach((val) {
-      MDestinationSchema mDestinationSchema =  val;
+      MDestinationSchema mDestinationSchema = val;
       batch.insert(mDestinationSchemaTable, mDestinationSchema.toJson());
     });
     List<Object?> i = await batch.commit();

@@ -10,8 +10,10 @@ class LaporanSPBKemarinEntity {
   static String spbDeliveryNote = "spb_delivery_note";
   static String spbLat = "spb_lat";
   static String spbLong = "spb_long";
-  static String spbKeraniTransportEmployeeCode = "spb_kerani_transport_employee_code";
-  static String spbKeraniTransportEmployeeName = "spb_kerani_transport_employee_name";
+  static String spbKeraniTransportEmployeeCode =
+      "spb_kerani_transport_employee_code";
+  static String spbKeraniTransportEmployeeName =
+      "spb_kerani_transport_employee_name";
   static String spbDriverEmployeeCode = "spb_driver_employee_code";
   static String spbDriverEmployeeName = "spb_driver_employee_name";
   static String spbTotalBunches = "spb_total_bunches";

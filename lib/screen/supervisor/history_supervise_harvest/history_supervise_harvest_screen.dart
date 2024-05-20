@@ -115,7 +115,8 @@ class _HistorySuperviseHarvestScreenState
                     : notifier.listOPHSuperviseResult.isNotEmpty
                         ? Flexible(
                             child: ListView.builder(
-                                itemCount: notifier.listOPHSuperviseResult.length,
+                                itemCount:
+                                    notifier.listOPHSuperviseResult.length,
                                 itemBuilder: (BuildContext context, int index) {
                                   return InkWell(
                                     onTap: () {
@@ -133,7 +134,8 @@ class _HistorySuperviseHarvestScreenState
                                           children: [
                                             Row(
                                               mainAxisAlignment:
-                                                  MainAxisAlignment.spaceBetween,
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
                                               children: [
                                                 Text(
                                                   "${notifier.listOPHSuperviseResult[index].ophSupervisiId}",
@@ -146,7 +148,8 @@ class _HistorySuperviseHarvestScreenState
                                             SizedBox(height: 8),
                                             Row(
                                               mainAxisAlignment:
-                                                  MainAxisAlignment.spaceBetween,
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
                                               children: [
                                                 Text("Pemanen:"),
                                                 Text(
@@ -156,7 +159,8 @@ class _HistorySuperviseHarvestScreenState
                                             SizedBox(height: 8),
                                             Row(
                                               mainAxisAlignment:
-                                                  MainAxisAlignment.spaceBetween,
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
                                               children: [
                                                 Text(
                                                     "Blok: ${notifier.listOPHSuperviseResult[index].supervisiBlockCode}"),
@@ -167,7 +171,8 @@ class _HistorySuperviseHarvestScreenState
                                             SizedBox(height: 8),
                                             Row(
                                               mainAxisAlignment:
-                                                  MainAxisAlignment.spaceBetween,
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
                                               children: [
                                                 Text(
                                                     "Tanggal: ${notifier.listOPHSuperviseResult[index].createdDate} "),
@@ -235,7 +240,8 @@ class _HistorySuperviseHarvestScreenState
                                           SizedBox(height: 8),
                                           Row(
                                               mainAxisAlignment:
-                                                  MainAxisAlignment.spaceBetween,
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
                                               children: [
                                                 Text(
                                                     "Tanggal: ${notifier.listOPHSupervise[index].createdDate} "),

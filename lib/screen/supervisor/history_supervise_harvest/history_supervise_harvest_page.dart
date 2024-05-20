@@ -7,10 +7,12 @@ class HistorySuperviseHarvestPage extends StatefulWidget {
   const HistorySuperviseHarvestPage({Key? key}) : super(key: key);
 
   @override
-  State<HistorySuperviseHarvestPage> createState() => _HistorySuperviseHarvestPageState();
+  State<HistorySuperviseHarvestPage> createState() =>
+      _HistorySuperviseHarvestPageState();
 }
 
-class _HistorySuperviseHarvestPageState extends State<HistorySuperviseHarvestPage> {
+class _HistorySuperviseHarvestPageState
+    extends State<HistorySuperviseHarvestPage> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(

@@ -10,9 +10,8 @@ class Supervisor {
   String? keraniKirimCode;
 
   Supervisor(
-      {
-        this.employeeCode,
-        this.mandorName,
+      {this.employeeCode,
+      this.mandorName,
       this.mandorCode,
       this.mandor1Name,
       this.mandor1Code,

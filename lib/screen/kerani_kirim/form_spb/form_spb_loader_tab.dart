@@ -144,56 +144,64 @@ class _FormSPBLoaderTabState extends State<FormSPBLoaderTab> {
                                                       .spaceBetween,
                                               children: [
                                                 Text("Nama Loader:"),
-                                    Row(
-                                                    children: [
-                                                      Container(
-                                                        width: 170,
-                                                        child: DropdownButton(
-                                                          isExpanded: true,
-                                                          value: formSPB
-                                                              .loaderName[index],
-                                                          items: formSPB
-                                                              .listLoader
-                                                              .map((value) {
-                                                            return DropdownMenuItem(
-                                                              child: Text(
-                                                                "${value.employeeName}",
-                                                                overflow:
-                                                                    TextOverflow
-                                                                        .ellipsis,
-                                                              ),
-                                                              value: value,
-                                                            );
-                                                          }).toList(),
-                                                          onChanged:
-                                                              (MEmployeeSchema?
-                                                                  value) {
-                                                            formSPB
-                                                                .onChangeLoaderName(
-                                                                    index, value!);
-                                                          },
-                                                        ),
-                                                      ),
-                                                      SizedBox(width: 10),
-                                                      InkWell(
-                                                        child: Padding(
-                                                          padding: const EdgeInsets.only(
-                                                              right: 2.0),
-                                                          child: Icon(Icons.search),
-                                                        ),
-                                                        onTap: () async {
-                                                          MEmployeeSchema? mEmployee =
-                                                          await Navigator.push(
-                                                              context,
-                                                              MaterialPageRoute(
-                                                                  builder: (context) =>
-                                                                      SearchDriverScreen()));
+                                                Row(
+                                                  children: [
+                                                    Container(
+                                                      width: 170,
+                                                      child: DropdownButton(
+                                                        isExpanded: true,
+                                                        value: formSPB
+                                                            .loaderName[index],
+                                                        items: formSPB
+                                                            .listLoader
+                                                            .map((value) {
+                                                          return DropdownMenuItem(
+                                                            child: Text(
+                                                              "${value.employeeName}",
+                                                              overflow:
+                                                                  TextOverflow
+                                                                      .ellipsis,
+                                                            ),
+                                                            value: value,
+                                                          );
+                                                        }).toList(),
+                                                        onChanged:
+                                                            (MEmployeeSchema?
+                                                                value) {
                                                           formSPB
-                                                              .onChangeLoaderName(index, mEmployee!);
+                                                              .onChangeLoaderName(
+                                                                  index,
+                                                                  value!);
                                                         },
                                                       ),
-                                                    ],
-                                                  ),
+                                                    ),
+                                                    SizedBox(width: 10),
+                                                    InkWell(
+                                                      child: Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .only(
+                                                                right: 2.0),
+                                                        child:
+                                                            Icon(Icons.search),
+                                                      ),
+                                                      onTap: () async {
+                                                        MEmployeeSchema?
+                                                            mEmployee =
+                                                            await Navigator.push(
+                                                                context,
+                                                                MaterialPageRoute(
+                                                                    builder:
+                                                                        (context) =>
+                                                                            SearchDriverScreen()));
+                                                        formSPB
+                                                            .onChangeLoaderName(
+                                                                index,
+                                                                mEmployee!);
+                                                      },
+                                                    ),
+                                                  ],
+                                                ),
                                               ]),
                                         )
                                       : Padding(

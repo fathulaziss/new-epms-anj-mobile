@@ -48,6 +48,7 @@ class LaporanSPBKemarinNotifier extends ChangeNotifier {
   }
 
   onClickLaporanSPBKemarin(LaporanSPBKemarin laporanSPBKemarin) {
-    _navigationService.push(Routes.SPB_KEMARIN_DETAIL, arguments: laporanSPBKemarin);
+    _navigationService.push(Routes.SPB_KEMARIN_DETAIL,
+        arguments: laporanSPBKemarin);
   }
 }

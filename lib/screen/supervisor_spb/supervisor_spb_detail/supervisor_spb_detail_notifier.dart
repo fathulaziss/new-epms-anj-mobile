@@ -152,7 +152,8 @@ class SupervisorSPBDetailNotifier extends ChangeNotifier {
     _sampah.text = spbSupervise.bunchesSampah.toString();
     _batu.text = spbSupervise.bunchesBatu.toString();
     _spbID.text = spbSupervise.spbId!;
-    _noteJanjangTangkaiPanjang.text = spbSupervise.catatanBunchesTangkaiPanjang.toString();
+    _noteJanjangTangkaiPanjang.text =
+        spbSupervise.catatanBunchesTangkaiPanjang.toString();
     _notesOPH.text = spbSupervise.supervisiNotes.toString();
     notifyListeners();
   }
@@ -177,8 +178,8 @@ class SupervisorSPBDetailNotifier extends ChangeNotifier {
         onPressNo: onPressNo);
   }
 
-  countBunches(BuildContext context,
-      TextEditingController textEditingController) {
+  countBunches(
+      BuildContext context, TextEditingController textEditingController) {
     if (textEditingController.text.isEmpty ||
         textEditingController.text == "0") {
       textEditingController.value = TextEditingValue(text: "0");
@@ -192,21 +193,21 @@ class SupervisorSPBDetailNotifier extends ChangeNotifier {
     }
     try {
       bunchesTotal.text = (int.parse(bunchesRipe.text) +
-          int.parse(bunchesOverRipe.text) +
-          int.parse(bunchesHalfRipe.text) +
-          int.parse(bunchesUnRipe.text) +
-          int.parse(bunchesAbnormal.text) +
-          int.parse(bunchesEmpty.text))
+              int.parse(bunchesOverRipe.text) +
+              int.parse(bunchesHalfRipe.text) +
+              int.parse(bunchesUnRipe.text) +
+              int.parse(bunchesAbnormal.text) +
+              int.parse(bunchesEmpty.text))
           .toString();
     } catch (e) {
       print(e);
     }
     try {
       bunchesNormalTotal.text = (int.parse(bunchesRipe.text) +
-          int.parse(bunchesOverRipe.text) +
-          int.parse(bunchesHalfRipe.text) +
-          int.parse(bunchesUnRipe.text) +
-          int.parse(bunchesEmpty.text))
+              int.parse(bunchesOverRipe.text) +
+              int.parse(bunchesHalfRipe.text) +
+              int.parse(bunchesUnRipe.text) +
+              int.parse(bunchesEmpty.text))
           .toString();
     } catch (e) {
       print(e);
@@ -239,7 +240,8 @@ class SupervisorSPBDetailNotifier extends ChangeNotifier {
     _spbSupervise.bunchesTotalNormal = int.parse(_bunchesNormalTotal.text);
     _spbSupervise.bunchesSampah = int.parse(_sampah.text);
     _spbSupervise.bunchesBatu = int.parse(_batu.text);
-    _spbSupervise.bunchesTangkaiPanjang = int.parse(_janjangTangkaiPanjang.text);
+    _spbSupervise.bunchesTangkaiPanjang =
+        int.parse(_janjangTangkaiPanjang.text);
     _spbSupervise.catatanBunchesTangkaiPanjang = noteJanjangTangkaiPanjang.text;
     _spbSupervise.spbId = _spbID.text;
     _spbSupervise.supervisiNotes = _notesOPH.text;
@@ -247,7 +249,7 @@ class SupervisorSPBDetailNotifier extends ChangeNotifier {
     _spbSupervise.updatedDate = TimeManager.dateWithDash(now);
     _spbSupervise.updatedTime = TimeManager.timeWithColon(now);
     int count =
-    await DatabaseSPBSupervise().updateSPBSuperviseByID(spbSupervise);
+        await DatabaseSPBSupervise().updateSPBSuperviseByID(spbSupervise);
     if (count > 0) {
       _navigationService.push(Routes.HOME_PAGE);
       FlushBarManager.showFlushBarSuccess(

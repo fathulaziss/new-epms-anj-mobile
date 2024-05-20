@@ -1,4 +1,3 @@
-
 import 'package:epms/database/entity/m_attendance_entity.dart';
 import 'package:epms/database/helper/database_table.dart';
 import 'package:epms/model/m_attendance_schema.dart';
@@ -7,7 +6,6 @@ import 'package:sqflite/sqflite.dart';
 import '../helper/database_helper.dart';
 
 class DatabaseMAttendance {
-
   void createTableMAttendance(Database db) async {
     await db.execute('''
       CREATE TABLE $mAttendanceSchemaTable(
@@ -35,7 +33,7 @@ class DatabaseMAttendance {
     // }
     Batch batch = db.batch();
     object.forEach((val) {
-      MAttendanceSchema mAttendanceSchema =  val;
+      MAttendanceSchema mAttendanceSchema = val;
       batch.insert(mAttendanceSchemaTable, mAttendanceSchema.toJson());
     });
     List<Object?> i = await batch.commit();

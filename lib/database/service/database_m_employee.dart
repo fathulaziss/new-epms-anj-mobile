@@ -51,7 +51,7 @@ class DatabaseMEmployeeSchema {
     // return count;
     Batch batch = db.batch();
     object.forEach((val) {
-      MEmployeeSchema mEmployeeSchema =  val;
+      MEmployeeSchema mEmployeeSchema = val;
       batch.insert(mEmployeeSchemaTable, mEmployeeSchema.toJson());
     });
     List<Object?> i = await batch.commit();
@@ -79,8 +79,7 @@ class DatabaseMEmployeeSchema {
     // var mapList = await db.query(tUserAssignmentSchemaTable);
     List<MEmployeeSchema> list = [];
     for (int i = 0; i < mapList.length; i++) {
-      MEmployeeSchema mEmployeeSchema =
-      MEmployeeSchema.fromJson(mapList[i]);
+      MEmployeeSchema mEmployeeSchema = MEmployeeSchema.fromJson(mapList[i]);
       list.add(mEmployeeSchema);
     }
     return list;
@@ -88,7 +87,8 @@ class DatabaseMEmployeeSchema {
 
   Future<List<MEmployeeSchema>> selectMEmployeeSchemaDriver() async {
     Database db = await DatabaseHelper().database;
-    var mapList = await db.rawQuery("SELECT * FROM $mEmployeeSchemaTable WHERE ${MEmployeeEntity.employeeJobCode} LIKE '%SOPIR%' OR ${MEmployeeEntity.employeeJobCode} LIKE '%SUPIR%' ORDER BY ${MEmployeeEntity.employeeName}");
+    var mapList = await db.rawQuery(
+        "SELECT * FROM $mEmployeeSchemaTable WHERE ${MEmployeeEntity.employeeJobCode} LIKE '%SOPIR%' OR ${MEmployeeEntity.employeeJobCode} LIKE '%SUPIR%' ORDER BY ${MEmployeeEntity.employeeName}");
     List<MEmployeeSchema> list = [];
     for (int i = 0; i < mapList.length; i++) {
       MEmployeeSchema mEmployeeSchema = MEmployeeSchema.fromJson(mapList[i]);

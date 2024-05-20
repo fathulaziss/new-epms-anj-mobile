@@ -6,13 +6,16 @@ import 'package:provider/provider.dart';
 
 class DetailSuperviseHarvestPage extends StatefulWidget {
   final OPHSupervise ophSupervise;
-  const DetailSuperviseHarvestPage({Key? key, required this.ophSupervise}) : super(key: key);
+  const DetailSuperviseHarvestPage({Key? key, required this.ophSupervise})
+      : super(key: key);
 
   @override
-  State<DetailSuperviseHarvestPage> createState() => _DetailSuperviseHarvestPageState();
+  State<DetailSuperviseHarvestPage> createState() =>
+      _DetailSuperviseHarvestPageState();
 }
 
-class _DetailSuperviseHarvestPageState extends State<DetailSuperviseHarvestPage> {
+class _DetailSuperviseHarvestPageState
+    extends State<DetailSuperviseHarvestPage> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(

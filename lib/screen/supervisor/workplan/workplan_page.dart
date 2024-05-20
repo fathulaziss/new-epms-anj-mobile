@@ -14,7 +14,6 @@ class _WorkPlanPageState extends State<WorkPlanPage> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-        create: (context) => WorkPlanNotifier(),
-        child: WorkPlanScreen());
+        create: (context) => WorkPlanNotifier(), child: WorkPlanScreen());
   }
 }

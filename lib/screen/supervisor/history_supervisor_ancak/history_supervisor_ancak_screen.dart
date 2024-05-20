@@ -107,138 +107,153 @@ class _HistorySuperviseAncakScreenState
                 SizedBox(height: 14),
                 notifier.listOPHSupervise.isEmpty
                     ? Container(
-                    alignment: Alignment.center,
-                    height: 200,
-                    child: Text(
-                      "Tidak ada Supervisi Panen yang dibuat",
-                      style: Style.textBold16,
-                    ))
+                        alignment: Alignment.center,
+                        height: 200,
+                        child: Text(
+                          "Tidak ada Supervisi Panen yang dibuat",
+                          style: Style.textBold16,
+                        ))
                     : notifier.listOPHSuperviseResult.isNotEmpty
-                    ? Flexible(
-                  child: ListView.builder(
-                      itemCount: notifier.listOPHSuperviseResult.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        return InkWell(
-                          onTap: () {
-                            NavigatorService.navigateTo(context, DetailSuperviseAncakHarvestPage(ophSuperviseAncak: notifier.listOPHSuperviseResult[index]));
-                          },
-                          child: Card(
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Column(
-                                children: [
-                                  Row(
-                                    mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                        "${notifier.listOPHSuperviseResult[index].supervisiAncakId}",
-                                        style: Style.textBold16,
+                        ? Flexible(
+                            child: ListView.builder(
+                                itemCount:
+                                    notifier.listOPHSuperviseResult.length,
+                                itemBuilder: (BuildContext context, int index) {
+                                  return InkWell(
+                                    onTap: () {
+                                      NavigatorService.navigateTo(
+                                          context,
+                                          DetailSuperviseAncakHarvestPage(
+                                              ophSuperviseAncak: notifier
+                                                      .listOPHSuperviseResult[
+                                                  index]));
+                                    },
+                                    child: Card(
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Column(
+                                          children: [
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Text(
+                                                  "${notifier.listOPHSuperviseResult[index].supervisiAncakId}",
+                                                  style: Style.textBold16,
+                                                ),
+                                                Text(
+                                                    "${notifier.listOPHSuperviseResult[index].bunchesTotal} Janjang"),
+                                              ],
+                                            ),
+                                            SizedBox(height: 8),
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Text("Kemandoran:"),
+                                                Text(
+                                                    "${notifier.listOPHSuperviseResult[index].supervisiAncakMandorEmployeeCode} ${notifier.listOPHSupervise[index].supervisiAncakMandorEmployeeName}"),
+                                              ],
+                                            ),
+                                            SizedBox(height: 8),
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Text(
+                                                    "Blok: ${notifier.listOPHSupervise[index].supervisiAncakBlockCode}"),
+                                                Text(
+                                                    "Estate: ${notifier.listOPHSupervise[index].supervisiAncakEstateCode}"),
+                                              ],
+                                            ),
+                                            SizedBox(height: 8),
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Text(
+                                                    "Tanggal: ${notifier.listOPHSupervise[index].createdDate} "),
+                                                Text(
+                                                    "Waktu: ${notifier.listOPHSupervise[index].createdTime}"),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
                                       ),
-                                      Text(
-                                          "${notifier.listOPHSuperviseResult[index].bunchesTotal} Janjang"),
-                                    ],
-                                  ),
-                                  SizedBox(height: 8),
-                                  Row(
-                                    mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text("Kemandoran:"),
-                                      Text(
-                                          "${notifier.listOPHSuperviseResult[index].supervisiAncakMandorEmployeeCode} ${notifier.listOPHSupervise[index].supervisiAncakMandorEmployeeName}"),
-                                    ],
-                                  ),
-                                  SizedBox(height: 8),
-                                  Row(
-                                    mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                          "Blok: ${notifier.listOPHSupervise[index].supervisiAncakBlockCode}"),
-                                      Text(
-                                          "Estate: ${notifier.listOPHSupervise[index].supervisiAncakEstateCode}"),
-                                    ],
-                                  ),
-                                  SizedBox(height: 8),
-                                  Row(
-                                    mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                          "Tanggal: ${notifier.listOPHSupervise[index].createdDate} "),
-                                      Text(
-                                          "Waktu: ${notifier.listOPHSupervise[index].createdTime}"),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        );
-                      }),
-                )
-                    : Flexible(
-                  child: ListView.builder(
-                      itemCount: notifier.listOPHSupervise.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        return InkWell(
-                          onTap: () {
-                            NavigatorService.navigateTo(context, DetailSuperviseAncakHarvestPage(ophSuperviseAncak: notifier.listOPHSupervise[index]));
-                          },
-                          child: Card(
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Column(children: [
-                                Row(
-                                  mainAxisAlignment:
-                                  MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      "${notifier.listOPHSupervise[index].supervisiAncakId}",
-                                      style: Style.textBold16,
                                     ),
-                                    Text(
-                                        "${notifier.listOPHSupervise[index].bunchesTotal} Janjang"),
-                                  ],
-                                ),
-                                SizedBox(height: 8),
-                                Row(
-                                  mainAxisAlignment:
-                                  MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text("Kemandoran:"),
-                                    Text(
-                                        "${notifier.listOPHSupervise[index].supervisiAncakMandorEmployeeCode} ${notifier.listOPHSupervise[index].supervisiAncakMandorEmployeeName}"),
-                                  ],
-                                ),
-                                SizedBox(height: 8),
-                                Row(
-                                  mainAxisAlignment:
-                                  MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                        "Blok: ${notifier.listOPHSupervise[index].supervisiAncakBlockCode}"),
-                                    Text(
-                                        "Estate: ${notifier.listOPHSupervise[index].supervisiAncakEstateCode}"),
-                                  ],
-                                ),
-                                SizedBox(height: 8),
-                                Row(
-                                    mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                          "Tanggal: ${notifier.listOPHSupervise[index].createdDate} "),
-                                      Text(
-                                          "Waktu: ${notifier.listOPHSupervise[index].createdTime}"),
-                                    ]),
-                              ]),
-                            ),
-                          ),
-                        );
-                      }),
-                )
+                                  );
+                                }),
+                          )
+                        : Flexible(
+                            child: ListView.builder(
+                                itemCount: notifier.listOPHSupervise.length,
+                                itemBuilder: (BuildContext context, int index) {
+                                  return InkWell(
+                                    onTap: () {
+                                      NavigatorService.navigateTo(
+                                          context,
+                                          DetailSuperviseAncakHarvestPage(
+                                              ophSuperviseAncak: notifier
+                                                  .listOPHSupervise[index]));
+                                    },
+                                    child: Card(
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Column(children: [
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Text(
+                                                "${notifier.listOPHSupervise[index].supervisiAncakId}",
+                                                style: Style.textBold16,
+                                              ),
+                                              Text(
+                                                  "${notifier.listOPHSupervise[index].bunchesTotal} Janjang"),
+                                            ],
+                                          ),
+                                          SizedBox(height: 8),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Text("Kemandoran:"),
+                                              Text(
+                                                  "${notifier.listOPHSupervise[index].supervisiAncakMandorEmployeeCode} ${notifier.listOPHSupervise[index].supervisiAncakMandorEmployeeName}"),
+                                            ],
+                                          ),
+                                          SizedBox(height: 8),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Text(
+                                                  "Blok: ${notifier.listOPHSupervise[index].supervisiAncakBlockCode}"),
+                                              Text(
+                                                  "Estate: ${notifier.listOPHSupervise[index].supervisiAncakEstateCode}"),
+                                            ],
+                                          ),
+                                          SizedBox(height: 8),
+                                          Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Text(
+                                                    "Tanggal: ${notifier.listOPHSupervise[index].createdDate} "),
+                                                Text(
+                                                    "Waktu: ${notifier.listOPHSupervise[index].createdTime}"),
+                                              ]),
+                                        ]),
+                                      ),
+                                    ),
+                                  );
+                                }),
+                          )
               ]),
             ),
           ),

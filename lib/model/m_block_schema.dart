@@ -17,25 +17,25 @@ class MBlockSchema {
   // String? blockHectarage;
   // String? blockKerapatanPokok;
 
-  MBlockSchema(
-      {this.blockId,
-      this.blockCompanyCode,
-      this.blockEstateCode,
-      this.blockDivisionCode,
-      this.blockCode,
-      this.blockName,
-      // this.blockPlantedDate,
-      // this.blockValidFrom,
-      // this.blockValidTo,
-      // this.createdBy,
-      // this.createdDate,
-      // this.createdTime,
-      // this.updatedBy,
-      // this.updatedDate,
-      // this.updatedTime,
-      // this.blockHectarage,
-      // this.blockKerapatanPokok
-      });
+  MBlockSchema({
+    this.blockId,
+    this.blockCompanyCode,
+    this.blockEstateCode,
+    this.blockDivisionCode,
+    this.blockCode,
+    this.blockName,
+    // this.blockPlantedDate,
+    // this.blockValidFrom,
+    // this.blockValidTo,
+    // this.createdBy,
+    // this.createdDate,
+    // this.createdTime,
+    // this.updatedBy,
+    // this.updatedDate,
+    // this.updatedTime,
+    // this.blockHectarage,
+    // this.blockKerapatanPokok
+  });
 
   MBlockSchema.fromJson(Map<String, dynamic> json) {
     blockId = json['block_id'];

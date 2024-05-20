@@ -15,6 +15,7 @@ class _HistoryOPHPageState extends State<HistoryOPHPage> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-        create: (context) => HistoryOPHNotifier(), child: HistoryOPHScreen(method: widget.method));
+        create: (context) => HistoryOPHNotifier(),
+        child: HistoryOPHScreen(method: widget.method));
   }
 }

@@ -45,7 +45,10 @@ class _NoOptionDialogState extends State<NoOptionDialog> {
                 child: Container(
                   alignment: Alignment.center,
                   padding: EdgeInsets.all(14),
-                  child: Text("${widget.buttonText}", style: Style.whiteBold18,),
+                  child: Text(
+                    "${widget.buttonText}",
+                    style: Style.whiteBold18,
+                  ),
                 ),
               ),
             ),

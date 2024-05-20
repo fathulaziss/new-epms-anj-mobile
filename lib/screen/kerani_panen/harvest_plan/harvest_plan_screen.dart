@@ -81,7 +81,8 @@ class _HarvestPlanScreenState extends State<HarvestPlanScreen> {
                       ))
                   : Flexible(
                       child: ListView.builder(
-                          itemCount: harvestPlan.listHarvestingPlanSchema.length,
+                          itemCount:
+                              harvestPlan.listHarvestingPlanSchema.length,
                           itemBuilder: (BuildContext context, int index) {
                             return Column(
                               children: [

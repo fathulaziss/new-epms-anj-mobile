@@ -71,8 +71,10 @@ class _SupervisorAncakFormFruitState extends State<SupervisorAncakFormFruit> {
                             ],
                             decoration: InputDecoration(hintText: "0"),
                             onChanged: (value) {
-                              notifier.countLoosesBrondolan(notifier.brondolanTinggal.text, value);
-                              notifier.countLoosesBuahTinggal(notifier.janjangTinggal.text, value);
+                              notifier.countLoosesBrondolan(
+                                  notifier.brondolanTinggal.text, value);
+                              notifier.countLoosesBuahTinggal(
+                                  notifier.janjangTinggal.text, value);
                             },
                           ),
                         ),
@@ -90,8 +92,7 @@ class _SupervisorAncakFormFruitState extends State<SupervisorAncakFormFruit> {
                               BunchesFormatter()
                             ],
                             decoration: InputDecoration(hintText: "0"),
-                            onChanged: (value) {
-                            },
+                            onChanged: (value) {},
                           ),
                         ),
                         Container(
@@ -108,16 +109,19 @@ class _SupervisorAncakFormFruitState extends State<SupervisorAncakFormFruit> {
                               BunchesFormatter()
                             ],
                             decoration: InputDecoration(hintText: "0"),
-                            onChanged: (value) {
-                            },
+                            onChanged: (value) {},
                           ),
                         ),
                       ],
                     ),
                     TableRow(children: <Widget>[
-                      Container(height: 80,),
+                      Container(
+                        height: 80,
+                      ),
                       Text("KUALITAS ANCAK", style: Style.textBold14),
-                      Container(height: 80,)
+                      Container(
+                        height: 80,
+                      )
                     ]),
                     TableRow(
                       children: <Widget>[
@@ -163,8 +167,7 @@ class _SupervisorAncakFormFruitState extends State<SupervisorAncakFormFruit> {
                               BunchesFormatter()
                             ],
                             decoration: InputDecoration(hintText: "0"),
-                            onChanged: (value) {
-                            },
+                            onChanged: (value) {},
                           ),
                         ),
                         Container(
@@ -181,8 +184,7 @@ class _SupervisorAncakFormFruitState extends State<SupervisorAncakFormFruit> {
                               BunchesFormatter()
                             ],
                             decoration: InputDecoration(hintText: "0"),
-                            onChanged: (value) {
-                            },
+                            onChanged: (value) {},
                           ),
                         ),
                         Container(
@@ -199,8 +201,7 @@ class _SupervisorAncakFormFruitState extends State<SupervisorAncakFormFruit> {
                               BunchesFormatter()
                             ],
                             decoration: InputDecoration(hintText: "0"),
-                            onChanged: (value) {
-                            },
+                            onChanged: (value) {},
                           ),
                         ),
                       ],
@@ -211,7 +212,10 @@ class _SupervisorAncakFormFruitState extends State<SupervisorAncakFormFruit> {
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
-                            Text("Pelepah Sengkleh", textAlign: TextAlign.center,),
+                            Text(
+                              "Pelepah Sengkleh",
+                              textAlign: TextAlign.center,
+                            ),
                             SizedBox(height: 6),
                           ]),
                         ),
@@ -219,16 +223,21 @@ class _SupervisorAncakFormFruitState extends State<SupervisorAncakFormFruit> {
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
-                            Text("Janjang Tinggal", textAlign: TextAlign.center,),
+                            Text(
+                              "Janjang Tinggal",
+                              textAlign: TextAlign.center,
+                            ),
                             SizedBox(height: 6),
                           ]),
                         ),
                         Container(
                           width: 110,
-                          child: Column(
-                              children: [
+                          child: Column(children: [
                             SizedBox(height: 12),
-                            Text("Brondolan Tinggal", textAlign: TextAlign.center,),
+                            Text(
+                              "Brondolan Tinggal",
+                              textAlign: TextAlign.center,
+                            ),
                             SizedBox(height: 6),
                           ]),
                         ),
@@ -243,8 +252,7 @@ class _SupervisorAncakFormFruitState extends State<SupervisorAncakFormFruit> {
                           keyboardType: TextInputType.number,
                           textAlign: TextAlign.center,
                           style: Style.textBold20,
-                          onChanged: (value) {
-                          },
+                          onChanged: (value) {},
                           inputFormatters: [
                             FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
                             BunchesFormatter()
@@ -266,7 +274,8 @@ class _SupervisorAncakFormFruitState extends State<SupervisorAncakFormFruit> {
                           ],
                           decoration: InputDecoration(hintText: "0"),
                           onChanged: (value) {
-                            notifier.countLoosesBuahTinggal(value, notifier.pokokPanen.text);
+                            notifier.countLoosesBuahTinggal(
+                                value, notifier.pokokPanen.text);
                           },
                         ),
                       ),
@@ -284,7 +293,8 @@ class _SupervisorAncakFormFruitState extends State<SupervisorAncakFormFruit> {
                           ],
                           decoration: InputDecoration(hintText: "0"),
                           onChanged: (value) {
-                            notifier.countLoosesBrondolan(value, notifier.pokokPanen.text);
+                            notifier.countLoosesBrondolan(
+                                value, notifier.pokokPanen.text);
                           },
                         ),
                       ),

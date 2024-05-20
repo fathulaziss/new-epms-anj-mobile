@@ -7,7 +7,8 @@ class SupervisorSPBHistoryPage extends StatefulWidget {
   const SupervisorSPBHistoryPage({Key? key}) : super(key: key);
 
   @override
-  State<SupervisorSPBHistoryPage> createState() => _SupervisorSPBHistoryPageState();
+  State<SupervisorSPBHistoryPage> createState() =>
+      _SupervisorSPBHistoryPageState();
 }
 
 class _SupervisorSPBHistoryPageState extends State<SupervisorSPBHistoryPage> {

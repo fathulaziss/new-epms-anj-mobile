@@ -6,11 +6,14 @@ class THarvestingPlanEntity {
   static String harvestingPlanBlockCode = "harvesting_plan_block_code";
   static String harvestingPlanTotalHk = "harvesting_plan_total_hk";
   static String harvestingPlanHectarage = "harvesting_plan_hectarage";
-  static String harvestingPlanAssistantEmployeeCode = "harvesting_plan_assistant_employee_code";
-  static String harvestingPlanAssistantEmployeeName = "harvesting_plan_assistant_employee_name";
+  static String harvestingPlanAssistantEmployeeCode =
+      "harvesting_plan_assistant_employee_code";
+  static String harvestingPlanAssistantEmployeeName =
+      "harvesting_plan_assistant_employee_name";
   static String isApproved = "is_approved";
   static String harvestingPlanApprovedBy = "harvesting_plan_approved_by";
-  static String harvestingPlanApprovedByName = "harvesting_plan_approved_by_name";
+  static String harvestingPlanApprovedByName =
+      "harvesting_plan_approved_by_name";
   static String harvestingPlanApprovedDate = "harvesting_plan_approved_date";
   static String harvestingPlanApprovedTime = "harvesting_plan_approved_time";
   static String createdBy = "created_by";

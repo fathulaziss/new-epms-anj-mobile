@@ -6,5 +6,4 @@ class SPBLoaderEntity {
   static String loaderEmployeeCode = "loader_employee_code";
   static String loaderEmployeeName = "loader_employee_name";
   static String loaderPercentage = "loader_percentage";
-
 }

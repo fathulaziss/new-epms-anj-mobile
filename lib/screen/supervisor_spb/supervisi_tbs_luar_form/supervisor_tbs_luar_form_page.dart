@@ -7,7 +7,8 @@ class SupervisorTBSLuarFormPage extends StatefulWidget {
   const SupervisorTBSLuarFormPage({Key? key}) : super(key: key);
 
   @override
-  State<SupervisorTBSLuarFormPage> createState() => _SupervisorTBSLuarFormPageState();
+  State<SupervisorTBSLuarFormPage> createState() =>
+      _SupervisorTBSLuarFormPageState();
 }
 
 class _SupervisorTBSLuarFormPageState extends State<SupervisorTBSLuarFormPage> {

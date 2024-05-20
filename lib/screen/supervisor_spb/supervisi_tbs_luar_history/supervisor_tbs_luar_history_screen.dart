@@ -70,7 +70,9 @@ class _SupervisorTBSLuarHistoryScreenState
                         itemBuilder: (BuildContext context, int index) {
                           return InkWell(
                             onTap: () {
-                              notifier.onSelectedTBSLuar(notifier.listTBSLuarSupervise[index], "DETAIL");
+                              notifier.onSelectedTBSLuar(
+                                  notifier.listTBSLuarSupervise[index],
+                                  "DETAIL");
                             },
                             child: Card(
                               child: Padding(

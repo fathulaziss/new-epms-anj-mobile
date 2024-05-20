@@ -37,9 +37,9 @@ class DatabaseTHarvestingPlan {
     int count = 0;
     List<THarvestingPlanSchema> listTHarvesting = await selectTHarvestingPlan();
     for (int i = 0; i < object.length; i++) {
-      if(!(listTHarvesting.contains(object[i]))) {
+      if (!(listTHarvesting.contains(object[i]))) {
         int saved =
-        await db.insert(tHarvestingPlanSchemaTable, object[i].toJson());
+            await db.insert(tHarvestingPlanSchemaTable, object[i].toJson());
         count = count + saved;
       }
     }

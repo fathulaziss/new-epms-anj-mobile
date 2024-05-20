@@ -39,7 +39,7 @@ class DatabaseTABWSchema {
     // return count;
     Batch batch = db.batch();
     object.forEach((val) {
-      TABWSchema tabwSchema =  val;
+      TABWSchema tabwSchema = val;
       batch.insert(tABWSchemaTable, tabwSchema.toJson());
     });
     List<Object?> i = await batch.commit();
@@ -51,8 +51,7 @@ class DatabaseTABWSchema {
     var mapList = await db.query(tABWSchemaTable);
     List<TABWSchema> list = [];
     for (int i = 0; i < mapList.length; i++) {
-      TABWSchema tabwSchema =
-      TABWSchema.fromJson(mapList[i]);
+      TABWSchema tabwSchema = TABWSchema.fromJson(mapList[i]);
       list.add(tabwSchema);
     }
     return list;
@@ -73,7 +72,8 @@ class DatabaseTABWSchema {
     TABWSchema? tABWSchema;
     Database db = await DatabaseHelper().database;
     var mapList = await db.query(tABWSchemaTable,
-        where: "${TABWSchemaEntity.abwBlockCode}=? AND ${TABWSchemaEntity.abwEstateCode}=?",
+        where:
+            "${TABWSchemaEntity.abwBlockCode}=? AND ${TABWSchemaEntity.abwEstateCode}=?",
         whereArgs: [blockCode, estateCode]);
     if (mapList.isNotEmpty) {
       tABWSchema = TABWSchema.fromJson(mapList.last);

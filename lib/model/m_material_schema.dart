@@ -10,18 +10,18 @@ class MMaterialSchema {
   // String? updatedDate;
   // String? updatedTime;
 
-  MMaterialSchema(
-      {this.materialId,
-      this.materialCode,
-      this.materialName,
-      this.materialUom,
-      // this.createdBy,
-      // this.createdDate,
-      // this.createdTime,
-      // this.updatedBy,
-      // this.updatedDate,
-      // this.updatedTime
-      });
+  MMaterialSchema({
+    this.materialId,
+    this.materialCode,
+    this.materialName,
+    this.materialUom,
+    // this.createdBy,
+    // this.createdDate,
+    // this.createdTime,
+    // this.updatedBy,
+    // this.updatedDate,
+    // this.updatedTime
+  });
 
   MMaterialSchema.fromJson(Map<String, dynamic> json) {
     materialId = json['material_id'];

@@ -77,5 +77,4 @@ class _QRReaderScreenState extends State<QRReaderScreen> {
       controller!.resumeCamera();
     }
   }
-
 }

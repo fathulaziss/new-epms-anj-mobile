@@ -4,7 +4,6 @@ import 'package:epms/screen/kerani_kirim/laporan_spb_kemarin/laporan_spb_kemarin
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-
 class LaporanSPBKemarinScreen extends StatefulWidget {
   const LaporanSPBKemarinScreen({Key? key}) : super(key: key);
 
@@ -39,7 +38,8 @@ class _LaporanSPBKemarinScreenState extends State<LaporanSPBKemarinScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text("Tanggal:"),
-                      Text("${TimeManager.todayWithSlash(DateTime.now().subtract(Duration(days: 1)))}")
+                      Text(
+                          "${TimeManager.todayWithSlash(DateTime.now().subtract(Duration(days: 1)))}")
                     ],
                   ),
                   SizedBox(height: 8),
@@ -92,14 +92,16 @@ class _LaporanSPBKemarinScreenState extends State<LaporanSPBKemarinScreen> {
                         itemBuilder: (BuildContext context, int index) {
                           return InkWell(
                             onTap: () {
-                             spbKemarin.onClickLaporanSPBKemarin(spbKemarin.listLaporanSPBKemarin[index]);
+                              spbKemarin.onClickLaporanSPBKemarin(
+                                  spbKemarin.listLaporanSPBKemarin[index]);
                             },
                             child: Card(
                               child: Container(
                                 padding: EdgeInsets.all(10),
                                 child: Column(
                                     mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Text(
                                           "${spbKemarin.listLaporanSPBKemarin[index].spbId}",

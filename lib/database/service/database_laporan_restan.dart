@@ -49,7 +49,7 @@ class DatabaseLaporanRestan {
     int count = 0;
     List<LaporanRestan> listRestan = await selectLaporanRestan();
     for (int i = 0; i < object.length; i++) {
-      if(!(listRestan.contains(object[i]))) {
+      if (!(listRestan.contains(object[i]))) {
         int saved = await db.insert(laporanRestanTable, object[i].toJson());
         count = count + saved;
       }

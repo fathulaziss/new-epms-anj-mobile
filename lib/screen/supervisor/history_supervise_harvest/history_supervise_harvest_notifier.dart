@@ -37,10 +37,10 @@ class HistorySuperviseHarvestNotifier extends ChangeNotifier {
 
   onInit() async {
     _listOPHSupervise = await DatabaseOPHSupervise().selectOPHSupervise();
-    for(int i=0; i < _listOPHSupervise.length; i++) {
+    for (int i = 0; i < _listOPHSupervise.length; i++) {
       _totalBunches += _listOPHSupervise[i].bunchesTotal!;
       _totalLooseFruits += _listOPHSupervise[i].looseFruits!;
-      if(!listDivision.contains(listOPHSupervise[i].supervisiDivisionCode)) {
+      if (!listDivision.contains(listOPHSupervise[i].supervisiDivisionCode)) {
         _listDivision.add(_listOPHSupervise[i].supervisiDivisionCode!);
       }
     }

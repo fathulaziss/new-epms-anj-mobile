@@ -9,17 +9,17 @@ class MCOPHCardSchema {
   String? ophCardDivision;
   // String? ophCardStatus;
 
-  MCOPHCardSchema(
-      {this.ophCardId,
-      // this.createdBy,
-      // this.createdDate,
-      // this.createdTime,
-      // this.updatedBy,
-      // this.updatedDate,
-      // this.updatedTime,
-      this.ophCardDivision,
-      // this.ophCardStatus
-      });
+  MCOPHCardSchema({
+    this.ophCardId,
+    // this.createdBy,
+    // this.createdDate,
+    // this.createdTime,
+    // this.updatedBy,
+    // this.updatedDate,
+    // this.updatedTime,
+    this.ophCardDivision,
+    // this.ophCardStatus
+  });
 
   MCOPHCardSchema.fromJson(Map<String, dynamic> json) {
     ophCardId = json['oph_card_id'];

@@ -66,7 +66,7 @@ class SupervisorFormNotifier extends ChangeNotifier {
 
   getSupervisi() async {
     _mConfigSchema = await DatabaseMConfig().selectMConfig();
-    if(_mConfigSchema != null) {
+    if (_mConfigSchema != null) {
       setDefaultSupervisor();
     }
     notifyListeners();

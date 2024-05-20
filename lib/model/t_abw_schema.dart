@@ -9,12 +9,12 @@ class TABWSchema {
 
   TABWSchema(
       {this.abwId,
-        this.abwCompanyCode,
-        this.abwEstateCode,
-        this.abwBlockCode,
-        // this.abwYear,
-        // this.abwMonth,
-        this.bunchWeight});
+      this.abwCompanyCode,
+      this.abwEstateCode,
+      this.abwBlockCode,
+      // this.abwYear,
+      // this.abwMonth,
+      this.bunchWeight});
 
   TABWSchema.fromJson(Map<String, dynamic> json) {
     abwId = json['abw_id'];

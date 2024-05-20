@@ -1,4 +1,3 @@
-
 import 'package:epms/base/ui/palette.dart';
 import 'package:epms/base/ui/style.dart';
 import 'package:epms/database/service/database_m_ancak_employee.dart';
@@ -8,7 +7,8 @@ import 'package:fluttericon/rpg_awesome_icons.dart';
 
 class SearchAncakEmployeeScreen extends StatefulWidget {
   @override
-  _SearchAncakEmployeeScreenState createState() => _SearchAncakEmployeeScreenState();
+  _SearchAncakEmployeeScreenState createState() =>
+      _SearchAncakEmployeeScreenState();
 }
 
 class _SearchAncakEmployeeScreenState extends State<SearchAncakEmployeeScreen> {
@@ -30,7 +30,7 @@ class _SearchAncakEmployeeScreenState extends State<SearchAncakEmployeeScreen> {
   getEmployeeList() async {
     isLoading = true;
     List<MAncakEmployee> listEmployee =
-    await DatabaseMAncakEmployee().selectMAncakEmployeeSchema();
+        await DatabaseMAncakEmployee().selectMAncakEmployeeSchema();
     setState(() {
       _employeeDetails = listEmployee;
       isLoading = false;
@@ -72,131 +72,146 @@ class _SearchAncakEmployeeScreenState extends State<SearchAncakEmployeeScreen> {
               isLoading
                   ? CircularProgressIndicator()
                   : _employeeDetails.isNotEmpty
-                  ? Flexible(
-                child: Container(
-                  child: _searchEmployeeResult.length != 0 ||
-                      typeFarmerController.text.isNotEmpty
-                      ? ListView.builder(
-                      controller: scrollController,
-                      physics: AlwaysScrollableScrollPhysics(),
-                      itemCount: _searchEmployeeResult.length,
-                      itemBuilder: (context, index) => Container(
-                        child: Card(
+                      ? Flexible(
                           child: Container(
-                            child: ListTile(
-                              title: Column(
-                                mainAxisAlignment:
-                                MainAxisAlignment.start,
-                                crossAxisAlignment:
-                                CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "${_searchEmployeeResult[index].userId}",
-                                    style: Style.textBold14,
-                                  ),
-                                  Text(
-                                      "${_searchEmployeeResult[index].userName}"),
-                                ],
-                              ),
-                              trailing: InkWell(
-                                onTap: () {
-                                  Navigator.pop(context,
-                                      _searchEmployeeResult[index]);
-                                },
-                                child: Card(
-                                  color: Palette.primaryColorProd,
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Icon(
-                                      Icons.check_circle_outline,
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ))
-                      : _employeeDetails.length != 0
-                      ? ListView.builder(
-                    controller: scrollController,
-                    physics: AlwaysScrollableScrollPhysics(),
-                    itemCount: _employeeDetails.length,
-                    itemBuilder: (context, index) =>
-                        Container(
-                          child: Card(
-                            child: Container(
-                              child: ListTile(
-                                title: Column(
-                                  mainAxisAlignment:
-                                  MainAxisAlignment.start,
-                                  crossAxisAlignment:
-                                  CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      "${_employeeDetails[index].userId}",
-                                      style: Style.textBold14,
-                                    ),
-                                    Text(
-                                        "${_employeeDetails[index].userName}"),
-                                  ],
-                                ),
-                                trailing: InkWell(
-                                  onTap: () {
-                                    Navigator.pop(context,
-                                        _employeeDetails[index]);
-                                  },
-                                  child: Card(
-                                    color: Palette.primaryColorProd,
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Icon(
-                                        Icons.check_circle_outline,
-                                        color: Colors.white,
+                            child: _searchEmployeeResult.length != 0 ||
+                                    typeFarmerController.text.isNotEmpty
+                                ? ListView.builder(
+                                    controller: scrollController,
+                                    physics: AlwaysScrollableScrollPhysics(),
+                                    itemCount: _searchEmployeeResult.length,
+                                    itemBuilder: (context, index) => Container(
+                                          child: Card(
+                                            child: Container(
+                                              child: ListTile(
+                                                title: Column(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text(
+                                                      "${_searchEmployeeResult[index].userId}",
+                                                      style: Style.textBold14,
+                                                    ),
+                                                    Text(
+                                                        "${_searchEmployeeResult[index].userName}"),
+                                                  ],
+                                                ),
+                                                trailing: InkWell(
+                                                  onTap: () {
+                                                    Navigator.pop(
+                                                        context,
+                                                        _searchEmployeeResult[
+                                                            index]);
+                                                  },
+                                                  child: Card(
+                                                    color: Palette
+                                                        .primaryColorProd,
+                                                    child: Padding(
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                              8.0),
+                                                      child: Icon(
+                                                        Icons
+                                                            .check_circle_outline,
+                                                        color: Colors.white,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ))
+                                : _employeeDetails.length != 0
+                                    ? ListView.builder(
+                                        controller: scrollController,
+                                        physics:
+                                            AlwaysScrollableScrollPhysics(),
+                                        itemCount: _employeeDetails.length,
+                                        itemBuilder: (context, index) =>
+                                            Container(
+                                          child: Card(
+                                            child: Container(
+                                              child: ListTile(
+                                                title: Column(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text(
+                                                      "${_employeeDetails[index].userId}",
+                                                      style: Style.textBold14,
+                                                    ),
+                                                    Text(
+                                                        "${_employeeDetails[index].userName}"),
+                                                  ],
+                                                ),
+                                                trailing: InkWell(
+                                                  onTap: () {
+                                                    Navigator.pop(
+                                                        context,
+                                                        _employeeDetails[
+                                                            index]);
+                                                  },
+                                                  child: Card(
+                                                    color: Palette
+                                                        .primaryColorProd,
+                                                    child: Padding(
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                              8.0),
+                                                      child: Icon(
+                                                        Icons
+                                                            .check_circle_outline,
+                                                        color: Colors.white,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      )
+                                    : Flexible(
+                                        child: Center(
+                                          child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Icon(RpgAwesome.palm_tree,
+                                                  color: Colors.orange,
+                                                  size: 60),
+                                              Padding(
+                                                padding: const EdgeInsets.only(
+                                                    top: 20.0),
+                                                child:
+                                                    Text("Belum ada Pekerja"),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
                                       ),
-                                    ),
-                                  ),
+                          ),
+                        )
+                      : Flexible(
+                          child: Center(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(RpgAwesome.palm_tree,
+                                    color: Colors.orange, size: 60),
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 20.0),
+                                  child: Text("Belum ada Pekerja"),
                                 ),
-                              ),
+                              ],
                             ),
                           ),
                         ),
-                  )
-                      : Flexible(
-                    child: Center(
-                      child: Column(
-                        mainAxisAlignment:
-                        MainAxisAlignment.center,
-                        children: [
-                          Icon(RpgAwesome.palm_tree,
-                              color: Colors.orange, size: 60),
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                top: 20.0),
-                            child: Text("Belum ada Pekerja"),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              )
-                  : Flexible(
-                child: Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(RpgAwesome.palm_tree,
-                          color: Colors.orange, size: 60),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 20.0),
-                        child: Text("Belum ada Pekerja"),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
             ],
           ),
         ),

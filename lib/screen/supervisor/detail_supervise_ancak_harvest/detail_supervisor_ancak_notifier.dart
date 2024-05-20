@@ -98,8 +98,7 @@ class DetailSupervisorAncakNotifier extends ChangeNotifier {
         employeeName: _ophSuperviseAncak?.supervisiAncakPemanenEmployeeName);
     _kemandoran = MEmployeeSchema(
         employeeCode: _ophSuperviseAncak?.supervisiAncakMandorEmployeeCode,
-        employeeName: _ophSuperviseAncak?.supervisiAncakMandorEmployeeName
-    );
+        employeeName: _ophSuperviseAncak?.supervisiAncakMandorEmployeeName);
     _pokokPanen.text = _ophSuperviseAncak?.pokokSample ?? "0";
     _totalJanjang.text = _ophSuperviseAncak?.bunchesTotal.toString() ?? "0";
     _totalBrondolan.text = _ophSuperviseAncak?.looseFruits.toString() ?? "0";
@@ -163,22 +162,24 @@ class DetailSupervisorAncakNotifier extends ChangeNotifier {
     _ophSuperviseAncak?.supervisiAncakNotes = _notes.text;
     _ophSuperviseAncak?.updatedDate = TimeManager.dateWithDash(now);
     _ophSuperviseAncak?.createdTime = TimeManager.timeWithColon(now);
-    int count = await DatabaseOPHSuperviseAncak().updateOPHSuperviseAncakByID(
-        _ophSuperviseAncak!);
+    int count = await DatabaseOPHSuperviseAncak()
+        .updateOPHSuperviseAncakByID(_ophSuperviseAncak!);
     if (count > 0) {
       _navigationService.push(Routes.HOME_PAGE);
       FlushBarManager.showFlushBarSuccess(
           _navigationService.navigatorKey.currentContext!,
-          "Simpan Supervisi Ancak", "Berhasil menyimpan");
+          "Simpan Supervisi Ancak",
+          "Berhasil menyimpan");
     } else {
       FlushBarManager.showFlushBarError(
           _navigationService.navigatorKey.currentContext!,
-          "Simpan Supervisi Ancak", "Gagal menyimpan");
+          "Simpan Supervisi Ancak",
+          "Gagal menyimpan");
     }
   }
 
-  countBunches(BuildContext context,
-      TextEditingController textEditingController) {
+  countBunches(
+      BuildContext context, TextEditingController textEditingController) {
     if (textEditingController.text.isEmpty ||
         textEditingController.text == "0") {
       textEditingController.value = TextEditingValue(text: "0");
@@ -193,7 +194,8 @@ class DetailSupervisorAncakNotifier extends ChangeNotifier {
   }
 
   showDialogQuestion(BuildContext context) {
-    _dialogService.showOptionDialog(title: "Simpan Supervisi Ancak",
+    _dialogService.showOptionDialog(
+        title: "Simpan Supervisi Ancak",
         subtitle: "Anda yakin ingin menyimpan?",
         buttonTextYes: "Iya",
         buttonTextNo: "Tidak",
@@ -207,17 +209,18 @@ class DetailSupervisorAncakNotifier extends ChangeNotifier {
   }
 
   countLoosesBuahTinggal(String janjangTinggal, String pokokPanen) {
-    if(janjangTinggal.isNotEmpty && pokokPanen.isNotEmpty) {
-      _ophSuperviseAncak?.bunchesTinggalPercentage = double.parse(janjangTinggal) / double.parse(pokokPanen);
+    if (janjangTinggal.isNotEmpty && pokokPanen.isNotEmpty) {
+      _ophSuperviseAncak?.bunchesTinggalPercentage =
+          double.parse(janjangTinggal) / double.parse(pokokPanen);
     }
     notifyListeners();
   }
 
   countLoosesBrondolan(String brondolanTinggal, String pokokPanen) {
-    if(brondolanTinggal.isNotEmpty && pokokPanen.isNotEmpty) {
-      _ophSuperviseAncak?.bunchesBrondolanTinggalPercentage = double.parse(brondolanTinggal) / double.parse(pokokPanen);
+    if (brondolanTinggal.isNotEmpty && pokokPanen.isNotEmpty) {
+      _ophSuperviseAncak?.bunchesBrondolanTinggalPercentage =
+          double.parse(brondolanTinggal) / double.parse(pokokPanen);
     }
     notifyListeners();
   }
-
 }

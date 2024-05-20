@@ -8,7 +8,8 @@ class SupervisorTBSLuarDetailPage extends StatefulWidget {
   final TBSLuar? tbsLuar;
   final String method;
 
-  const SupervisorTBSLuarDetailPage({Key? key, this.tbsLuar, required this.method})
+  const SupervisorTBSLuarDetailPage(
+      {Key? key, this.tbsLuar, required this.method})
       : super(key: key);
 
   @override
@@ -22,6 +23,7 @@ class _SupervisorTBSLuarDetailPageState
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
         create: (context) => SupervisorTBSLuarDetailNotifier(),
-        child: SupervisorTBSLuarDetailScreen(tbsLuar: widget.tbsLuar, method: widget.method));
+        child: SupervisorTBSLuarDetailScreen(
+            tbsLuar: widget.tbsLuar, method: widget.method));
   }
 }

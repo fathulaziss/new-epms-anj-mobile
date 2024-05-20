@@ -1,4 +1,3 @@
-
 import 'package:epms/screen/supervisor_form/supervisor_form_notifier.dart';
 import 'package:epms/screen/supervisor_form/supervisor_form_screen.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +16,8 @@ class _SupervisorFormPageState extends State<SupervisorFormPage> {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
         create: (context) => SupervisorFormNotifier(),
-        child: SupervisorFormScreen(form: widget.form,));
+        child: SupervisorFormScreen(
+          form: widget.form,
+        ));
   }
 }

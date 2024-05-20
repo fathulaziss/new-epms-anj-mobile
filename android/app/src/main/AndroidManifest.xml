@@ -11,7 +11,7 @@
     <uses-permission android:name="android.permission.NFC" />
 
     <application
-        android:label="ePMS"
+        android:label="ePMS Papua"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
         <activity

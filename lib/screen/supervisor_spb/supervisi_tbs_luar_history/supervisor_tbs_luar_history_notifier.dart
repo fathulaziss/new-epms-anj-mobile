@@ -7,7 +7,6 @@ import 'package:epms/model/tbs_luar.dart';
 import 'package:flutter/material.dart';
 
 class SupervisorTBSLuarHistoryNotifier extends ChangeNotifier {
-
   NavigatorService _navigationService = locator<NavigatorService>();
 
   NavigatorService get navigationService => _navigationService;
@@ -33,5 +32,4 @@ class SupervisorTBSLuarHistoryNotifier extends ChangeNotifier {
     _navigationService.push(Routes.TBS_LUAR_DETAIL_PAGE,
         arguments: {"tbs_luar": tbsLuar, "method": method});
   }
-
 }
