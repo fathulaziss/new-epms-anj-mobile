@@ -6,10 +6,10 @@ class APIConfiguration {
   IOClient? ioClient;
 
   APIConfiguration() {
-    HttpClient httpClient = new HttpClient()
+    HttpClient httpClient = HttpClient()
       ..badCertificateCallback =
           ((X509Certificate cert, String host, int port) => true);
-    this.ioClient = new IOClient(httpClient);
+    ioClient = IOClient(httpClient);
   }
 
   Map<String, String> getDefaultHeader() {

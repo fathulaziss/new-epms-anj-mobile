@@ -56,24 +56,24 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       );
     case Routes.LOGIN_PAGE:
       return MaterialPageRoute(
-        builder: (context) => LoginPage(),
+        builder: (context) => const LoginPage(),
       );
 
     case Routes.HOME_PAGE:
       // int current = settings.arguments as int;
       return MaterialPageRoute(
-        builder: (context) => HomePage(),
+        builder: (context) => const HomePage(),
       );
     case Routes.HOME_INSPECTION_PAGE:
       // int current = settings.arguments as int;
       return MaterialPageRoute(
-        builder: (context) => HomeInspectionPage(),
+        builder: (context) => const HomeInspectionPage(),
       );
 
     case Routes.CONFIGURATION_PAGE:
       // int current = settings.arguments as int;
       return MaterialPageRoute(
-        builder: (context) => ConfigurationPage(),
+        builder: (context) => const ConfigurationPage(),
       );
     //
     case Routes.SUPERVISOR_FORM_PAGE:
@@ -85,19 +85,19 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case Routes.ATTENDANCE_PAGE:
       // int current = settings.arguments as int;
       return MaterialPageRoute(
-        builder: (context) => AttendancePage(),
+        builder: (context) => const AttendancePage(),
       );
 
     case Routes.SYNCH_PAGE:
       // int current = settings.arguments as int;
       return MaterialPageRoute(
-        builder: (context) => SynchPage(),
+        builder: (context) => const SynchPage(),
       );
 
     case Routes.OPH_FORM_PAGE:
       // int current = settings.arguments as int;
       return MaterialPageRoute(
-        builder: (context) => FormOPHPage(),
+        builder: (context) => const FormOPHPage(),
       );
 
     case Routes.OPH_HISTORY_PAGE:
@@ -119,7 +119,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case Routes.PANEN_KEMARIN:
       // final arguments = (settings.arguments  ?? <String, dynamic>{}) as Map;
       return MaterialPageRoute(
-        builder: (context) => HarvestReportYesterdayPage(),
+        builder: (context) => const HarvestReportYesterdayPage(),
       );
 
     case Routes.RESTAN_REPORT:
@@ -130,17 +130,17 @@ Route<dynamic> generateRoute(RouteSettings settings) {
 
     case Routes.ADMIN_OPH:
       return MaterialPageRoute(
-        builder: (context) => AdministrationOPHScreen(),
+        builder: (context) => const AdministrationOPHScreen(),
       );
 
     case Routes.HARVEST_PLAN:
       return MaterialPageRoute(
-        builder: (context) => HarvestPlanPage(),
+        builder: (context) => const HarvestPlanPage(),
       );
 
     case Routes.BAGI_OPH:
       return MaterialPageRoute(
-        builder: (context) => BagiOPHPage(),
+        builder: (context) => const BagiOPHPage(),
       );
 
     case Routes.RESTAN_DETAIL:
@@ -159,12 +159,12 @@ Route<dynamic> generateRoute(RouteSettings settings) {
 
     case Routes.REPORT_SPB_KEMARIN:
       return MaterialPageRoute(
-        builder: (context) => LaporanSPBKemarinPage(),
+        builder: (context) => const LaporanSPBKemarinPage(),
       );
 
     case Routes.SPB_FORM_PAGE:
       return MaterialPageRoute(
-        builder: (context) => FormSPBPage(),
+        builder: (context) => const FormSPBPage(),
       );
 
     case Routes.SPB_HISTORY_PAGE:
@@ -175,7 +175,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
 
     case Routes.ADMIN_SPB:
       return MaterialPageRoute(
-        builder: (context) => AdministrationSPBScreen(),
+        builder: (context) => const AdministrationSPBScreen(),
       );
 
     case Routes.SPB_DETAIL_PAGE:
@@ -196,17 +196,17 @@ Route<dynamic> generateRoute(RouteSettings settings) {
 
     case Routes.SPB_SUPERVISI_FORM_PAGE:
       return MaterialPageRoute(
-        builder: (context) => SupervisorSPBFormPage(),
+        builder: (context) => const SupervisorSPBFormPage(),
       );
 
     case Routes.SPB_SUPERVISI_HISTORY_PAGE:
       return MaterialPageRoute(
-        builder: (context) => SupervisorSPBHistoryPage(),
+        builder: (context) => const SupervisorSPBHistoryPage(),
       );
 
     case Routes.TBS_LUAR_HISTORY_PAGE:
       return MaterialPageRoute(
-        builder: (context) => SupervisorTBSLuarHistoryPage(),
+        builder: (context) => const SupervisorTBSLuarHistoryPage(),
       );
 
     case Routes.SPB_SUPERVISI_DETAIL_PAGE:
@@ -217,31 +217,31 @@ Route<dynamic> generateRoute(RouteSettings settings) {
 
     case Routes.WORK_PLAN:
       return MaterialPageRoute(
-        builder: (context) => WorkPlanPage(),
+        builder: (context) => const WorkPlanPage(),
       );
 
     case Routes.OPH_SUPERVISI_HISTORY_PAGE:
       return MaterialPageRoute(
-        builder: (context) => HistorySuperviseHarvestPage(),
+        builder: (context) => const HistorySuperviseHarvestPage(),
       );
 
     case Routes.OPH_SUPERVISI_ANCAK_HISTORY_PAGE:
       return MaterialPageRoute(
-        builder: (context) => HistorySuperviseAncakPage(),
+        builder: (context) => const HistorySuperviseAncakPage(),
       );
 
     case Routes.OPH_SUPERVISI_FORM_PAGE:
       return MaterialPageRoute(
-        builder: (context) => SupervisorHarvestFormPage(),
+        builder: (context) => const SupervisorHarvestFormPage(),
       );
 
     case Routes.OPH_SUPERVISI_ANCAK_FORM_PAGE:
       return MaterialPageRoute(
-        builder: (context) => SupervisorAncakHarvestFormPage(),
+        builder: (context) => const SupervisorAncakHarvestFormPage(),
       );
     case Routes.TBS_LUAR_FORM_PAGE:
       return MaterialPageRoute(
-        builder: (context) => SupervisorTBSLuarFormPage(),
+        builder: (context) => const SupervisorTBSLuarFormPage(),
       );
 
     case Routes.TBS_LUAR_DETAIL_PAGE:
@@ -260,7 +260,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       );
     case Routes.INSPECTION_FORM:
       return MaterialPageRoute(
-        builder: (context) => InspectionFormView(),
+        builder: (context) => const InspectionFormView(),
       );
     case Routes.INSPECTION_LIST:
       final arguments = settings.arguments != null
@@ -308,7 +308,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       );
     default:
       return MaterialPageRoute(
-        builder: (context) => Scaffold(
+        builder: (context) => const Scaffold(
           body: Center(
             child: Text('Route not defined'),
           ),

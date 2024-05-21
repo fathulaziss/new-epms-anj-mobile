@@ -5,14 +5,14 @@ class FlushBarManager {
   static showFlushBarSuccess(
       BuildContext context, String title, String message) {
     Flushbar(
-      message: "$message",
-      title: "$title",
-      icon: Padding(
-        padding: const EdgeInsets.all(8.0),
+      message: message,
+      title: title,
+      icon: const Padding(
+        padding: EdgeInsets.all(8.0),
         child: Icon(Icons.check_circle),
       ),
       flushbarStyle: FlushbarStyle.GROUNDED,
-      duration: Duration(seconds: 2),
+      duration: const Duration(seconds: 2),
       flushbarPosition: FlushbarPosition.TOP,
       backgroundColor: Colors.green,
     ).show(context);
@@ -20,11 +20,11 @@ class FlushBarManager {
 
   static showFlushBarError(BuildContext context, String title, String message) {
     Flushbar(
-      message: "$message",
-      title: "$title",
-      icon: Icon(Icons.block),
+      message: message,
+      title: title,
+      icon: const Icon(Icons.block),
       flushbarStyle: FlushbarStyle.GROUNDED,
-      duration: Duration(seconds: 2),
+      duration: const Duration(seconds: 2),
       flushbarPosition: FlushbarPosition.TOP,
       backgroundColor: Colors.red,
     ).show(context);
@@ -33,12 +33,12 @@ class FlushBarManager {
   static showFlushBarWarning(
       BuildContext context, String title, String message) {
     Flushbar(
-      message: "$message",
-      title: "$title",
-      icon: Icon(Icons.warning_rounded),
+      message: message,
+      title: title,
+      icon: const Icon(Icons.warning_rounded),
       flushbarStyle: FlushbarStyle.GROUNDED,
       messageColor: Colors.black,
-      duration: Duration(seconds: 2),
+      duration: const Duration(seconds: 2),
       flushbarPosition: FlushbarPosition.TOP,
       backgroundColor: Colors.amber,
     ).show(context);

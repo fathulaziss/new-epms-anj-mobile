@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 class Routes {
   static const ROOT = "/splash";
   static const LOGIN_PAGE = "/login";

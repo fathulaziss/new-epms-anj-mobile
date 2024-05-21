@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'dart:math';
 import 'dart:typed_data';
 
@@ -31,30 +33,8 @@ class ValueService {
   }
 
   static String ophCardTag(OPH oph) {
-    var ophTag = "O${oph.ophCardId}," +
-        "${oph.ophId}," +
-        "${oph.ophHarvestingMethod}," +
-        "${oph.ophHarvestingType}," +
-        "${oph.mandorEmployeeCode}," +
-        "${oph.employeeCode}," +
-        "${oph.mandor1EmployeeCode}," +
-        "${oph.ophEstateCode}," +
-        "${oph.ophDivisionCode}," +
-        "${oph.ophBlockCode}," +
-        "${oph.ophTphCode}," +
-        "${oph.bunchesRipe}," +
-        "${oph.bunchesOverripe}," +
-        "${oph.bunchesHalfripe}," +
-        "${oph.bunchesUnripe}," +
-        "${oph.bunchesAbnormal}," +
-        "${oph.bunchesEmpty}," +
-        "${oph.looseFruits}," +
-        "${oph.bunchesTotal}," +
-        "${oph.bunchesNotSent}," +
-        "${oph.isRestantPermanent}," +
-        "${oph.createdDate}," +
-        "${oph.createdTime}," +
-        "${oph.ophEstimateTonnage}";
+    var ophTag =
+        "O${oph.ophCardId},${oph.ophId},${oph.ophHarvestingMethod},${oph.ophHarvestingType},${oph.mandorEmployeeCode},${oph.employeeCode},${oph.mandor1EmployeeCode},${oph.ophEstateCode},${oph.ophDivisionCode},${oph.ophBlockCode},${oph.ophTphCode},${oph.bunchesRipe},${oph.bunchesOverripe},${oph.bunchesHalfripe},${oph.bunchesUnripe},${oph.bunchesAbnormal},${oph.bunchesEmpty},${oph.looseFruits},${oph.bunchesTotal},${oph.bunchesNotSent},${oph.isRestantPermanent},${oph.createdDate},${oph.createdTime},${oph.ophEstimateTonnage}";
     return ophTag;
   }
 
@@ -243,7 +223,7 @@ class ValueService {
         fghInti = objInti.indexWhere(
             (asd) => (asd.ophBlockCode == listSPBDetailInti[i].ophBlockCode!));
         if (fghInti == -1) {
-          SPBDetCombine ob = new SPBDetCombine();
+          SPBDetCombine ob = SPBDetCombine();
           ob.tbsType = plasmaValidator(listSPBDetailInti[i].ophEstateCode!);
           ob.ophEstateCode = listSPBDetailInti[i].ophEstateCode!;
           ob.ophBlockCode = listSPBDetailInti[i].ophBlockCode!;
@@ -265,10 +245,10 @@ class ValueService {
           //blockFormat.add(list[i].ophBlockCode!.toString() + list[i].ophBunchesDelivered!.toString()+list[i].ophLooseFruitDelivered.toString());
         }
       }
-      objInti.forEach((element) {
+      for (var element in objInti) {
         blockFormatInti.add(
             "${element.ophBlockCode},${element.ophBunchesDelivered},${element.ophLooseFruitDelivered}");
-      });
+      }
 
       int fghPlasma = 0;
       int tempPlasma = 0;
@@ -278,7 +258,7 @@ class ValueService {
         fghPlasma = objPlasma.indexWhere((asd) =>
             (asd.ophBlockCode == listSPBDetailPlasma[i].ophBlockCode!));
         if (fghPlasma == -1) {
-          SPBDetCombine ob = new SPBDetCombine();
+          SPBDetCombine ob = SPBDetCombine();
           ob.tbsType = plasmaValidator(listSPBDetailPlasma[i].ophEstateCode!);
           ob.ophEstateCode = listSPBDetailPlasma[i].ophEstateCode!;
           ob.ophBlockCode = listSPBDetailPlasma[i].ophBlockCode!;
@@ -301,10 +281,10 @@ class ValueService {
           //blockFormat.add(list[i].ophBlockCode!.toString() + list[i].ophBunchesDelivered!.toString()+list[i].ophLooseFruitDelivered.toString());
         }
       }
-      objPlasma.forEach((element) {
+      for (var element in objPlasma) {
         blockFormatPlasma.add(
             "${element.ophBlockCode},${element.ophBunchesDelivered},${element.ophLooseFruitDelivered}");
-      });
+      }
     } else {
       int fgh = 0;
       int temp = 0;
@@ -314,7 +294,7 @@ class ValueService {
         fgh = obj
             .indexWhere((asd) => (asd.ophBlockCode == list[i].ophBlockCode!));
         if (fgh == -1) {
-          SPBDetCombine ob = new SPBDetCombine();
+          SPBDetCombine ob = SPBDetCombine();
           ob.tbsType = plasmaValidator(list[i].ophEstateCode!);
           ob.ophEstateCode = list[i].ophEstateCode!;
           ob.ophBlockCode = list[i].ophBlockCode!;
@@ -335,10 +315,10 @@ class ValueService {
           //blockFormat.add(list[i].ophBlockCode!.toString() + list[i].ophBunchesDelivered!.toString()+list[i].ophLooseFruitDelivered.toString());
         }
       }
-      obj.forEach((element) {
+      for (var element in obj) {
         blockFormatIntiOrPlasma.add(
             "${element.ophBlockCode},${element.ophBunchesDelivered},${element.ophLooseFruitDelivered}");
-      });
+      }
     }
 
     String spbTag = "";
@@ -394,52 +374,14 @@ class ValueService {
       // spbTag = spbTagCampuran;
       String blockListInti = blockFormatInti.join("#");
       String blockListPlasma = blockFormatPlasma.join("#");
-      var spbTagCampuranNew = "S${spb.spbCardId}," +
-          "${spb.spbId}," +
-          "${spb.spbType}," +
-          "${spb.spbKeraniTransportEmployeeCode}," +
-          "${spb.spbDriverEmployeeCode}," +
-          "${spb.spbDeliverToCode}," +
-          "${spb.spbDeliverToName}," +
-          "${spb.spbLicenseNumber}," +
-          "$mostEstateCodePlasma," +
-          "$mostDivisionCodePlasma," +
-          "${spb.spbTotalOph}," +
-          "${spb.spbTotalBunches}," +
-          "${spb.spbTotalLooseFruit}," +
-          "${spb.spbEstimateTonnage}," +
-          "${spb.createdDate}," +
-          "${spb.createdTime}," +
-          "${mEstateSchemaPlasma?.estateVendorCode}," +
-          "$typeTBS," +
-          "${mEstateSchemaPlasma?.estateVendorCode!.substring(4)}[$blockListPlasma]," +
-          "${mEstateSchemaInti?.estateVendorCode}," +
-          "$mostDivisionCodeInti," +
-          "${mEstateSchemaInti?.estateVendorCode!.substring(4)}[$blockListInti]";
+      var spbTagCampuranNew =
+          "S${spb.spbCardId},${spb.spbId},${spb.spbType},${spb.spbKeraniTransportEmployeeCode},${spb.spbDriverEmployeeCode},${spb.spbDeliverToCode},${spb.spbDeliverToName},${spb.spbLicenseNumber},$mostEstateCodePlasma,$mostDivisionCodePlasma,${spb.spbTotalOph},${spb.spbTotalBunches},${spb.spbTotalLooseFruit},${spb.spbEstimateTonnage},${spb.createdDate},${spb.createdTime},${mEstateSchemaPlasma?.estateVendorCode},$typeTBS,${mEstateSchemaPlasma?.estateVendorCode!.substring(4)}[$blockListPlasma],${mEstateSchemaInti?.estateVendorCode},$mostDivisionCodeInti,${mEstateSchemaInti?.estateVendorCode!.substring(4)}[$blockListInti]";
       spbTag = spbTagCampuranNew;
     } else {
       int isPlasma = plasmaValidator(spb.spbEstateCode!);
       String blockList = blockFormatIntiOrPlasma.join("#");
-      var spbTagIntiOrPlasma = "S${spb.spbCardId}," +
-          "${spb.spbId}," +
-          "${spb.spbType}," +
-          "${spb.spbKeraniTransportEmployeeCode}," +
-          "${spb.spbDriverEmployeeCode}," +
-          "${spb.spbDeliverToCode}," +
-          "${spb.spbDeliverToName}," +
-          "${spb.spbLicenseNumber}," +
-          "${spb.spbEstateCode}," +
-          "${spb.spbDivisionCode}," +
-          "${spb.spbTotalOph}," +
-          "${spb.spbTotalBunches}," +
-          "${spb.spbTotalLooseFruit}," +
-          "${spb.spbEstimateTonnage}," +
-          "${spb.createdDate}," +
-          "${spb.createdTime}," +
-          "${spb.spbEstateVendorCode}," +
-          "$isPlasma," +
-          "${spb.spbEstateVendorCode!.substring(4)}"
-              "[$blockList]";
+      var spbTagIntiOrPlasma =
+          "S${spb.spbCardId},${spb.spbId},${spb.spbType},${spb.spbKeraniTransportEmployeeCode},${spb.spbDriverEmployeeCode},${spb.spbDeliverToCode},${spb.spbDeliverToName},${spb.spbLicenseNumber},${spb.spbEstateCode},${spb.spbDivisionCode},${spb.spbTotalOph},${spb.spbTotalBunches},${spb.spbTotalLooseFruit},${spb.spbEstimateTonnage},${spb.createdDate},${spb.createdTime},${spb.spbEstateVendorCode},$isPlasma,${spb.spbEstateVendorCode!.substring(4)}[$blockList]";
       spbTag = spbTagIntiOrPlasma;
     }
 
@@ -447,33 +389,8 @@ class ValueService {
   }
 
   static String tbsLuarTag(TBSLuar tbsLuar) {
-    var tbsLuarTag = "${tbsLuar.spdID}," +
-        "${tbsLuar.formType}," +
-        "${tbsLuar.bunchesUnripe}," +
-        "${tbsLuar.bunchesHalfripe}," +
-        "${tbsLuar.bunchesOverripe}," +
-        "${tbsLuar.bunchesRotten}," +
-        "${tbsLuar.bunchesAbnormal}," +
-        "${tbsLuar.bunchesEmpty}," +
-        "${tbsLuar.rubbish}," +
-        "${tbsLuar.water}," +
-        "${tbsLuar.longStalk}," +
-        "${tbsLuar.brondolanRotten}," +
-        "${tbsLuar.bunchesLess4Kg}," +
-        "${tbsLuar.bunchesCengkeh}," +
-        "${tbsLuar.bunchesTotal}," +
-        "${tbsLuar.deduction}," +
-        "${tbsLuar.small}," +
-        "${tbsLuar.sortasiID}," +
-        "${tbsLuar.createdDate}," +
-        "${tbsLuar.createdTime}," +
-        "${tbsLuar.gpsLat}," +
-        "${tbsLuar.gpsLong}," +
-        "${tbsLuar.supplierCode}," +
-        "${tbsLuar.contractNumber}," +
-        "${tbsLuar.driverName}," +
-        "${tbsLuar.licenseNumber}," +
-        "${tbsLuar.notes}";
+    var tbsLuarTag =
+        "${tbsLuar.spdID},${tbsLuar.formType},${tbsLuar.bunchesUnripe},${tbsLuar.bunchesHalfripe},${tbsLuar.bunchesOverripe},${tbsLuar.bunchesRotten},${tbsLuar.bunchesAbnormal},${tbsLuar.bunchesEmpty},${tbsLuar.rubbish},${tbsLuar.water},${tbsLuar.longStalk},${tbsLuar.brondolanRotten},${tbsLuar.bunchesLess4Kg},${tbsLuar.bunchesCengkeh},${tbsLuar.bunchesTotal},${tbsLuar.deduction},${tbsLuar.small},${tbsLuar.sortasiID},${tbsLuar.createdDate},${tbsLuar.createdTime},${tbsLuar.gpsLat},${tbsLuar.gpsLong},${tbsLuar.supplierCode},${tbsLuar.contractNumber},${tbsLuar.driverName},${tbsLuar.licenseNumber},${tbsLuar.notes}";
     return tbsLuarTag;
   }
 
@@ -600,13 +517,8 @@ class ValueService {
   static List<String> generateIDImageFromDateTime(DateTime now) {
     List<String> list = [];
     for (int i = 0; i < 11; i++) {
-      String iDTime = now.year.toString() +
-          DateFormat('MM').format(now) +
-          DateFormat('dd').format(now) +
-          "_" +
-          DateFormat('HH').format(now) +
-          DateFormat('mm').format(now) +
-          "${(int.parse(DateFormat('ss').format(now)) - i)}";
+      String iDTime =
+          "${now.year}${DateFormat('MM').format(now)}${DateFormat('dd').format(now)}_${DateFormat('HH').format(now)}${DateFormat('mm').format(now)}${(int.parse(DateFormat('ss').format(now)) - i)}";
       list.add(iDTime);
     }
     return list;
@@ -627,25 +539,25 @@ class ValueService {
   }
 
   static Widget getMenuFromRoles(String roles) {
-    Widget widget = KeraniPanenScreen();
+    Widget widget = const KeraniPanenScreen();
     switch (roles) {
       case "BC":
-        widget = KeraniPanenScreen();
+        widget = const KeraniPanenScreen();
         break;
       case "TP":
-        widget = KeraniKirimScreen();
+        widget = const KeraniKirimScreen();
         break;
       case "KR":
-        widget = KeraniScreen();
+        widget = const KeraniScreen();
         break;
       case "Supervisi":
-        widget = SupervisorScreen();
+        widget = const SupervisorScreen();
         break;
       case "Supervisi_Estate_Manager":
-        widget = SupervisorScreen();
+        widget = const SupervisorScreen();
         break;
       case "Supervisi_spb":
-        widget = SupervisorSPBScreen();
+        widget = const SupervisorSPBScreen();
     }
     return widget;
   }

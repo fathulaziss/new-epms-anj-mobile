@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 class ImageAssets {
   static const String ANJ_LOGO = "assets/anj-new-logo.png";
   static const String TAP_GIF = "assets/tempel-kartu.gif";

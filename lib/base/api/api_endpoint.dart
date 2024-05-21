@@ -6,5 +6,6 @@ class APIEndPoint {
   static const LOGOUT_ENDPOINT = "/auth/logout";
   static const SYNCH_ENDPOINT = "/auth/synch";
   static const BASE_URL = "https://epms-dev.anj-group.co.id/api/index.php/v1_1";
-  static const BASE_URL_PROD = "https://epms.anj-group.co.id/api/index.php/v1_1";
+  static const BASE_URL_PROD =
+      "https://epms.anj-group.co.id/api/index.php/v1_1";
 }

@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:epms/screen/camera/camera_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:image/image.dart' as Image;
+import 'package:image/image.dart' as img;
 import 'package:image/image.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
@@ -10,7 +10,7 @@ import 'package:path_provider/path_provider.dart';
 class CameraService {
   static Future<String?> getImageByCamera(BuildContext context) async {
     File? xFile = await Navigator.push(
-        context, MaterialPageRoute(builder: (context) => CameraScreen()));
+        context, MaterialPageRoute(builder: (context) => const CameraScreen()));
     if (xFile != null) {
       return xFile.path.toString();
     }
@@ -44,14 +44,14 @@ class CameraService {
   }) async {
     String? imagePath;
     if (imageSource == ImageSource.gallery) {
-      final ImagePicker _picker = ImagePicker();
+      final ImagePicker picker = ImagePicker();
       final XFile? pickedImage =
-          await _picker.pickImage(source: ImageSource.gallery);
+          await picker.pickImage(source: ImageSource.gallery);
 
       if (pickedImage != null) {
         File fileTemp = File(pickedImage.path);
-        Image.Image? image = decodeImage(fileTemp.readAsBytesSync());
-        Image.Image? resizedImage = copyResize(image!, width: 600, height: 800);
+        img.Image? image = decodeImage(fileTemp.readAsBytesSync());
+        img.Image? resizedImage = copyResize(image!, width: 600, height: 800);
         Directory tempDir = await getTemporaryDirectory();
         File fileResult = File('${tempDir.path}/${pickedImage.name}')
           ..writeAsBytesSync(encodeJpg(resizedImage, quality: 70));
@@ -60,8 +60,8 @@ class CameraService {
       }
       return imagePath;
     } else {
-      File? xFile = await Navigator.push(
-          context, MaterialPageRoute(builder: (context) => CameraScreen()));
+      File? xFile = await Navigator.push(context,
+          MaterialPageRoute(builder: (context) => const CameraScreen()));
       if (xFile != null) {
         imagePath = xFile.path.toString();
       }
