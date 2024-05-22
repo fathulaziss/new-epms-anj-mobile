@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class DetailSupervisorAncakFormFruit extends StatefulWidget {
-  const DetailSupervisorAncakFormFruit({Key? key}) : super(key: key);
+  const DetailSupervisorAncakFormFruit({super.key});
 
   @override
   State<DetailSupervisorAncakFormFruit> createState() =>
@@ -25,9 +25,9 @@ class _DetailSupervisorAncakFormFruitState
               Table(
                   defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                   children: <TableRow>[
-                    TableRow(
+                    const TableRow(
                       children: <Widget>[
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -35,7 +35,7 @@ class _DetailSupervisorAncakFormFruitState
                             SizedBox(height: 20),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -43,7 +43,7 @@ class _DetailSupervisorAncakFormFruitState
                             SizedBox(height: 20),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -55,15 +55,15 @@ class _DetailSupervisorAncakFormFruitState
                     ),
                     TableRow(
                       children: <Widget>[
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Text(
-                            "${notifier.ophSuperviseAncak?.pokokSample ?? "0"}",
+                            notifier.ophSuperviseAncak?.pokokSample ?? "0",
                             style: Style.textBold20,
                             textAlign: TextAlign.center,
                           ),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Text(
                             "${notifier.ophSuperviseAncak?.bunchesTotal}",
@@ -71,7 +71,7 @@ class _DetailSupervisorAncakFormFruitState
                             textAlign: TextAlign.center,
                           ),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Text(
                             "${notifier.ophSuperviseAncak?.looseFruits}",
@@ -90,9 +90,9 @@ class _DetailSupervisorAncakFormFruitState
                         height: 80,
                       )
                     ]),
-                    TableRow(
+                    const TableRow(
                       children: <Widget>[
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -100,7 +100,7 @@ class _DetailSupervisorAncakFormFruitState
                             SizedBox(height: 20),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -108,7 +108,7 @@ class _DetailSupervisorAncakFormFruitState
                             SizedBox(height: 20),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -120,7 +120,7 @@ class _DetailSupervisorAncakFormFruitState
                     ),
                     TableRow(
                       children: <Widget>[
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Text(
                             "${notifier.ophSuperviseAncak?.bunchesRat}",
@@ -128,7 +128,7 @@ class _DetailSupervisorAncakFormFruitState
                             textAlign: TextAlign.center,
                           ),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Text(
                             "${notifier.ophSuperviseAncak?.bunchesVCut}",
@@ -136,7 +136,7 @@ class _DetailSupervisorAncakFormFruitState
                             textAlign: TextAlign.center,
                           ),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Text(
                             "${notifier.ophSuperviseAncak?.bunchesTangkaiPanjang}",
@@ -146,36 +146,45 @@ class _DetailSupervisorAncakFormFruitState
                         ),
                       ],
                     ),
-                    TableRow(
+                    const TableRow(
                       children: <Widget>[
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
-                            Text("Pelepah Sengkleh", textAlign: TextAlign.center,),
+                            Text(
+                              "Pelepah Sengkleh",
+                              textAlign: TextAlign.center,
+                            ),
                             SizedBox(height: 20),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
-                            Text("Janjang Tinggal", textAlign: TextAlign.center,),
+                            Text(
+                              "Janjang Tinggal",
+                              textAlign: TextAlign.center,
+                            ),
                             SizedBox(height: 20),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
-                            Text("Brondolan Tinggal", textAlign: TextAlign.center,),
+                            Text(
+                              "Brondolan Tinggal",
+                              textAlign: TextAlign.center,
+                            ),
                             SizedBox(height: 20),
                           ]),
                         ),
                       ],
                     ),
                     TableRow(children: <Widget>[
-                      Container(
+                      SizedBox(
                         width: 110,
                         child: Text(
                           "${notifier.ophSuperviseAncak?.pelepahSengkleh}",
@@ -183,7 +192,7 @@ class _DetailSupervisorAncakFormFruitState
                           textAlign: TextAlign.center,
                         ),
                       ),
-                      Container(
+                      SizedBox(
                         width: 110,
                         child: Text(
                           "${notifier.ophSuperviseAncak?.bunchesTinggal}",
@@ -191,7 +200,7 @@ class _DetailSupervisorAncakFormFruitState
                           textAlign: TextAlign.center,
                         ),
                       ),
-                      Container(
+                      SizedBox(
                         width: 110,
                         child: Text(
                           "${notifier.ophSuperviseAncak?.bunchesBrondolanTinggal}",
@@ -201,10 +210,10 @@ class _DetailSupervisorAncakFormFruitState
                       ),
                     ]),
                   ]),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               Column(
                 children: [
-                  Text("Catatan"),
+                  const Text("Catatan"),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(

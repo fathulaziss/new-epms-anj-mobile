@@ -45,10 +45,10 @@ class DatabaseMDivisionSchema {
     // }
     // return count;
     Batch batch = db.batch();
-    object.forEach((val) {
-      MDivisionSchema mDivisionSchema =  val;
+    for (var val in object) {
+      MDivisionSchema mDivisionSchema = val;
       batch.insert(mDivisionSchemaTable, mDivisionSchema.toJson());
-    });
+    }
     List<Object?> i = await batch.commit();
     return i.length;
   }
@@ -64,7 +64,8 @@ class DatabaseMDivisionSchema {
     return list;
   }
 
-  Future<List<MDivisionSchema>> selectMDivisionSchemaByEstate(String estateCode) async {
+  Future<List<MDivisionSchema>> selectMDivisionSchemaByEstate(
+      String estateCode) async {
     Database db = await DatabaseHelper().database;
     var mapList = await db.query(mDivisionSchemaTable,
         where: "${MDivisionEntity.divisionEstateCode}=?",

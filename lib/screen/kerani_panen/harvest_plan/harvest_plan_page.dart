@@ -5,16 +5,18 @@ import 'harvest_plan_notifier.dart';
 import 'harvest_plan_screen.dart';
 
 class HarvestPlanPage extends StatefulWidget {
-  const HarvestPlanPage({Key? key}) : super(key: key);
+  const HarvestPlanPage({super.key});
 
   @override
-  _HarvestPlanPageState createState() => _HarvestPlanPageState();
+  State<HarvestPlanPage> createState() => _HarvestPlanPageState();
 }
 
 class _HarvestPlanPageState extends State<HarvestPlanPage> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-        create: (context) => HarvestPlanNotifier(), child: HarvestPlanScreen());
+      create: (context) => HarvestPlanNotifier(),
+      child: const HarvestPlanScreen(),
+    );
   }
 }

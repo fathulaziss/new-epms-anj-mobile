@@ -46,16 +46,18 @@ class DatabaseTWorkplanSchema {
     int countMaterial = 0;
     List<TWorkplanSchema> listWorkPlan = await selectTWorkPlan();
     for (int i = 0; i < object.length; i++) {
-     if(!(listWorkPlan.contains(object[i]))) {
-       TWorkplanSchema tWorkPlanSchema =  TWorkplanSchema();
-       List<Materials> listMaterial = object[i].materials ?? [];
-       tWorkPlanSchema = object[i];
-       tWorkPlanSchema.materials = null;
-       int saved = await db.insert(tWorkPlanSchemaTable, tWorkPlanSchema.toJson());
-       int savedMaterial = await DatabaseMaterial().insertMaterial(listMaterial);
-       count = count + saved;
-       countMaterial = countMaterial + savedMaterial;
-     }
+      if (!(listWorkPlan.contains(object[i]))) {
+        TWorkplanSchema tWorkPlanSchema = TWorkplanSchema();
+        List<Materials> listMaterial = object[i].materials ?? [];
+        tWorkPlanSchema = object[i];
+        tWorkPlanSchema.materials = null;
+        int saved =
+            await db.insert(tWorkPlanSchemaTable, tWorkPlanSchema.toJson());
+        int savedMaterial =
+            await DatabaseMaterial().insertMaterial(listMaterial);
+        count = count + saved;
+        countMaterial = countMaterial + savedMaterial;
+      }
     }
     return count;
   }
@@ -66,7 +68,8 @@ class DatabaseTWorkplanSchema {
     List<TWorkplanSchema> list = [];
     for (int i = 0; i < mapList.length; i++) {
       TWorkplanSchema tWorkplanSchema = TWorkplanSchema.fromJson(mapList[i]);
-      List<Materials> listMaterial = await DatabaseMaterial().selectMaterialByWorkPlan(tWorkplanSchema);
+      List<Materials> listMaterial =
+          await DatabaseMaterial().selectMaterialByWorkPlan(tWorkplanSchema);
       tWorkplanSchema.materials = listMaterial;
       list.add(tWorkplanSchema);
     }

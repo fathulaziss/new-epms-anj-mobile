@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
@@ -33,33 +35,33 @@ import 'package:open_settings/open_settings.dart';
 import 'package:provider/provider.dart';
 
 class SupervisorNotifier extends ChangeNotifier {
-  NavigatorService _navigationService = locator<NavigatorService>();
+  final NavigatorService _navigationService = locator<NavigatorService>();
 
   NavigatorService get navigationService => _navigationService;
 
-  DialogService _dialogService = locator<DialogService>();
+  final DialogService _dialogService = locator<DialogService>();
 
   DialogService get dialogService => _dialogService;
 
   doUpload() async {
     _dialogService.popDialog();
-    List<OPHSupervise> _listOPHSupervise =
+    List<OPHSupervise> listOPHSupervise =
         await DatabaseOPHSupervise().selectOPHSupervise();
-    List<OPHSuperviseAncak> _listOPHAncak =
+    List<OPHSuperviseAncak> listOPHAncak =
         await DatabaseOPHSuperviseAncak().selectOPHSuperviseAncak();
 
     List<String> mapListOPHSupervise = [];
     List<String> mapListOPHAncak = [];
 
-    if (_listOPHSupervise.isNotEmpty) {
-      for (int i = 0; i < _listOPHSupervise.length; i++) {
-        String jsonString = jsonEncode(_listOPHSupervise[i]);
+    if (listOPHSupervise.isNotEmpty) {
+      for (int i = 0; i < listOPHSupervise.length; i++) {
+        String jsonString = jsonEncode(listOPHSupervise[i]);
         mapListOPHSupervise.add("\"$i\":$jsonString");
       }
     }
-    if (_listOPHAncak.isNotEmpty) {
-      for (int i = 0; i < _listOPHAncak.length; i++) {
-        String jsonString = jsonEncode(_listOPHAncak[i]);
+    if (listOPHAncak.isNotEmpty) {
+      for (int i = 0; i < listOPHAncak.length; i++) {
+        String jsonString = jsonEncode(listOPHAncak[i]);
         mapListOPHAncak.add("\"$i\":$jsonString");
       }
     }
@@ -379,7 +381,7 @@ class SupervisorNotifier extends ChangeNotifier {
     File? fileExport = await FileManagerJson().writeFileJsonSupervisi();
     if (fileExport != null) {
       FlushBarManager.showFlushBarSuccess(
-          context, "Export Json Berhasil", "${fileExport.path}");
+          context, "Export Json Berhasil", fileExport.path);
     } else {
       FlushBarManager.showFlushBarWarning(
           context, "Export Json", "Belum ada Transaksi Supervisi");

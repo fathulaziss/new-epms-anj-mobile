@@ -71,8 +71,8 @@ class NavigatorService {
           builder: (context) => MediaQuery(
             data: Style.mediaQueryText(context),
             child: AlertDialog(
-                title: Text('Keluar Form'),
-                content: Text(
+                title: const Text('Keluar Form'),
+                content: const Text(
                   'Anda belum menyimpan data, \nApakah Anda ingin keluar dari form ?',
                   textAlign: TextAlign.center,
                 ),
@@ -80,53 +80,49 @@ class NavigatorService {
                   Row(
                     children: [
                       Flexible(
-                        child: Container(
-                          child: InkWell(
-                            onTap: () {
-                              Navigator.of(context).pop(true);
-                            },
-                            child: Card(
-                              color: Palette.primaryColorProd,
-                              elevation: 2,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10.0),
-                              ),
-                              child: Container(
-                                alignment: Alignment.center,
-                                padding: EdgeInsets.all(14),
-                                child: Text("Ya",
-                                    style: TextStyle(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white),
-                                    textAlign: TextAlign.center),
-                              ),
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.of(context).pop(true);
+                          },
+                          child: Card(
+                            color: Palette.primaryColorProd,
+                            elevation: 2,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            child: Container(
+                              alignment: Alignment.center,
+                              padding: const EdgeInsets.all(14),
+                              child: const Text("Ya",
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white),
+                                  textAlign: TextAlign.center),
                             ),
                           ),
                         ),
                       ),
                       Flexible(
-                        child: Container(
-                          child: InkWell(
-                            onTap: () {
-                              Navigator.of(context).pop(false);
-                            },
-                            child: Card(
-                              color: Palette.redColorLight,
-                              elevation: 2,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10.0),
-                              ),
-                              child: Container(
-                                alignment: Alignment.center,
-                                padding: EdgeInsets.all(14),
-                                child: Text("Tidak",
-                                    style: TextStyle(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white),
-                                    textAlign: TextAlign.center),
-                              ),
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.of(context).pop(false);
+                          },
+                          child: Card(
+                            color: Palette.redColorLight,
+                            elevation: 2,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            child: Container(
+                              alignment: Alignment.center,
+                              padding: const EdgeInsets.all(14),
+                              child: const Text("Tidak",
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white),
+                                  textAlign: TextAlign.center),
                             ),
                           ),
                         ),

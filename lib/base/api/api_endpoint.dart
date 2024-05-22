@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 class APIEndPoint {
   static const LOGIN_ENDPOINT = "/auth/login";
   static const UPLOAD_ENDPOINT = "/in/upload";
@@ -6,5 +8,6 @@ class APIEndPoint {
   static const LOGOUT_ENDPOINT = "/auth/logout";
   static const SYNCH_ENDPOINT = "/auth/synch";
   static const BASE_URL = "https://epms-dev.anj-group.co.id/api/index.php/v1_1";
-  static const BASE_URL_PROD = "https://epms.anj-group.co.id/api/index.php/v1_1";
+  static const BASE_URL_PROD =
+      "https://epms.anj-group.co.id/api/index.php/v1_1";
 }

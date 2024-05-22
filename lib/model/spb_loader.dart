@@ -31,14 +31,14 @@ class SPBLoader extends Equatable {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['spb_id'] = this.spbId;
-    data['spb_loader_id'] = this.spbLoaderId;
-    data['loader_type'] = this.loaderType;
-    data['loader_destination_type'] = this.loaderDestinationType;
-    data['loader_employee_code'] = this.loaderEmployeeCode;
-    data['loader_employee_name'] = this.loaderEmployeeName;
-    data['loader_percentage'] = this.loaderPercentage;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['spb_id'] = spbId;
+    data['spb_loader_id'] = spbLoaderId;
+    data['loader_type'] = loaderType;
+    data['loader_destination_type'] = loaderDestinationType;
+    data['loader_employee_code'] = loaderEmployeeCode;
+    data['loader_employee_name'] = loaderEmployeeName;
+    data['loader_percentage'] = loaderPercentage;
     return data;
   }
 

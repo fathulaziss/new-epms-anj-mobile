@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 class SupervisorTBSSortasi extends StatefulWidget {
-  const SupervisorTBSSortasi({Key? key}) : super(key: key);
+  const SupervisorTBSSortasi({super.key});
 
   @override
   State<SupervisorTBSSortasi> createState() => _SupervisorTBSSortasiState();
@@ -21,50 +21,52 @@ class _SupervisorTBSSortasiState extends State<SupervisorTBSSortasi> {
           child: Padding(
             padding: const EdgeInsets.all(22.0),
             child: Column(children: [
-              Container(height: 60,
-                  padding: EdgeInsets.symmetric(horizontal: 40),
-                  child: Row(
-                    children: <Widget>[
-                      Text("Tipe Input"),
-                      Flexible(child:
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Flexible(
-                            child: ListTile(
-                              title: const Text('Kg'),
-                              leading: Radio<int>(
-                                value: 1,
-                                groupValue: notifier.formType,
-                                onChanged: (int? value) {
-                                  notifier.onChangeFormType(value!);
-                                },
-                              ),
+              Container(
+                height: 60,
+                padding: const EdgeInsets.symmetric(horizontal: 40),
+                child: Row(
+                  children: <Widget>[
+                    const Text("Tipe Input"),
+                    Flexible(
+                        child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Flexible(
+                          child: ListTile(
+                            title: const Text('Kg'),
+                            leading: Radio<int>(
+                              value: 1,
+                              groupValue: notifier.formType,
+                              onChanged: (int? value) {
+                                notifier.onChangeFormType(value!);
+                              },
                             ),
                           ),
-                          Flexible(
-                            child: ListTile(
-                              title: const Text('%'),
-                              leading: Radio<int>(
-                                value: 2,
-                                groupValue: notifier.formType,
-                                onChanged: (int? value) {
-                                  notifier.onChangeFormType(value!);
-                                },
-                              ),
+                        ),
+                        Flexible(
+                          child: ListTile(
+                            title: const Text('%'),
+                            leading: Radio<int>(
+                              value: 2,
+                              groupValue: notifier.formType,
+                              onChanged: (int? value) {
+                                notifier.onChangeFormType(value!);
+                              },
                             ),
                           ),
-                        ],
-                      ))
-                    ],
-                  ),),
-              Divider(),
+                        ),
+                      ],
+                    ))
+                  ],
+                ),
+              ),
+              const Divider(),
               Table(
                   defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                   children: <TableRow>[
-                    TableRow(
+                    const TableRow(
                       children: <Widget>[
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -72,7 +74,7 @@ class _SupervisorTBSSortasiState extends State<SupervisorTBSSortasi> {
                             SizedBox(height: 6),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -80,7 +82,7 @@ class _SupervisorTBSSortasiState extends State<SupervisorTBSSortasi> {
                             SizedBox(height: 6),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -94,14 +96,13 @@ class _SupervisorTBSSortasiState extends State<SupervisorTBSSortasi> {
                       children: <Widget>[
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: TextFormField(
                             controller: notifier.bunchesUnRipe,
                             keyboardType: TextInputType.number,
                             textAlign: TextAlign.center,
                             style: Style.textBold20,
-
-                            decoration: InputDecoration(hintText: "0"),
+                            decoration: const InputDecoration(hintText: "0"),
                             onChanged: (value) {
                               notifier.countBunchesTBSLuar(
                                   context, notifier.bunchesUnRipe);
@@ -110,14 +111,13 @@ class _SupervisorTBSSortasiState extends State<SupervisorTBSSortasi> {
                         ),
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: TextFormField(
                             controller: notifier.bunchesHalfRipe,
                             keyboardType: TextInputType.number,
                             textAlign: TextAlign.center,
                             style: Style.textBold20,
-
-                            decoration: InputDecoration(hintText: "0"),
+                            decoration: const InputDecoration(hintText: "0"),
                             onChanged: (value) {
                               notifier.countBunchesTBSLuar(
                                   context, notifier.bunchesHalfRipe);
@@ -126,14 +126,13 @@ class _SupervisorTBSSortasiState extends State<SupervisorTBSSortasi> {
                         ),
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: TextFormField(
                             controller: notifier.bunchesOverRipe,
                             keyboardType: TextInputType.number,
                             textAlign: TextAlign.center,
                             style: Style.textBold20,
-
-                            decoration: InputDecoration(hintText: "0"),
+                            decoration: const InputDecoration(hintText: "0"),
                             onChanged: (value) {
                               notifier.countBunchesTBSLuar(
                                   context, notifier.bunchesOverRipe);
@@ -142,9 +141,9 @@ class _SupervisorTBSSortasiState extends State<SupervisorTBSSortasi> {
                         ),
                       ],
                     ),
-                    TableRow(
+                    const TableRow(
                       children: <Widget>[
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -152,7 +151,7 @@ class _SupervisorTBSSortasiState extends State<SupervisorTBSSortasi> {
                             SizedBox(height: 6),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -160,7 +159,7 @@ class _SupervisorTBSSortasiState extends State<SupervisorTBSSortasi> {
                             SizedBox(height: 6),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -174,14 +173,13 @@ class _SupervisorTBSSortasiState extends State<SupervisorTBSSortasi> {
                       children: <Widget>[
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: TextFormField(
                             controller: notifier.bunchesRotten,
                             keyboardType: TextInputType.number,
                             textAlign: TextAlign.center,
                             style: Style.textBold20,
-
-                            decoration: InputDecoration(hintText: "0"),
+                            decoration: const InputDecoration(hintText: "0"),
                             onChanged: (value) {
                               notifier.countBunchesTBSLuar(
                                   context, notifier.bunchesRotten);
@@ -190,14 +188,13 @@ class _SupervisorTBSSortasiState extends State<SupervisorTBSSortasi> {
                         ),
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: TextFormField(
                             controller: notifier.bunchesAbnormal,
                             keyboardType: TextInputType.number,
                             textAlign: TextAlign.center,
                             style: Style.textBold20,
-
-                            decoration: InputDecoration(hintText: "0"),
+                            decoration: const InputDecoration(hintText: "0"),
                             onChanged: (value) {
                               notifier.countBunchesTBSLuar(
                                   context, notifier.bunchesAbnormal);
@@ -206,14 +203,13 @@ class _SupervisorTBSSortasiState extends State<SupervisorTBSSortasi> {
                         ),
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: TextFormField(
                             controller: notifier.bunchesEmpty,
                             keyboardType: TextInputType.number,
                             textAlign: TextAlign.center,
                             style: Style.textBold20,
-
-                            decoration: InputDecoration(hintText: "0"),
+                            decoration: const InputDecoration(hintText: "0"),
                             onChanged: (value) {
                               notifier.countBunchesTBSLuar(
                                   context, notifier.bunchesEmpty);
@@ -222,9 +218,9 @@ class _SupervisorTBSSortasiState extends State<SupervisorTBSSortasi> {
                         ),
                       ],
                     ),
-                    TableRow(
+                    const TableRow(
                       children: <Widget>[
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -232,7 +228,7 @@ class _SupervisorTBSSortasiState extends State<SupervisorTBSSortasi> {
                             SizedBox(height: 6),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -240,7 +236,7 @@ class _SupervisorTBSSortasiState extends State<SupervisorTBSSortasi> {
                             SizedBox(height: 6),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -254,44 +250,43 @@ class _SupervisorTBSSortasiState extends State<SupervisorTBSSortasi> {
                       children: <Widget>[
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: TextFormField(
                             controller: notifier.rubbish,
                             keyboardType: TextInputType.number,
                             textAlign: TextAlign.center,
                             style: Style.textBold20,
-
-                            decoration: InputDecoration(hintText: "0"),
+                            decoration: const InputDecoration(hintText: "0"),
                             onChanged: (value) {
-                              notifier.countBunchesTBSLuar(context, notifier.rubbish);
+                              notifier.countBunchesTBSLuar(
+                                  context, notifier.rubbish);
                             },
                           ),
                         ),
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: TextFormField(
                             controller: notifier.water,
                             keyboardType: TextInputType.number,
                             textAlign: TextAlign.center,
                             style: Style.textBold20,
-
-                            decoration: InputDecoration(hintText: "0"),
+                            decoration: const InputDecoration(hintText: "0"),
                             onChanged: (value) {
-                              notifier.countBunchesTBSLuar(context, notifier.water);
+                              notifier.countBunchesTBSLuar(
+                                  context, notifier.water);
                             },
                           ),
                         ),
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: TextFormField(
                             controller: notifier.longStalk,
                             keyboardType: TextInputType.number,
                             textAlign: TextAlign.center,
                             style: Style.textBold20,
-
-                            decoration: InputDecoration(hintText: "0"),
+                            decoration: const InputDecoration(hintText: "0"),
                             onChanged: (value) {
                               notifier.countBunchesTBSLuar(
                                   context, notifier.longStalk);
@@ -391,15 +386,15 @@ class _SupervisorTBSSortasiState extends State<SupervisorTBSSortasi> {
                     //   ],
                     // ) : TableRow(children: [Container(), Container(), Container()]),
                   ]),
-              SizedBox(height: 30),
-              Divider(),
-              SizedBox(height: 20),
+              const SizedBox(height: 30),
+              const Divider(),
+              const SizedBox(height: 20),
               Table(
                   defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                   children: <TableRow>[
-                    TableRow(
+                    const TableRow(
                       children: <Widget>[
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -407,7 +402,7 @@ class _SupervisorTBSSortasiState extends State<SupervisorTBSSortasi> {
                             SizedBox(height: 6),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -421,14 +416,13 @@ class _SupervisorTBSSortasiState extends State<SupervisorTBSSortasi> {
                       children: <Widget>[
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: TextFormField(
                             controller: notifier.bunchesTotal,
                             keyboardType: TextInputType.number,
                             textAlign: TextAlign.center,
                             style: Style.textBold20,
-
-                            decoration: InputDecoration(hintText: "0"),
+                            decoration: const InputDecoration(hintText: "0"),
                             onChanged: (value) {
                               notifier.countBunchesTBSLuar(
                                   context, notifier.bunchesTotal);
@@ -437,15 +431,14 @@ class _SupervisorTBSSortasiState extends State<SupervisorTBSSortasi> {
                         ),
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: TextFormField(
                             enabled: false,
                             controller: notifier.deduction,
                             keyboardType: TextInputType.number,
                             textAlign: TextAlign.center,
                             style: Style.textBold20,
-
-                            decoration: InputDecoration(hintText: "0"),
+                            decoration: const InputDecoration(hintText: "0"),
                             onChanged: (value) {
                               notifier.countBunchesTBSLuar(
                                   context, notifier.deduction);
@@ -455,15 +448,15 @@ class _SupervisorTBSSortasiState extends State<SupervisorTBSSortasi> {
                       ],
                     ),
                   ]),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               Text("KOMIDAL", style: Style.textBold16),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Table(
                   defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                   children: <TableRow>[
-                    TableRow(
+                    const TableRow(
                       children: <Widget>[
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -502,7 +495,7 @@ class _SupervisorTBSSortasiState extends State<SupervisorTBSSortasi> {
                       children: <Widget>[
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: TextFormField(
                             controller: notifier.bunchesSmall,
                             keyboardType: TextInputType.number,
@@ -512,7 +505,7 @@ class _SupervisorTBSSortasiState extends State<SupervisorTBSSortasi> {
                               FilteringTextInputFormatter.allow(
                                   RegExp(r'[0-9]')),
                             ],
-                            decoration: InputDecoration(hintText: "0"),
+                            decoration: const InputDecoration(hintText: "0"),
                             onChanged: (value) {
                               notifier.countBunchesTBSLuar(
                                   context, notifier.bunchesSmall);
@@ -560,19 +553,17 @@ class _SupervisorTBSSortasiState extends State<SupervisorTBSSortasi> {
                       ],
                     ),
                   ]),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               Column(
                 children: [
-                  Text("Catatan"),
-                  Container(
-                    child: TextFormField(
-                      controller: notifier.notesOPH,
-                      textAlign: TextAlign.center,
-                      decoration: InputDecoration(hintText: "Catatan"),
-                      keyboardType: TextInputType.multiline,
-                      maxLength: 50,
-                      maxLengthEnforcement: MaxLengthEnforcement.enforced,
-                    ),
+                  const Text("Catatan"),
+                  TextFormField(
+                    controller: notifier.notesOPH,
+                    textAlign: TextAlign.center,
+                    decoration: const InputDecoration(hintText: "Catatan"),
+                    keyboardType: TextInputType.multiline,
+                    maxLength: 50,
+                    maxLengthEnforcement: MaxLengthEnforcement.enforced,
                   ),
                 ],
               ),

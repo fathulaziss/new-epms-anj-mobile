@@ -4,16 +4,18 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class SynchPage extends StatefulWidget {
-  const SynchPage({Key? key}) : super(key: key);
+  const SynchPage({super.key});
 
   @override
-  _SynchPageState createState() => _SynchPageState();
+  State<SynchPage> createState() => _SynchPageState();
 }
 
 class _SynchPageState extends State<SynchPage> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-        create: (context) => SynchNotifier(), child: SynchScreen());
+      create: (context) => SynchNotifier(),
+      child: const SynchScreen(),
+    );
   }
 }

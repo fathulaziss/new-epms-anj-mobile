@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
@@ -14,7 +16,7 @@ class LogOutRepository extends APIConfiguration {
     try {
       var url = baseUrl + APIEndPoint.LOGOUT_ENDPOINT;
       var uri = Uri.parse(url);
-      var map = new Map<String, dynamic>();
+      var map = <String, dynamic>{};
       map['user_token'] = userToken;
       // http.Response response = await http.post(
       //   uri,

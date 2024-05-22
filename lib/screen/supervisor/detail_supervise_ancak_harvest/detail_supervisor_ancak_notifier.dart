@@ -12,11 +12,11 @@ import 'package:epms/model/oph_supervise_ancak.dart';
 import 'package:flutter/material.dart';
 
 class DetailSupervisorAncakNotifier extends ChangeNotifier {
-  NavigatorService _navigationService = locator<NavigatorService>();
+  final NavigatorService _navigationService = locator<NavigatorService>();
 
   NavigatorService get navigationService => _navigationService;
 
-  DialogService _dialogService = locator<DialogService>();
+  final DialogService _dialogService = locator<DialogService>();
 
   DialogService get dialogService => _dialogService;
 
@@ -40,56 +40,56 @@ class DetailSupervisorAncakNotifier extends ChangeNotifier {
 
   MEmployeeSchema? get pemanen => _pemanen;
 
-  TextEditingController _pokokPanen = TextEditingController();
+  final TextEditingController _pokokPanen = TextEditingController();
 
   TextEditingController get pokokPanen => _pokokPanen;
 
-  TextEditingController _totalJanjang = TextEditingController();
+  final TextEditingController _totalJanjang = TextEditingController();
 
   TextEditingController get totalJanjang => _totalJanjang;
 
-  TextEditingController _totalBrondolan = TextEditingController();
+  final TextEditingController _totalBrondolan = TextEditingController();
 
   TextEditingController get totalBrondolan => _totalBrondolan;
 
-  TextEditingController _rat = TextEditingController();
+  final TextEditingController _rat = TextEditingController();
 
   TextEditingController get rat => _rat;
 
-  TextEditingController _vCut = TextEditingController();
+  final TextEditingController _vCut = TextEditingController();
 
   TextEditingController get vCut => _vCut;
 
-  TextEditingController _tangkaiPanjang = TextEditingController();
+  final TextEditingController _tangkaiPanjang = TextEditingController();
 
   TextEditingController get tangkaiPanjang => _tangkaiPanjang;
 
-  TextEditingController _pelepahSengkleh = TextEditingController();
+  final TextEditingController _pelepahSengkleh = TextEditingController();
 
   TextEditingController get pelepahSengkleh => _pelepahSengkleh;
 
-  TextEditingController _janjangTinggal = TextEditingController();
+  final TextEditingController _janjangTinggal = TextEditingController();
 
   TextEditingController get janjangTinggal => _janjangTinggal;
 
-  TextEditingController _brondolanTinggal = TextEditingController();
+  final TextEditingController _brondolanTinggal = TextEditingController();
 
   TextEditingController get brondolanTinggal => _brondolanTinggal;
 
-  TextEditingController _notes = TextEditingController();
+  final TextEditingController _notes = TextEditingController();
 
   TextEditingController get notes => _notes;
 
-  double _loosesBuahTinggal = 0.0;
+  final double _loosesBuahTinggal = 0.0;
 
   double get loosesBuahTinggal => _loosesBuahTinggal;
 
-  double _loosesBrondolan = 0.0;
+  final double _loosesBrondolan = 0.0;
 
   double get loosesBrondolan => _loosesBrondolan;
 
   onInit(OPHSuperviseAncak ophSuperviseAncak) {
-    this._ophSuperviseAncak = ophSuperviseAncak;
+    _ophSuperviseAncak = ophSuperviseAncak;
     _ancakEmployee = MAncakEmployee(
         userId: _ophSuperviseAncak?.supervisiAncakAssignToId,
         userName: _ophSuperviseAncak?.supervisiAncakAssignToName);
@@ -98,8 +98,7 @@ class DetailSupervisorAncakNotifier extends ChangeNotifier {
         employeeName: _ophSuperviseAncak?.supervisiAncakPemanenEmployeeName);
     _kemandoran = MEmployeeSchema(
         employeeCode: _ophSuperviseAncak?.supervisiAncakMandorEmployeeCode,
-        employeeName: _ophSuperviseAncak?.supervisiAncakMandorEmployeeName
-    );
+        employeeName: _ophSuperviseAncak?.supervisiAncakMandorEmployeeName);
     _pokokPanen.text = _ophSuperviseAncak?.pokokSample ?? "0";
     _totalJanjang.text = _ophSuperviseAncak?.bunchesTotal.toString() ?? "0";
     _totalBrondolan.text = _ophSuperviseAncak?.looseFruits.toString() ?? "0";
@@ -133,7 +132,7 @@ class DetailSupervisorAncakNotifier extends ChangeNotifier {
   getCamera(BuildContext context) async {
     String? picked = await CameraService.getImageByCamera(context);
     if (picked != null) {
-      this._ophSuperviseAncak?.supervisiAncakPhoto = picked;
+      _ophSuperviseAncak?.supervisiAncakPhoto = picked;
       notifyListeners();
     }
   }
@@ -163,25 +162,27 @@ class DetailSupervisorAncakNotifier extends ChangeNotifier {
     _ophSuperviseAncak?.supervisiAncakNotes = _notes.text;
     _ophSuperviseAncak?.updatedDate = TimeManager.dateWithDash(now);
     _ophSuperviseAncak?.createdTime = TimeManager.timeWithColon(now);
-    int count = await DatabaseOPHSuperviseAncak().updateOPHSuperviseAncakByID(
-        _ophSuperviseAncak!);
+    int count = await DatabaseOPHSuperviseAncak()
+        .updateOPHSuperviseAncakByID(_ophSuperviseAncak!);
     if (count > 0) {
       _navigationService.push(Routes.HOME_PAGE);
       FlushBarManager.showFlushBarSuccess(
           _navigationService.navigatorKey.currentContext!,
-          "Simpan Supervisi Ancak", "Berhasil menyimpan");
+          "Simpan Supervisi Ancak",
+          "Berhasil menyimpan");
     } else {
       FlushBarManager.showFlushBarError(
           _navigationService.navigatorKey.currentContext!,
-          "Simpan Supervisi Ancak", "Gagal menyimpan");
+          "Simpan Supervisi Ancak",
+          "Gagal menyimpan");
     }
   }
 
-  countBunches(BuildContext context,
-      TextEditingController textEditingController) {
+  countBunches(
+      BuildContext context, TextEditingController textEditingController) {
     if (textEditingController.text.isEmpty ||
         textEditingController.text == "0") {
-      textEditingController.value = TextEditingValue(text: "0");
+      textEditingController.value = const TextEditingValue(text: "0");
       textEditingController.selection = TextSelection.fromPosition(
           TextPosition(offset: textEditingController.text.length));
     } else {
@@ -193,7 +194,8 @@ class DetailSupervisorAncakNotifier extends ChangeNotifier {
   }
 
   showDialogQuestion(BuildContext context) {
-    _dialogService.showOptionDialog(title: "Simpan Supervisi Ancak",
+    _dialogService.showOptionDialog(
+        title: "Simpan Supervisi Ancak",
         subtitle: "Anda yakin ingin menyimpan?",
         buttonTextYes: "Iya",
         buttonTextNo: "Tidak",
@@ -207,17 +209,18 @@ class DetailSupervisorAncakNotifier extends ChangeNotifier {
   }
 
   countLoosesBuahTinggal(String janjangTinggal, String pokokPanen) {
-    if(janjangTinggal.isNotEmpty && pokokPanen.isNotEmpty) {
-      _ophSuperviseAncak?.bunchesTinggalPercentage = double.parse(janjangTinggal) / double.parse(pokokPanen);
+    if (janjangTinggal.isNotEmpty && pokokPanen.isNotEmpty) {
+      _ophSuperviseAncak?.bunchesTinggalPercentage =
+          double.parse(janjangTinggal) / double.parse(pokokPanen);
     }
     notifyListeners();
   }
 
   countLoosesBrondolan(String brondolanTinggal, String pokokPanen) {
-    if(brondolanTinggal.isNotEmpty && pokokPanen.isNotEmpty) {
-      _ophSuperviseAncak?.bunchesBrondolanTinggalPercentage = double.parse(brondolanTinggal) / double.parse(pokokPanen);
+    if (brondolanTinggal.isNotEmpty && pokokPanen.isNotEmpty) {
+      _ophSuperviseAncak?.bunchesBrondolanTinggalPercentage =
+          double.parse(brondolanTinggal) / double.parse(pokokPanen);
     }
     notifyListeners();
   }
-
 }

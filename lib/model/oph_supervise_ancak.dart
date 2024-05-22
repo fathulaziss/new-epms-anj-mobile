@@ -38,41 +38,41 @@ class OPHSuperviseAncak {
 
   OPHSuperviseAncak(
       {this.supervisiAncakId,
-        this.supervisiAncakEstateCode,
-        this.supervisiAncakBlockCode,
-        this.supervisiAncakLat,
-        this.supervisiAncakLong,
-        this.supervisiAncakLatEnd,
-        this.supervisiAncakLongEnd,
-        this.supervisiAncakMandorEmployeeCode,
-        this.supervisiAncakMandorEmployeeName,
-        this.supervisiAncakPemanenEmployeeCode,
-        this.supervisiAncakPemanenEmployeeName,
-        this.supervisiAncakAssignToId,
-        this.supervisiAncakAssignToName,
-        this.supervisiAncakPhoto,
-        this.supervisiAncakDivisionCode,
-        this.pokokSample,
-        this.bunchesVCut,
-        this.bunchesRat,
-        this.bunchesTangkaiPanjang,
-        this.pelepahSengkleh,
-        this.bunchesTinggal,
-        this.bunchesTinggalPercentage,
-        this.bunchesBrondolanTinggal,
-        this.bunchesBrondolanTinggalPercentage,
-        this.bunchesTotal,
-        this.looseFruits,
-        this.supervisiAncakNotes,
-        this.createdBy,
-        this.supervisiAncakEmployeeCode,
-        this.supervisiAncakEmployeeName,
-        this.supervisiAncakDate,
-        this.createdDate,
-        this.createdTime,
-        this.updatedBy,
-        this.updatedDate,
-        this.updatedTime});
+      this.supervisiAncakEstateCode,
+      this.supervisiAncakBlockCode,
+      this.supervisiAncakLat,
+      this.supervisiAncakLong,
+      this.supervisiAncakLatEnd,
+      this.supervisiAncakLongEnd,
+      this.supervisiAncakMandorEmployeeCode,
+      this.supervisiAncakMandorEmployeeName,
+      this.supervisiAncakPemanenEmployeeCode,
+      this.supervisiAncakPemanenEmployeeName,
+      this.supervisiAncakAssignToId,
+      this.supervisiAncakAssignToName,
+      this.supervisiAncakPhoto,
+      this.supervisiAncakDivisionCode,
+      this.pokokSample,
+      this.bunchesVCut,
+      this.bunchesRat,
+      this.bunchesTangkaiPanjang,
+      this.pelepahSengkleh,
+      this.bunchesTinggal,
+      this.bunchesTinggalPercentage,
+      this.bunchesBrondolanTinggal,
+      this.bunchesBrondolanTinggalPercentage,
+      this.bunchesTotal,
+      this.looseFruits,
+      this.supervisiAncakNotes,
+      this.createdBy,
+      this.supervisiAncakEmployeeCode,
+      this.supervisiAncakEmployeeName,
+      this.supervisiAncakDate,
+      this.createdDate,
+      this.createdTime,
+      this.updatedBy,
+      this.updatedDate,
+      this.updatedTime});
 
   OPHSuperviseAncak.fromJson(Map<String, dynamic> json) {
     supervisiAncakId = json['supervisi_ancak_id'];
@@ -83,13 +83,13 @@ class OPHSuperviseAncak {
     supervisiAncakLatEnd = json['supervisi_ancak_lat_end'];
     supervisiAncakLongEnd = json['supervisi_ancak_long_end'];
     supervisiAncakMandorEmployeeCode =
-    json['supervisi_ancak_mandor_employee_code'];
+        json['supervisi_ancak_mandor_employee_code'];
     supervisiAncakMandorEmployeeName =
-    json['supervisi_ancak_mandor_employee_name'];
+        json['supervisi_ancak_mandor_employee_name'];
     supervisiAncakPemanenEmployeeCode =
-    json['supervisi_ancak_pemanen_employee_code'];
+        json['supervisi_ancak_pemanen_employee_code'];
     supervisiAncakPemanenEmployeeName =
-    json['supervisi_ancak_pemanen_employee_name'];
+        json['supervisi_ancak_pemanen_employee_name'];
     supervisiAncakAssignToId = json['supervisi_ancak_assign_to_id'];
     supervisiAncakAssignToName = json['supervisi_ancak_assign_to_name'];
     supervisiAncakPhoto = json['supervisi_ancak_photo'];
@@ -102,7 +102,8 @@ class OPHSuperviseAncak {
     bunchesTinggal = json['bunches_tinggal'];
     bunchesTinggalPercentage = json['bunches_tinggal_percentage'];
     bunchesBrondolanTinggal = json['bunches_brondolan_tinggal'];
-    bunchesBrondolanTinggalPercentage = json['bunches_brondolan_tinggal_percentage'];
+    bunchesBrondolanTinggalPercentage =
+        json['bunches_brondolan_tinggal_percentage'];
     bunchesTotal = json['bunches_total'];
     looseFruits = json['loose_fruits'];
     supervisiAncakNotes = json['supervisi_ancak_notes'];
@@ -118,48 +119,48 @@ class OPHSuperviseAncak {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['supervisi_ancak_id'] = this.supervisiAncakId;
-    data['supervisi_ancak_estate_code'] = this.supervisiAncakEstateCode;
-    data['supervisi_ancak_block_code'] = this.supervisiAncakBlockCode;
-    data['supervisi_ancak_lat'] = this.supervisiAncakLat;
-    data['supervisi_ancak_long'] = this.supervisiAncakLong;
-    data['supervisi_ancak_lat_end'] = this.supervisiAncakLatEnd;
-    data['supervisi_ancak_long_end'] = this.supervisiAncakLongEnd;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['supervisi_ancak_id'] = supervisiAncakId;
+    data['supervisi_ancak_estate_code'] = supervisiAncakEstateCode;
+    data['supervisi_ancak_block_code'] = supervisiAncakBlockCode;
+    data['supervisi_ancak_lat'] = supervisiAncakLat;
+    data['supervisi_ancak_long'] = supervisiAncakLong;
+    data['supervisi_ancak_lat_end'] = supervisiAncakLatEnd;
+    data['supervisi_ancak_long_end'] = supervisiAncakLongEnd;
     data['supervisi_ancak_mandor_employee_code'] =
-        this.supervisiAncakMandorEmployeeCode;
+        supervisiAncakMandorEmployeeCode;
     data['supervisi_ancak_mandor_employee_name'] =
-        this.supervisiAncakMandorEmployeeName;
+        supervisiAncakMandorEmployeeName;
     data['supervisi_ancak_pemanen_employee_code'] =
-        this.supervisiAncakPemanenEmployeeCode;
+        supervisiAncakPemanenEmployeeCode;
     data['supervisi_ancak_pemanen_employee_name'] =
-        this.supervisiAncakPemanenEmployeeName;
-    data['supervisi_ancak_assign_to_id'] = this.supervisiAncakAssignToId;
-    data['supervisi_ancak_assign_to_name'] = this.supervisiAncakAssignToName;
-    data['supervisi_ancak_photo'] = this.supervisiAncakPhoto;
-    data['supervisi_ancak_division_code'] = this.supervisiAncakDivisionCode;
-    data['pokok_sample'] = this.pokokSample;
-    data['bunches_v_cut'] = this.bunchesVCut;
-    data['bunches_rat'] = this.bunchesRat;
-    data['bunches_tangkai_panjang'] = this.bunchesTangkaiPanjang;
-    data['pelepah_sengkleh'] = this.pelepahSengkleh;
-    data['bunches_tinggal'] = this.bunchesTinggal;
-    data['bunches_tinggal_percentage'] = this.bunchesTinggalPercentage;
-    data['bunches_brondolan_tinggal'] = this.bunchesBrondolanTinggal;
+        supervisiAncakPemanenEmployeeName;
+    data['supervisi_ancak_assign_to_id'] = supervisiAncakAssignToId;
+    data['supervisi_ancak_assign_to_name'] = supervisiAncakAssignToName;
+    data['supervisi_ancak_photo'] = supervisiAncakPhoto;
+    data['supervisi_ancak_division_code'] = supervisiAncakDivisionCode;
+    data['pokok_sample'] = pokokSample;
+    data['bunches_v_cut'] = bunchesVCut;
+    data['bunches_rat'] = bunchesRat;
+    data['bunches_tangkai_panjang'] = bunchesTangkaiPanjang;
+    data['pelepah_sengkleh'] = pelepahSengkleh;
+    data['bunches_tinggal'] = bunchesTinggal;
+    data['bunches_tinggal_percentage'] = bunchesTinggalPercentage;
+    data['bunches_brondolan_tinggal'] = bunchesBrondolanTinggal;
     data['bunches_brondolan_tinggal_percentage'] =
-        this.bunchesBrondolanTinggalPercentage;
-    data['bunches_total'] = this.bunchesTotal;
-    data['loose_fruits'] = this.looseFruits;
-    data['supervisi_ancak_notes'] = this.supervisiAncakNotes;
-    data['created_by'] = this.createdBy;
-    data['supervisi_ancak_employee_code'] = this.supervisiAncakEmployeeCode;
-    data['supervisi_ancak_employee_name'] = this.supervisiAncakEmployeeName;
-    data['supervisi_ancak_date'] = this.supervisiAncakDate;
-    data['created_date'] = this.createdDate;
-    data['created_time'] = this.createdTime;
-    data['updated_by'] = this.updatedBy;
-    data['updated_date'] = this.updatedDate;
-    data['updated_time'] = this.updatedTime;
+        bunchesBrondolanTinggalPercentage;
+    data['bunches_total'] = bunchesTotal;
+    data['loose_fruits'] = looseFruits;
+    data['supervisi_ancak_notes'] = supervisiAncakNotes;
+    data['created_by'] = createdBy;
+    data['supervisi_ancak_employee_code'] = supervisiAncakEmployeeCode;
+    data['supervisi_ancak_employee_name'] = supervisiAncakEmployeeName;
+    data['supervisi_ancak_date'] = supervisiAncakDate;
+    data['created_date'] = createdDate;
+    data['created_time'] = createdTime;
+    data['updated_by'] = updatedBy;
+    data['updated_date'] = updatedDate;
+    data['updated_time'] = updatedTime;
     return data;
   }
 }

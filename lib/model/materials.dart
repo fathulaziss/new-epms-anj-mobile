@@ -24,13 +24,13 @@ class Materials {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['workplan_material_id'] = this.workplanMaterialId;
-    data['workplan_id'] = this.workplanId;
-    data['workplan_material_code'] = this.workplanMaterialCode;
-    data['workplan_material_name'] = this.workplanMaterialName;
-    data['workplan_material_uom'] = this.workplanMaterialUom;
-    data['workplan_material_qty'] = this.workplanMaterialQty;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['workplan_material_id'] = workplanMaterialId;
+    data['workplan_id'] = workplanId;
+    data['workplan_material_code'] = workplanMaterialCode;
+    data['workplan_material_name'] = workplanMaterialName;
+    data['workplan_material_uom'] = workplanMaterialUom;
+    data['workplan_material_qty'] = workplanMaterialQty;
     return data;
   }
 }

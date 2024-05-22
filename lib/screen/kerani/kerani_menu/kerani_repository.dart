@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'dart:convert';
 import 'dart:io';
 
@@ -41,7 +43,7 @@ class KeraniRepository extends APIConfiguration {
         }
       };
 
-      var epmsData = Map<String, dynamic>();
+      var epmsData = <String, dynamic>{};
       var jsonMap = jsonEncode(mapKR);
       epmsData['epms_data'] = jsonMap;
       epmsData['user_token'] = token;

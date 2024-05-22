@@ -2,12 +2,9 @@ import 'package:epms/base/ui/style.dart';
 import 'package:flutter/material.dart';
 
 class LoadingDialog extends StatefulWidget {
-  final String title;
+  const LoadingDialog({super.key, required this.title});
 
-  const LoadingDialog(
-      {Key? key,
-        required this.title})
-      : super(key: key);
+  final String title;
 
   @override
   State<LoadingDialog> createState() => _LoadingDialogState();
@@ -29,16 +26,16 @@ class _LoadingDialogState extends State<LoadingDialog> {
   Widget dialogContent(BuildContext context) {
     return MediaQuery(
       data: Style.mediaQueryText(context),
-      child: Container(
+      child: SizedBox(
         width: 100.0,
         height: 100.0,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            CircularProgressIndicator(color: Colors.white),
-            Padding(padding: EdgeInsets.all(10)),
-            Text("${widget.title}", style: Style.whiteBold14)
+            const CircularProgressIndicator(color: Colors.white),
+            const Padding(padding: EdgeInsets.all(10)),
+            Text(widget.title, style: Style.whiteBold14)
           ],
         ),
       ),

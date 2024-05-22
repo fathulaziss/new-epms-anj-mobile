@@ -92,44 +92,42 @@ class TWorkplanSchema {
     if (json['materials'] != null) {
       materials = <Materials>[];
       json['materials'].forEach((v) {
-        materials!.add(new Materials.fromJson(v));
+        materials!.add(Materials.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['workplan_id'] = this.workplanId;
-    data['workplan_date'] = this.workplanDate;
-    data['workplan_estate_code'] = this.workplanEstateCode;
-    data['workplan_division_code'] = this.workplanDivisionCode;
-    data['workplan_activity_code'] = this.workplanActivityCode;
-    data['workplan_activity_name'] = this.workplanActivityName;
-    data['workplan_activity_uom'] = this.workplanActivityUom;
-    data['workplan_target'] = this.workplanTarget;
-    data['workplan_total_hk'] = this.workplanTotalHk;
-    data['workplan_remark'] = this.workplanRemark;
-    data['workplan_assistant_employee_code'] =
-        this.workplanAssistantEmployeeCode;
-    data['workplan_assistant_employee_name'] =
-        this.workplanAssistantEmployeeName;
-    data['workplan_block_code'] = this.workplanBlockCode;
-    data['workplan_order_number'] = this.workplanOrderNumber;
-    data['workplan_auc_number'] = this.workplanAucNumber;
-    data['workplan_cost_center'] = this.workplanCostCenter;
-    data['is_approved'] = this.isApproved;
-    data['workplan_approved_by'] = this.workplanApprovedBy;
-    data['workplan_approved_by_name'] = this.workplanApprovedByName;
-    data['workplan_approved_date'] = this.workplanApprovedDate;
-    data['workplan_approved_time'] = this.workplanApprovedTime;
-    data['created_by'] = this.createdBy;
-    data['created_date'] = this.createdDate;
-    data['created_time'] = this.createdTime;
-    data['updated_by'] = this.updatedBy;
-    data['updated_date'] = this.updatedDate;
-    data['updated_time'] = this.updatedTime;
-    if (this.materials != null) {
-      data['materials'] = this.materials!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['workplan_id'] = workplanId;
+    data['workplan_date'] = workplanDate;
+    data['workplan_estate_code'] = workplanEstateCode;
+    data['workplan_division_code'] = workplanDivisionCode;
+    data['workplan_activity_code'] = workplanActivityCode;
+    data['workplan_activity_name'] = workplanActivityName;
+    data['workplan_activity_uom'] = workplanActivityUom;
+    data['workplan_target'] = workplanTarget;
+    data['workplan_total_hk'] = workplanTotalHk;
+    data['workplan_remark'] = workplanRemark;
+    data['workplan_assistant_employee_code'] = workplanAssistantEmployeeCode;
+    data['workplan_assistant_employee_name'] = workplanAssistantEmployeeName;
+    data['workplan_block_code'] = workplanBlockCode;
+    data['workplan_order_number'] = workplanOrderNumber;
+    data['workplan_auc_number'] = workplanAucNumber;
+    data['workplan_cost_center'] = workplanCostCenter;
+    data['is_approved'] = isApproved;
+    data['workplan_approved_by'] = workplanApprovedBy;
+    data['workplan_approved_by_name'] = workplanApprovedByName;
+    data['workplan_approved_date'] = workplanApprovedDate;
+    data['workplan_approved_time'] = workplanApprovedTime;
+    data['created_by'] = createdBy;
+    data['created_date'] = createdDate;
+    data['created_time'] = createdTime;
+    data['updated_by'] = updatedBy;
+    data['updated_date'] = updatedDate;
+    data['updated_time'] = updatedTime;
+    if (materials != null) {
+      data['materials'] = materials!.map((v) => v.toJson()).toList();
     }
     return data;
   }

@@ -6,18 +6,27 @@ import 'package:provider/provider.dart';
 import 'detail_supervisor_ancak_notifier.dart';
 
 class DetailSuperviseAncakHarvestPage extends StatefulWidget {
+  const DetailSuperviseAncakHarvestPage({
+    super.key,
+    required this.ophSuperviseAncak,
+  });
+
   final OPHSuperviseAncak ophSuperviseAncak;
-  const DetailSuperviseAncakHarvestPage({Key? key, required this.ophSuperviseAncak}) : super(key: key);
 
   @override
-  State<DetailSuperviseAncakHarvestPage> createState() => _DetailSuperviseAncakHarvestPageState();
+  State<DetailSuperviseAncakHarvestPage> createState() =>
+      _DetailSuperviseAncakHarvestPageState();
 }
 
-class _DetailSuperviseAncakHarvestPageState extends State<DetailSuperviseAncakHarvestPage> {
+class _DetailSuperviseAncakHarvestPageState
+    extends State<DetailSuperviseAncakHarvestPage> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-        create: (context) => DetailSupervisorAncakNotifier(),
-        child: DetailSuperviseAncakHarvestScreen(ophSuperviseAncak: widget.ophSuperviseAncak));
+      create: (context) => DetailSupervisorAncakNotifier(),
+      child: DetailSuperviseAncakHarvestScreen(
+        ophSuperviseAncak: widget.ophSuperviseAncak,
+      ),
+    );
   }
 }

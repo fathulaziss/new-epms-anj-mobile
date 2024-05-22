@@ -61,15 +61,13 @@ class DatabaseHelper {
   DatabaseHelper._createObject();
 
   factory DatabaseHelper() {
-    if (_dbHelper == null) {
-      _dbHelper = DatabaseHelper._createObject();
-    }
+    _dbHelper ??= DatabaseHelper._createObject();
     return _dbHelper!;
   }
 
   Future<Database> initDb() async {
     Directory directory = await getApplicationDocumentsDirectory();
-    String path = directory.path + 'db_epms.db';
+    String path = '${directory.path}db_epms.db';
     var todoDatabase = openDatabase(path, version: 1, onCreate: _createDb);
     return todoDatabase;
   }
@@ -130,9 +128,7 @@ class DatabaseHelper {
   }
 
   Future<Database> get database async {
-    if (_database == null) {
-      _database = await initDb();
-    }
+    _database ??= await initDb();
     return _database!;
   }
 

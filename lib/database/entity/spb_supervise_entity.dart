@@ -5,8 +5,10 @@ class SPBSuperviseEntity {
   static String supervisiSpbEmployeeName = "supervisi_spb_employee_name";
   static String supervisiSpbLat = "supervisi_spb_lat";
   static String supervisiSpbLong = "supervisi_spb_long";
-  static String supervisiSpbDriverEmployeeCode = "supervisi_spb_driver_employee_code";
-  static String supervisiSpbDriverEmployeeName = "supervisi_spb_driver_employee_name";
+  static String supervisiSpbDriverEmployeeCode =
+      "supervisi_spb_driver_employee_code";
+  static String supervisiSpbDriverEmployeeName =
+      "supervisi_spb_driver_employee_name";
   static String supervisiEstateCode = "supervisi_spb_estate_code";
   static String supervisiSpbDivisionCode = "supervisi_spb_division_code";
   static String supervisiSpbLicenseNumber = "supervisi_spb_license_number";
@@ -25,7 +27,8 @@ class SPBSuperviseEntity {
   static String bunchesTangkaiPanjang = "bunches_tangkai_panjang";
   static String bunchesSampah = "bunches_sampah";
   static String bunchesBatu = "bunches_batu";
-  static String catatanBunchesTangkaiPanjang = "catatan_bunches_tangkai_panjang";
+  static String catatanBunchesTangkaiPanjang =
+      "catatan_bunches_tangkai_panjang";
   static String supervisiNotes = "supervisi_notes";
   static String createdBy = "created_by";
   static String supervisiSpbDate = "supervisi_spb_date";
@@ -34,5 +37,4 @@ class SPBSuperviseEntity {
   static String updatedBy = "updated_by";
   static String updatedDate = "updated_date";
   static String updatedTime = "updated_time";
-
 }

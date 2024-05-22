@@ -14,7 +14,8 @@ class _HomeInspectionPageState extends State<HomeInspectionPage> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-        create: (context) => HomeInspectionNotifier(),
-        child: HomeInspectionScreen());
+      create: (context) => HomeInspectionNotifier(),
+      child: const HomeInspectionScreen(),
+    );
   }
 }

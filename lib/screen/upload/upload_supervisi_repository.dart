@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print, use_build_context_synchronously, prefer_typing_uninitialized_variables
+
 import 'dart:convert';
 import 'dart:io';
 
@@ -28,14 +30,14 @@ class UploadSupervisiRepository extends APIConfiguration {
     try {
       var url = baseUrl + APIEndPoint.UPLOAD_ENDPOINT;
       var uri = Uri.parse(url);
-      var mapTP = Map<String, dynamic>();
+      var mapTP = <String, dynamic>{};
       mapTP = {
         'Supervisi': {
           'T_OPH_Supervise_Schema_List': newMapSPB,
           'T_Supervise_Ancak_Panen_Schema_List': newMapSPBDetail
         }
       };
-      var epmsData = Map<String, dynamic>();
+      var epmsData = <String, dynamic>{};
       var jsonMap = jsonEncode(mapTP);
       epmsData['epms_data'] = jsonMap;
       epmsData['user_token'] = token;

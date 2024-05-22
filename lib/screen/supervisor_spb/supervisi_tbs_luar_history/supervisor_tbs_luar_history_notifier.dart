@@ -7,12 +7,11 @@ import 'package:epms/model/tbs_luar.dart';
 import 'package:flutter/material.dart';
 
 class SupervisorTBSLuarHistoryNotifier extends ChangeNotifier {
-
-  NavigatorService _navigationService = locator<NavigatorService>();
+  final NavigatorService _navigationService = locator<NavigatorService>();
 
   NavigatorService get navigationService => _navigationService;
 
-  DialogService _dialogService = locator<DialogService>();
+  final DialogService _dialogService = locator<DialogService>();
 
   DialogService get dialogService => _dialogService;
 
@@ -20,7 +19,7 @@ class SupervisorTBSLuarHistoryNotifier extends ChangeNotifier {
 
   List<TBSLuar> get listTBSLuarSupervise => _listTBSLuarSupervise;
 
-  List<TBSLuar> _listTBSLuarSuperviseResult = [];
+  final List<TBSLuar> _listTBSLuarSuperviseResult = [];
 
   List<TBSLuar> get listTBSLuarSuperviseResult => _listTBSLuarSuperviseResult;
 
@@ -33,5 +32,4 @@ class SupervisorTBSLuarHistoryNotifier extends ChangeNotifier {
     _navigationService.push(Routes.TBS_LUAR_DETAIL_PAGE,
         arguments: {"tbs_luar": tbsLuar, "method": method});
   }
-
 }

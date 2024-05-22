@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'dart:convert';
 import 'dart:io';
 
@@ -18,7 +20,7 @@ class UploadOPHRepository extends APIConfiguration {
     try {
       var url = baseUrl + APIEndPoint.UPLOAD_ENDPOINT;
       var uri = Uri.parse(url);
-      var mapBC = Map<String, dynamic>();
+      var mapBC = <String, dynamic>{};
 
       mapBC = {
         'BC': {
@@ -26,7 +28,7 @@ class UploadOPHRepository extends APIConfiguration {
           'T_Attendance_Schema_List_Panen': newMapAttendance
         }
       };
-      var epmsData = Map<String, dynamic>();
+      var epmsData = <String, dynamic>{};
       var jsonMap = jsonEncode(mapBC);
       epmsData['epms_data'] = jsonMap;
       epmsData['user_token'] = token;

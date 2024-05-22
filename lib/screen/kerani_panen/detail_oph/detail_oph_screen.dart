@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:epms/base/ui/style.dart';
 import 'package:epms/common_manager/navigator_service.dart';
 import 'package:epms/model/oph.dart';
@@ -10,13 +12,16 @@ import 'package:provider/provider.dart';
 import 'detail_oph_fruit.dart';
 
 class DetailOPHScreen extends StatefulWidget {
+  const DetailOPHScreen({
+    super.key,
+    required this.oph,
+    required this.method,
+    required this.restan,
+  });
+
   final OPH oph;
   final String method;
   final bool restan;
-
-  const DetailOPHScreen(
-      {Key? key, required this.oph, required this.method, required this.restan})
-      : super(key: key);
 
   @override
   State<DetailOPHScreen> createState() => _DetailOPHScreenState();
@@ -82,8 +87,10 @@ class _DetailOPHScreenState extends State<DetailOPHScreen> {
                 ),
               ),
               body: TabBarView(children: <Widget>[
-                DetailOPHTab(),
-                notifier.onEdit ? DetailOPHEditFruit() : DetailOPHFruit()
+                const DetailOPHTab(),
+                notifier.onEdit
+                    ? const DetailOPHEditFruit()
+                    : const DetailOPHFruit()
               ]),
             ),
           ),

@@ -11,7 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class SupervisorAncakFormTab extends StatefulWidget {
-  const SupervisorAncakFormTab({Key? key}) : super(key: key);
+  const SupervisorAncakFormTab({super.key});
 
   @override
   State<SupervisorAncakFormTab> createState() => _SupervisorAncakFormTabState();
@@ -36,15 +36,15 @@ class _SupervisorAncakFormTabState extends State<SupervisorAncakFormTab> {
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("ID Ancak:"),
-                    Text("${notifier.harvestingID}", style: Style.textBold16)
+                    const Text("ID Ancak:"),
+                    Text(notifier.harvestingID, style: Style.textBold16)
                   ]),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [Text("Tanggal:"), Text("${notifier.date}")],
+                children: [const Text("Tanggal:"), Text(notifier.date)],
               ),
             ),
             Padding(
@@ -52,7 +52,7 @@ class _SupervisorAncakFormTabState extends State<SupervisorAncakFormTab> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Nama:"),
+                  const Text("Nama:"),
                   Text("${notifier.mConfigSchema?.employeeName}")
                 ],
               ),
@@ -62,8 +62,8 @@ class _SupervisorAncakFormTabState extends State<SupervisorAncakFormTab> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("GPS Geolocation:"),
-                  Text("${notifier.gpsLocation}")
+                  const Text("GPS Geolocation:"),
+                  Text(notifier.gpsLocation)
                 ],
               ),
             ),
@@ -72,8 +72,8 @@ class _SupervisorAncakFormTabState extends State<SupervisorAncakFormTab> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("GPS Geolocation End:"),
-                  Text("${notifier.gpsLocationUpdate}")
+                  const Text("GPS Geolocation End:"),
+                  Text(notifier.gpsLocationUpdate)
                 ],
               ),
             ),
@@ -86,21 +86,21 @@ class _SupervisorAncakFormTabState extends State<SupervisorAncakFormTab> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text("Kemandoran:"),
+                        const Text("Kemandoran:"),
                         InkWell(
                           onTap: () async {
                             MEmployeeSchema? mEmployee = await Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) =>
-                                        SearchEmployeeScreen()));
+                                        const SearchEmployeeScreen()));
                             if (mEmployee != null) {
                               notifier.onSetKemandoran(mEmployee);
                             }
                           },
-                          child: Card(
+                          child: const Card(
                             child: Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: EdgeInsets.all(8.0),
                               child: Icon(Icons.search),
                             ),
                           ),
@@ -109,14 +109,14 @@ class _SupervisorAncakFormTabState extends State<SupervisorAncakFormTab> {
                     ),
                     notifier.kemandoran != null
                         ? Table(border: TableBorder.all(), children: [
-                            TableRow(children: [
+                            const TableRow(children: [
                               Padding(
-                                padding: const EdgeInsets.all(8.0),
+                                padding: EdgeInsets.all(8.0),
                                 child:
                                     Text("Kode", textAlign: TextAlign.center),
                               ),
                               Padding(
-                                padding: const EdgeInsets.all(8.0),
+                                padding: EdgeInsets.all(8.0),
                                 child:
                                     Text('Nama', textAlign: TextAlign.center),
                               ),
@@ -148,21 +148,21 @@ class _SupervisorAncakFormTabState extends State<SupervisorAncakFormTab> {
                     Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("Pemanen:"),
+                          const Text("Pemanen:"),
                           InkWell(
                             onTap: () async {
                               MEmployeeSchema? mEmployee = await Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                          SearchEmployeeScreen()));
+                                          const SearchEmployeeScreen()));
                               if (mEmployee != null) {
                                 notifier.onSetPemanen(mEmployee);
                               }
                             },
-                            child: Card(
+                            child: const Card(
                               child: Padding(
-                                padding: const EdgeInsets.all(8.0),
+                                padding: EdgeInsets.all(8.0),
                                 child: Icon(Icons.search),
                               ),
                             ),
@@ -170,14 +170,14 @@ class _SupervisorAncakFormTabState extends State<SupervisorAncakFormTab> {
                         ]),
                     notifier.pemanen != null
                         ? Table(border: TableBorder.all(), children: [
-                            TableRow(children: [
+                            const TableRow(children: [
                               Padding(
-                                padding: const EdgeInsets.all(8.0),
+                                padding: EdgeInsets.all(8.0),
                                 child:
                                     Text("Kode", textAlign: TextAlign.center),
                               ),
                               Padding(
-                                padding: const EdgeInsets.all(8.0),
+                                padding: EdgeInsets.all(8.0),
                                 child:
                                     Text('Nama', textAlign: TextAlign.center),
                               ),
@@ -207,7 +207,7 @@ class _SupervisorAncakFormTabState extends State<SupervisorAncakFormTab> {
                     Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("Assign To:"),
+                          const Text("Assign To:"),
                           InkWell(
                             onTap: () async {
                               MAncakEmployee? mAncakEmployee =
@@ -215,14 +215,14 @@ class _SupervisorAncakFormTabState extends State<SupervisorAncakFormTab> {
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) =>
-                                              SearchAncakEmployeeScreen()));
+                                              const SearchAncakEmployeeScreen()));
                               if (mAncakEmployee != null) {
                                 notifier.onSetAncakEmployee(mAncakEmployee);
                               }
                             },
-                            child: Card(
+                            child: const Card(
                               child: Padding(
-                                padding: const EdgeInsets.all(8.0),
+                                padding: EdgeInsets.all(8.0),
                                 child: Icon(Icons.search),
                               ),
                             ),
@@ -230,14 +230,14 @@ class _SupervisorAncakFormTabState extends State<SupervisorAncakFormTab> {
                         ]),
                     notifier.ancakEmployee != null
                         ? Table(border: TableBorder.all(), children: [
-                            TableRow(children: [
+                            const TableRow(children: [
                               Padding(
-                                padding: const EdgeInsets.all(8.0),
+                                padding: EdgeInsets.all(8.0),
                                 child: Text("User ID",
                                     textAlign: TextAlign.center),
                               ),
                               Padding(
-                                padding: const EdgeInsets.all(8.0),
+                                padding: EdgeInsets.all(8.0),
                                 child:
                                     Text('Nama', textAlign: TextAlign.center),
                               ),
@@ -264,7 +264,7 @@ class _SupervisorAncakFormTabState extends State<SupervisorAncakFormTab> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Estate Code:"),
+                  const Text("Estate Code:"),
                   Text("${notifier.mConfigSchema?.estateCode}")
                 ],
               ),
@@ -274,16 +274,17 @@ class _SupervisorAncakFormTabState extends State<SupervisorAncakFormTab> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Blok:"),
+                  const Text("Blok:"),
                   Flexible(
-                    child: Container(
+                    child: SizedBox(
                       width: 160,
                       child: Focus(
                         child: TextFormField(
                           textCapitalization: TextCapitalization.characters,
                           controller: notifier.blockCode,
                           textAlign: TextAlign.center,
-                          decoration: InputDecoration(hintText: "Tulis blok"),
+                          decoration:
+                              const InputDecoration(hintText: "Tulis blok"),
                           onChanged: (value) {
                             if (value.length >= 3) {
                               notifier.blockNumberCheck(context, value);
@@ -304,7 +305,7 @@ class _SupervisorAncakFormTabState extends State<SupervisorAncakFormTab> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Losses buah tinggal (janjang/pokok):"),
+                  const Text("Losses buah tinggal (janjang/pokok):"),
                   Text("${notifier.loosesBuahTinggal}")
                 ],
               ),
@@ -314,12 +315,12 @@ class _SupervisorAncakFormTabState extends State<SupervisorAncakFormTab> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Losses brondolan (butir/pokok):"),
+                  const Text("Losses brondolan (butir/pokok):"),
                   Text("${notifier.loosesBrondolan}")
                 ],
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             notifier.pickedFile != null
                 ? Image.file(
                     File("${notifier.pickedFile}"),
@@ -332,7 +333,7 @@ class _SupervisorAncakFormTabState extends State<SupervisorAncakFormTab> {
                 onTap: () {
                   notifier.getCamera(context);
                 },
-                child: Container(
+                child: SizedBox(
                   width: MediaQuery.of(context).size.width,
                   child: Card(
                     shape: RoundedRectangleBorder(
@@ -357,7 +358,7 @@ class _SupervisorAncakFormTabState extends State<SupervisorAncakFormTab> {
                 onTap: () {
                   notifier.getLocationUpdate();
                 },
-                child: Container(
+                child: SizedBox(
                   width: MediaQuery.of(context).size.width,
                   child: Card(
                     shape: RoundedRectangleBorder(
@@ -389,9 +390,9 @@ class _SupervisorAncakFormTabState extends State<SupervisorAncakFormTab> {
                     borderRadius: BorderRadius.circular(10.0),
                   ),
                   child: Container(
-                    padding: EdgeInsets.all(14),
+                    padding: const EdgeInsets.all(14),
                     width: MediaQuery.of(context).size.width,
-                    child: Text(
+                    child: const Text(
                       "SIMPAN",
                       style: TextStyle(
                           fontSize: 18,

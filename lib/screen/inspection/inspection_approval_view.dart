@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:convert';
 import 'dart:developer';
 import 'dart:math' as math;
@@ -48,8 +50,8 @@ class InspectionApprovalView extends StatefulWidget {
 }
 
 class _InspectionApprovalViewState extends State<InspectionApprovalView> {
-  NavigatorService _navigationService = locator<NavigatorService>();
-  DialogService _dialogService = locator<DialogService>();
+  final NavigatorService _navigationService = locator<NavigatorService>();
+  final DialogService _dialogService = locator<DialogService>();
 
   String responseId = '';
   UserInspectionConfigModel user = const UserInspectionConfigModel();
@@ -295,11 +297,11 @@ class _InspectionApprovalViewState extends State<InspectionApprovalView> {
 
   Future<void> getLocation() async {
     while (gpsLocation.isEmpty) {
-      final _position = await LocationService.getGPSLocation();
-      if (_position != null) {
-        longitude = _position.longitude;
-        latitude = _position.latitude;
-        gpsLocation = "${_position.longitude}, ${_position.latitude}";
+      final position = await LocationService.getGPSLocation();
+      if (position != null) {
+        longitude = position.longitude;
+        latitude = position.latitude;
+        gpsLocation = "${position.longitude}, ${position.latitude}";
       }
     }
     log('cek inspection location : $gpsLocation');
@@ -728,7 +730,7 @@ class _InspectionApprovalViewState extends State<InspectionApprovalView> {
         widget.data.id);
     final dateNow = DateTime.now();
     final dateNowConvert = ValueService.generateIDFromDateTime(dateNow);
-    math.Random random = new math.Random();
+    math.Random random = math.Random();
     var randomNumber = random.nextInt(100);
     responseId = 'R${responses.length + 1}$dateNowConvert$randomNumber';
     setState(() {});
@@ -759,62 +761,62 @@ class _InspectionApprovalViewState extends State<InspectionApprovalView> {
               }
             },
             child: Scaffold(
-              appBar: AppBar(title: Text("Approval")),
+              appBar: AppBar(title: const Text("Approval")),
               body: isLoading
                   ? const SizedBox()
                   : Padding(
-                      padding: EdgeInsets.all(16),
+                      padding: const EdgeInsets.all(16),
                       child: SingleChildScrollView(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(widget.data.code),
-                            SizedBox(height: 12),
+                            const SizedBox(height: 12),
                             Row(
                               children: [
-                                Text('Dibuat Oleh :'),
-                                SizedBox(width: 12),
+                                const Text('Dibuat Oleh :'),
+                                const SizedBox(width: 12),
                                 Expanded(
                                     child: Text(widget.data.submittedByName,
                                         textAlign: TextAlign.end))
                               ],
                             ),
-                            SizedBox(height: 12),
+                            const SizedBox(height: 12),
                             Row(
                               children: [
-                                Text('Lokasi Buat :'),
-                                SizedBox(width: 12),
+                                const Text('Lokasi Buat :'),
+                                const SizedBox(width: 12),
                                 Expanded(
                                     child: Text(
                                         '${widget.data.gpsLng},${widget.data.gpsLat}',
                                         textAlign: TextAlign.end))
                               ],
                             ),
-                            SizedBox(height: 12),
+                            const SizedBox(height: 12),
                             Row(
                               children: [
-                                Text('Tanggal :'),
-                                SizedBox(width: 12),
+                                const Text('Tanggal :'),
+                                const SizedBox(width: 12),
                                 Expanded(
                                     child: Text(widget.data.trTime,
                                         textAlign: TextAlign.end))
                               ],
                             ),
-                            SizedBox(height: 12),
+                            const SizedBox(height: 12),
                             Row(
                               children: [
-                                Text('Kategori :'),
-                                SizedBox(width: 12),
+                                const Text('Kategori :'),
+                                const SizedBox(width: 12),
                                 Expanded(
                                     child: Text(widget.data.mTeamName,
                                         textAlign: TextAlign.end))
                               ],
                             ),
-                            SizedBox(height: 12),
+                            const SizedBox(height: 12),
                             Row(
                               children: [
-                                Text('Company :'),
-                                SizedBox(width: 12),
+                                const Text('Company :'),
+                                const SizedBox(width: 12),
                                 Expanded(
                                     child: Text(widget.data.mCompanyAlias,
                                         textAlign: TextAlign.end))
@@ -823,49 +825,49 @@ class _InspectionApprovalViewState extends State<InspectionApprovalView> {
                             if (widget.data.mDivisionEstateCode.isNotEmpty ||
                                 widget.data.mDivisionName.isNotEmpty)
                               Padding(
-                                padding: EdgeInsets.only(top: 12),
+                                padding: const EdgeInsets.only(top: 12),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Row(
                                       children: [
-                                        Text('Estate :'),
-                                        SizedBox(width: 12),
+                                        const Text('Estate :'),
+                                        const SizedBox(width: 12),
                                         Expanded(
                                             child: Text(
                                                 'Estate ${widget.data.mDivisionEstateCode}',
                                                 textAlign: TextAlign.end))
                                       ],
                                     ),
-                                    SizedBox(height: 12),
+                                    const SizedBox(height: 12),
                                     Row(
                                       children: [
-                                        Text('Divisi :'),
-                                        SizedBox(width: 12),
+                                        const Text('Divisi :'),
+                                        const SizedBox(width: 12),
                                         Expanded(
                                             child: Text(
-                                                '${widget.data.mDivisionName}',
+                                                widget.data.mDivisionName,
                                                 textAlign: TextAlign.end))
                                       ],
                                     ),
                                   ],
                                 ),
                               ),
-                            SizedBox(height: 12),
+                            const SizedBox(height: 12),
                             Row(
                               children: [
-                                Text('User Assign :'),
-                                SizedBox(width: 12),
+                                const Text('User Assign :'),
+                                const SizedBox(width: 12),
                                 Expanded(
                                     child: Text(widget.data.assignee,
                                         textAlign: TextAlign.end))
                               ],
                             ),
-                            SizedBox(height: 12),
+                            const SizedBox(height: 12),
                             Row(
                               children: [
-                                Text('Status :'),
-                                SizedBox(width: 12),
+                                const Text('Status :'),
+                                const SizedBox(width: 12),
                                 Expanded(
                                     child: Text(
                                         ConvertHelper.titleCase(widget
@@ -874,12 +876,12 @@ class _InspectionApprovalViewState extends State<InspectionApprovalView> {
                                         textAlign: TextAlign.end))
                               ],
                             ),
-                            SizedBox(height: 12),
+                            const SizedBox(height: 12),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text('Foto Inspection :'),
-                                SizedBox(height: 6),
+                                const Text('Foto Inspection :'),
+                                const SizedBox(height: 6),
                                 SizedBox(
                                   height: MediaQuery.of(context).size.width / 4,
                                   child: ListView.builder(
@@ -1008,18 +1010,18 @@ class _InspectionApprovalViewState extends State<InspectionApprovalView> {
                                 //     },
                                 //   ),
                                 // ),
-                                SizedBox(height: 12),
+                                const SizedBox(height: 12),
                               ],
                             ),
-                            Text('Deskripsi :'),
-                            SizedBox(height: 6),
+                            const Text('Deskripsi :'),
+                            const SizedBox(height: 6),
                             InputPrimary(
                               controller: descriptionController,
                               maxLines: 10,
                               validator: (value) => null,
                               readOnly: true,
                             ),
-                            Text('Riwayat Tindakan :'),
+                            const Text('Riwayat Tindakan :'),
                             if (listResponseInspection.isNotEmpty)
                               ...listResponseInspection.map((item) {
                                 final responseAttachment =
@@ -1044,14 +1046,12 @@ class _InspectionApprovalViewState extends State<InspectionApprovalView> {
                                     );
                                   },
                                 );
-                              }).toList()
+                              })
                             else
-                              Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(vertical: 16),
+                              const Padding(
+                                padding: EdgeInsets.symmetric(vertical: 16),
                                 child: Center(
-                                    child: const Text(
-                                        'Belum Ada Riwayat Tindakan')),
+                                    child: Text('Belum Ada Riwayat Tindakan')),
                               ),
                             // if (widget.data.responses.isNotEmpty)
                             //   ...widget.data.responses.map((item) {
@@ -1094,8 +1094,8 @@ class _InspectionApprovalViewState extends State<InspectionApprovalView> {
                                 children: [
                                   Row(
                                     children: [
-                                      Expanded(child: Text('Action :')),
-                                      SizedBox(width: 12),
+                                      const Expanded(child: Text('Action :')),
+                                      const SizedBox(width: 12),
                                       Expanded(
                                         child: DropdownButton(
                                           isExpanded: true,
@@ -1118,6 +1118,7 @@ class _InspectionApprovalViewState extends State<InspectionApprovalView> {
                                           ),
                                           items: listActionOption.map((value) {
                                             return DropdownMenuItem(
+                                              value: value,
                                               child:
                                                   Text(ConvertHelper.titleCase(
                                                 value
@@ -1126,7 +1127,6 @@ class _InspectionApprovalViewState extends State<InspectionApprovalView> {
                                                     .replaceAll(
                                                         RegExp(r'-'), ' '),
                                               )),
-                                              value: value,
                                             );
                                           }).toList(),
                                           onChanged: (String? value) {
@@ -1149,10 +1149,10 @@ class _InspectionApprovalViewState extends State<InspectionApprovalView> {
                                       children: [
                                         Row(
                                           children: [
-                                            Expanded(
+                                            const Expanded(
                                                 child:
                                                     Text('User Re Assign :')),
-                                            SizedBox(width: 12),
+                                            const SizedBox(width: 12),
                                             Expanded(
                                               child: InkWell(
                                                 onTap: () async {
@@ -1225,8 +1225,8 @@ class _InspectionApprovalViewState extends State<InspectionApprovalView> {
                                             ),
                                           ],
                                         ),
-                                        Text('Tindakan :'),
-                                        SizedBox(height: 6),
+                                        const Text('Tindakan :'),
+                                        const SizedBox(height: 6),
                                         InputPrimary(
                                           controller: noteController,
                                           maxLines: 10,
@@ -1242,9 +1242,9 @@ class _InspectionApprovalViewState extends State<InspectionApprovalView> {
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.start,
                                               children: [
-                                                Text(
+                                                const Text(
                                                     'Foto Tindakan Inspection :'),
-                                                SizedBox(height: 6),
+                                                const SizedBox(height: 6),
                                                 SizedBox(
                                                   height: MediaQuery.of(context)
                                                           .size
@@ -1298,11 +1298,11 @@ class _InspectionApprovalViewState extends State<InspectionApprovalView> {
                                                     },
                                                   ),
                                                 ),
-                                                SizedBox(height: 12),
+                                                const SizedBox(height: 12),
                                               ],
                                             ),
                                           ),
-                                        SizedBox(height: 12),
+                                        const SizedBox(height: 12),
                                         InkWell(
                                           onTap: () {
                                             if (listInspectionPhoto.length <
@@ -1396,8 +1396,8 @@ class _InspectionApprovalViewState extends State<InspectionApprovalView> {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        Text('Keterangan :'),
-                                        SizedBox(height: 6),
+                                        const Text('Keterangan :'),
+                                        const SizedBox(height: 6),
                                         InputPrimary(
                                           controller: noteController,
                                           maxLines: 10,
@@ -1412,9 +1412,9 @@ class _InspectionApprovalViewState extends State<InspectionApprovalView> {
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.start,
                                               children: [
-                                                Text(
+                                                const Text(
                                                     'Foto Tindakan Inspection :'),
-                                                SizedBox(height: 6),
+                                                const SizedBox(height: 6),
                                                 SizedBox(
                                                   height: MediaQuery.of(context)
                                                           .size
@@ -1468,11 +1468,11 @@ class _InspectionApprovalViewState extends State<InspectionApprovalView> {
                                                     },
                                                   ),
                                                 ),
-                                                SizedBox(height: 12),
+                                                const SizedBox(height: 12),
                                               ],
                                             ),
                                           ),
-                                        SizedBox(height: 12),
+                                        const SizedBox(height: 12),
                                         InkWell(
                                           onTap: () {
                                             if (listInspectionPhoto.length <
@@ -1568,10 +1568,10 @@ class _InspectionApprovalViewState extends State<InspectionApprovalView> {
                                       children: [
                                         Row(
                                           children: [
-                                            Expanded(
+                                            const Expanded(
                                                 child: Text(
                                                     'User Consultation :')),
-                                            SizedBox(width: 12),
+                                            const SizedBox(width: 12),
                                             Expanded(
                                               child: InkWell(
                                                 onTap: () async {
@@ -1644,8 +1644,8 @@ class _InspectionApprovalViewState extends State<InspectionApprovalView> {
                                             ),
                                           ],
                                         ),
-                                        Text('Keterangan :'),
-                                        SizedBox(height: 6),
+                                        const Text('Keterangan :'),
+                                        const SizedBox(height: 6),
                                         InputPrimary(
                                           controller: noteController,
                                           maxLines: 10,
@@ -1660,9 +1660,9 @@ class _InspectionApprovalViewState extends State<InspectionApprovalView> {
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.start,
                                               children: [
-                                                Text(
+                                                const Text(
                                                     'Foto Tindakan Inspection :'),
-                                                SizedBox(height: 6),
+                                                const SizedBox(height: 6),
                                                 SizedBox(
                                                   height: MediaQuery.of(context)
                                                           .size
@@ -1716,11 +1716,11 @@ class _InspectionApprovalViewState extends State<InspectionApprovalView> {
                                                     },
                                                   ),
                                                 ),
-                                                SizedBox(height: 12),
+                                                const SizedBox(height: 12),
                                               ],
                                             ),
                                           ),
-                                        SizedBox(height: 12),
+                                        const SizedBox(height: 12),
                                         InkWell(
                                           onTap: () {
                                             if (listInspectionPhoto.length <
@@ -1814,8 +1814,8 @@ class _InspectionApprovalViewState extends State<InspectionApprovalView> {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        Text('Keterangan :'),
-                                        SizedBox(height: 6),
+                                        const Text('Keterangan :'),
+                                        const SizedBox(height: 6),
                                         InputPrimary(
                                           controller: noteController,
                                           maxLines: 10,
@@ -1830,9 +1830,9 @@ class _InspectionApprovalViewState extends State<InspectionApprovalView> {
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.start,
                                               children: [
-                                                Text(
+                                                const Text(
                                                     'Foto Tindakan Inspection :'),
-                                                SizedBox(height: 6),
+                                                const SizedBox(height: 6),
                                                 SizedBox(
                                                   height: MediaQuery.of(context)
                                                           .size
@@ -1886,11 +1886,11 @@ class _InspectionApprovalViewState extends State<InspectionApprovalView> {
                                                     },
                                                   ),
                                                 ),
-                                                SizedBox(height: 12),
+                                                const SizedBox(height: 12),
                                               ],
                                             ),
                                           ),
-                                        SizedBox(height: 12),
+                                        const SizedBox(height: 12),
                                         InkWell(
                                           onTap: () {
                                             if (listInspectionPhoto.length <
@@ -1984,8 +1984,8 @@ class _InspectionApprovalViewState extends State<InspectionApprovalView> {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        Text('Keterangan :'),
-                                        SizedBox(height: 6),
+                                        const Text('Keterangan :'),
+                                        const SizedBox(height: 6),
                                         InputPrimary(
                                           controller: noteController,
                                           maxLines: 10,
@@ -2000,9 +2000,9 @@ class _InspectionApprovalViewState extends State<InspectionApprovalView> {
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.start,
                                               children: [
-                                                Text(
+                                                const Text(
                                                     'Foto Tindakan Inspection :'),
-                                                SizedBox(height: 6),
+                                                const SizedBox(height: 6),
                                                 SizedBox(
                                                   height: MediaQuery.of(context)
                                                           .size
@@ -2056,11 +2056,11 @@ class _InspectionApprovalViewState extends State<InspectionApprovalView> {
                                                     },
                                                   ),
                                                 ),
-                                                SizedBox(height: 12),
+                                                const SizedBox(height: 12),
                                               ],
                                             ),
                                           ),
-                                        SizedBox(height: 12),
+                                        const SizedBox(height: 12),
                                         InkWell(
                                           onTap: () {
                                             if (listInspectionPhoto.length <
@@ -2167,7 +2167,7 @@ class _InspectionApprovalViewState extends State<InspectionApprovalView> {
                                         width:
                                             MediaQuery.of(context).size.width,
                                         child: Padding(
-                                          padding: EdgeInsets.all(16),
+                                          padding: const EdgeInsets.all(16),
                                           child: Text(
                                             "SUBMIT",
                                             style: Style.whiteBold14,

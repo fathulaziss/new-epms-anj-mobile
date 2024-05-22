@@ -1,9 +1,10 @@
+// ignore_for_file: avoid_print
+
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/services.dart';
 
 class ConnectionManager {
-
-  ConnectivityResult _connectionStatus = ConnectivityResult.none;
+  final ConnectivityResult _connectionStatus = ConnectivityResult.none;
   final Connectivity _connectivity = Connectivity();
 
   Future<ConnectivityResult> checkConnection() async {

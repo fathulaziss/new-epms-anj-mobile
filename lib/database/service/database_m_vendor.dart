@@ -39,10 +39,10 @@ class DatabaseMVendorSchema {
     // }
     // return count;
     Batch batch = db.batch();
-    object.forEach((val) {
+    for (var val in object) {
       MVendorSchema mVendorSchema = val;
       batch.insert(mVendorSchemaTable, mVendorSchema.toJson());
-    });
+    }
     List<Object?> i = await batch.commit();
     return i.length;
   }

@@ -1,10 +1,14 @@
 class TAttendanceEntity {
-  static String attendanceMandorEmployeeCode = "attendance_mandor_employee_code";
-  static String attendanceMandorEmployeeName = "attendance_mandor_employee_name";
+  static String attendanceMandorEmployeeCode =
+      "attendance_mandor_employee_code";
+  static String attendanceMandorEmployeeName =
+      "attendance_mandor_employee_name";
   static String attendanceEmployeeCode = "attendance_employee_code";
   static String attendanceEmployeeName = "attendance_employee_name";
-  static String attendanceKeraniEmployeeCode = "attendance_kerani_employee_code";
-  static String attendanceKeraniEmployeeName = "attendance_kerani_employee_name";
+  static String attendanceKeraniEmployeeCode =
+      "attendance_kerani_employee_code";
+  static String attendanceKeraniEmployeeName =
+      "attendance_kerani_employee_name";
   static String attendanceId = "attendance_id";
   static String attendanceDate = "attendance_date";
   static String attendanceCode = "attendance_code";

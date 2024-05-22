@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print, use_build_context_synchronously
+
 import 'dart:convert';
 import 'dart:io';
 
@@ -8,7 +10,8 @@ import 'package:epms/common_manager/storage_manager.dart';
 import 'package:flutter/cupertino.dart';
 
 class UploadSPBRepository extends APIConfiguration {
-  void doPostUploadSPB(BuildContext context, String listSPB, String listSPBDetail, String listSPBLoader, onSuccess, onError) async {
+  void doPostUploadSPB(BuildContext context, String listSPB,
+      String listSPBDetail, String listSPBLoader, onSuccess, onError) async {
     String token = await StorageManager.readData("userToken");
     String baseUrl = await StorageManager.readData("apiServer");
 
@@ -19,7 +22,7 @@ class UploadSPBRepository extends APIConfiguration {
     try {
       var url = baseUrl + APIEndPoint.UPLOAD_ENDPOINT;
       var uri = Uri.parse(url);
-      var mapTP = Map<String, dynamic>();
+      var mapTP = <String, dynamic>{};
       mapTP = {
         'TP': {
           'T_SPB_Schema_List': newMapSPB,
@@ -27,7 +30,7 @@ class UploadSPBRepository extends APIConfiguration {
           'T_SPB_Loader_Schema_List': newMapSPBLoader
         }
       };
-      var epmsData = Map<String, dynamic>();
+      var epmsData = <String, dynamic>{};
       var jsonMap = jsonEncode(mapTP);
       epmsData['epms_data'] = jsonMap;
       epmsData['user_token'] = token;

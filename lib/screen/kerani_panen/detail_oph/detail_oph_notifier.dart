@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously, avoid_print
+
 import 'dart:convert';
 import 'dart:developer';
 
@@ -27,11 +29,11 @@ import 'package:flutter/material.dart';
 import 'package:nfc_manager/nfc_manager.dart';
 
 class DetailOPHNotifier extends ChangeNotifier {
-  NavigatorService _navigationService = locator<NavigatorService>();
+  final NavigatorService _navigationService = locator<NavigatorService>();
 
   NavigatorService get navigationService => _navigationService;
 
-  DialogService _dialogService = locator<DialogService>();
+  final DialogService _dialogService = locator<DialogService>();
 
   DialogService get dialogService => _dialogService;
 
@@ -47,49 +49,49 @@ class DetailOPHNotifier extends ChangeNotifier {
 
   bool get onEdit => _onEdit;
 
-  TextEditingController _notesOPH = TextEditingController();
+  final TextEditingController _notesOPH = TextEditingController();
 
   TextEditingController get notesOPH => _notesOPH;
 
-  TextEditingController _bunchesRipe = TextEditingController();
+  final TextEditingController _bunchesRipe = TextEditingController();
 
   TextEditingController get bunchesRipe => _bunchesRipe;
 
-  TextEditingController _bunchesOverRipe = TextEditingController();
+  final TextEditingController _bunchesOverRipe = TextEditingController();
 
   TextEditingController get bunchesOverRipe => _bunchesOverRipe;
 
-  TextEditingController _bunchesHalfRipe = TextEditingController();
+  final TextEditingController _bunchesHalfRipe = TextEditingController();
 
   TextEditingController get bunchesHalfRipe => _bunchesHalfRipe;
 
-  TextEditingController _bunchesUnRipe = TextEditingController();
+  final TextEditingController _bunchesUnRipe = TextEditingController();
 
   TextEditingController get bunchesUnRipe => _bunchesUnRipe;
 
-  TextEditingController _bunchesAbnormal = TextEditingController();
+  final TextEditingController _bunchesAbnormal = TextEditingController();
 
   TextEditingController get bunchesAbnormal => _bunchesAbnormal;
 
-  TextEditingController _bunchesEmpty = TextEditingController();
+  final TextEditingController _bunchesEmpty = TextEditingController();
 
   TextEditingController get bunchesEmpty => _bunchesEmpty;
 
-  TextEditingController _looseFruits = TextEditingController();
+  final TextEditingController _looseFruits = TextEditingController();
 
   TextEditingController get looseFruits => _looseFruits;
 
-  TextEditingController _bunchesTotal = TextEditingController();
+  final TextEditingController _bunchesTotal = TextEditingController();
 
   TextEditingController get bunchesTotal => _bunchesTotal;
 
-  TextEditingController _bunchesNotSent = TextEditingController();
+  final TextEditingController _bunchesNotSent = TextEditingController();
 
   TextEditingController get bunchesNotSent => _bunchesNotSent;
 
   TextEditingController ophNumber = TextEditingController();
 
-  TextEditingController _blockNumber = TextEditingController();
+  final TextEditingController _blockNumber = TextEditingController();
 
   TextEditingController get blockNumber => _blockNumber;
 
@@ -142,7 +144,7 @@ class DetailOPHNotifier extends ChangeNotifier {
   onInit(BuildContext context, OPH oph, String method, bool isRestan) async {
     _restan = isRestan;
     if (method == "BACA") {
-      await Future.delayed(Duration(milliseconds: 50));
+      await Future.delayed(const Duration(milliseconds: 50));
       OPHCardManager().readOPHCard(context, onSuccessRead, onErrorRead);
       _dialogService.showNFCDialog(
           title: "Tempel Kartu NFC",
@@ -375,10 +377,8 @@ class DetailOPHNotifier extends ChangeNotifier {
   onErrorWrite(BuildContext context, String message) {
     _dialogService.popDialog();
     FlushBarManager.showFlushBarWarning(
-        _navigationService.navigatorKey.currentContext!,
-        "Simpan OPH",
-        "$message");
-    Future.delayed(Duration(seconds: 1), () {
+        _navigationService.navigatorKey.currentContext!, "Simpan OPH", message);
+    Future.delayed(const Duration(seconds: 1), () {
       NfcManager.instance.stopSession();
     });
   }
@@ -426,7 +426,7 @@ class DetailOPHNotifier extends ChangeNotifier {
           "Simpan OPH",
           "Gagal Menyimpan");
     }
-    Future.delayed(Duration(seconds: 1), () {
+    Future.delayed(const Duration(seconds: 1), () {
       NfcManager.instance.stopSession();
     });
   }
@@ -480,7 +480,7 @@ class DetailOPHNotifier extends ChangeNotifier {
         _navigationService.navigatorKey.currentContext!,
         "Simpan OPH",
         "Berhasil Menyimpan");
-    Future.delayed(Duration(seconds: 1), () {
+    Future.delayed(const Duration(seconds: 1), () {
       NfcManager.instance.stopSession();
     });
   }
@@ -491,7 +491,7 @@ class DetailOPHNotifier extends ChangeNotifier {
         _navigationService.navigatorKey.currentContext!,
         "Simpan OPH",
         "Berhasil Menyimpan");
-    Future.delayed(Duration(seconds: 1), () {
+    Future.delayed(const Duration(seconds: 1), () {
       NfcManager.instance.stopSession();
     });
   }

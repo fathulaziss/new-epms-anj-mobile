@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class EditSPBOPHTab extends StatefulWidget {
-  const EditSPBOPHTab({Key? key}) : super(key: key);
+  const EditSPBOPHTab({super.key});
 
   @override
   State<EditSPBOPHTab> createState() => _EditSPBOPHTabState();
@@ -27,7 +27,7 @@ class _EditSPBOPHTabState extends State<EditSPBOPHTab> {
                     padding: const EdgeInsets.all(8.0),
                     child: Text("Daftar OPH (${editSPB.listSPBDetail.length})"),
                   ),
-                  SizedBox(height: 6),
+                  const SizedBox(height: 6),
                   editSPB.listSPBDetail.isEmpty
                       ? Text(
                           "Tidak Ada OPH yang dibuat",
@@ -53,14 +53,14 @@ class _EditSPBOPHTabState extends State<EditSPBOPHTab> {
                                                     "${editSPB.listSPBDetail[index].ophId}",
                                                     style: Style.textBold18,
                                                   ),
-                                                  SizedBox(height: 16),
+                                                  const SizedBox(height: 16),
                                                   Text(
                                                       "Janjang terkirim : ${editSPB.listSPBDetail[index].ophBunchesDelivered}"),
                                                   Text(
                                                       "Brondolan (kg) : ${editSPB.listSPBDetail[index].ophLooseFruitDelivered}")
                                                 ]),
                                           ]),
-                                      Divider(),
+                                      const Divider(),
                                       Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,

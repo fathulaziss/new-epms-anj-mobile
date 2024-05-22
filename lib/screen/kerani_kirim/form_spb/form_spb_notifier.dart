@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously, avoid_print
+
 import 'dart:async';
 import 'dart:convert';
 import 'dart:math';
@@ -40,15 +42,15 @@ import 'package:intl/intl.dart';
 import 'package:nfc_manager/nfc_manager.dart';
 
 class FormSPBNotifier extends ChangeNotifier {
-  ScrollController _scrollController = new ScrollController();
+  final ScrollController _scrollController = ScrollController();
 
   ScrollController get scrollController => _scrollController;
 
-  NavigatorService _navigationService = locator<NavigatorService>();
+  final NavigatorService _navigationService = locator<NavigatorService>();
 
   NavigatorService get navigationService => _navigationService;
 
-  DialogService _dialogService = locator<DialogService>();
+  final DialogService _dialogService = locator<DialogService>();
 
   DialogService get dialogService => _dialogService;
 
@@ -118,11 +120,11 @@ class FormSPBNotifier extends ChangeNotifier {
 
   MVendorSchema? get vendorSchemaValue => _vendorSchemaValue;
 
-  bool _isCheckedOther = false;
+  final bool _isCheckedOther = false;
 
   bool get isCheckedOther => _isCheckedOther;
 
-  TextEditingController _vendorOther = TextEditingController();
+  final TextEditingController _vendorOther = TextEditingController();
 
   TextEditingController get vendorOther => _vendorOther;
 
@@ -130,11 +132,11 @@ class FormSPBNotifier extends ChangeNotifier {
 
   TextEditingController spbCardNumber = TextEditingController();
 
-  TextEditingController _notesSPB = TextEditingController();
+  final TextEditingController _notesSPB = TextEditingController();
 
   TextEditingController get notesSPB => _notesSPB;
 
-  List<SPBLoader> _spbLoaderList = [];
+  final List<SPBLoader> _spbLoaderList = [];
 
   List<SPBLoader> get spbLoaderList => _spbLoaderList;
 
@@ -142,35 +144,35 @@ class FormSPBNotifier extends ChangeNotifier {
 
   String? get pickedFile => _pickedFile;
 
-  int _countOPHList = 0;
+  final int _countOPHList = 0;
 
   int get countOPHList => _countOPHList;
 
-  List<String> _loaderType = [];
+  final List<String> _loaderType = [];
 
   List<String> get loaderType => _loaderType;
 
-  List<MVendorSchema?> _vendorName = [];
+  final List<MVendorSchema?> _vendorName = [];
 
   List<MVendorSchema?> get vendorName => _vendorName;
 
-  List<MEmployeeSchema?> _loaderName = [];
+  final List<MEmployeeSchema?> _loaderName = [];
 
   List<MEmployeeSchema?> get loaderName => _loaderName;
 
-  List<MEmployeeSchema> _loaderTypeList = [];
+  final List<MEmployeeSchema> _loaderTypeList = [];
 
   List<MEmployeeSchema> get loaderTypeList => _loaderTypeList;
 
-  List<String> _jenisAngkut = ["TPH-PKS", "TPB-PKS"];
+  final List<String> _jenisAngkut = ["TPH-PKS", "TPB-PKS"];
 
   List<String> get jenisAngkut => _jenisAngkut;
 
-  List<String> _jenisAngkutValue = [];
+  final List<String> _jenisAngkutValue = [];
 
   List<String> get jenisAngkutValue => _jenisAngkutValue;
 
-  List<TextEditingController> _percentageAngkut = [];
+  final List<TextEditingController> _percentageAngkut = [];
 
   List<TextEditingController> get percentageAngkut => _percentageAngkut;
 
@@ -178,7 +180,7 @@ class FormSPBNotifier extends ChangeNotifier {
 
   int get totalPercentageAngkut => _totalPercentageAngkut;
 
-  List<SPBDetail> _listSPBDetail = [];
+  final List<SPBDetail> _listSPBDetail = [];
 
   List<SPBDetail> get listSPBDetail => _listSPBDetail;
 
@@ -198,7 +200,7 @@ class FormSPBNotifier extends ChangeNotifier {
 
   double get totalCapacityTruck => _totalCapacityTruck;
 
-  int _totalWeightActual = 0;
+  final int _totalWeightActual = 0;
 
   int get totalWeightActual => _totalWeightActual;
 
@@ -242,7 +244,7 @@ class FormSPBNotifier extends ChangeNotifier {
 
   bool get isLoaderZero => _isLoaderZero;
 
-  List<OPH> _listOPHScanned = [];
+  final List<OPH> _listOPHScanned = [];
 
   List<OPH> get listOPHScanned => _listOPHScanned;
 
@@ -256,11 +258,11 @@ class FormSPBNotifier extends ChangeNotifier {
     _destinationList =
         await DatabaseMDestinationSchema().selectMDestinationSchema();
     _vendorList = await DatabaseMVendorSchema().selectMVendorSchema();
-    _listLoader.forEach((element) {
+    for (var element in _listLoader) {
       if (element.employeeCode == _mConfigSchema?.employeeCode) {
         spbCardNumber.text = element.employeeDivisionCode!;
       }
-    });
+    }
     // addOPH();
     notifyListeners();
   }
@@ -268,14 +270,12 @@ class FormSPBNotifier extends ChangeNotifier {
   generateVariable() async {
     _mConfigSchema = await DatabaseMConfig().selectMConfig();
     DateTime now = DateTime.now();
-    NumberFormat formatterNumber = new NumberFormat("000");
+    NumberFormat formatterNumber = NumberFormat("000");
     String number = formatterNumber.format(_mConfigSchema?.userId!);
     _date = TimeManager.dateWithDash(now);
     _time = TimeManager.timeWithColon(now);
-    _spbID = "${_mConfigSchema?.estateCode}" +
-        ValueService.generateIDFromDateTime(now) +
-        "$number" +
-        "M";
+    _spbID =
+        "${_mConfigSchema?.estateCode}${ValueService.generateIDFromDateTime(now)}${number}M";
     getLocation();
     notifyListeners();
   }
@@ -303,9 +303,9 @@ class FormSPBNotifier extends ChangeNotifier {
     // }
     // notifyListeners();
     while (_gpsLocation.isEmpty) {
-      final _position = await LocationService.getGPSLocation();
-      if (_position != null) {
-        _gpsLocation = "${_position.longitude}, ${_position.latitude}";
+      final position = await LocationService.getGPSLocation();
+      if (position != null) {
+        _gpsLocation = "${position.longitude}, ${position.latitude}";
       }
     }
     notifyListeners();
@@ -538,7 +538,7 @@ class FormSPBNotifier extends ChangeNotifier {
 
   onErrorRead(BuildContext context, String response) {
     _dialogService.popDialog();
-    Future.delayed(Duration(seconds: 1), () {
+    Future.delayed(const Duration(seconds: 1), () {
       NfcManager.instance.stopSession();
     });
     FlushBarManager.showFlushBarWarning(context, "Gagal Membaca", response);
@@ -610,7 +610,7 @@ class FormSPBNotifier extends ChangeNotifier {
       if (_scrollController.hasClients) {
         _scrollController.animateTo(
           _scrollController.position.maxScrollExtent + 320,
-          duration: Duration(milliseconds: 200),
+          duration: const Duration(milliseconds: 200),
           curve: Curves.fastOutSlowIn,
         );
       }
@@ -632,7 +632,7 @@ class FormSPBNotifier extends ChangeNotifier {
       if (_scrollController.hasClients) {
         _scrollController.animateTo(
           _scrollController.position.maxScrollExtent + 320,
-          duration: Duration(milliseconds: 200),
+          duration: const Duration(milliseconds: 200),
           curve: Curves.fastOutSlowIn,
         );
       }
@@ -652,10 +652,10 @@ class FormSPBNotifier extends ChangeNotifier {
     _loaderName.removeAt(index);
     _jenisAngkutValue.removeAt(index);
     _percentageAngkut.removeAt(index);
-    _spbLoaderList.forEach((element) {
+    for (var element in _spbLoaderList) {
       _totalPercentageAngkut =
           _totalPercentageAngkut + (element.loaderPercentage!);
-    });
+    }
     checkLoaderExist();
     checkLoaderPercentageValue();
     notifyListeners();
@@ -730,10 +730,10 @@ class FormSPBNotifier extends ChangeNotifier {
     if (percent.isNotEmpty) {
       spbLoaderList[index].loaderPercentage = int.tryParse(percent);
       _totalPercentageAngkut = 0;
-      _spbLoaderList.forEach((element) {
+      for (var element in _spbLoaderList) {
         _totalPercentageAngkut =
             _totalPercentageAngkut + element.loaderPercentage!;
-      });
+      }
       notifyListeners();
       if (_totalPercentageAngkut > 100) {
         FlushBarManager.showFlushBarWarning(
@@ -748,9 +748,8 @@ class FormSPBNotifier extends ChangeNotifier {
     spbTemp.spbId = spbID;
     spbTemp.createdTime = _time;
     spbTemp.createdDate = _date;
-    spbTemp.spbLat = _position != null ? _position!.latitude.toString() : null;
-    spbTemp.spbLong =
-        _position != null ? _position!.longitude.toString() : null;
+    spbTemp.spbLat = _position?.latitude.toString();
+    spbTemp.spbLong = _position?.longitude.toString();
     spbTemp.spbType = typeDeliverValue == "Internal" ? 1 : 3;
     spbTemp.spbDeliverToCode = _destinationValue?.destinationCode;
     spbTemp.spbDeliverToName = _destinationValue?.destinationName;

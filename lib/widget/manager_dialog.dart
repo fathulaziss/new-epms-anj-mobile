@@ -21,18 +21,16 @@ Widget builderDialog(BuildContext context, Widget? widget) => Navigator(
     );
 
 class DialogManager extends StatefulWidget {
+  const DialogManager({super.key, required this.child});
+
   final Widget? child;
 
-  DialogManager({
-    Key? key,
-    required this.child,
-  }) : super(key: key);
-
-  _DialogManagerState createState() => _DialogManagerState();
+  @override
+  State<DialogManager> createState() => _DialogManagerState();
 }
 
 class _DialogManagerState extends State<DialogManager> {
-  DialogService _dialogService = locator<DialogService>();
+  final DialogService _dialogService = locator<DialogService>();
 
   @override
   void initState() {
@@ -50,11 +48,6 @@ class _DialogManagerState extends State<DialogManager> {
       _showDialogSubmitInspection,
       _popDialog,
     );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return widget.child!;
   }
 
   void _showNoOptionDialog(NoOptionDialogRequest request) {
@@ -192,5 +185,10 @@ class _DialogManagerState extends State<DialogManager> {
 
   void _popDialog() {
     Navigator.of(context).pop();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return widget.child!;
   }
 }

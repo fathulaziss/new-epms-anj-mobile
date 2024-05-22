@@ -8,11 +8,11 @@ class SupervisorSPBHistoryNotifier extends ChangeNotifier {
 
   List<SPBSupervise> get listSPBSupervise => _listSPBSupervise;
 
-  List<SPBSupervise> _listSPBSuperviseResult = [];
+  final List<SPBSupervise> _listSPBSuperviseResult = [];
 
   List<SPBSupervise> get listSPBSuperviseResult => _listSPBSuperviseResult;
 
-  List<String> _sourceSPB = ["Semua"];
+  final List<String> _sourceSPB = ["Semua"];
 
   List<String> get sourceSPB => _sourceSPB;
 

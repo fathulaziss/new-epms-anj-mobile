@@ -42,7 +42,7 @@ class _InspectionViewState extends State<InspectionView> {
             data: Style.mediaQueryText(context),
             child: Scaffold(
               appBar: AppBar(
-                title: Text('Inspection'),
+                title: const Text('Inspection'),
                 bottom: TabBar(
                   enableFeedback: true,
                   onTap: (value) {
@@ -51,7 +51,7 @@ class _InspectionViewState extends State<InspectionView> {
                     provider.updateSubordinateInspectionFromLocal();
                     setState(() {});
                   },
-                  tabs: [
+                  tabs: const [
                     Tab(
                       icon: Text(
                         "Inspection",
@@ -77,7 +77,7 @@ class _InspectionViewState extends State<InspectionView> {
               body: Flex(
                 direction: Axis.vertical,
                 children: [
-                  Expanded(
+                  const Expanded(
                     child: TabBarView(
                       physics: NeverScrollableScrollPhysics(),
                       children: [TabMyInspection(), TabToDo(), TabOnGoing()],
@@ -104,7 +104,7 @@ class _InspectionViewState extends State<InspectionView> {
                           child: SizedBox(
                             width: MediaQuery.of(context).size.width,
                             child: Padding(
-                              padding: EdgeInsets.all(16),
+                              padding: const EdgeInsets.all(16),
                               child: Text(
                                 "CREATE INSPECTION",
                                 style: Style.whiteBold14,
@@ -136,7 +136,7 @@ class _InspectionViewState extends State<InspectionView> {
                           child: SizedBox(
                             width: MediaQuery.of(context).size.width,
                             child: Padding(
-                              padding: EdgeInsets.all(16),
+                              padding: const EdgeInsets.all(16),
                               child: Text(
                                 "MY INSPECTION",
                                 style: Style.whiteBold14,
@@ -162,7 +162,7 @@ class _InspectionViewState extends State<InspectionView> {
                         child: SizedBox(
                           width: MediaQuery.of(context).size.width,
                           child: Padding(
-                            padding: EdgeInsets.all(16),
+                            padding: const EdgeInsets.all(16),
                             child: Text(
                               "UPLOAD & SYNC",
                               style: Style.whiteBold14,

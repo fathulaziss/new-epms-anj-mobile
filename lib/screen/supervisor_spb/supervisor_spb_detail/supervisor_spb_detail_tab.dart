@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class SupervisorSPBDetailTab extends StatefulWidget {
-  const SupervisorSPBDetailTab({Key? key}) : super(key: key);
+  const SupervisorSPBDetailTab({super.key});
 
   @override
   State<SupervisorSPBDetailTab> createState() => _SupervisorSPBDetailTabState();
@@ -33,7 +33,7 @@ class _SupervisorSPBDetailTabState extends State<SupervisorSPBDetailTab> {
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("ID Supervisi:"),
+                    const Text("ID Supervisi:"),
                     Text("${notifier.spbSupervise.spbSuperviseId}",
                         style: Style.textBold16)
                   ]),
@@ -43,7 +43,7 @@ class _SupervisorSPBDetailTabState extends State<SupervisorSPBDetailTab> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Tanggal:"),
+                  const Text("Tanggal:"),
                   Text("${notifier.spbSupervise.createdDate}")
                 ],
               ),
@@ -53,7 +53,7 @@ class _SupervisorSPBDetailTabState extends State<SupervisorSPBDetailTab> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Nama:"),
+                  const Text("Nama:"),
                   Text("${notifier.spbSupervise.supervisiSpbEmployeeName}")
                 ],
               ),
@@ -63,7 +63,7 @@ class _SupervisorSPBDetailTabState extends State<SupervisorSPBDetailTab> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("GPS Geolocation:"),
+                  const Text("GPS Geolocation:"),
                   Text(
                       "${notifier.spbSupervise.supervisiSpbLat ?? ""}, ${notifier.spbSupervise.supervisiSpbLong ?? ""}")
                 ],
@@ -78,139 +78,142 @@ class _SupervisorSPBDetailTabState extends State<SupervisorSPBDetailTab> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text("Sumber SPB:"),
+                        const Text("Sumber SPB:"),
                         Text(
                             "${ValueService.spbSourceDataText(notifier.spbSupervise.supervisiSpbType!)}")
                       ],
                     ),
-                    SizedBox(height: 8),
+                    const SizedBox(height: 8),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text("Jenis Pekerja:"),
+                        const Text("Jenis Pekerja:"),
                         Text(
                             "${ValueService.typeOfFormToText(notifier.spbSupervise.supervisiSpbMethod!)}")
                       ],
                     ),
-                    SizedBox(height: 8),
+                    const SizedBox(height: 8),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text("Nama Supir:"),
+                        const Text("Nama Supir:"),
                         Text(
                             "${notifier.spbSupervise.supervisiSpbDriverEmployeeCode},\n${notifier.spbSupervise.supervisiSpbDriverEmployeeName}")
                       ],
                     ),
-                    SizedBox(height: 8),
+                    const SizedBox(height: 8),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text("Divisi:"),
+                        const Text("Divisi:"),
                         Text(
                             "${notifier.spbSupervise.supervisiSpbDivisionCode}")
                       ],
                     ),
-                    SizedBox(height: 8),
+                    const SizedBox(height: 8),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text("No Kendaraan:"),
+                        const Text("No Kendaraan:"),
                         Text(
                             "${notifier.spbSupervise.supervisiSpbLicenseNumber}")
                       ],
                     ),
-                    SizedBox(height: 8),
+                    const SizedBox(height: 8),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text("Estate:"),
-                        Text(
-                            "${notifier.spbSupervise.supervisiEstateCode}")
+                        const Text("Estate:"),
+                        Text("${notifier.spbSupervise.supervisiEstateCode}")
                       ],
                     ),
-                    SizedBox(height: 8),
-                    notifier.onEdit ?
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(16.0),
-                          child: Column(
+                    const SizedBox(height: 8),
+                    notifier.onEdit
+                        ? Row(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Row(
-                                children: [
-                                  Column(
-                                    children: [
-                                      Text("No ID SPB"),
-                                      Container(
-                                        width: 160,
-                                        child: Focus(
-                                          child: TextFormField(
-                                            enabled: notifier.activeText,
-                                            controller: notifier.spbID,
-                                            textAlign: TextAlign.center,
-                                            decoration: InputDecoration(
-                                                hintText: "Tulis No Kartu SPB"),
+                              Padding(
+                                padding: const EdgeInsets.all(16.0),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Column(
+                                          children: [
+                                            const Text("No ID SPB"),
+                                            SizedBox(
+                                              width: 160,
+                                              child: Focus(
+                                                child: TextFormField(
+                                                  enabled: notifier.activeText,
+                                                  controller: notifier.spbID,
+                                                  textAlign: TextAlign.center,
+                                                  decoration: const InputDecoration(
+                                                      hintText:
+                                                          "Tulis No Kartu SPB"),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        Column(
+                                          children: [
+                                            const Text("Aktifkan Tulisan"),
+                                            SizedBox(
+                                              width: 160,
+                                              child: Switch(
+                                                  activeColor:
+                                                      Palette.greenColor,
+                                                  value: notifier.activeText,
+                                                  onChanged: (value) {
+                                                    notifier.onChangeActiveText(
+                                                        value);
+                                                  }),
+                                            ),
+                                          ],
+                                        )
+                                      ],
+                                    ),
+                                    const SizedBox(height: 18),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: InkWell(
+                                        onTap: () {
+                                          notifier.dialogNFC(context);
+                                        },
+                                        child: Card(
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(10.0),
+                                          ),
+                                          color: Colors.green,
+                                          child: Padding(
+                                            padding: const EdgeInsets.all(16.0),
+                                            child: Text(
+                                              "Scan SPB",
+                                              style: Style.whiteBold14,
+                                            ),
                                           ),
                                         ),
                                       ),
-                                    ],
-                                  ),
-                                  Column(
-                                    children: [
-                                      Text("Aktifkan Tulisan"),
-                                      Container(
-                                        width: 160,
-                                        child: Switch(
-                                            activeColor: Palette.greenColor,
-                                            value: notifier.activeText,
-                                            onChanged: (value) {
-                                              notifier.onChangeActiveText(value);
-                                            }),
-                                      ),
-                                    ],
-                                  )
-                                ],
-                              ),
-                              SizedBox(height: 18),
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: InkWell(
-                                  onTap: () {
-                                    notifier.dialogNFC(context);
-                                  },
-                                  child: Card(
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10.0),
-                                    ),
-                                    color: Colors.green,
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(16.0),
-                                      child: Text(
-                                        "Scan SPB",
-                                        style: Style.whiteBold14,
-                                      ),
-                                    ),
-                                  ),
+                                    )
+                                  ],
                                 ),
-                              )
+                              ),
+                            ],
+                          )
+                        : Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              const Text("No ID SPB:"),
+                              Text("${notifier.spbSupervise.spbId}")
                             ],
                           ),
-                        ),
-                      ],
-                    ) : Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text("No ID SPB:"),
-                        Text(
-                            "${notifier.spbSupervise.spbId}")
-                      ],
-                    ),
                   ]),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             notifier.spbSupervise.supervisiSpbPhoto != null
                 ? Image.file(
                     File("${notifier.spbSupervise.supervisiSpbPhoto}"),
@@ -224,7 +227,7 @@ class _SupervisorSPBDetailTabState extends State<SupervisorSPBDetailTab> {
                       onTap: () {
                         notifier.getCamera(context);
                       },
-                      child: Container(
+                      child: SizedBox(
                         width: MediaQuery.of(context).size.width,
                         child: Card(
                           shape: RoundedRectangleBorder(
@@ -258,9 +261,9 @@ class _SupervisorSPBDetailTabState extends State<SupervisorSPBDetailTab> {
                           borderRadius: BorderRadius.circular(10.0),
                         ),
                         child: Container(
-                          padding: EdgeInsets.all(14),
+                          padding: const EdgeInsets.all(14),
                           width: MediaQuery.of(context).size.width,
-                          child: Text(
+                          child: const Text(
                             "SIMPAN",
                             style: TextStyle(
                                 fontSize: 18,
@@ -285,9 +288,9 @@ class _SupervisorSPBDetailTabState extends State<SupervisorSPBDetailTab> {
                           borderRadius: BorderRadius.circular(10.0),
                         ),
                         child: Container(
-                          padding: EdgeInsets.all(14),
+                          padding: const EdgeInsets.all(14),
                           width: MediaQuery.of(context).size.width,
-                          child: Text(
+                          child: const Text(
                             "UBAH DATA",
                             style: TextStyle(
                                 fontSize: 18,

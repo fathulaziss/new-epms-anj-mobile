@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
@@ -21,7 +23,7 @@ class LoginRepository extends APIConfiguration {
     try {
       var url = baseUrl + APIEndPoint.LOGIN_ENDPOINT;
       var uri = Uri.parse(url);
-      var map = new Map<String, dynamic>();
+      var map = <String, dynamic>{};
       map['user_login'] = username;
       map['password'] = password;
       var response = await ioClient!.post(
@@ -63,7 +65,7 @@ class LoginRepository extends APIConfiguration {
     Function(BuildContext context, String errorMessage) onError,
   ) async {
     try {
-      var map = new Map<String, dynamic>();
+      var map = <String, dynamic>{};
       map['username'] = username;
       map['password'] = password;
       map['success_epms_login'] = '$isEpmsLoginSuccess';

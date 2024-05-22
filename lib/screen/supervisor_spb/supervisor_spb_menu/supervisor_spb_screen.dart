@@ -9,10 +9,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class SupervisorSPBScreen extends StatefulWidget {
-  const SupervisorSPBScreen({Key? key}) : super(key: key);
+  const SupervisorSPBScreen({super.key});
 
   @override
-  _SupervisorSPBScreenState createState() => _SupervisorSPBScreenState();
+  State<SupervisorSPBScreen> createState() => _SupervisorSPBScreenState();
 }
 
 class _SupervisorSPBScreenState extends State<SupervisorSPBScreen> {
@@ -70,19 +70,19 @@ class _SupervisorSPBScreenState extends State<SupervisorSPBScreen> {
                 ],
               ),
               body: Padding(
-                padding: EdgeInsets.only(bottom: 10, left: 5, right: 5),
+                padding: const EdgeInsets.only(bottom: 10, left: 5, right: 5),
                 child: SingleChildScrollView(
                   child: Padding(
                     padding: const EdgeInsets.all(18),
                     child: Column(
                       children: [
                         Padding(
-                          padding:
-                              EdgeInsets.only(left: 10, right: 10, bottom: 10),
+                          padding: const EdgeInsets.only(
+                              left: 10, right: 10, bottom: 10),
                           child: Image.asset(ImageAssets.ANJ_LOGO, height: 60),
                         ),
                         Padding(
-                          padding: EdgeInsets.all(6),
+                          padding: const EdgeInsets.all(6),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -121,7 +121,7 @@ class _SupervisorSPBScreenState extends State<SupervisorSPBScreen> {
                               SupervisorSPBNotifier()
                                   .onClickMenu(context, 'SUPERVISI SPB');
                             },
-                            child: Text("SUPERVISI SPB",
+                            child: const Text("SUPERVISI SPB",
                                 style: TextStyle(
                                     fontSize: 14, fontWeight: FontWeight.bold)),
                           ),
@@ -146,7 +146,7 @@ class _SupervisorSPBScreenState extends State<SupervisorSPBScreen> {
                               SupervisorSPBNotifier().onClickMenu(
                                   context, 'HISTORY GRADING TBS LUAR');
                             },
-                            child: Text("HISTORY GRADING TBS LUAR",
+                            child: const Text("HISTORY GRADING TBS LUAR",
                                 style: TextStyle(
                                     fontSize: 14, fontWeight: FontWeight.bold)),
                           ),
@@ -171,7 +171,7 @@ class _SupervisorSPBScreenState extends State<SupervisorSPBScreen> {
                               SupervisorSPBNotifier().onClickMenu(
                                   context, 'HISTORY SUPERVISI SPB');
                             },
-                            child: Text("HISTORY SUPERVISI SPB",
+                            child: const Text("HISTORY SUPERVISI SPB",
                                 style: TextStyle(
                                     fontSize: 14, fontWeight: FontWeight.bold)),
                           ),
@@ -196,7 +196,7 @@ class _SupervisorSPBScreenState extends State<SupervisorSPBScreen> {
                               SupervisorSPBNotifier()
                                   .onClickMenu(context, 'BACA KARTU SPB');
                             },
-                            child: Text("BACA KARTU SPB",
+                            child: const Text("BACA KARTU SPB",
                                 style: TextStyle(
                                     fontSize: 14, fontWeight: FontWeight.bold)),
                           ),
@@ -221,7 +221,7 @@ class _SupervisorSPBScreenState extends State<SupervisorSPBScreen> {
                               SupervisorSPBNotifier()
                                   .onClickMenu(context, 'BACA KARTU TBS LUAR');
                             },
-                            child: Text("BACA KARTU TBS LUAR",
+                            child: const Text("BACA KARTU TBS LUAR",
                                 style: TextStyle(
                                     fontSize: 14, fontWeight: FontWeight.bold)),
                           ),
@@ -250,20 +250,20 @@ class _SupervisorSPBScreenState extends State<SupervisorSPBScreen> {
                                 child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Text("INSPECTION",
+                                      const Text("INSPECTION",
                                           style: TextStyle(
                                               fontSize: 14,
                                               fontWeight: FontWeight.bold)),
-                                      SizedBox(width: 10),
+                                      const SizedBox(width: 10),
                                       homeNotifier.countInspection == 0
                                           ? const SizedBox()
                                           : Row(children: [
-                                              Icon(Icons.warning,
+                                              const Icon(Icons.warning,
                                                   color: Colors.yellow),
-                                              SizedBox(width: 10),
+                                              const SizedBox(width: 10),
                                               Text(
                                                   "${homeNotifier.countInspection}",
-                                                  style: TextStyle(
+                                                  style: const TextStyle(
                                                       fontSize: 14,
                                                       fontWeight:
                                                           FontWeight.bold)),
@@ -280,7 +280,7 @@ class _SupervisorSPBScreenState extends State<SupervisorSPBScreen> {
                                   Size(MediaQuery.of(context).size.width, 50),
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(5.0),
-                                  side: BorderSide(color: Colors.green)),
+                                  side: const BorderSide(color: Colors.green)),
                               padding: const EdgeInsets.all(16.0),
                               textStyle: const TextStyle(
                                   fontSize: 20, color: Colors.white),
@@ -289,7 +289,7 @@ class _SupervisorSPBScreenState extends State<SupervisorSPBScreen> {
                               SupervisorSPBNotifier()
                                   .onClickMenu(context, 'UPLOAD DATA');
                             },
-                            child: Text("UPLOAD DATA",
+                            child: const Text("UPLOAD DATA",
                                 style: TextStyle(
                                     fontSize: 14, fontWeight: FontWeight.bold)),
                           ),
@@ -314,37 +314,37 @@ class _SupervisorSPBScreenState extends State<SupervisorSPBScreen> {
                               SupervisorSPBNotifier()
                                   .onClickMenu(context, 'KELUAR');
                             },
-                            child: Text("KELUAR",
+                            child: const Text("KELUAR",
                                 style: TextStyle(
                                     fontSize: 14, fontWeight: FontWeight.bold)),
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.only(top: 16),
+                          padding: const EdgeInsets.only(top: 16),
                           child: Column(
                             children: [
                               Text("${homeNotifier.configSchema.employeeCode}",
                                   style: Style.textBold14),
                               Text("${homeNotifier.configSchema.employeeName}",
                                   style: Style.textBold14),
-                              SizedBox(height: 30),
+                              const SizedBox(height: 30),
                               Card(
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: InkWell(
-                                    child: Text("Sync Ulang"),
+                                    child: const Text("Sync Ulang"),
                                     onTap: () {
                                       SupervisorSPBNotifier().reSynch();
                                     },
                                   ),
                                 ),
                               ),
-                              SizedBox(height: 10),
+                              const SizedBox(height: 10),
                               Card(
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: InkWell(
-                                    child: Text("Export Json"),
+                                    child: const Text("Export Json"),
                                     onTap: () {
                                       SupervisorSPBNotifier()
                                           .exportJson(context);
@@ -352,7 +352,7 @@ class _SupervisorSPBScreenState extends State<SupervisorSPBScreen> {
                                   ),
                                 ),
                               ),
-                              Divider(),
+                              const Divider(),
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Image.asset(
@@ -360,7 +360,7 @@ class _SupervisorSPBScreenState extends State<SupervisorSPBScreen> {
                                   height: 25,
                                 ),
                               ),
-                              Text("ePMS ANJ Group")
+                              const Text("ePMS ANJ Group")
                             ],
                           ),
                         ),

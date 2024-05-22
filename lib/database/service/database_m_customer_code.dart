@@ -1,4 +1,3 @@
-
 import 'package:epms/database/helper/database_helper.dart';
 import 'package:epms/database/helper/database_table.dart';
 import 'package:epms/model/m_customer_code_schema.dart';
@@ -6,7 +5,6 @@ import 'package:sqflite/sqflite.dart';
 import '../entity/m_customer_code_entity.dart';
 
 class DatabaseMCustomerCodeSchema {
-
   void createCustomerCodeSchemaTable(Database db) async {
     // await db.execute('''
     //   CREATE TABLE $mCustomerCodeSchemaTable(
@@ -27,7 +25,9 @@ class DatabaseMCustomerCodeSchema {
        ${MCustomerCodeEntity.customerCode} TEXT)
     ''');
   }
-  Future<int> insertMCustomerCodeSchema(List<MCustomerCodeSchema> object) async {
+
+  Future<int> insertMCustomerCodeSchema(
+      List<MCustomerCodeSchema> object) async {
     Database db = await DatabaseHelper().database;
     // int count = 0;
     // List<MCustomerCodeSchema> listCustomer = await selectMCustomerCodeSchema();
@@ -39,10 +39,10 @@ class DatabaseMCustomerCodeSchema {
     // }
     // return count;
     Batch batch = db.batch();
-    object.forEach((val) {
-      MCustomerCodeSchema mCustomerCodeSchema =  val;
+    for (var val in object) {
+      MCustomerCodeSchema mCustomerCodeSchema = val;
       batch.insert(mCustomerCodeSchemaTable, mCustomerCodeSchema.toJson());
-    });
+    }
     List<Object?> i = await batch.commit();
     return i.length;
   }
@@ -52,7 +52,8 @@ class DatabaseMCustomerCodeSchema {
     var mapList = await db.query(mCustomerCodeSchemaTable);
     List<MCustomerCodeSchema> list = [];
     for (int i = 0; i < mapList.length; i++) {
-      MCustomerCodeSchema mCustomerCodeSchema = MCustomerCodeSchema.fromJson(mapList[i]);
+      MCustomerCodeSchema mCustomerCodeSchema =
+          MCustomerCodeSchema.fromJson(mapList[i]);
       list.add(mCustomerCodeSchema);
     }
     return list;

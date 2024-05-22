@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:epms/base/ui/palette.dart';
 import 'package:epms/common_manager/storage_manager.dart';
 import 'package:flutter/material.dart';
@@ -11,9 +13,9 @@ class ThemeNotifier with ChangeNotifier {
           onPrimary: Colors.black,
           secondary: Colors.orange,
         ),
-    primaryColor: Color(0xFF212121),
-    dividerTheme: DividerThemeData(color: Colors.grey),
-    appBarTheme: AppBarTheme(
+    primaryColor: const Color(0xFF212121),
+    dividerTheme: const DividerThemeData(color: Colors.grey),
+    appBarTheme: const AppBarTheme(
       color: Colors.transparent,
       foregroundColor: Colors.white,
       titleTextStyle: TextStyle(color: Colors.white, fontSize: 20),
@@ -39,10 +41,10 @@ class ThemeNotifier with ChangeNotifier {
     primaryColorLight: Palette.greenColorLight,
     appBarTheme: AppBarTheme(
         foregroundColor: Colors.white,
-        titleTextStyle: TextStyle(color: Colors.white, fontSize: 20),
+        titleTextStyle: const TextStyle(color: Colors.white, fontSize: 20),
         color: Palette.primaryColorProd),
     indicatorColor: Colors.white,
-    scaffoldBackgroundColor: Color(0xFFF9F9F9),
+    scaffoldBackgroundColor: const Color(0xFFF9F9F9),
     cardColor: Colors.white,
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(

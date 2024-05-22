@@ -24,7 +24,7 @@ class _DialogPreviewPhotoOfflineState extends State<DialogPreviewPhotoOffline> {
     return MediaQuery(
       data: Style.mediaQueryText(context),
       child: AlertDialog(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
+        shape: const RoundedRectangleBorder(borderRadius: BorderRadius.zero),
         insetPadding: EdgeInsets.zero,
         backgroundColor: Colors.black,
         surfaceTintColor: Colors.black,
@@ -49,7 +49,7 @@ class _DialogPreviewPhotoOfflineState extends State<DialogPreviewPhotoOffline> {
               child: SizedBox(
                 width: MediaQuery.of(context).size.width,
                 child: Padding(
-                  padding: EdgeInsets.all(16),
+                  padding: const EdgeInsets.all(16),
                   child: Text(
                     "TUTUP",
                     style: Style.whiteBold14,

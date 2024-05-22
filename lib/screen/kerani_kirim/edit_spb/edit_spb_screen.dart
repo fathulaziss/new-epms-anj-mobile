@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:epms/base/ui/style.dart';
 import 'package:epms/common_manager/navigator_service.dart';
 import 'package:epms/model/spb.dart';
@@ -11,15 +13,16 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class EditSPBScreen extends StatefulWidget {
+  const EditSPBScreen({
+    super.key,
+    required this.spb,
+    required this.listSPBDetail,
+    required this.listSPBLoader,
+  });
+
   final SPB spb;
   final List<SPBDetail> listSPBDetail;
   final List<SPBLoader> listSPBLoader;
-  const EditSPBScreen(
-      {Key? key,
-      required this.spb,
-      required this.listSPBDetail,
-      required this.listSPBLoader})
-      : super(key: key);
 
   @override
   State<EditSPBScreen> createState() => _EditSPBScreenState();
@@ -54,10 +57,10 @@ class _EditSPBScreenState extends State<EditSPBScreen> {
             data: Style.mediaQueryText(context),
             child: Scaffold(
               appBar: AppBar(
-                title: Text('Ubah Data SPB'),
+                title: const Text('Ubah Data SPB'),
                 bottom: TabBar(
                   tabs: <Widget>[
-                    Tab(
+                    const Tab(
                       icon: Text("Detail"),
                     ),
                     Tab(
@@ -69,7 +72,7 @@ class _EditSPBScreenState extends State<EditSPBScreen> {
                   ],
                 ),
               ),
-              body: TabBarView(children: <Widget>[
+              body: const TabBarView(children: <Widget>[
                 EditSPBDetailTab(),
                 EditSPBOPHTab(),
                 EditSPBLoaderTab()

@@ -24,8 +24,8 @@ class InspectionDetailView extends StatefulWidget {
 }
 
 class _InspectionDetailViewState extends State<InspectionDetailView> {
-  NavigatorService _navigationService = locator<NavigatorService>();
-  DialogService _dialogService = locator<DialogService>();
+  final NavigatorService _navigationService = locator<NavigatorService>();
+  final DialogService _dialogService = locator<DialogService>();
   final descriptionController = TextEditingController();
 
   bool isPreviewPhoto = false;
@@ -132,7 +132,7 @@ class _InspectionDetailViewState extends State<InspectionDetailView> {
           }
         },
         child: Scaffold(
-          appBar: AppBar(title: Text("Inspection Detail")),
+          appBar: AppBar(title: const Text("Inspection Detail")),
           body: isLoading
               ? const SizedBox()
               : Padding(
@@ -142,52 +142,52 @@ class _InspectionDetailViewState extends State<InspectionDetailView> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(widget.data.code),
-                        SizedBox(height: 12),
+                        const SizedBox(height: 12),
                         Row(
                           children: [
-                            Text('Dibuat Oleh :'),
-                            SizedBox(width: 12),
+                            const Text('Dibuat Oleh :'),
+                            const SizedBox(width: 12),
                             Expanded(
                                 child: Text(widget.data.submittedByName,
                                     textAlign: TextAlign.end))
                           ],
                         ),
-                        SizedBox(height: 12),
+                        const SizedBox(height: 12),
                         Row(
                           children: [
-                            Text('Lokasi Buat :'),
-                            SizedBox(width: 12),
+                            const Text('Lokasi Buat :'),
+                            const SizedBox(width: 12),
                             Expanded(
                                 child: Text(
                                     '${widget.data.gpsLng},${widget.data.gpsLat}',
                                     textAlign: TextAlign.end))
                           ],
                         ),
-                        SizedBox(height: 12),
+                        const SizedBox(height: 12),
                         Row(
                           children: [
-                            Text('Tanggal :'),
-                            SizedBox(width: 12),
+                            const Text('Tanggal :'),
+                            const SizedBox(width: 12),
                             Expanded(
                                 child: Text(widget.data.trTime,
                                     textAlign: TextAlign.end))
                           ],
                         ),
-                        SizedBox(height: 12),
+                        const SizedBox(height: 12),
                         Row(
                           children: [
-                            Text('Kategori :'),
-                            SizedBox(width: 12),
+                            const Text('Kategori :'),
+                            const SizedBox(width: 12),
                             Expanded(
                                 child: Text(widget.data.mTeamName,
                                     textAlign: TextAlign.end))
                           ],
                         ),
-                        SizedBox(height: 12),
+                        const SizedBox(height: 12),
                         Row(
                           children: [
-                            Text('Company :'),
-                            SizedBox(width: 12),
+                            const Text('Company :'),
+                            const SizedBox(width: 12),
                             Expanded(
                                 child: Text(widget.data.mCompanyAlias,
                                     textAlign: TextAlign.end))
@@ -202,43 +202,42 @@ class _InspectionDetailViewState extends State<InspectionDetailView> {
                               children: [
                                 Row(
                                   children: [
-                                    Text('Estate :'),
-                                    SizedBox(width: 12),
+                                    const Text('Estate :'),
+                                    const SizedBox(width: 12),
                                     Expanded(
                                         child: Text(
                                             'Estate ${widget.data.mDivisionEstateCode}',
                                             textAlign: TextAlign.end))
                                   ],
                                 ),
-                                SizedBox(height: 12),
+                                const SizedBox(height: 12),
                                 Row(
                                   children: [
-                                    Text('Divisi :'),
-                                    SizedBox(width: 12),
+                                    const Text('Divisi :'),
+                                    const SizedBox(width: 12),
                                     Expanded(
-                                        child: Text(
-                                            '${widget.data.mDivisionName}',
+                                        child: Text(widget.data.mDivisionName,
                                             textAlign: TextAlign.end))
                                   ],
                                 ),
                               ],
                             ),
                           ),
-                        SizedBox(height: 12),
+                        const SizedBox(height: 12),
                         Row(
                           children: [
-                            Text('User Assign :'),
-                            SizedBox(width: 12),
+                            const Text('User Assign :'),
+                            const SizedBox(width: 12),
                             Expanded(
                                 child: Text(widget.data.assignee,
                                     textAlign: TextAlign.end))
                           ],
                         ),
-                        SizedBox(height: 12),
+                        const SizedBox(height: 12),
                         Row(
                           children: [
-                            Text('Status :'),
-                            SizedBox(width: 12),
+                            const Text('Status :'),
+                            const SizedBox(width: 12),
                             Expanded(
                                 child: Text(
                                     ConvertHelper.titleCase(widget.data.status
@@ -246,12 +245,12 @@ class _InspectionDetailViewState extends State<InspectionDetailView> {
                                     textAlign: TextAlign.end))
                           ],
                         ),
-                        SizedBox(height: 12),
+                        const SizedBox(height: 12),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('Foto Inspection :'),
-                            SizedBox(height: 6),
+                            const Text('Foto Inspection :'),
+                            const SizedBox(height: 6),
                             SizedBox(
                               height: MediaQuery.of(context).size.width / 4,
                               child: ListView.builder(
@@ -366,18 +365,18 @@ class _InspectionDetailViewState extends State<InspectionDetailView> {
                             //     },
                             //   ),
                             // ),
-                            SizedBox(height: 12),
+                            const SizedBox(height: 12),
                           ],
                         ),
-                        Text('Deskripsi :'),
-                        SizedBox(height: 6),
+                        const Text('Deskripsi :'),
+                        const SizedBox(height: 6),
                         InputPrimary(
                           controller: descriptionController,
                           maxLines: 10,
                           validator: (value) => null,
                           readOnly: true,
                         ),
-                        Text('Riwayat Tindakan :'),
+                        const Text('Riwayat Tindakan :'),
                         if (listResponseInspection.isNotEmpty)
                           ...listResponseInspection.map((item) {
                             final responseAttachment =
@@ -401,13 +400,12 @@ class _InspectionDetailViewState extends State<InspectionDetailView> {
                                 );
                               },
                             );
-                          }).toList()
+                          })
                         else
-                          Padding(
-                            padding: const EdgeInsets.only(top: 16),
+                          const Padding(
+                            padding: EdgeInsets.only(top: 16),
                             child: Center(
-                                child:
-                                    const Text('Belum Ada Riwayat Tindakan')),
+                                child: Text('Belum Ada Riwayat Tindakan')),
                           ),
                         // if (widget.data.responses.isNotEmpty)
                         //   ...widget.data.responses.map((item) {

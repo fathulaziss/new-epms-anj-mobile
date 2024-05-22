@@ -9,10 +9,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class ConfigurationScreen extends StatefulWidget {
-  const ConfigurationScreen({Key? key}) : super(key: key);
+  const ConfigurationScreen({super.key});
 
   @override
-  _ConfigurationScreenState createState() => _ConfigurationScreenState();
+  State<ConfigurationScreen> createState() => _ConfigurationScreenState();
 }
 
 class _ConfigurationScreenState extends State<ConfigurationScreen> {
@@ -35,33 +35,33 @@ class _ConfigurationScreenState extends State<ConfigurationScreen> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      SizedBox(height: 30),
+                      const SizedBox(height: 30),
                       Image.asset(ImageAssets.ANJ_LOGO, height: 60),
-                      SizedBox(height: 40),
+                      const SizedBox(height: 40),
                       Container(
-                        padding: EdgeInsets.symmetric(horizontal: 60),
+                        padding: const EdgeInsets.symmetric(horizontal: 60),
                         child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text("Api Server:"),
+                              const Text("Api Server:"),
                               TextFormField(
                                   controller: configuration.apiServer,
                                   autocorrect: false,
                                   textInputAction: TextInputAction.next,
                                   autovalidateMode:
                                       AutovalidateMode.onUserInteraction,
-                                  decoration:
-                                      InputDecoration(hintText: "Api Server"),
+                                  decoration: const InputDecoration(
+                                      hintText: "Api Server"),
                                   validator: (value) {
                                     if (value!.isEmpty) {
                                       return "Tidak Boleh Kosong";
                                     }
                                     return null;
                                   }),
-                              SizedBox(
+                              const SizedBox(
                                 height: 30,
                               ),
-                              SizedBox(height: 30),
+                              const SizedBox(height: 30),
                               InkWell(
                                 onTap: () {
                                   configuration.doSaveButton(
@@ -76,7 +76,7 @@ class _ConfigurationScreenState extends State<ConfigurationScreen> {
                                     borderRadius: BorderRadius.circular(10.0),
                                   ),
                                   child: Container(
-                                    padding: EdgeInsets.all(14),
+                                    padding: const EdgeInsets.all(14),
                                     width: MediaQuery.of(context).size.width,
                                     child: Text("SIMPAN",
                                         style: Style.whiteBold18,
@@ -84,18 +84,19 @@ class _ConfigurationScreenState extends State<ConfigurationScreen> {
                                   ),
                                 ),
                               ),
-                              SizedBox(height: 30),
+                              const SizedBox(height: 30),
                               Container(
                                 alignment: Alignment.center,
                                 child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Icon(Icons.arrow_back_rounded,
-                                          size: 15, color: Palette.primaryColorProd),
+                                          size: 15,
+                                          color: Palette.primaryColorProd),
                                       InkWell(
                                         onTap: () {
                                           NavigatorService.navigateTo(
-                                              context, LoginPage());
+                                              context, const LoginPage());
                                         },
                                         child: Text(
                                           "Ke Halaman Login",
@@ -104,14 +105,14 @@ class _ConfigurationScreenState extends State<ConfigurationScreen> {
                                       ),
                                     ]),
                               ),
-                              SizedBox(height: 30),
+                              const SizedBox(height: 30),
                               Container(
                                 alignment: Alignment.center,
-                                child: Row(
+                                child: const Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Text(
-                                        "${Constanta.APP_VERSION}",
+                                        Constanta.APP_VERSION,
                                         style: TextStyle(
                                             fontWeight: FontWeight.bold),
                                       ),

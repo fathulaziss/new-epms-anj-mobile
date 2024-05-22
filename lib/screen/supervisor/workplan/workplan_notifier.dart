@@ -3,7 +3,6 @@ import 'package:epms/model/t_work_plan_schema.dart';
 import 'package:flutter/material.dart';
 
 class WorkPlanNotifier extends ChangeNotifier {
-
   List<TWorkplanSchema> _listWorkPlan = [];
 
   List<TWorkplanSchema> get listWorkPlan => _listWorkPlan;

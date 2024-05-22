@@ -39,42 +39,42 @@ class LaporanSPBKemarin {
 
   LaporanSPBKemarin(
       {this.spbId,
-        this.spbCardId,
-        this.spbEstateCode,
-        this.spbDivisionCode,
-        this.spbLicenseNumber,
-        this.spbType,
-        this.spbDeliverToCode,
-        this.spbDeliverToName,
-        this.spbDeliveryNote,
-        this.spbLat,
-        this.spbLong,
-        this.spbKeraniTransportEmployeeCode,
-        this.spbKeraniTransportEmployeeName,
-        this.spbDriverEmployeeCode,
-        this.spbDriverEmployeeName,
-        this.spbTotalBunches,
-        this.spbTotalOph,
-        this.spbTotalLooseFruit,
-        this.spbCapacityTonnage,
-        this.spbEstimateTonnage,
-        this.spbActualWeightDate,
-        this.spbActualWeightTime,
-        this.spbActualTonnage,
-        this.spbIsClosed,
-        this.spbPhoto,
-        this.spbCertificateId,
-        this.createdDate,
-        this.createdTime,
-        this.certificationCertNoRspo,
-        this.certificationCertNoIspo,
-        this.certificationCertNoIscc,
-        this.certificationNilaiGhgNoRspo,
-        this.certificationNilaiGhgNoIspo,
-        this.certificationNilaiGhgNoIscc,
-        this.certificationIsccId,
-        this.certificationIspoId,
-        this.certificationRspoId});
+      this.spbCardId,
+      this.spbEstateCode,
+      this.spbDivisionCode,
+      this.spbLicenseNumber,
+      this.spbType,
+      this.spbDeliverToCode,
+      this.spbDeliverToName,
+      this.spbDeliveryNote,
+      this.spbLat,
+      this.spbLong,
+      this.spbKeraniTransportEmployeeCode,
+      this.spbKeraniTransportEmployeeName,
+      this.spbDriverEmployeeCode,
+      this.spbDriverEmployeeName,
+      this.spbTotalBunches,
+      this.spbTotalOph,
+      this.spbTotalLooseFruit,
+      this.spbCapacityTonnage,
+      this.spbEstimateTonnage,
+      this.spbActualWeightDate,
+      this.spbActualWeightTime,
+      this.spbActualTonnage,
+      this.spbIsClosed,
+      this.spbPhoto,
+      this.spbCertificateId,
+      this.createdDate,
+      this.createdTime,
+      this.certificationCertNoRspo,
+      this.certificationCertNoIspo,
+      this.certificationCertNoIscc,
+      this.certificationNilaiGhgNoRspo,
+      this.certificationNilaiGhgNoIspo,
+      this.certificationNilaiGhgNoIscc,
+      this.certificationIsccId,
+      this.certificationIspoId,
+      this.certificationRspoId});
 
   LaporanSPBKemarin.fromJson(Map<String, dynamic> json) {
     spbId = json['spb_id'];
@@ -117,46 +117,44 @@ class LaporanSPBKemarin {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['spb_id'] = this.spbId;
-    data['spb_card_id'] = this.spbCardId;
-    data['spb_estate_code'] = this.spbEstateCode;
-    data['spb_division_code'] = this.spbDivisionCode;
-    data['spb_license_number'] = this.spbLicenseNumber;
-    data['spb_type'] = this.spbType;
-    data['spb_deliver_to_code'] = this.spbDeliverToCode;
-    data['spb_deliver_to_name'] = this.spbDeliverToName;
-    data['spb_delivery_note'] = this.spbDeliveryNote;
-    data['spb_lat'] = this.spbLat;
-    data['spb_long'] = this.spbLong;
-    data['spb_kerani_transport_employee_code'] =
-        this.spbKeraniTransportEmployeeCode;
-    data['spb_kerani_transport_employee_name'] =
-        this.spbKeraniTransportEmployeeName;
-    data['created_date'] = this.createdDate;
-    data['created_time'] = this.createdTime;
-    data['spb_driver_employee_code'] = this.spbDriverEmployeeCode;
-    data['spb_driver_employee_name'] = this.spbDriverEmployeeName;
-    data['spb_total_bunches'] = this.spbTotalBunches;
-    data['spb_total_oph'] = this.spbTotalOph;
-    data['spb_total_loose_fruit'] = this.spbTotalLooseFruit;
-    data['spb_capacity_tonnage'] = this.spbCapacityTonnage;
-    data['spb_estimate_tonnage'] = this.spbEstimateTonnage;
-    data['spb_actual_weight_date'] = this.spbActualWeightDate;
-    data['spb_actual_weight_time'] = this.spbActualWeightTime;
-    data['spb_actual_tonnage'] = this.spbActualTonnage;
-    data['spb_is_closed'] = this.spbIsClosed;
-    data['spb_photo'] = this.spbPhoto;
-    data['spb_certificate_id'] = this.spbCertificateId;
-    data['certification_cert_no_rspo'] = this.certificationCertNoRspo;
-    data['certification_cert_no_ispo'] = this.certificationCertNoIspo;
-    data['certification_cert_no_iscc'] = this.certificationCertNoIscc;
-    data['certification_nilai_ghg_no_rspo'] = this.certificationNilaiGhgNoRspo;
-    data['certification_nilai_ghg_no_ispo'] = this.certificationNilaiGhgNoIspo;
-    data['certification_nilai_ghg_no_iscc'] = this.certificationNilaiGhgNoIscc;
-    data['certification_iscc_id'] = this.certificationIsccId;
-    data['certification_ispo_id'] = this.certificationIspoId;
-    data['certification_rspo_id'] = this.certificationRspoId;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['spb_id'] = spbId;
+    data['spb_card_id'] = spbCardId;
+    data['spb_estate_code'] = spbEstateCode;
+    data['spb_division_code'] = spbDivisionCode;
+    data['spb_license_number'] = spbLicenseNumber;
+    data['spb_type'] = spbType;
+    data['spb_deliver_to_code'] = spbDeliverToCode;
+    data['spb_deliver_to_name'] = spbDeliverToName;
+    data['spb_delivery_note'] = spbDeliveryNote;
+    data['spb_lat'] = spbLat;
+    data['spb_long'] = spbLong;
+    data['spb_kerani_transport_employee_code'] = spbKeraniTransportEmployeeCode;
+    data['spb_kerani_transport_employee_name'] = spbKeraniTransportEmployeeName;
+    data['created_date'] = createdDate;
+    data['created_time'] = createdTime;
+    data['spb_driver_employee_code'] = spbDriverEmployeeCode;
+    data['spb_driver_employee_name'] = spbDriverEmployeeName;
+    data['spb_total_bunches'] = spbTotalBunches;
+    data['spb_total_oph'] = spbTotalOph;
+    data['spb_total_loose_fruit'] = spbTotalLooseFruit;
+    data['spb_capacity_tonnage'] = spbCapacityTonnage;
+    data['spb_estimate_tonnage'] = spbEstimateTonnage;
+    data['spb_actual_weight_date'] = spbActualWeightDate;
+    data['spb_actual_weight_time'] = spbActualWeightTime;
+    data['spb_actual_tonnage'] = spbActualTonnage;
+    data['spb_is_closed'] = spbIsClosed;
+    data['spb_photo'] = spbPhoto;
+    data['spb_certificate_id'] = spbCertificateId;
+    data['certification_cert_no_rspo'] = certificationCertNoRspo;
+    data['certification_cert_no_ispo'] = certificationCertNoIspo;
+    data['certification_cert_no_iscc'] = certificationCertNoIscc;
+    data['certification_nilai_ghg_no_rspo'] = certificationNilaiGhgNoRspo;
+    data['certification_nilai_ghg_no_ispo'] = certificationNilaiGhgNoIspo;
+    data['certification_nilai_ghg_no_iscc'] = certificationNilaiGhgNoIscc;
+    data['certification_iscc_id'] = certificationIsccId;
+    data['certification_ispo_id'] = certificationIspoId;
+    data['certification_rspo_id'] = certificationRspoId;
     return data;
   }
 }

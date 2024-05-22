@@ -50,6 +50,3 @@ class OPHEntity {
   static String ophPickupTime = 'oph_pickup_time';
   static String ophIsClosed = 'oph_is_closed';
 }
-
-
-

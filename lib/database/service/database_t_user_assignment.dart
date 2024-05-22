@@ -40,9 +40,9 @@ class DatabaseTUserAssignment {
     List<TUserAssignmentSchema> listTUserAssignment =
         await selectTUserAssignment();
     for (int i = 0; i < object.length; i++) {
-      if(!(listTUserAssignment.contains(object[i]))) {
+      if (!(listTUserAssignment.contains(object[i]))) {
         int saved =
-        await db.insert(tUserAssignmentSchemaTable, object[i].toJson());
+            await db.insert(tUserAssignmentSchemaTable, object[i].toJson());
         count = count + saved;
       }
     }

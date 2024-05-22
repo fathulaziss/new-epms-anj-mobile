@@ -4,17 +4,20 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class HistorySuperviseHarvestPage extends StatefulWidget {
-  const HistorySuperviseHarvestPage({Key? key}) : super(key: key);
+  const HistorySuperviseHarvestPage({super.key});
 
   @override
-  State<HistorySuperviseHarvestPage> createState() => _HistorySuperviseHarvestPageState();
+  State<HistorySuperviseHarvestPage> createState() =>
+      _HistorySuperviseHarvestPageState();
 }
 
-class _HistorySuperviseHarvestPageState extends State<HistorySuperviseHarvestPage> {
+class _HistorySuperviseHarvestPageState
+    extends State<HistorySuperviseHarvestPage> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-        create: (context) => HistorySuperviseHarvestNotifier(),
-        child: HistorySuperviseHarvestScreen());
+      create: (context) => HistorySuperviseHarvestNotifier(),
+      child: const HistorySuperviseHarvestScreen(),
+    );
   }
 }

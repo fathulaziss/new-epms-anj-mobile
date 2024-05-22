@@ -57,8 +57,7 @@ class DatabaseTBSLuar {
   Future<List<TBSLuar>> selectTBSLuar() async {
     Database db = await DatabaseHelper().database;
     var mapList = await db.query(tTBSLuar,
-        orderBy: "${TBSLuarEntity.createdTime}",
-        groupBy: "${TBSLuarEntity.sortasiID}");
+        orderBy: TBSLuarEntity.createdTime, groupBy: TBSLuarEntity.sortasiID);
     List<TBSLuar> list = [];
     for (int i = 0; i < mapList.length; i++) {
       TBSLuar oph = TBSLuar.fromJson(mapList[i]);

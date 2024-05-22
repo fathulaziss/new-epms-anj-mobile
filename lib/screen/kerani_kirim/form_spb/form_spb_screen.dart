@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:epms/base/ui/style.dart';
 import 'package:epms/common_manager/navigator_service.dart';
 import 'package:epms/screen/kerani_kirim/form_spb/form_spb_detail_tab.dart';
@@ -8,10 +10,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class FormSPBScreen extends StatefulWidget {
-  const FormSPBScreen({Key? key}) : super(key: key);
+  const FormSPBScreen({super.key});
 
   @override
-  _FormSPBScreenState createState() => _FormSPBScreenState();
+  State<FormSPBScreen> createState() => _FormSPBScreenState();
 }
 
 class _FormSPBScreenState extends State<FormSPBScreen> {
@@ -41,10 +43,10 @@ class _FormSPBScreenState extends State<FormSPBScreen> {
             data: Style.mediaQueryText(context),
             child: Scaffold(
               appBar: AppBar(
-                title: Text('Buat Form SPB'),
+                title: const Text('Buat Form SPB'),
                 bottom: TabBar(
                   tabs: <Widget>[
-                    Tab(
+                    const Tab(
                       icon: Text("Detail"),
                     ),
                     Tab(
@@ -56,7 +58,7 @@ class _FormSPBScreenState extends State<FormSPBScreen> {
                   ],
                 ),
               ),
-              body: TabBarView(
+              body: const TabBarView(
                 children: <Widget>[
                   FormSPBDetailTab(),
                   FormSPBOPHTab(),

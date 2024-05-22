@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 class Constanta {
   static const String ANJ_LOGO = "ANJ";
   static const String APP_NAME = "EPMS";

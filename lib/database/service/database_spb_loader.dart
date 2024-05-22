@@ -60,8 +60,7 @@ class DatabaseSPBLoader {
   void deleterSPBLoaderByID(String spbLoaderId) async {
     Database db = await DatabaseHelper().database;
     db.delete(tSPBLoaderSchemaListTable,
-        where: '${SPBLoaderEntity.spbLoaderId}=?',
-        whereArgs: [spbLoaderId]);
+        where: '${SPBLoaderEntity.spbLoaderId}=?', whereArgs: [spbLoaderId]);
   }
 
   void deleteSPBLoader() async {

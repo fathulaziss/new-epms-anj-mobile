@@ -5,16 +5,18 @@ import 'attendance_notifier.dart';
 import 'attendance_screen.dart';
 
 class AttendancePage extends StatefulWidget {
-  const AttendancePage({Key? key}) : super(key: key);
+  const AttendancePage({super.key});
 
   @override
-  _AttendancePageState createState() => _AttendancePageState();
+  State<AttendancePage> createState() => _AttendancePageState();
 }
 
 class _AttendancePageState extends State<AttendancePage> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-        create: (context) => AttendanceNotifier(), child: AttendanceScreen());
+      create: (context) => AttendanceNotifier(),
+      child: const AttendanceScreen(),
+    );
   }
 }

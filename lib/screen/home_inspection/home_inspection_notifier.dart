@@ -17,11 +17,11 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 
 class HomeInspectionNotifier extends ChangeNotifier {
-  NavigatorService _navigationService = locator<NavigatorService>();
+  final NavigatorService _navigationService = locator<NavigatorService>();
 
   NavigatorService get navigationService => _navigationService;
 
-  DialogService _dialogService = locator<DialogService>();
+  final DialogService _dialogService = locator<DialogService>();
 
   DialogService get dialogService => _dialogService;
 
@@ -270,7 +270,7 @@ class HomeInspectionNotifier extends ChangeNotifier {
     _dialogService.popDialog();
     _dialogService.showNoOptionDialog(
         title: "Gagal Log Out",
-        subtitle: "$errorMsg",
+        subtitle: errorMsg,
         onPress: _dialogService.popDialog);
   }
 }

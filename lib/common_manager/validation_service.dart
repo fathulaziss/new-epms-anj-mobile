@@ -36,9 +36,10 @@ class ValidationService {
     return mBlockSchema;
   }
 
-  static Future<MTPHSchema?> checkMTPHSchema(String tphCode, String estateCode, String blokCode) async {
-    MTPHSchema? mtphSchema =
-        await DatabaseMTPHSchema().selectMTPHSchemaByID(tphCode, estateCode, blokCode);
+  static Future<MTPHSchema?> checkMTPHSchema(
+      String tphCode, String estateCode, String blokCode) async {
+    MTPHSchema? mtphSchema = await DatabaseMTPHSchema()
+        .selectMTPHSchemaByID(tphCode, estateCode, blokCode);
     return mtphSchema;
   }
 

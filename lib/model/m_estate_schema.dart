@@ -42,19 +42,19 @@ class MEstateSchema {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['estate_id'] = this.estateId;
-    data['estate_company_code'] = this.estateCompanyCode;
-    data['estate_code'] = this.estateCode;
-    data['estate_name'] = this.estateName;
-    data['estate_plant_code'] = this.estatePlantCode;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['estate_id'] = estateId;
+    data['estate_company_code'] = estateCompanyCode;
+    data['estate_code'] = estateCode;
+    data['estate_name'] = estateName;
+    data['estate_plant_code'] = estatePlantCode;
     // data['created_by'] = this.createdBy;
     // data['created_date'] = this.createdDate;
     // data['created_time'] = this.createdTime;
     // data['updated_by'] = this.updatedBy;
     // data['updated_date'] = this.updatedDate;
     // data['updated_time'] = this.updatedTime;
-    data['estate_vendor_code'] = this.estateVendorCode;
+    data['estate_vendor_code'] = estateVendorCode;
     return data;
   }
 }

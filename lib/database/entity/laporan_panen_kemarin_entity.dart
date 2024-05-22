@@ -1,5 +1,4 @@
 class LaporanPanenKemarinEntity {
-
   static String employeeCode = "employee_code";
   static String employeeName = "employee_name";
   static String bunchesRipe = "bunches_ripe";
@@ -12,6 +11,4 @@ class LaporanPanenKemarinEntity {
   static String bunchesTotal = "bunches_total";
   static String bunchesNotSent = "bunches_not_sent";
   static String createdDate = "created_date";
-
-
 }

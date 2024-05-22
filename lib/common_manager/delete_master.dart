@@ -24,7 +24,6 @@ import 'package:epms/database/service/database_t_abw.dart';
 import 'package:epms/database/service/database_t_user_assignment.dart';
 
 class DeleteMaster {
-
   Future<bool> deleteMasterData() async {
     try {
       StorageManager.deleteData("lastSynchTime");

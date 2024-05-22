@@ -27,17 +27,20 @@ class DatabaseMaterial {
     // }
     // return count;
     Batch batch = db.batch();
-    object.forEach((val) {
-      Materials materials =  val;
+    for (var val in object) {
+      Materials materials = val;
       batch.insert(tMaterial, materials.toJson());
-    });
+    }
     List<Object?> i = await batch.commit();
     return i.length;
   }
 
-  Future<List<Materials>> selectMaterialByWorkPlan(TWorkplanSchema tWorkplanSchema) async {
+  Future<List<Materials>> selectMaterialByWorkPlan(
+      TWorkplanSchema tWorkplanSchema) async {
     Database db = await DatabaseHelper().database;
-    var mapList = await db.query(tMaterial, where: '${TMaterialEntity.workplanId} = ?', whereArgs: [tWorkplanSchema.workplanId]);
+    var mapList = await db.query(tMaterial,
+        where: '${TMaterialEntity.workplanId} = ?',
+        whereArgs: [tWorkplanSchema.workplanId]);
     List<Materials> list = [];
     for (int i = 0; i < mapList.length; i++) {
       Materials materials = Materials.fromJson(mapList[i]);

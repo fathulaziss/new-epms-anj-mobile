@@ -45,10 +45,10 @@ class DatabaseMEstateSchema {
     // }
     // return count;
     Batch batch = db.batch();
-    object.forEach((val) {
-      MEstateSchema mEstateSchema =  val;
+    for (var val in object) {
+      MEstateSchema mEstateSchema = val;
       batch.insert(mEstateSchemaTable, mEstateSchema.toJson());
-    });
+    }
     List<Object?> i = await batch.commit();
     return i.length;
   }
@@ -69,7 +69,7 @@ class DatabaseMEstateSchema {
     Database db = await DatabaseHelper().database;
     var mapList = await db.query(mEstateSchemaTable,
         where: "${MEstateEntity.estateCode}=?", whereArgs: [estateCode]);
-      MEstateSchema mEstateSchema = MEstateSchema.fromJson(mapList[0]);
+    MEstateSchema mEstateSchema = MEstateSchema.fromJson(mapList[0]);
     return mEstateSchema;
   }
 

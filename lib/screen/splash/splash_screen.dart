@@ -11,8 +11,10 @@ import 'package:epms/model/supervisor.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
+
   @override
-  _SplashScreenState createState() => _SplashScreenState();
+  State<SplashScreen> createState() => _SplashScreenState();
 }
 
 class _SplashScreenState extends State<SplashScreen> {
@@ -85,18 +87,6 @@ class _SplashScreenState extends State<SplashScreen> {
   //   navigationService.push(Routes.HOME_PAGE);
   // }
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Image.asset(
-          ImageAssets.ANJ_LOGO,
-          height: 65,
-        ),
-      ),
-    );
-  }
-
   // Future<bool> deleteMasterData() async {
   //   try {
   //     DatabaseMActivitySchema().deleteMActivitySchema();
@@ -128,4 +118,16 @@ class _SplashScreenState extends State<SplashScreen> {
   //     return false;
   //   }
   // }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Image.asset(
+          ImageAssets.ANJ_LOGO,
+          height: 65,
+        ),
+      ),
+    );
+  }
 }

@@ -35,7 +35,7 @@ class LoginResponse {
       this.serverDate,
       this.serverTime,
       this.configId,
-        this.millCode,
+      this.millCode,
       this.companyCode,
       this.companyName,
       this.employeeCode,
@@ -46,7 +46,7 @@ class LoginResponse {
       this.estateCode,
       this.estateName,
       this.plantCode,
-        this.userRole,
+      this.userRole,
       this.createdBy,
       this.createdDate,
       this.createdTime,
@@ -90,34 +90,34 @@ class LoginResponse {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['user_token'] = this.userToken;
-    data['user_login'] = this.userLogin;
-    data['user_id'] = this.userId;
-    data['server_date'] = this.serverDate;
-    data['server_time'] = this.serverTime;
-    data['config_id'] = this.configId;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['user_token'] = userToken;
+    data['user_login'] = userLogin;
+    data['user_id'] = userId;
+    data['server_date'] = serverDate;
+    data['server_time'] = serverTime;
+    data['config_id'] = configId;
     // data['mill_code'] = this.millCode;
-    data['company_code'] = this.companyCode;
-    data['company_name'] = this.companyName;
-    data['employee_name'] = this.employeeName;
-    data['employee_code'] = this.employeeCode;
-    data['m_company_id'] = this.mCompanyId;
-    data['profile_code'] = this.profileCode;
-    data['profile_name'] = this.profileName;
-    data['estate_code'] = this.estateCode;
-    data['estate_name'] = this.estateName;
-    data['plant_code'] = this.plantCode;
-    data['created_by'] = this.createdBy;
-    data['created_date'] = this.createdDate;
-    data['created_time'] = this.createdTime;
-    data['updated_by'] = this.updatedBy;
-    data['updated_date'] = this.updatedDate;
-    data['updated_time'] = this.updatedTime;
-    data['config_id_old'] = this.configIdOld;
-    data['login_date'] = this.loginDate;
-    data['login_time'] = this.loginTime;
-    data['api_root'] = this.apiRoot;
+    data['company_code'] = companyCode;
+    data['company_name'] = companyName;
+    data['employee_name'] = employeeName;
+    data['employee_code'] = employeeCode;
+    data['m_company_id'] = mCompanyId;
+    data['profile_code'] = profileCode;
+    data['profile_name'] = profileName;
+    data['estate_code'] = estateCode;
+    data['estate_name'] = estateName;
+    data['plant_code'] = plantCode;
+    data['created_by'] = createdBy;
+    data['created_date'] = createdDate;
+    data['created_time'] = createdTime;
+    data['updated_by'] = updatedBy;
+    data['updated_date'] = updatedDate;
+    data['updated_time'] = updatedTime;
+    data['config_id_old'] = configIdOld;
+    data['login_date'] = loginDate;
+    data['login_time'] = loginTime;
+    data['api_root'] = apiRoot;
     return data;
   }
 }

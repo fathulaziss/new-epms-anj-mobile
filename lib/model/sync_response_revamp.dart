@@ -32,61 +32,59 @@ class SynchResponse {
 
   SynchResponse.fromJson(Map<String, dynamic> json) {
     message = json['message'];
-    global =
-        json['global'] != null ? new Global.fromJson(json['global']) : null;
+    global = json['global'] != null ? Global.fromJson(json['global']) : null;
     keraniPanen = json['kerani_panen'] != null
-        ? new KeraniPanen.fromJson(json['kerani_panen'])
+        ? KeraniPanen.fromJson(json['kerani_panen'])
         : null;
     keraniKirim = json['kerani_kirim'] != null
-        ? new KeraniKirim.fromJson(json['kerani_kirim'])
+        ? KeraniKirim.fromJson(json['kerani_kirim'])
         : null;
-    kerani = json['kerani'] != null
-        ? new KeraniModel.fromJson(json['kerani'])
-        : null;
+    kerani =
+        json['kerani'] != null ? KeraniModel.fromJson(json['kerani']) : null;
     supervisi = json['supervisi'] != null
-        ? new Supervisi.fromJson(json['supervisi'])
+        ? Supervisi.fromJson(json['supervisi'])
         : null;
     if (json['supervisi_3rd_party'] != null) {
       supervisi3rdParty = <Supervisi3rdParty>[];
       json['supervisi_3rd_party'].forEach((v) {
-        supervisi3rdParty!.add(new Supervisi3rdParty.fromJson(v));
+        supervisi3rdParty!.add(Supervisi3rdParty.fromJson(v));
       });
     }
-    ophHistory = json['oph_history'] != null ? json['oph_history'] : [];
-    serverDate = json['server_date'] != null ? json['server_date'] : '';
-    serverTime = json['server_time'] != null ? json['server_time'] : '';
+    ophHistory = json['oph_history'] ?? [];
+    serverDate = json['server_date'] ?? '';
+    serverTime = json['server_time'] ?? '';
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['message'] = this.message;
-    if (this.global != null) {
-      data['global'] = this.global!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['message'] = message;
+    if (global != null) {
+      data['global'] = global!.toJson();
     }
-    if (this.keraniPanen != null) {
-      data['kerani_panen'] = this.keraniPanen!.toJson();
+    if (keraniPanen != null) {
+      data['kerani_panen'] = keraniPanen!.toJson();
     }
-    if (this.keraniKirim != null) {
-      data['kerani_kirim'] = this.keraniKirim!.toJson();
+    if (keraniKirim != null) {
+      data['kerani_kirim'] = keraniKirim!.toJson();
     }
-    if (this.kerani != null) {
-      data['kerani'] = this.kerani!.toJson();
+    if (kerani != null) {
+      data['kerani'] = kerani!.toJson();
     }
-    if (this.supervisi != null) {
-      data['supervisi'] = this.supervisi!.toJson();
+    if (supervisi != null) {
+      data['supervisi'] = supervisi!.toJson();
     }
-    if (this.supervisi3rdParty != null) {
+    if (supervisi3rdParty != null) {
       data['supervisi_3rd_party'] =
-          this.supervisi3rdParty!.map((v) => v.toJson()).toList();
+          supervisi3rdParty!.map((v) => v.toJson()).toList();
     }
-    if (this.ophHistory != null) {
-      data['oph_history'] = this.ophHistory!.map((e) => e).toList();
+    if (ophHistory != null) {
+      data['oph_history'] = ophHistory!.map((e) => e).toList();
     }
-    if (this.serverDate != null) {
-      data['server_date'] = this.serverDate;
+    if (serverDate != null) {
+      data['server_date'] = serverDate;
     }
-    if (this.serverTime != null) {
-      data['server_time'] = this.serverTime;
+    if (serverTime != null) {
+      data['server_time'] = serverTime;
     }
     return data;
   }

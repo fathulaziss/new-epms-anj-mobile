@@ -66,27 +66,27 @@ class TUserAssignmentSchema {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['mandor_id'] = this.mandorId;
-    data['estate_code'] = this.estateCode;
-    data['mandor1_employee_code'] = this.mandor1EmployeeCode;
-    data['mandor1_employee_name'] = this.mandor1EmployeeName;
-    data['kerani_kirim_employee_code'] = this.keraniKirimEmployeeCode;
-    data['kerani_kirim_employee_name'] = this.keraniKirimEmployeeName;
-    data['mandor_employee_code'] = this.mandorEmployeeCode;
-    data['mandor_employee_name'] = this.mandorEmployeeName;
-    data['kerani_panen_employee_code'] = this.keraniPanenEmployeeCode;
-    data['kerani_panen_employee_name'] = this.keraniPanenEmployeeName;
-    data['employee_code'] = this.employeeCode;
-    data['employee_name'] = this.employeeName;
-    data['start_validity'] = this.startValidity;
-    data['end_validity'] = this.endValidity;
-    data['created_by'] = this.createdBy;
-    data['created_date'] = this.createdDate;
-    data['created_time'] = this.createdTime;
-    data['updated_by'] = this.updatedBy;
-    data['updated_date'] = this.updatedDate;
-    data['updated_time'] = this.updatedTime;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['mandor_id'] = mandorId;
+    data['estate_code'] = estateCode;
+    data['mandor1_employee_code'] = mandor1EmployeeCode;
+    data['mandor1_employee_name'] = mandor1EmployeeName;
+    data['kerani_kirim_employee_code'] = keraniKirimEmployeeCode;
+    data['kerani_kirim_employee_name'] = keraniKirimEmployeeName;
+    data['mandor_employee_code'] = mandorEmployeeCode;
+    data['mandor_employee_name'] = mandorEmployeeName;
+    data['kerani_panen_employee_code'] = keraniPanenEmployeeCode;
+    data['kerani_panen_employee_name'] = keraniPanenEmployeeName;
+    data['employee_code'] = employeeCode;
+    data['employee_name'] = employeeName;
+    data['start_validity'] = startValidity;
+    data['end_validity'] = endValidity;
+    data['created_by'] = createdBy;
+    data['created_date'] = createdDate;
+    data['created_time'] = createdTime;
+    data['updated_by'] = updatedBy;
+    data['updated_date'] = updatedDate;
+    data['updated_time'] = updatedTime;
     return data;
   }
 }

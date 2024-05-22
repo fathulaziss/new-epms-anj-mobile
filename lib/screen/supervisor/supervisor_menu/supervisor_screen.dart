@@ -9,10 +9,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class SupervisorScreen extends StatefulWidget {
-  const SupervisorScreen({Key? key}) : super(key: key);
+  const SupervisorScreen({super.key});
 
   @override
-  _SupervisorScreenState createState() => _SupervisorScreenState();
+  State<SupervisorScreen> createState() => _SupervisorScreenState();
 }
 
 class _SupervisorScreenState extends State<SupervisorScreen> {
@@ -70,19 +70,19 @@ class _SupervisorScreenState extends State<SupervisorScreen> {
                 ],
               ),
               body: Padding(
-                padding: EdgeInsets.only(bottom: 10, left: 5, right: 5),
+                padding: const EdgeInsets.only(bottom: 10, left: 5, right: 5),
                 child: SingleChildScrollView(
                   child: Padding(
                     padding: const EdgeInsets.all(18),
                     child: Column(
                       children: [
                         Padding(
-                          padding:
-                              EdgeInsets.only(left: 10, right: 10, bottom: 10),
+                          padding: const EdgeInsets.only(
+                              left: 10, right: 10, bottom: 10),
                           child: Image.asset(ImageAssets.ANJ_LOGO, height: 60),
                         ),
                         Padding(
-                          padding: EdgeInsets.all(6),
+                          padding: const EdgeInsets.all(6),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -121,7 +121,7 @@ class _SupervisorScreenState extends State<SupervisorScreen> {
                               SupervisorNotifier()
                                   .onClickMenu(context, 'SUPERVISI PANEN');
                             },
-                            child: Text("SUPERVISI PANEN",
+                            child: const Text("SUPERVISI PANEN",
                                 style: TextStyle(
                                     fontSize: 14, fontWeight: FontWeight.bold)),
                           ),
@@ -146,7 +146,7 @@ class _SupervisorScreenState extends State<SupervisorScreen> {
                               SupervisorNotifier().onClickMenu(
                                   context, 'SUPERVISI ANCAK PANEN');
                             },
-                            child: Text("SUPERVISI ANCAK PANEN",
+                            child: const Text("SUPERVISI ANCAK PANEN",
                                 style: TextStyle(
                                     fontSize: 14, fontWeight: FontWeight.bold)),
                           ),
@@ -171,7 +171,7 @@ class _SupervisorScreenState extends State<SupervisorScreen> {
                               SupervisorNotifier()
                                   .onClickMenu(context, 'BACA KARTU OPH');
                             },
-                            child: Text("BACA KARTU OPH",
+                            child: const Text("BACA KARTU OPH",
                                 style: TextStyle(
                                     fontSize: 14, fontWeight: FontWeight.bold)),
                           ),
@@ -196,7 +196,7 @@ class _SupervisorScreenState extends State<SupervisorScreen> {
                               SupervisorNotifier()
                                   .onClickMenu(context, 'BACA KARTU SPB');
                             },
-                            child: Text("BACA KARTU SPB",
+                            child: const Text("BACA KARTU SPB",
                                 style: TextStyle(
                                     fontSize: 14, fontWeight: FontWeight.bold)),
                           ),
@@ -221,7 +221,7 @@ class _SupervisorScreenState extends State<SupervisorScreen> {
                               SupervisorNotifier().onClickMenu(
                                   context, 'LAPORAN SUPERVISI PANEN');
                             },
-                            child: Text("LAPORAN SUPERVISI PANEN",
+                            child: const Text("LAPORAN SUPERVISI PANEN",
                                 style: TextStyle(
                                     fontSize: 14, fontWeight: FontWeight.bold)),
                           ),
@@ -246,7 +246,7 @@ class _SupervisorScreenState extends State<SupervisorScreen> {
                               SupervisorNotifier().onClickMenu(
                                   context, 'LAPORAN SUPERVISI ANCAK PANEN');
                             },
-                            child: Text("LAPORAN SUPERVISI ANCAK PANEN",
+                            child: const Text("LAPORAN SUPERVISI ANCAK PANEN",
                                 style: TextStyle(
                                     fontSize: 14, fontWeight: FontWeight.bold)),
                           ),
@@ -271,7 +271,7 @@ class _SupervisorScreenState extends State<SupervisorScreen> {
                               SupervisorNotifier().onClickMenu(
                                   context, 'LAPORAN RESTAN HARI INI');
                             },
-                            child: Text("LAPORAN RESTAN HARI INI",
+                            child: const Text("LAPORAN RESTAN HARI INI",
                                 style: TextStyle(
                                     fontSize: 14, fontWeight: FontWeight.bold)),
                           ),
@@ -296,7 +296,7 @@ class _SupervisorScreenState extends State<SupervisorScreen> {
                               SupervisorNotifier()
                                   .onClickMenu(context, 'LAPORAN PANEN HARIAN');
                             },
-                            child: Text("LAPORAN PANEN HARIAN",
+                            child: const Text("LAPORAN PANEN HARIAN",
                                 style: TextStyle(
                                     fontSize: 14, fontWeight: FontWeight.bold)),
                           ),
@@ -321,7 +321,7 @@ class _SupervisorScreenState extends State<SupervisorScreen> {
                               SupervisorNotifier().onClickMenu(
                                   context, 'RENCANA PANEN HARI INI');
                             },
-                            child: Text("RENCANA PANEN HARI INI",
+                            child: const Text("RENCANA PANEN HARI INI",
                                 style: TextStyle(
                                     fontSize: 14, fontWeight: FontWeight.bold)),
                           ),
@@ -346,7 +346,7 @@ class _SupervisorScreenState extends State<SupervisorScreen> {
                               SupervisorNotifier()
                                   .onClickMenu(context, 'LIHAT WORKPLAN');
                             },
-                            child: Text("LIHAT WORKPLAN",
+                            child: const Text("LIHAT WORKPLAN",
                                 style: TextStyle(
                                     fontSize: 14, fontWeight: FontWeight.bold)),
                           ),
@@ -375,20 +375,20 @@ class _SupervisorScreenState extends State<SupervisorScreen> {
                                 child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Text("INSPECTION",
+                                      const Text("INSPECTION",
                                           style: TextStyle(
                                               fontSize: 14,
                                               fontWeight: FontWeight.bold)),
-                                      SizedBox(width: 10),
+                                      const SizedBox(width: 10),
                                       homeNotifier.countInspection == 0
                                           ? const SizedBox()
                                           : Row(children: [
-                                              Icon(Icons.warning,
+                                              const Icon(Icons.warning,
                                                   color: Colors.yellow),
-                                              SizedBox(width: 10),
+                                              const SizedBox(width: 10),
                                               Text(
                                                   "${homeNotifier.countInspection}",
-                                                  style: TextStyle(
+                                                  style: const TextStyle(
                                                       fontSize: 14,
                                                       fontWeight:
                                                           FontWeight.bold)),
@@ -405,7 +405,7 @@ class _SupervisorScreenState extends State<SupervisorScreen> {
                                   Size(MediaQuery.of(context).size.width, 50),
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(5.0),
-                                  side: BorderSide(color: Colors.green)),
+                                  side: const BorderSide(color: Colors.green)),
                               padding: const EdgeInsets.all(16.0),
                               textStyle: const TextStyle(
                                   fontSize: 20, color: Colors.white),
@@ -414,7 +414,7 @@ class _SupervisorScreenState extends State<SupervisorScreen> {
                               SupervisorNotifier()
                                   .onClickMenu(context, 'UPLOAD DATA');
                             },
-                            child: Text("UPLOAD DATA",
+                            child: const Text("UPLOAD DATA",
                                 style: TextStyle(
                                     fontSize: 14, fontWeight: FontWeight.bold)),
                           ),
@@ -439,48 +439,48 @@ class _SupervisorScreenState extends State<SupervisorScreen> {
                               SupervisorNotifier()
                                   .onClickMenu(context, 'KELUAR');
                             },
-                            child: Text("KELUAR",
+                            child: const Text("KELUAR",
                                 style: TextStyle(
                                     fontSize: 14, fontWeight: FontWeight.bold)),
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.only(top: 16),
+                          padding: const EdgeInsets.only(top: 16),
                           child: Column(
                             children: [
                               Text("${homeNotifier.configSchema.employeeCode}",
                                   style: Style.textBold14),
                               Text("${homeNotifier.configSchema.employeeName}",
                                   style: Style.textBold14),
-                              SizedBox(height: 20),
+                              const SizedBox(height: 20),
                               Text(
                                   "Estate ${homeNotifier.configSchema.estateCode}",
                                   style: Style.textBold14),
-                              SizedBox(height: 30),
+                              const SizedBox(height: 30),
                               Card(
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: InkWell(
-                                    child: Text("Sync Ulang"),
+                                    child: const Text("Sync Ulang"),
                                     onTap: () {
                                       SupervisorNotifier().reSynch();
                                     },
                                   ),
                                 ),
                               ),
-                              SizedBox(height: 10),
+                              const SizedBox(height: 10),
                               Card(
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: InkWell(
-                                    child: Text("Export Json"),
+                                    child: const Text("Export Json"),
                                     onTap: () {
                                       SupervisorNotifier().exportJson(context);
                                     },
                                   ),
                                 ),
                               ),
-                              Divider(),
+                              const Divider(),
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Image.asset(
@@ -488,7 +488,7 @@ class _SupervisorScreenState extends State<SupervisorScreen> {
                                   height: 25,
                                 ),
                               ),
-                              Text("ePMS ANJ Group")
+                              const Text("ePMS ANJ Group")
                             ],
                           ),
                         ),

@@ -64,193 +64,189 @@ class Global {
     if (json['M_Estate_Schema'] != null) {
       mEstateSchema = <MEstateSchema>[];
       json['M_Estate_Schema'].forEach((v) {
-        mEstateSchema!.add(new MEstateSchema.fromJson(v));
+        mEstateSchema!.add(MEstateSchema.fromJson(v));
       });
     }
     if (json['M_Division_Schema'] != null) {
       mDivisionSchema = <MDivisionSchema>[];
       json['M_Division_Schema'].forEach((v) {
-        mDivisionSchema!.add(new MDivisionSchema.fromJson(v));
+        mDivisionSchema!.add(MDivisionSchema.fromJson(v));
       });
     }
     if (json['M_Block_Schema'] != null) {
       mBlockSchema = <MBlockSchema>[];
       json['M_Block_Schema'].forEach((v) {
-        mBlockSchema!.add(new MBlockSchema.fromJson(v));
+        mBlockSchema!.add(MBlockSchema.fromJson(v));
       });
     }
     if (json['M_TPH_Schema'] != null) {
       mTPHSchema = <MTPHSchema>[];
       json['M_TPH_Schema'].forEach((v) {
-        mTPHSchema!.add(new MTPHSchema.fromJson(v));
+        mTPHSchema!.add(MTPHSchema.fromJson(v));
       });
     }
     if (json['M_Employee_Schema'] != null) {
       mEmployeeSchema = <MEmployeeSchema>[];
       json['M_Employee_Schema'].forEach((v) {
-        mEmployeeSchema!.add(new MEmployeeSchema.fromJson(v));
+        mEmployeeSchema!.add(MEmployeeSchema.fromJson(v));
       });
     }
     if (json['M_Vendor_Schema'] != null) {
       mVendorSchema = <MVendorSchema>[];
       json['M_Vendor_Schema'].forEach((v) {
-        mVendorSchema!.add(new MVendorSchema.fromJson(v));
+        mVendorSchema!.add(MVendorSchema.fromJson(v));
       });
     }
     if (json['M_Customer_Code_Schema'] != null) {
       mCustomerCodeSchema = <MCustomerCodeSchema>[];
       json['M_Customer_Code_Schema'].forEach((v) {
-        mCustomerCodeSchema!.add(new MCustomerCodeSchema.fromJson(v));
+        mCustomerCodeSchema!.add(MCustomerCodeSchema.fromJson(v));
       });
     }
     if (json['T_User_Assignment_Schema'] != null) {
       tUserAssignmentSchema = <TUserAssignmentSchema>[];
       json['T_User_Assignment_Schema'].forEach((v) {
-        tUserAssignmentSchema!.add(new TUserAssignmentSchema.fromJson(v));
+        tUserAssignmentSchema!.add(TUserAssignmentSchema.fromJson(v));
       });
     }
     if (json['M_Activity_Schema'] != null) {
       mActivitySchema = <MActivitySchema>[];
       json['M_Activity_Schema'].forEach((v) {
-        mActivitySchema!.add(new MActivitySchema.fromJson(v));
+        mActivitySchema!.add(MActivitySchema.fromJson(v));
       });
     }
     if (json['M_Cost_Control_Schema'] != null) {
       mCostControlSchema = <MCostControlSchema>[];
       json['M_Cost_Control_Schema'].forEach((v) {
-        mCostControlSchema!.add(new MCostControlSchema.fromJson(v));
+        mCostControlSchema!.add(MCostControlSchema.fromJson(v));
       });
     }
     if (json['M_Material_Schema'] != null) {
       mMaterialSchema = <MMaterialSchema>[];
       json['M_Material_Schema'].forEach((v) {
-        mMaterialSchema!.add(new MMaterialSchema.fromJson(v));
+        mMaterialSchema!.add(MMaterialSchema.fromJson(v));
       });
     }
     if (json['MC_OPH_Card_Schema'] != null) {
       mCOPHCardSchema = <MCOPHCardSchema>[];
       json['MC_OPH_Card_Schema'].forEach((v) {
-        mCOPHCardSchema!.add(new MCOPHCardSchema.fromJson(v));
+        mCOPHCardSchema!.add(MCOPHCardSchema.fromJson(v));
       });
     }
     if (json['MC_SPB_Card_Schema'] != null) {
       mCSPBCardSchema = <MCSPBCardSchema>[];
       json['MC_SPB_Card_Schema'].forEach((v) {
-        mCSPBCardSchema!.add(new MCSPBCardSchema.fromJson(v));
+        mCSPBCardSchema!.add(MCSPBCardSchema.fromJson(v));
       });
     }
     if (json['M_Destination_Schema'] != null) {
       mDestinationSchema = <MDestinationSchema>[];
       json['M_Destination_Schema'].forEach((v) {
-        mDestinationSchema!.add(new MDestinationSchema.fromJson(v));
+        mDestinationSchema!.add(MDestinationSchema.fromJson(v));
       });
     }
     if (json['M_VRA_Schema'] != null) {
       mVRASchema = <MVRASchema>[];
       json['M_VRA_Schema'].forEach((v) {
-        mVRASchema!.add(new MVRASchema.fromJson(v));
+        mVRASchema!.add(MVRASchema.fromJson(v));
       });
     }
     if (json['M_Config_Schema'] != null) {
       mConfigSchema = <MConfigSchema>[];
       json['M_Config_Schema'].forEach((v) {
-        mConfigSchema!.add(new MConfigSchema.fromJson(v));
+        mConfigSchema!.add(MConfigSchema.fromJson(v));
       });
     }
     if (json['Roles_Schema'] != null) {
       rolesSchema = <RolesSchema>[];
       json['Roles_Schema'].forEach((v) {
-        rolesSchema!.add(new RolesSchema.fromJson(v));
+        rolesSchema!.add(RolesSchema.fromJson(v));
       });
     }
     if (json['M_Attendance_Schema'] != null) {
       mAttendanceSchema = <MAttendanceSchema>[];
       json['M_Attendance_Schema'].forEach((v) {
-        mAttendanceSchema!.add(new MAttendanceSchema.fromJson(v));
+        mAttendanceSchema!.add(MAttendanceSchema.fromJson(v));
       });
     }
     if (json['T_Attendance_Schema'] != null) {
       tAttendanceSchema = <TAttendanceSchema>[];
       json['T_Attendance_Schema'].forEach((v) {
-        tAttendanceSchema!.add(new TAttendanceSchema.fromJson(v));
+        tAttendanceSchema!.add(TAttendanceSchema.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.mEstateSchema != null) {
-      data['M_Estate_Schema'] =
-          this.mEstateSchema!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (mEstateSchema != null) {
+      data['M_Estate_Schema'] = mEstateSchema!.map((v) => v.toJson()).toList();
     }
-    if (this.mDivisionSchema != null) {
+    if (mDivisionSchema != null) {
       data['M_Division_Schema'] =
-          this.mDivisionSchema!.map((v) => v.toJson()).toList();
+          mDivisionSchema!.map((v) => v.toJson()).toList();
     }
-    if (this.mBlockSchema != null) {
-      data['M_Block_Schema'] =
-          this.mBlockSchema!.map((v) => v.toJson()).toList();
+    if (mBlockSchema != null) {
+      data['M_Block_Schema'] = mBlockSchema!.map((v) => v.toJson()).toList();
     }
-    if (this.mTPHSchema != null) {
-      data['M_TPH_Schema'] = this.mTPHSchema!.map((v) => v.toJson()).toList();
+    if (mTPHSchema != null) {
+      data['M_TPH_Schema'] = mTPHSchema!.map((v) => v.toJson()).toList();
     }
-    if (this.mEmployeeSchema != null) {
+    if (mEmployeeSchema != null) {
       data['M_Employee_Schema'] =
-          this.mEmployeeSchema!.map((v) => v.toJson()).toList();
+          mEmployeeSchema!.map((v) => v.toJson()).toList();
     }
-    if (this.mVendorSchema != null) {
-      data['M_Vendor_Schema'] =
-          this.mVendorSchema!.map((v) => v.toJson()).toList();
+    if (mVendorSchema != null) {
+      data['M_Vendor_Schema'] = mVendorSchema!.map((v) => v.toJson()).toList();
     }
-    if (this.mCustomerCodeSchema != null) {
+    if (mCustomerCodeSchema != null) {
       data['M_Customer_Code_Schema'] =
-          this.mCustomerCodeSchema!.map((v) => v.toJson()).toList();
+          mCustomerCodeSchema!.map((v) => v.toJson()).toList();
     }
-    if (this.tUserAssignmentSchema != null) {
+    if (tUserAssignmentSchema != null) {
       data['T_User_Assignment_Schema'] =
-          this.tUserAssignmentSchema!.map((v) => v.toJson()).toList();
+          tUserAssignmentSchema!.map((v) => v.toJson()).toList();
     }
-    if (this.mActivitySchema != null) {
+    if (mActivitySchema != null) {
       data['M_Activity_Schema'] =
-          this.mActivitySchema!.map((v) => v.toJson()).toList();
+          mActivitySchema!.map((v) => v.toJson()).toList();
     }
-    if (this.mCostControlSchema != null) {
+    if (mCostControlSchema != null) {
       data['M_Cost_Control_Schema'] =
-          this.mCostControlSchema!.map((v) => v.toJson()).toList();
+          mCostControlSchema!.map((v) => v.toJson()).toList();
     }
-    if (this.mMaterialSchema != null) {
+    if (mMaterialSchema != null) {
       data['M_Material_Schema'] =
-          this.mMaterialSchema!.map((v) => v.toJson()).toList();
+          mMaterialSchema!.map((v) => v.toJson()).toList();
     }
-    if (this.mCOPHCardSchema != null) {
+    if (mCOPHCardSchema != null) {
       data['MC_OPH_Card_Schema'] =
-          this.mCOPHCardSchema!.map((v) => v.toJson()).toList();
+          mCOPHCardSchema!.map((v) => v.toJson()).toList();
     }
-    if (this.mCSPBCardSchema != null) {
+    if (mCSPBCardSchema != null) {
       data['MC_SPB_Card_Schema'] =
-          this.mCSPBCardSchema!.map((v) => v.toJson()).toList();
+          mCSPBCardSchema!.map((v) => v.toJson()).toList();
     }
-    if (this.mDestinationSchema != null) {
+    if (mDestinationSchema != null) {
       data['M_Destination_Schema'] =
-          this.mDestinationSchema!.map((v) => v.toJson()).toList();
+          mDestinationSchema!.map((v) => v.toJson()).toList();
     }
-    if (this.mVRASchema != null) {
-      data['M_VRA_Schema'] = this.mVRASchema!.map((v) => v.toJson()).toList();
+    if (mVRASchema != null) {
+      data['M_VRA_Schema'] = mVRASchema!.map((v) => v.toJson()).toList();
     }
-    if (this.mConfigSchema != null) {
-      data['M_Config_Schema'] =
-          this.mConfigSchema!.map((v) => v.toJson()).toList();
+    if (mConfigSchema != null) {
+      data['M_Config_Schema'] = mConfigSchema!.map((v) => v.toJson()).toList();
     }
-    if (this.rolesSchema != null) {
-      data['Roles_Schema'] = this.rolesSchema!.map((v) => v.toJson()).toList();
+    if (rolesSchema != null) {
+      data['Roles_Schema'] = rolesSchema!.map((v) => v.toJson()).toList();
     }
-    if (this.mAttendanceSchema != null) {
+    if (mAttendanceSchema != null) {
       data['M_Attendance_Schema'] =
-          this.mAttendanceSchema!.map((v) => v.toJson()).toList();
+          mAttendanceSchema!.map((v) => v.toJson()).toList();
     }
-    if (this.tAttendanceSchema != null) {
+    if (tAttendanceSchema != null) {
       data['T_Attendance_Schema'] =
-          this.tAttendanceSchema!.map((v) => v.toJson()).toList();
+          tAttendanceSchema!.map((v) => v.toJson()).toList();
     }
     return data;
   }

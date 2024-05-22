@@ -10,9 +10,9 @@ class Estate {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    data['estate_code'] = this.estateCode;
-    data['estate_db'] = this.estateDb;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['estate_code'] = estateCode;
+    data['estate_db'] = estateDb;
     return data;
   }
 }

@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print, use_build_context_synchronously
+
 import 'package:epms/base/common/locator.dart';
 import 'package:epms/base/common/routes.dart';
 import 'package:epms/common_manager/camera_service.dart';
@@ -15,15 +17,15 @@ import 'package:flutter/material.dart';
 import 'package:nfc_manager/nfc_manager.dart';
 
 class SupervisorSPBDetailNotifier extends ChangeNotifier {
-  NavigatorService _navigationService = locator<NavigatorService>();
+  final NavigatorService _navigationService = locator<NavigatorService>();
 
   NavigatorService get navigationService => _navigationService;
 
-  DialogService _dialogService = locator<DialogService>();
+  final DialogService _dialogService = locator<DialogService>();
 
   DialogService get dialogService => _dialogService;
 
-  TextEditingController _spbID = TextEditingController();
+  final TextEditingController _spbID = TextEditingController();
 
   TextEditingController get spbID => _spbID;
 
@@ -39,60 +41,61 @@ class SupervisorSPBDetailNotifier extends ChangeNotifier {
 
   MConfigSchema get mConfigSchema => _mConfigSchema;
 
-  TextEditingController _bunchesRipe = TextEditingController();
+  final TextEditingController _bunchesRipe = TextEditingController();
 
   TextEditingController get bunchesRipe => _bunchesRipe;
 
-  TextEditingController _bunchesOverRipe = TextEditingController();
+  final TextEditingController _bunchesOverRipe = TextEditingController();
 
   TextEditingController get bunchesOverRipe => _bunchesOverRipe;
 
-  TextEditingController _bunchesHalfRipe = TextEditingController();
+  final TextEditingController _bunchesHalfRipe = TextEditingController();
 
   TextEditingController get bunchesHalfRipe => _bunchesHalfRipe;
 
-  TextEditingController _bunchesUnRipe = TextEditingController();
+  final TextEditingController _bunchesUnRipe = TextEditingController();
 
   TextEditingController get bunchesUnRipe => _bunchesUnRipe;
 
-  TextEditingController _bunchesAbnormal = TextEditingController();
+  final TextEditingController _bunchesAbnormal = TextEditingController();
 
   TextEditingController get bunchesAbnormal => _bunchesAbnormal;
 
-  TextEditingController _bunchesEmpty = TextEditingController();
+  final TextEditingController _bunchesEmpty = TextEditingController();
 
   TextEditingController get bunchesEmpty => _bunchesEmpty;
 
-  TextEditingController _looseFruits = TextEditingController();
+  final TextEditingController _looseFruits = TextEditingController();
 
   TextEditingController get looseFruits => _looseFruits;
 
-  TextEditingController _bunchesTotal = TextEditingController();
+  final TextEditingController _bunchesTotal = TextEditingController();
 
   TextEditingController get bunchesTotal => _bunchesTotal;
 
-  TextEditingController _bunchesNormalTotal = TextEditingController();
+  final TextEditingController _bunchesNormalTotal = TextEditingController();
 
   TextEditingController get bunchesNormalTotal => _bunchesNormalTotal;
 
-  TextEditingController _notesOPH = TextEditingController();
+  final TextEditingController _notesOPH = TextEditingController();
 
   TextEditingController get notesOPH => _notesOPH;
 
-  TextEditingController _janjangTangkaiPanjang = TextEditingController();
+  final TextEditingController _janjangTangkaiPanjang = TextEditingController();
 
   TextEditingController get janjangTangkaiPanjang => _janjangTangkaiPanjang;
 
-  TextEditingController _noteJanjangTangkaiPanjang = TextEditingController();
+  final TextEditingController _noteJanjangTangkaiPanjang =
+      TextEditingController();
 
   TextEditingController get noteJanjangTangkaiPanjang =>
       _noteJanjangTangkaiPanjang;
 
-  TextEditingController _sampah = TextEditingController();
+  final TextEditingController _sampah = TextEditingController();
 
   TextEditingController get sampah => _sampah;
 
-  TextEditingController _batu = TextEditingController();
+  final TextEditingController _batu = TextEditingController();
 
   TextEditingController get batu => _batu;
 
@@ -117,7 +120,7 @@ class SupervisorSPBDetailNotifier extends ChangeNotifier {
   onSuccessRead(BuildContext context, SPB spb) {
     _dialogService.popDialog();
     _spbID.text = spb.spbId!;
-    Future.delayed(Duration(seconds: 1), () {
+    Future.delayed(const Duration(seconds: 1), () {
       NfcManager.instance.stopSession();
     });
     notifyListeners();
@@ -125,7 +128,7 @@ class SupervisorSPBDetailNotifier extends ChangeNotifier {
 
   onErrorRead(BuildContext context, String response) {
     _dialogService.popDialog();
-    Future.delayed(Duration(seconds: 1), () {
+    Future.delayed(const Duration(seconds: 1), () {
       NfcManager.instance.stopSession();
     });
     FlushBarManager.showFlushBarWarning(context, "Gagal Membaca", response);
@@ -152,7 +155,8 @@ class SupervisorSPBDetailNotifier extends ChangeNotifier {
     _sampah.text = spbSupervise.bunchesSampah.toString();
     _batu.text = spbSupervise.bunchesBatu.toString();
     _spbID.text = spbSupervise.spbId!;
-    _noteJanjangTangkaiPanjang.text = spbSupervise.catatanBunchesTangkaiPanjang.toString();
+    _noteJanjangTangkaiPanjang.text =
+        spbSupervise.catatanBunchesTangkaiPanjang.toString();
     _notesOPH.text = spbSupervise.supervisiNotes.toString();
     notifyListeners();
   }
@@ -177,11 +181,11 @@ class SupervisorSPBDetailNotifier extends ChangeNotifier {
         onPressNo: onPressNo);
   }
 
-  countBunches(BuildContext context,
-      TextEditingController textEditingController) {
+  countBunches(
+      BuildContext context, TextEditingController textEditingController) {
     if (textEditingController.text.isEmpty ||
         textEditingController.text == "0") {
-      textEditingController.value = TextEditingValue(text: "0");
+      textEditingController.value = const TextEditingValue(text: "0");
       textEditingController.selection = TextSelection.fromPosition(
           TextPosition(offset: textEditingController.text.length));
     } else {
@@ -192,21 +196,21 @@ class SupervisorSPBDetailNotifier extends ChangeNotifier {
     }
     try {
       bunchesTotal.text = (int.parse(bunchesRipe.text) +
-          int.parse(bunchesOverRipe.text) +
-          int.parse(bunchesHalfRipe.text) +
-          int.parse(bunchesUnRipe.text) +
-          int.parse(bunchesAbnormal.text) +
-          int.parse(bunchesEmpty.text))
+              int.parse(bunchesOverRipe.text) +
+              int.parse(bunchesHalfRipe.text) +
+              int.parse(bunchesUnRipe.text) +
+              int.parse(bunchesAbnormal.text) +
+              int.parse(bunchesEmpty.text))
           .toString();
     } catch (e) {
       print(e);
     }
     try {
       bunchesNormalTotal.text = (int.parse(bunchesRipe.text) +
-          int.parse(bunchesOverRipe.text) +
-          int.parse(bunchesHalfRipe.text) +
-          int.parse(bunchesUnRipe.text) +
-          int.parse(bunchesEmpty.text))
+              int.parse(bunchesOverRipe.text) +
+              int.parse(bunchesHalfRipe.text) +
+              int.parse(bunchesUnRipe.text) +
+              int.parse(bunchesEmpty.text))
           .toString();
     } catch (e) {
       print(e);
@@ -221,7 +225,7 @@ class SupervisorSPBDetailNotifier extends ChangeNotifier {
   getCamera(BuildContext context) async {
     String? picked = await CameraService.getImageByCamera(context);
     if (picked != null) {
-      this._spbSupervise.supervisiSpbPhoto = picked;
+      _spbSupervise.supervisiSpbPhoto = picked;
       notifyListeners();
     }
   }
@@ -239,7 +243,8 @@ class SupervisorSPBDetailNotifier extends ChangeNotifier {
     _spbSupervise.bunchesTotalNormal = int.parse(_bunchesNormalTotal.text);
     _spbSupervise.bunchesSampah = int.parse(_sampah.text);
     _spbSupervise.bunchesBatu = int.parse(_batu.text);
-    _spbSupervise.bunchesTangkaiPanjang = int.parse(_janjangTangkaiPanjang.text);
+    _spbSupervise.bunchesTangkaiPanjang =
+        int.parse(_janjangTangkaiPanjang.text);
     _spbSupervise.catatanBunchesTangkaiPanjang = noteJanjangTangkaiPanjang.text;
     _spbSupervise.spbId = _spbID.text;
     _spbSupervise.supervisiNotes = _notesOPH.text;
@@ -247,7 +252,7 @@ class SupervisorSPBDetailNotifier extends ChangeNotifier {
     _spbSupervise.updatedDate = TimeManager.dateWithDash(now);
     _spbSupervise.updatedTime = TimeManager.timeWithColon(now);
     int count =
-    await DatabaseSPBSupervise().updateSPBSuperviseByID(spbSupervise);
+        await DatabaseSPBSupervise().updateSPBSuperviseByID(spbSupervise);
     if (count > 0) {
       _navigationService.push(Routes.HOME_PAGE);
       FlushBarManager.showFlushBarSuccess(

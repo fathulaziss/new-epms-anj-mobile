@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:epms/base/ui/style.dart';
 import 'package:epms/screen/kerani_panen/bagi_oph/bagi_oph_notifier.dart';
 import 'package:epms/screen/kerani_panen/bagi_oph/new_oph_tab.dart';
@@ -7,10 +9,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class BagiOPHScreen extends StatefulWidget {
-  const BagiOPHScreen({Key? key}) : super(key: key);
+  const BagiOPHScreen({super.key});
 
   @override
-  _BagiOPHScreenState createState() => _BagiOPHScreenState();
+  State<BagiOPHScreen> createState() => _BagiOPHScreenState();
 }
 
 class _BagiOPHScreenState extends State<BagiOPHScreen> {
@@ -53,9 +55,9 @@ class _BagiOPHScreenState extends State<BagiOPHScreen> {
                     ],
                   ),
                 ),
-                body: TabBarView(children: <Widget>[
-                  KeepAliveWrapper(child: const PreviousOPHTab()),
-                  KeepAliveWrapper(child: const NewOPHTab())
+                body: const TabBarView(children: <Widget>[
+                  KeepAliveWrapper(child: PreviousOPHTab()),
+                  KeepAliveWrapper(child: NewOPHTab())
                 ]),
               ),
             ),

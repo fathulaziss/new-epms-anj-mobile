@@ -3,11 +3,11 @@ import 'package:epms/model/oph_supervise_ancak.dart';
 import 'package:flutter/material.dart';
 
 class HistorySuperviseAncakNotifier extends ChangeNotifier {
-  List<String> _listDivision = ["Semua"];
+  final List<String> _listDivision = ["Semua"];
 
   List<String> get listDivision => _listDivision;
 
-  List<String> _listKemandoran = ["Semua"];
+  final List<String> _listKemandoran = ["Semua"];
 
   List<String> get listKemandoran => _listKemandoran;
 
@@ -23,7 +23,7 @@ class HistorySuperviseAncakNotifier extends ChangeNotifier {
 
   List<OPHSuperviseAncak> get listOPHSupervise => _listOPHSupervise;
 
-  List<OPHSuperviseAncak> _listOPHSuperviseResult = [];
+  final List<OPHSuperviseAncak> _listOPHSuperviseResult = [];
 
   List<OPHSuperviseAncak> get listOPHSuperviseResult => _listOPHSuperviseResult;
 
@@ -36,11 +36,13 @@ class HistorySuperviseAncakNotifier extends ChangeNotifier {
   int get totalLooseFruits => _totalLooseFruits;
 
   onInit() async {
-    _listOPHSupervise = await DatabaseOPHSuperviseAncak().selectOPHSuperviseAncak();
-    for(int i=0; i < _listOPHSupervise.length; i++) {
+    _listOPHSupervise =
+        await DatabaseOPHSuperviseAncak().selectOPHSuperviseAncak();
+    for (int i = 0; i < _listOPHSupervise.length; i++) {
       _totalPokokPanen += int.parse(_listOPHSupervise[i].pokokSample!);
       _totalLooseFruits += _listOPHSupervise[i].looseFruits!;
-      if(!listDivision.contains(listOPHSupervise[i].supervisiAncakDivisionCode)) {
+      if (!listDivision
+          .contains(listOPHSupervise[i].supervisiAncakDivisionCode)) {
         _listDivision.add(_listOPHSupervise[i].supervisiAncakDivisionCode!);
       }
     }
@@ -63,31 +65,34 @@ class HistorySuperviseAncakNotifier extends ChangeNotifier {
       notifyListeners();
       return;
     } else if (division == "Semua") {
-      _listOPHSupervise.forEach((element) {
+      for (var element in _listOPHSupervise) {
         if (element.supervisiAncakDivisionCode!
             .toLowerCase()
-            .contains(division.toLowerCase()))
+            .contains(division.toLowerCase())) {
           _listOPHSuperviseResult.add(element);
-      });
+        }
+      }
       notifyListeners();
     } else if (kemandoran == "Semua") {
-      _listOPHSupervise.forEach((element) {
+      for (var element in _listOPHSupervise) {
         if (element.supervisiAncakMandorEmployeeName!
             .toLowerCase()
-            .contains(kemandoran.toLowerCase()))
+            .contains(kemandoran.toLowerCase())) {
           _listOPHSuperviseResult.add(element);
-      });
+        }
+      }
       notifyListeners();
     } else {
-      _listOPHSupervise.forEach((element) {
+      for (var element in _listOPHSupervise) {
         if (element.supervisiAncakDivisionCode!
-            .toLowerCase()
-            .contains(division.toLowerCase()) &&
+                .toLowerCase()
+                .contains(division.toLowerCase()) &&
             element.supervisiAncakPemanenEmployeeName!
                 .toLowerCase()
-                .contains(kemandoran.toLowerCase()))
+                .contains(kemandoran.toLowerCase())) {
           _listOPHSuperviseResult.add(element);
-      });
+        }
+      }
       notifyListeners();
     }
   }

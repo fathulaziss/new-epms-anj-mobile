@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:epms/base/ui/style.dart';
 import 'package:epms/common_manager/navigator_service.dart';
 import 'package:epms/screen/supervisor/supervisor_harvest_form/supervisor_form_fruit.dart';
@@ -7,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class SupervisorHarvestFormScreen extends StatefulWidget {
-  SupervisorHarvestFormScreen({Key? key}) : super(key: key);
+  const SupervisorHarvestFormScreen({super.key});
 
   @override
   State<SupervisorHarvestFormScreen> createState() =>
@@ -43,8 +45,8 @@ class _SupervisorHarvestFormScreenState
           data: Style.mediaQueryText(context),
           child: Scaffold(
             appBar: AppBar(
-              title: Text('Supervisi Panen'),
-              bottom: TabBar(
+              title: const Text('Supervisi Panen'),
+              bottom: const TabBar(
                 tabs: <Widget>[
                   Tab(
                     icon: Text("Form"),
@@ -55,7 +57,7 @@ class _SupervisorHarvestFormScreenState
                 ],
               ),
             ),
-            body: TabBarView(
+            body: const TabBarView(
               children: <Widget>[SupervisorFormTab(), SupervisorFormFruit()],
             ),
           ),

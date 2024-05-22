@@ -1,4 +1,3 @@
-
 import 'package:epms/model/m_activity_schema.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -28,10 +27,10 @@ class DatabaseMActivitySchema {
     int count = 0;
     List<MActivitySchema> listActivity = await selectMActivitySchema();
     for (int i = 0; i < object.length; i++) {
-        if(!(listActivity.contains(object[i]))) {
-          int saved = await db.insert(mActivitySchemaTable, object[i].toJson());
-          count = count + saved;
-        }
+      if (!(listActivity.contains(object[i]))) {
+        int saved = await db.insert(mActivitySchemaTable, object[i].toJson());
+        count = count + saved;
+      }
     }
     return count;
   }

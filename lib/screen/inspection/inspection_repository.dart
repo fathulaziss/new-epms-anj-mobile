@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
@@ -509,8 +511,9 @@ class InspectionRepository extends APIConfiguration {
           var stream = http.ByteStream(imageFile.openRead());
           var length = await imageFile.length();
 
-          var mimeContent = lookupMimeType(
-              '${imageFile.path.toString().substring(imageFile.path.toString().length - 20)}');
+          var mimeContent = lookupMimeType(imageFile.path
+              .toString()
+              .substring(imageFile.path.toString().length - 20));
           var typeMedia =
               mimeContent!.substring(0, mimeContent.indexOf('/', 0));
 
@@ -609,8 +612,9 @@ class InspectionRepository extends APIConfiguration {
           var stream = http.ByteStream(imageFile.openRead());
           var length = await imageFile.length();
 
-          var mimeContent = lookupMimeType(
-              '${imageFile.path.toString().substring(imageFile.path.toString().length - 20)}');
+          var mimeContent = lookupMimeType(imageFile.path
+              .toString()
+              .substring(imageFile.path.toString().length - 20));
           var typeMedia =
               mimeContent!.substring(0, mimeContent.indexOf('/', 0));
 

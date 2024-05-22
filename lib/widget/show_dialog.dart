@@ -72,7 +72,7 @@ void showDialogLoading(BuildContext context, String message) {
         return Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            SpinKitThreeBounce(size: 20, color: Colors.orange),
+            const SpinKitThreeBounce(size: 20, color: Colors.orange),
             Text(
               message,
               style: Style.textBold14.copyWith(

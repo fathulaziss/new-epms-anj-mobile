@@ -4,19 +4,20 @@ import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
 
 class RestanReportPage extends StatefulWidget {
+  const RestanReportPage({super.key, required this.method});
+
   final String method;
 
-  const RestanReportPage({Key? key, required this.method}) : super(key: key);
-
   @override
-  _RestanReportPageState createState() => _RestanReportPageState();
+  State<RestanReportPage> createState() => _RestanReportPageState();
 }
 
 class _RestanReportPageState extends State<RestanReportPage> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-        create: (context) => RestanReportNotifier(),
-        child: RestanReportScreen(method: widget.method));
+      create: (context) => RestanReportNotifier(),
+      child: RestanReportScreen(method: widget.method),
+    );
   }
 }

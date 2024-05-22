@@ -6,12 +6,12 @@ import 'package:provider/provider.dart';
 import 'history_oph_notifier.dart';
 
 class HistoryOPHScreen extends StatefulWidget {
+  const HistoryOPHScreen({super.key, required this.method});
+
   final String method;
 
-  const HistoryOPHScreen({Key? key, required this.method}) : super(key: key);
-
   @override
-  _HistoryOPHScreenState createState() => _HistoryOPHScreenState();
+  State<HistoryOPHScreen> createState() => _HistoryOPHScreenState();
 }
 
 class _HistoryOPHScreenState extends State<HistoryOPHScreen> {
@@ -29,7 +29,7 @@ class _HistoryOPHScreenState extends State<HistoryOPHScreen> {
           data: Style.mediaQueryText(context),
           child: Scaffold(
             appBar: AppBar(
-              title: Text("Riwayat OPH"),
+              title: const Text("Riwayat OPH"),
             ),
             body: Padding(
               padding: const EdgeInsets.all(8.0),
@@ -42,17 +42,17 @@ class _HistoryOPHScreenState extends State<HistoryOPHScreen> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text("Blok:"),
+                            const Text("Blok:"),
                             Flexible(
-                              child: Container(
+                              child: SizedBox(
                                 width: 120,
                                 child: DropdownButton(
                                   isExpanded: true,
                                   value: historyOPH.filterBlockValue,
                                   items: historyOPH.blockList.map((value) {
                                     return DropdownMenuItem(
-                                      child: Text(value),
                                       value: value,
+                                      child: Text(value),
                                     );
                                   }).toList(),
                                   onChanged: (String? value) {
@@ -63,36 +63,36 @@ class _HistoryOPHScreenState extends State<HistoryOPHScreen> {
                             ),
                           ],
                         ),
-                        SizedBox(height: 14),
+                        const SizedBox(height: 14),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text("Jumlah OPH:"),
+                            const Text("Jumlah OPH:"),
                             Text("${historyOPH.countOPH}")
                           ],
                         ),
-                        SizedBox(height: 14),
+                        const SizedBox(height: 14),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text("Total Janjang:"),
-                            Text(
-                                "${ValueService.thousandSeparator(historyOPH.totalBunches)}")
+                            const Text("Total Janjang:"),
+                            Text(ValueService.thousandSeparator(
+                                historyOPH.totalBunches))
                           ],
                         ),
-                        SizedBox(height: 14),
+                        const SizedBox(height: 14),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text("Total Brondolan (Kg):"),
-                            Text(
-                                "${ValueService.thousandSeparator(historyOPH.totalLooseFruits)}")
+                            const Text("Total Brondolan (Kg):"),
+                            Text(ValueService.thousandSeparator(
+                                historyOPH.totalLooseFruits))
                           ],
                         ),
                       ],
                     ),
                   ),
-                  Divider(),
+                  const Divider(),
                   historyOPH.listOPH.isEmpty
                       ? Container(
                           alignment: Alignment.center,
@@ -131,13 +131,13 @@ class _HistoryOPHScreenState extends State<HistoryOPHScreen> {
                                                       "${historyOPH.listOPHResult[index].bunchesTotal} Janjang"),
                                                 ],
                                               ),
-                                              SizedBox(height: 8),
+                                              const SizedBox(height: 8),
                                               Row(
                                                 mainAxisAlignment:
                                                     MainAxisAlignment
                                                         .spaceBetween,
                                                 children: [
-                                                  Text("Pekerja:"),
+                                                  const Text("Pekerja:"),
                                                   Expanded(
                                                     child: Text(
                                                       "${historyOPH.listOPHResult[index].employeeCode ?? ""} ${historyOPH.listOPHResult[index].employeeName ?? ""}",
@@ -146,7 +146,7 @@ class _HistoryOPHScreenState extends State<HistoryOPHScreen> {
                                                   ),
                                                 ],
                                               ),
-                                              SizedBox(height: 8),
+                                              const SizedBox(height: 8),
                                               Row(
                                                 mainAxisAlignment:
                                                     MainAxisAlignment
@@ -160,7 +160,7 @@ class _HistoryOPHScreenState extends State<HistoryOPHScreen> {
                                                       "Kartu: ${historyOPH.listOPHResult[index].ophCardId ?? ""}"),
                                                 ],
                                               ),
-                                              SizedBox(height: 8),
+                                              const SizedBox(height: 8),
                                               Row(
                                                 mainAxisAlignment:
                                                     MainAxisAlignment
@@ -208,13 +208,13 @@ class _HistoryOPHScreenState extends State<HistoryOPHScreen> {
                                                       "${historyOPH.listOPH[index].bunchesTotal} Janjang"),
                                                 ],
                                               ),
-                                              SizedBox(height: 8),
+                                              const SizedBox(height: 8),
                                               Row(
                                                 mainAxisAlignment:
                                                     MainAxisAlignment
                                                         .spaceBetween,
                                                 children: [
-                                                  Text("Pekerja:"),
+                                                  const Text("Pekerja:"),
                                                   Expanded(
                                                     child: Text(
                                                       "${historyOPH.listOPH[index].employeeCode ?? ""} ${historyOPH.listOPH[index].employeeName ?? ""}",
@@ -223,7 +223,7 @@ class _HistoryOPHScreenState extends State<HistoryOPHScreen> {
                                                   ),
                                                 ],
                                               ),
-                                              SizedBox(height: 8),
+                                              const SizedBox(height: 8),
                                               Row(
                                                 mainAxisAlignment:
                                                     MainAxisAlignment
@@ -237,7 +237,7 @@ class _HistoryOPHScreenState extends State<HistoryOPHScreen> {
                                                       "Kartu: ${historyOPH.listOPH[index].ophCardId ?? ""}"),
                                                 ],
                                               ),
-                                              SizedBox(height: 8),
+                                              const SizedBox(height: 8),
                                               Row(
                                                 mainAxisAlignment:
                                                     MainAxisAlignment

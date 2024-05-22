@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:developer';
 import 'dart:math' as math;
 
@@ -51,8 +53,8 @@ class InspectionFormView extends StatefulWidget {
 }
 
 class _InspectionFormViewState extends State<InspectionFormView> {
-  NavigatorService _navigationService = locator<NavigatorService>();
-  DialogService _dialogService = locator<DialogService>();
+  final NavigatorService _navigationService = locator<NavigatorService>();
+  final DialogService _dialogService = locator<DialogService>();
 
   UserInspectionConfigModel user = const UserInspectionConfigModel();
 
@@ -217,7 +219,7 @@ class _InspectionFormViewState extends State<InspectionFormView> {
   void getInspectionId() {
     final dateNow = DateTime.now();
     final dateNowConvert = ValueService.generateIDFromDateTime(dateNow);
-    math.Random random = new math.Random();
+    math.Random random = math.Random();
     var randomNumber = random.nextInt(100);
     inspectionId = 'I$dateNowConvert$randomNumber';
     log('cek inspection id : $inspectionId');
@@ -233,11 +235,11 @@ class _InspectionFormViewState extends State<InspectionFormView> {
 
   Future<void> getLocation() async {
     while (gpsLocation.isEmpty) {
-      final _position = await LocationService.getGPSLocation();
-      if (_position != null) {
-        longitude = _position.longitude;
-        latitude = _position.latitude;
-        gpsLocation = "${_position.longitude}, ${_position.latitude}";
+      final position = await LocationService.getGPSLocation();
+      if (position != null) {
+        longitude = position.longitude;
+        latitude = position.latitude;
+        gpsLocation = "${position.longitude}, ${position.latitude}";
       }
     }
     log('cek inspection location : $gpsLocation');
@@ -690,30 +692,30 @@ class _InspectionFormViewState extends State<InspectionFormView> {
             },
             child: Scaffold(
               appBar: AppBar(
-                title: Text("Inspection Form"),
+                title: const Text("Inspection Form"),
               ),
               body: Padding(
-                padding: EdgeInsets.all(16),
+                padding: const EdgeInsets.all(16),
                 child: SingleChildScrollView(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(inspectionId),
-                      SizedBox(height: 12),
+                      const SizedBox(height: 12),
                       Row(
                         children: [
-                          Text('Tanggal :'),
-                          SizedBox(width: 12),
+                          const Text('Tanggal :'),
+                          const SizedBox(width: 12),
                           Expanded(
                               child: Text(inspectionDateTime,
                                   textAlign: TextAlign.end))
                         ],
                       ),
-                      SizedBox(height: 12),
+                      const SizedBox(height: 12),
                       Row(
                         children: [
-                          Text('Lokasi Buat :'),
-                          SizedBox(width: 12),
+                          const Text('Lokasi Buat :'),
+                          const SizedBox(width: 12),
                           Expanded(
                               child:
                                   Text(gpsLocation, textAlign: TextAlign.end))
@@ -725,7 +727,7 @@ class _InspectionFormViewState extends State<InspectionFormView> {
                         dense: true,
                         activeColor: Colors.orange,
                         checkColor: Colors.white,
-                        title: Text(
+                        title: const Text(
                             'Apakah Inspeksi ini dibuat di lokasi temuan ?'),
                         onChanged: (value) {
                           if (value != null) {
@@ -737,7 +739,7 @@ class _InspectionFormViewState extends State<InspectionFormView> {
                       ),
                       Row(
                         children: [
-                          Expanded(
+                          const Expanded(
                             flex: 2,
                             child: Text('Kategori :'),
                           ),
@@ -764,8 +766,8 @@ class _InspectionFormViewState extends State<InspectionFormView> {
                               ),
                               items: listCategory.map((value) {
                                 return DropdownMenuItem(
-                                  child: Text(value.name),
                                   value: value,
+                                  child: Text(value.name),
                                 );
                               }).toList(),
                               onChanged: (value) {
@@ -786,7 +788,7 @@ class _InspectionFormViewState extends State<InspectionFormView> {
                       ),
                       Row(
                         children: [
-                          Expanded(
+                          const Expanded(
                             flex: 2,
                             child: Text('Company :'),
                           ),
@@ -813,8 +815,8 @@ class _InspectionFormViewState extends State<InspectionFormView> {
                               ),
                               items: listCompany.map((value) {
                                 return DropdownMenuItem(
-                                  child: Text(value.alias),
                                   value: value,
+                                  child: Text(value.alias),
                                 );
                               }).toList(),
                               onChanged: (value) {
@@ -841,7 +843,7 @@ class _InspectionFormViewState extends State<InspectionFormView> {
                           listEstate.isNotEmpty)
                         Row(
                           children: [
-                            Expanded(
+                            const Expanded(
                               flex: 2,
                               child: Text('Estate :'),
                             ),
@@ -867,8 +869,8 @@ class _InspectionFormViewState extends State<InspectionFormView> {
                                 ),
                                 items: listEstate.map((value) {
                                   return DropdownMenuItem(
-                                    child: Text(value.name),
                                     value: value,
+                                    child: Text(value.name),
                                   );
                                 }).toList(),
                                 onChanged: (value) {
@@ -895,7 +897,7 @@ class _InspectionFormViewState extends State<InspectionFormView> {
                           listDivision.isNotEmpty)
                         Row(
                           children: [
-                            Expanded(
+                            const Expanded(
                               flex: 2,
                               child: Text('Divisi :'),
                             ),
@@ -922,9 +924,9 @@ class _InspectionFormViewState extends State<InspectionFormView> {
                                 ),
                                 items: listDivision.map((value) {
                                   return DropdownMenuItem(
+                                    value: value,
                                     child: Text(
                                         'Estate ${value.estateCode} | ${value.name}'),
-                                    value: value,
                                   );
                                 }).toList(),
                                 onChanged: (value) {
@@ -953,7 +955,7 @@ class _InspectionFormViewState extends State<InspectionFormView> {
                               selectedDivision != null)
                             Row(
                               children: [
-                                Expanded(
+                                const Expanded(
                                   flex: 2,
                                   child: Text('User Assign :'),
                                 ),
@@ -1036,7 +1038,7 @@ class _InspectionFormViewState extends State<InspectionFormView> {
                         else
                           Row(
                             children: [
-                              Expanded(
+                              const Expanded(
                                 flex: 2,
                                 child: Text('User Assign :'),
                               ),
@@ -1262,9 +1264,9 @@ class _InspectionFormViewState extends State<InspectionFormView> {
                       //       ),
                       //     ],
                       //   ),
-                      SizedBox(height: 8),
-                      Text('Deskripsi :'),
-                      SizedBox(height: 6),
+                      const SizedBox(height: 8),
+                      const Text('Deskripsi :'),
+                      const SizedBox(height: 6),
                       InputPrimary(
                         controller: desctiptionController,
                         maxLines: 10,
@@ -1276,8 +1278,8 @@ class _InspectionFormViewState extends State<InspectionFormView> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('Foto Inspection :'),
-                            SizedBox(height: 6),
+                            const Text('Foto Inspection :'),
+                            const SizedBox(height: 6),
                             SizedBox(
                               height: MediaQuery.of(context).size.width / 4,
                               child: ListView.builder(
@@ -1312,7 +1314,7 @@ class _InspectionFormViewState extends State<InspectionFormView> {
                                 },
                               ),
                             ),
-                            SizedBox(height: 12),
+                            const SizedBox(height: 12),
                           ],
                         ),
                       InkWell(
@@ -1398,7 +1400,7 @@ class _InspectionFormViewState extends State<InspectionFormView> {
                           child: SizedBox(
                             width: MediaQuery.of(context).size.width,
                             child: Padding(
-                              padding: EdgeInsets.all(16),
+                              padding: const EdgeInsets.all(16),
                               child: Text(
                                 "SUBMIT",
                                 style: Style.whiteBold14,

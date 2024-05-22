@@ -56,7 +56,7 @@ class DatabaseSPBSupervise {
   Future<List<SPBSupervise>> selectSPBSupervise() async {
     Database db = await DatabaseHelper().database;
     var mapList = await db.query(tSPBSuperviseSchemaListTable,
-        groupBy: "${SPBSuperviseEntity.spbSuperviseId}");
+        groupBy: SPBSuperviseEntity.spbSuperviseId);
     List<SPBSupervise> list = [];
     for (int i = 0; i < mapList.length; i++) {
       SPBSupervise spb = SPBSupervise.fromJson(mapList[i]);

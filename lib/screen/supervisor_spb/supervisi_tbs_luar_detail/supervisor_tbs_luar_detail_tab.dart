@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class SupervisorTBSLuarDetailTab extends StatefulWidget {
-  const SupervisorTBSLuarDetailTab({Key? key}) : super(key: key);
+  const SupervisorTBSLuarDetailTab({super.key});
 
   @override
   State<SupervisorTBSLuarDetailTab> createState() =>
@@ -35,8 +35,8 @@ class _SupervisorTBSLuarDetailTabState
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("ID Supervisi:"),
-                    Text("${notifier.tbsLuar?.sortasiID ?? ""}",
+                    const Text("ID Supervisi:"),
+                    Text(notifier.tbsLuar?.sortasiID ?? "",
                         style: Style.textBold16)
                   ]),
             ),
@@ -45,7 +45,7 @@ class _SupervisorTBSLuarDetailTabState
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Tanggal:"),
+                  const Text("Tanggal:"),
                   Text(
                       "${notifier.tbsLuar?.createdDate ?? ""} ${notifier.tbsLuar?.createdTime ?? ""}")
                 ],
@@ -56,8 +56,8 @@ class _SupervisorTBSLuarDetailTabState
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Nama Driver:"),
-                  Text("${notifier.tbsLuar?.driverName ?? ""}")
+                  const Text("Nama Driver:"),
+                  Text(notifier.tbsLuar?.driverName ?? "")
                 ],
               ),
             ),
@@ -66,7 +66,7 @@ class _SupervisorTBSLuarDetailTabState
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("GPS Geolocation:"),
+                  const Text("GPS Geolocation:"),
                   Text(
                       "${notifier.tbsLuar?.gpsLat ?? ""},${notifier.tbsLuar?.gpsLong ?? ""}")
                 ],
@@ -97,34 +97,34 @@ class _SupervisorTBSLuarDetailTabState
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Supplier:"),
+                  const Text("Supplier:"),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      Text("${notifier.tbsLuar?.supplierCode ?? ""}"),
-                      Text(
-                          "${ValueService.rightTrimVendor('${notifier.tbsLuar?.supplierName}')}"),
+                      Text(notifier.tbsLuar?.supplierCode ?? ""),
+                      Text(ValueService.rightTrimVendor(
+                          '${notifier.tbsLuar?.supplierName}')),
                     ],
                   ),
                 ],
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Column(
               children: [
-                Text("Nomor Kendaraan"),
+                const Text("Nomor Kendaraan"),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
-                    "${notifier.tbsLuar?.licenseNumber ?? ""}",
+                    notifier.tbsLuar?.licenseNumber ?? "",
                     style: Style.textBold18,
                     textAlign: TextAlign.center,
                   ),
                 ),
               ],
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -138,11 +138,11 @@ class _SupervisorTBSLuarDetailTabState
                         children: [
                           Column(
                             children: [
-                              Text("No ID DO"),
+                              const Text("No ID DO"),
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(
-                                  "${notifier.tbsLuar?.spdID ?? ""}",
+                                  notifier.tbsLuar?.spdID ?? "",
                                   style: Style.textBold18,
                                   textAlign: TextAlign.center,
                                 ),
@@ -151,7 +151,7 @@ class _SupervisorTBSLuarDetailTabState
                           ),
                         ],
                       ),
-                      SizedBox(height: 18),
+                      const SizedBox(height: 18),
                     ],
                   ),
                 ),
@@ -170,7 +170,7 @@ class _SupervisorTBSLuarDetailTabState
                       onTap: () {
                         notifier.getCamera(context);
                       },
-                      child: Container(
+                      child: SizedBox(
                         width: MediaQuery.of(context).size.width,
                         child: Card(
                           shape: RoundedRectangleBorder(
@@ -208,9 +208,9 @@ class _SupervisorTBSLuarDetailTabState
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
                                 child: Container(
-                                  padding: EdgeInsets.all(14),
+                                  padding: const EdgeInsets.all(14),
                                   width: MediaQuery.of(context).size.width,
-                                  child: Text(
+                                  child: const Text(
                                     "SIMPAN",
                                     style: TextStyle(
                                         fontSize: 18,
@@ -235,9 +235,9 @@ class _SupervisorTBSLuarDetailTabState
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
                                 child: Container(
-                                  padding: EdgeInsets.all(14),
+                                  padding: const EdgeInsets.all(14),
                                   width: MediaQuery.of(context).size.width,
-                                  child: Text(
+                                  child: const Text(
                                     "BATAL",
                                     style: TextStyle(
                                         fontSize: 18,
@@ -264,9 +264,9 @@ class _SupervisorTBSLuarDetailTabState
                               borderRadius: BorderRadius.circular(10.0),
                             ),
                             child: Container(
-                              padding: EdgeInsets.all(14),
+                              padding: const EdgeInsets.all(14),
                               width: MediaQuery.of(context).size.width,
-                              child: Text(
+                              child: const Text(
                                 "UBAH DATA",
                                 style: TextStyle(
                                     fontSize: 18,

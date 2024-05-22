@@ -8,10 +8,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class PreviousOPHTab extends StatefulWidget {
-  const PreviousOPHTab({Key? key}) : super(key: key);
+  const PreviousOPHTab({super.key});
 
   @override
-  _PreviousOPHTabState createState() => _PreviousOPHTabState();
+  State<PreviousOPHTab> createState() => _PreviousOPHTabState();
 }
 
 class _PreviousOPHTabState extends State<PreviousOPHTab> {
@@ -27,10 +27,10 @@ class _PreviousOPHTabState extends State<PreviousOPHTab> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("ID OPH:"),
+                  const Text("ID OPH:"),
                   Expanded(
                       child: Text(
-                    "${bagiOPH.oph.ophId ?? ""}",
+                    bagiOPH.oph.ophId ?? "",
                     style: Style.textBold20,
                     textAlign: TextAlign.end,
                   ))
@@ -42,7 +42,7 @@ class _PreviousOPHTabState extends State<PreviousOPHTab> {
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Tanggal:"),
+                    const Text("Tanggal:"),
                     Expanded(
                       child: Text(
                         "${bagiOPH.oph.createdDate ?? ""} ${bagiOPH.oph.createdTime ?? ""}",
@@ -56,7 +56,7 @@ class _PreviousOPHTabState extends State<PreviousOPHTab> {
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Jenis Pekerja:"),
+                    const Text("Jenis Pekerja:"),
                     Expanded(
                       child: Text(
                         "${ValueService.typeOfFormToText(bagiOPH.oph.ophHarvestingType ?? 1)}",
@@ -70,7 +70,7 @@ class _PreviousOPHTabState extends State<PreviousOPHTab> {
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Apakah Panen Mekanis?"),
+                    const Text("Apakah Panen Mekanis?"),
                     Expanded(
                       child: Text(
                         "${ValueService.harvestingType(bagiOPH.oph.ophHarvestingMethod ?? 1)}",
@@ -84,9 +84,9 @@ class _PreviousOPHTabState extends State<PreviousOPHTab> {
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Kemandoran:"),
+                    const Text("Kemandoran:"),
                     Expanded(
-                      child: Container(
+                      child: SizedBox(
                         width: 200,
                         child: Text(
                             "${bagiOPH.oph.mandorEmployeeCode ?? ""}  ${bagiOPH.oph.mandorEmployeeName ?? ""}",
@@ -100,9 +100,9 @@ class _PreviousOPHTabState extends State<PreviousOPHTab> {
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Pekerja:"),
+                    const Text("Pekerja:"),
                     Expanded(
-                      child: Container(
+                      child: SizedBox(
                           width: 200,
                           child: Text(
                               "${bagiOPH.oph.employeeCode ?? ""}  ${bagiOPH.oph.employeeName ?? ""}",
@@ -115,11 +115,11 @@ class _PreviousOPHTabState extends State<PreviousOPHTab> {
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Customer:"),
+                    const Text("Customer:"),
                     Expanded(
-                      child: Container(
+                      child: SizedBox(
                         width: 200,
-                        child: Text("${bagiOPH.oph.ophCustomerCode ?? ""}",
+                        child: Text(bagiOPH.oph.ophCustomerCode ?? "",
                             textAlign: TextAlign.end),
                       ),
                     )
@@ -130,11 +130,11 @@ class _PreviousOPHTabState extends State<PreviousOPHTab> {
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Estate:"),
+                    const Text("Estate:"),
                     Expanded(
-                      child: Container(
+                      child: SizedBox(
                         width: 200,
-                        child: Text("${bagiOPH.oph.ophEstateCode ?? ""}",
+                        child: Text(bagiOPH.oph.ophEstateCode ?? "",
                             textAlign: TextAlign.end),
                       ),
                     )
@@ -145,9 +145,9 @@ class _PreviousOPHTabState extends State<PreviousOPHTab> {
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Divisi:"),
+                    const Text("Divisi:"),
                     Expanded(
-                      child: Container(
+                      child: SizedBox(
                         width: 200,
                         child: Text(
                             "${bagiOPH.oph.ophDivisionCode == null || bagiOPH.oph.ophDivisionCode == "null" ? "" : bagiOPH.oph.ophDivisionCode}",
@@ -161,11 +161,11 @@ class _PreviousOPHTabState extends State<PreviousOPHTab> {
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Blok:"),
+                    const Text("Blok:"),
                     Expanded(
-                      child: Container(
+                      child: SizedBox(
                         width: 200,
-                        child: Text("${bagiOPH.oph.ophBlockCode ?? ""}",
+                        child: Text(bagiOPH.oph.ophBlockCode ?? "",
                             textAlign: TextAlign.end),
                       ),
                     )
@@ -176,9 +176,9 @@ class _PreviousOPHTabState extends State<PreviousOPHTab> {
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Estimasi berat OPH (Kg):"),
+                    const Text("Estimasi berat OPH (Kg):"),
                     Expanded(
-                      child: Container(
+                      child: SizedBox(
                         width: 200,
                         child: Text("${bagiOPH.oph.ophEstimateTonnage ?? 0}",
                             textAlign: TextAlign.end),
@@ -186,7 +186,7 @@ class _PreviousOPHTabState extends State<PreviousOPHTab> {
                     )
                   ]),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child:
@@ -196,33 +196,33 @@ class _PreviousOPHTabState extends State<PreviousOPHTab> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("TPH"),
+                        const Text("TPH"),
                         Padding(
                           padding: const EdgeInsets.all(16.0),
                           child: Text(
-                            "${bagiOPH.oph.ophTphCode ?? ""}",
+                            bagiOPH.oph.ophTphCode ?? "",
                             style: Style.textBold20,
                           ),
                         )
                       ]),
                 ),
-                SizedBox(width: 80),
+                const SizedBox(width: 80),
                 Flexible(
                   child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("Kartu OPH"),
+                        const Text("Kartu OPH"),
                         Padding(
                           padding: const EdgeInsets.all(16.0),
-                          child: Text("${bagiOPH.oph.ophCardId ?? ""}",
+                          child: Text(bagiOPH.oph.ophCardId ?? "",
                               style: Style.textBold20),
                         )
                       ]),
                 )
               ]),
             ),
-            Divider(),
+            const Divider(),
             Center(
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
@@ -231,22 +231,22 @@ class _PreviousOPHTabState extends State<PreviousOPHTab> {
                       defaultVerticalAlignment:
                           TableCellVerticalAlignment.middle,
                       children: <TableRow>[
-                        TableRow(children: <Widget>[
-                          Container(
+                        const TableRow(children: <Widget>[
+                          SizedBox(
                             width: 110,
                             child: Column(children: [
                               Text("Masak"),
                               SizedBox(height: 8),
                             ]),
                           ),
-                          Container(
+                          SizedBox(
                             width: 110,
                             child: Column(children: [
                               Text("Lewat Masak"),
                               SizedBox(height: 8),
                             ]),
                           ),
-                          Container(
+                          SizedBox(
                             width: 110,
                             child: Column(children: [
                               Text("Mengkal"),
@@ -255,53 +255,53 @@ class _PreviousOPHTabState extends State<PreviousOPHTab> {
                           ),
                         ]),
                         TableRow(children: <Widget>[
-                          Container(
+                          SizedBox(
                             width: 110,
                             child: Column(children: [
                               Text(
                                 "${bagiOPH.bunchesRipePrev}",
                                 style: Style.textBold20,
                               ),
-                              SizedBox(height: 20),
+                              const SizedBox(height: 20),
                             ]),
                           ),
-                          Container(
+                          SizedBox(
                             width: 110,
                             child: Column(children: [
                               Text(
                                 "${bagiOPH.bunchesOverRipePrev}",
                                 style: Style.textBold20,
                               ),
-                              SizedBox(height: 20),
+                              const SizedBox(height: 20),
                             ]),
                           ),
-                          Container(
+                          SizedBox(
                             width: 110,
                             child: Column(children: [
                               Text(
                                 "${bagiOPH.bunchesHalfRipePrev}",
                                 style: Style.textBold20,
                               ),
-                              SizedBox(height: 20),
+                              const SizedBox(height: 20),
                             ]),
                           ),
                         ]),
-                        TableRow(children: <Widget>[
-                          Container(
+                        const TableRow(children: <Widget>[
+                          SizedBox(
                             width: 110,
                             child: Column(children: [
                               Text("Mentah"),
                               SizedBox(height: 8),
                             ]),
                           ),
-                          Container(
+                          SizedBox(
                             width: 110,
                             child: Column(children: [
                               Text("Tidak Normal"),
                               SizedBox(height: 8),
                             ]),
                           ),
-                          Container(
+                          SizedBox(
                             width: 110,
                             child: Column(children: [
                               Text("Janjang Kosong"),
@@ -310,50 +310,50 @@ class _PreviousOPHTabState extends State<PreviousOPHTab> {
                           ),
                         ]),
                         TableRow(children: <Widget>[
-                          Container(
+                          SizedBox(
                             width: 110,
                             child: Column(children: [
                               Text("${bagiOPH.bunchesUnRipePrev}",
                                   style: Style.textBold20),
-                              SizedBox(height: 20),
+                              const SizedBox(height: 20),
                             ]),
                           ),
-                          Container(
+                          SizedBox(
                             width: 110,
                             child: Column(children: [
                               Text("${bagiOPH.bunchesAbnormalPrev}",
                                   style: Style.textBold20),
-                              SizedBox(height: 20),
+                              const SizedBox(height: 20),
                             ]),
                           ),
-                          Container(
+                          SizedBox(
                             width: 110,
                             child: Column(children: [
                               Text("${bagiOPH.bunchesEmptyPrev}",
                                   style: Style.textBold20),
-                              SizedBox(height: 20),
+                              const SizedBox(height: 20),
                             ]),
                           ),
                         ]),
-                        TableRow(children: <Widget>[
-                          Container(
+                        const TableRow(children: <Widget>[
+                          SizedBox(
                             width: 110,
                             child: Column(children: [
                               Text("Total Janjang"),
                               SizedBox(height: 8),
                             ]),
                           ),
-                          Container(
+                          SizedBox(
                             width: 110,
                             child: Column(children: [
                               Text("Brondolan (Kg)"),
                               SizedBox(height: 8),
                             ]),
                           ),
-                          Container(
+                          SizedBox(
                             width: 110,
                             child: Column(children: [
-                              Container(
+                              SizedBox(
                                   width: 100,
                                   child: Text(
                                     "Janjang Tidak Dikirim",
@@ -364,39 +364,39 @@ class _PreviousOPHTabState extends State<PreviousOPHTab> {
                           ),
                         ]),
                         TableRow(children: <Widget>[
-                          Container(
+                          SizedBox(
                             width: 110,
                             child: Column(children: [
                               Text("${bagiOPH.bunchesTotalPrev}",
                                   style: Style.textBold20),
-                              SizedBox(height: 20),
+                              const SizedBox(height: 20),
                             ]),
                           ),
-                          Container(
+                          SizedBox(
                             width: 110,
                             child: Column(children: [
                               Text("${bagiOPH.looseFruitsPrev}",
                                   style: Style.textBold20),
-                              SizedBox(height: 20),
+                              const SizedBox(height: 20),
                             ]),
                           ),
-                          Container(
+                          SizedBox(
                             width: 110,
                             child: Column(children: [
                               Text("${bagiOPH.bunchesNotSentPrev}",
                                   style: Style.textBold20),
-                              SizedBox(height: 20),
+                              const SizedBox(height: 20),
                             ]),
                           ),
                         ]),
                       ]),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Column(children: [
-                    Text("Catatan"),
-                    SizedBox(height: 8),
-                    Text("${bagiOPH.oph.ophNotes ?? ""}")
+                    const Text("Catatan"),
+                    const SizedBox(height: 8),
+                    Text(bagiOPH.oph.ophNotes ?? "")
                   ]),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Image.file(
@@ -407,10 +407,10 @@ class _PreviousOPHTabState extends State<PreviousOPHTab> {
                       return Container();
                     },
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
-                  Container(
+                  SizedBox(
                     width: MediaQuery.of(context).size.width,
                     child: InkWell(
                       onTap: () {
@@ -424,8 +424,8 @@ class _PreviousOPHTabState extends State<PreviousOPHTab> {
                         ),
                         child: Container(
                           alignment: Alignment.center,
-                          padding: EdgeInsets.all(14),
-                          child: Text(
+                          padding: const EdgeInsets.all(14),
+                          child: const Text(
                             "AMBIL FOTO",
                             style: TextStyle(
                                 fontSize: 18,
@@ -437,7 +437,7 @@ class _PreviousOPHTabState extends State<PreviousOPHTab> {
                       ),
                     ),
                   ),
-                  Container(
+                  SizedBox(
                     width: MediaQuery.of(context).size.width,
                     child: InkWell(
                       onTap: () {
@@ -451,8 +451,8 @@ class _PreviousOPHTabState extends State<PreviousOPHTab> {
                         ),
                         child: Container(
                           alignment: Alignment.center,
-                          padding: EdgeInsets.all(14),
-                          child: Text(
+                          padding: const EdgeInsets.all(14),
+                          child: const Text(
                             "SIMPAN OPH LAMA",
                             style: TextStyle(
                                 fontSize: 18,

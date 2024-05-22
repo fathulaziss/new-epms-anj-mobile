@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:epms/base/common/locator.dart';
 import 'package:epms/base/common/routes.dart';
 import 'package:epms/common_manager/camera_service.dart';
@@ -24,15 +26,15 @@ import 'package:flutter/material.dart';
 import 'package:nfc_manager/nfc_manager.dart';
 
 class EditSPBNotifier extends ChangeNotifier {
-  ScrollController _scrollController = new ScrollController();
+  final ScrollController _scrollController = ScrollController();
 
   ScrollController get scrollController => _scrollController;
 
-  NavigatorService _navigationService = locator<NavigatorService>();
+  final NavigatorService _navigationService = locator<NavigatorService>();
 
   NavigatorService get navigationService => _navigationService;
 
-  DialogService _dialogService = locator<DialogService>();
+  final DialogService _dialogService = locator<DialogService>();
 
   DialogService get dialogService => _dialogService;
 
@@ -66,45 +68,45 @@ class EditSPBNotifier extends ChangeNotifier {
 
   MVendorSchema? get vendorSchemaValue => _vendorSchemaValue;
 
-  bool _isCheckedOther = false;
+  final bool _isCheckedOther = false;
 
   bool get isCheckedOther => _isCheckedOther;
 
-  TextEditingController _vendorOther = TextEditingController();
+  final TextEditingController _vendorOther = TextEditingController();
 
   TextEditingController get vendorOther => _vendorOther;
 
   TextEditingController vehicleNumber = TextEditingController();
 
-  List<SPBLoader> _spbLoaderList = [];
+  final List<SPBLoader> _spbLoaderList = [];
 
   List<SPBLoader> get spbLoaderList => _spbLoaderList;
 
-  List<String> _loaderType = [];
+  final List<String> _loaderType = [];
 
   List<String> get loaderType => _loaderType;
 
-  List<MVendorSchema> _vendorName = [];
+  final List<MVendorSchema> _vendorName = [];
 
   List<MVendorSchema> get vendorName => _vendorName;
 
-  List<MEmployeeSchema?> _loaderName = [];
+  final List<MEmployeeSchema?> _loaderName = [];
 
   List<MEmployeeSchema?> get loaderName => _loaderName;
 
-  List<MEmployeeSchema> _loaderTypeList = [];
+  final List<MEmployeeSchema> _loaderTypeList = [];
 
   List<MEmployeeSchema> get loaderTypeList => _loaderTypeList;
 
-  List<String> _jenisAngkut = ["TPH-PKS", "TPB-PKS"];
+  final List<String> _jenisAngkut = ["TPH-PKS", "TPB-PKS"];
 
   List<String> get jenisAngkut => _jenisAngkut;
 
-  List<String> _jenisAngkutValue = [];
+  final List<String> _jenisAngkutValue = [];
 
   List<String> get jenisAngkutValue => _jenisAngkutValue;
 
-  List<TextEditingController> _percentageAngkut = [];
+  final List<TextEditingController> _percentageAngkut = [];
 
   List<TextEditingController> get percentageAngkut => _percentageAngkut;
 
@@ -177,10 +179,10 @@ class EditSPBNotifier extends ChangeNotifier {
     _loaderName.removeAt(index);
     _jenisAngkutValue.removeAt(index);
     _percentageAngkut.removeAt(index);
-    _spbLoaderList.forEach((element) {
+    for (var element in _spbLoaderList) {
       _totalPercentageAngkut =
           _totalPercentageAngkut + (element.loaderPercentage!);
-    });
+    }
     notifyListeners();
   }
 
@@ -251,10 +253,10 @@ class EditSPBNotifier extends ChangeNotifier {
     if (percent.isNotEmpty) {
       spbLoaderList[index].loaderPercentage = int.tryParse(percent);
       _totalPercentageAngkut = 0;
-      _spbLoaderList.forEach((element) {
+      for (var element in _spbLoaderList) {
         _totalPercentageAngkut =
             _totalPercentageAngkut + element.loaderPercentage!;
-      });
+      }
       notifyListeners();
       if (_totalPercentageAngkut > 100) {
         FlushBarManager.showFlushBarWarning(
@@ -334,7 +336,7 @@ class EditSPBNotifier extends ChangeNotifier {
       if (_scrollController.hasClients) {
         _scrollController.animateTo(
           _scrollController.position.maxScrollExtent + 320,
-          duration: Duration(milliseconds: 200),
+          duration: const Duration(milliseconds: 200),
           curve: Curves.fastOutSlowIn,
         );
       }
@@ -356,7 +358,7 @@ class EditSPBNotifier extends ChangeNotifier {
       if (_scrollController.hasClients) {
         _scrollController.animateTo(
           _scrollController.position.maxScrollExtent + 320,
-          duration: Duration(milliseconds: 200),
+          duration: const Duration(milliseconds: 200),
           curve: Curves.fastOutSlowIn,
         );
       }
@@ -395,7 +397,7 @@ class EditSPBNotifier extends ChangeNotifier {
       if (_scrollController.hasClients) {
         _scrollController.animateTo(
           _scrollController.position.maxScrollExtent + 320,
-          duration: Duration(milliseconds: 200),
+          duration: const Duration(milliseconds: 200),
           curve: Curves.fastOutSlowIn,
         );
       }

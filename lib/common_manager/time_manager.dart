@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:date_format/date_format.dart';
 import 'package:intl/intl.dart';
 
@@ -14,7 +16,7 @@ class TimeManager {
   }
 
   static String dateWithSlash(String dateString) {
-    DateTime dateTime = new DateFormat("yyyy-MM-dd").parse(dateString);
+    DateTime dateTime = DateFormat("yyyy-MM-dd").parse(dateString);
     String format = formatDate(dateTime, [dd, '/', mm, '/', yyyy]);
     return format;
   }
@@ -25,7 +27,7 @@ class TimeManager {
   }
 
   static String countDaysRestan(String date) {
-    DateTime tempDate = new DateFormat("yyyy-MM-dd").parse(date);
+    DateTime tempDate = DateFormat("yyyy-MM-dd").parse(date);
     final restanDate = tempDate;
     final date2 = DateTime.now();
     final difference = date2.difference(restanDate).inDays.abs();

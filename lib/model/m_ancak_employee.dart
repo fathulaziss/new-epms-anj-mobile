@@ -1,4 +1,3 @@
-
 class MAncakEmployee {
   dynamic userId;
   String? userName;
@@ -11,10 +10,9 @@ class MAncakEmployee {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['user_id'] = this.userId;
-    data['user_name'] = this.userName;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['user_id'] = userId;
+    data['user_name'] = userName;
     return data;
   }
 }
-

@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:epms/base/common/locator.dart';
 import 'package:epms/base/common/routes.dart';
 import 'package:epms/base/ui/palette.dart';
@@ -20,7 +22,7 @@ class TabOnGoing extends StatefulWidget {
 }
 
 class _TabOnGoingState extends State<TabOnGoing> {
-  NavigatorService _navigationService = locator<NavigatorService>();
+  final NavigatorService _navigationService = locator<NavigatorService>();
   final searchController = TextEditingController();
   List<TicketInspectionModel> listInspection = const [];
   List<TicketInspectionModel> listSearchInspection = const [];
@@ -153,7 +155,7 @@ class _TabOnGoingState extends State<TabOnGoing> {
                       );
                     },
                   )
-                : Center(child: Text('Data Tidak Ada')),
+                : const Center(child: Text('Data Tidak Ada')),
           ),
         ],
       ),

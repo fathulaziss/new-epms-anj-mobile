@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class SupervisorSPBDetailFruit extends StatefulWidget {
-  const SupervisorSPBDetailFruit({Key? key}) : super(key: key);
+  const SupervisorSPBDetailFruit({super.key});
 
   @override
   State<SupervisorSPBDetailFruit> createState() =>
@@ -24,9 +24,9 @@ class _SupervisorSPBDetailFruitState extends State<SupervisorSPBDetailFruit> {
               Table(
                   defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                   children: <TableRow>[
-                    TableRow(
+                    const TableRow(
                       children: <Widget>[
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -34,7 +34,7 @@ class _SupervisorSPBDetailFruitState extends State<SupervisorSPBDetailFruit> {
                             SizedBox(height: 6),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -42,7 +42,7 @@ class _SupervisorSPBDetailFruitState extends State<SupervisorSPBDetailFruit> {
                             SizedBox(height: 6),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -56,7 +56,7 @@ class _SupervisorSPBDetailFruitState extends State<SupervisorSPBDetailFruit> {
                       children: <Widget>[
                         Container(
                             width: 100,
-                            padding: EdgeInsets.symmetric(horizontal: 16),
+                            padding: const EdgeInsets.symmetric(horizontal: 16),
                             child: Text(
                               "${notifier.spbSupervise.bunchesRipe}",
                               style: Style.textBold18,
@@ -64,7 +64,7 @@ class _SupervisorSPBDetailFruitState extends State<SupervisorSPBDetailFruit> {
                             )),
                         Container(
                             width: 100,
-                            padding: EdgeInsets.symmetric(horizontal: 16),
+                            padding: const EdgeInsets.symmetric(horizontal: 16),
                             child: Text(
                               "${notifier.spbSupervise.bunchesOverripe}",
                               style: Style.textBold18,
@@ -72,7 +72,7 @@ class _SupervisorSPBDetailFruitState extends State<SupervisorSPBDetailFruit> {
                             )),
                         Container(
                             width: 100,
-                            padding: EdgeInsets.symmetric(horizontal: 16),
+                            padding: const EdgeInsets.symmetric(horizontal: 16),
                             child: Text(
                               "${notifier.spbSupervise.bunchesHalfripe}",
                               style: Style.textBold18,
@@ -80,9 +80,9 @@ class _SupervisorSPBDetailFruitState extends State<SupervisorSPBDetailFruit> {
                             )),
                       ],
                     ),
-                    TableRow(
+                    const TableRow(
                       children: <Widget>[
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -90,7 +90,7 @@ class _SupervisorSPBDetailFruitState extends State<SupervisorSPBDetailFruit> {
                             SizedBox(height: 6),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -98,7 +98,7 @@ class _SupervisorSPBDetailFruitState extends State<SupervisorSPBDetailFruit> {
                             SizedBox(height: 6),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -112,7 +112,7 @@ class _SupervisorSPBDetailFruitState extends State<SupervisorSPBDetailFruit> {
                       children: <Widget>[
                         Container(
                             width: 100,
-                            padding: EdgeInsets.symmetric(horizontal: 16),
+                            padding: const EdgeInsets.symmetric(horizontal: 16),
                             child: Text(
                               "${notifier.spbSupervise.bunchesUnripe}",
                               style: Style.textBold18,
@@ -120,7 +120,7 @@ class _SupervisorSPBDetailFruitState extends State<SupervisorSPBDetailFruit> {
                             )),
                         Container(
                             width: 100,
-                            padding: EdgeInsets.symmetric(horizontal: 16),
+                            padding: const EdgeInsets.symmetric(horizontal: 16),
                             child: Text(
                               "${notifier.spbSupervise.bunchesAbnormal}",
                               style: Style.textBold18,
@@ -128,7 +128,7 @@ class _SupervisorSPBDetailFruitState extends State<SupervisorSPBDetailFruit> {
                             )),
                         Container(
                             width: 100,
-                            padding: EdgeInsets.symmetric(horizontal: 16),
+                            padding: const EdgeInsets.symmetric(horizontal: 16),
                             child: Text(
                               "${notifier.spbSupervise.bunchesEmpty}",
                               style: Style.textBold18,
@@ -136,9 +136,9 @@ class _SupervisorSPBDetailFruitState extends State<SupervisorSPBDetailFruit> {
                             )),
                       ],
                     ),
-                    TableRow(
+                    const TableRow(
                       children: <Widget>[
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -146,7 +146,7 @@ class _SupervisorSPBDetailFruitState extends State<SupervisorSPBDetailFruit> {
                             SizedBox(height: 6),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -154,11 +154,11 @@ class _SupervisorSPBDetailFruitState extends State<SupervisorSPBDetailFruit> {
                             SizedBox(height: 6),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
-                            Container(
+                            SizedBox(
                                 width: 100,
                                 child: Text(
                                   "Total Janjang Normal",
@@ -172,7 +172,7 @@ class _SupervisorSPBDetailFruitState extends State<SupervisorSPBDetailFruit> {
                     TableRow(children: <Widget>[
                       Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: Text(
                             "${notifier.spbSupervise.bunchesTotal}",
                             style: Style.textBold18,
@@ -180,7 +180,7 @@ class _SupervisorSPBDetailFruitState extends State<SupervisorSPBDetailFruit> {
                           )),
                       Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: Text(
                             "${notifier.spbSupervise.looseFruits}",
                             style: Style.textBold18,
@@ -188,7 +188,7 @@ class _SupervisorSPBDetailFruitState extends State<SupervisorSPBDetailFruit> {
                           )),
                       Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: Text(
                             "${notifier.spbSupervise.bunchesTotalNormal}",
                             style: Style.textBold18,
@@ -196,15 +196,15 @@ class _SupervisorSPBDetailFruitState extends State<SupervisorSPBDetailFruit> {
                           )),
                     ]),
                   ]),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               Text("KUALITAS JANJANG", style: Style.textBold16),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Table(
                   defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                   children: <TableRow>[
-                    TableRow(
+                    const TableRow(
                       children: <Widget>[
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -213,7 +213,7 @@ class _SupervisorSPBDetailFruitState extends State<SupervisorSPBDetailFruit> {
                             SizedBox(height: 6),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -228,7 +228,7 @@ class _SupervisorSPBDetailFruitState extends State<SupervisorSPBDetailFruit> {
                       children: <Widget>[
                         Container(
                             width: 100,
-                            padding: EdgeInsets.symmetric(horizontal: 16),
+                            padding: const EdgeInsets.symmetric(horizontal: 16),
                             child: Text(
                               "${notifier.spbSupervise.bunchesTangkaiPanjang}",
                               style: Style.textBold18,
@@ -236,7 +236,7 @@ class _SupervisorSPBDetailFruitState extends State<SupervisorSPBDetailFruit> {
                             )),
                         Container(
                             width: 100,
-                            padding: EdgeInsets.symmetric(horizontal: 16),
+                            padding: const EdgeInsets.symmetric(horizontal: 16),
                             child: Text(
                               "${notifier.spbSupervise.catatanBunchesTangkaiPanjang}",
                               textAlign: TextAlign.center,
@@ -244,15 +244,15 @@ class _SupervisorSPBDetailFruitState extends State<SupervisorSPBDetailFruit> {
                       ],
                     ),
                   ]),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               Text("KUALITAS BRONDOLAN", style: Style.textBold16),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Table(
                   defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                   children: <TableRow>[
-                    TableRow(
+                    const TableRow(
                       children: <Widget>[
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -260,7 +260,7 @@ class _SupervisorSPBDetailFruitState extends State<SupervisorSPBDetailFruit> {
                             SizedBox(height: 6),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -274,7 +274,7 @@ class _SupervisorSPBDetailFruitState extends State<SupervisorSPBDetailFruit> {
                       children: <Widget>[
                         Container(
                             width: 100,
-                            padding: EdgeInsets.symmetric(horizontal: 16),
+                            padding: const EdgeInsets.symmetric(horizontal: 16),
                             child: Text(
                               "${notifier.spbSupervise.bunchesSampah}",
                               style: Style.textBold18,
@@ -282,7 +282,7 @@ class _SupervisorSPBDetailFruitState extends State<SupervisorSPBDetailFruit> {
                             )),
                         Container(
                             width: 100,
-                            padding: EdgeInsets.symmetric(horizontal: 16),
+                            padding: const EdgeInsets.symmetric(horizontal: 16),
                             child: Text(
                               "${notifier.spbSupervise.bunchesBatu}",
                               style: Style.textBold18,
@@ -291,15 +291,14 @@ class _SupervisorSPBDetailFruitState extends State<SupervisorSPBDetailFruit> {
                       ],
                     ),
                   ]),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               Column(
                 children: [
-                  Text("Catatan"),
-                  Container(
-                      child: Text(
+                  const Text("Catatan"),
+                  Text(
                     "${notifier.spbSupervise.supervisiNotes}",
                     textAlign: TextAlign.center,
-                  )),
+                  ),
                 ],
               ),
             ]),

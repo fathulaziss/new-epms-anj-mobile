@@ -40,10 +40,10 @@ class DatabaseMDestinationSchema {
     // }
     // return count;
     Batch batch = db.batch();
-    object.forEach((val) {
-      MDestinationSchema mDestinationSchema =  val;
+    for (var val in object) {
+      MDestinationSchema mDestinationSchema = val;
       batch.insert(mDestinationSchemaTable, mDestinationSchema.toJson());
-    });
+    }
     List<Object?> i = await batch.commit();
     return i.length;
   }

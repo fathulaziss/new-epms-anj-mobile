@@ -7,11 +7,11 @@ import 'package:epms/model/oph.dart';
 import 'package:flutter/material.dart';
 
 class HistoryOPHNotifier extends ChangeNotifier {
-  NavigatorService _navigationService = locator<NavigatorService>();
+  final NavigatorService _navigationService = locator<NavigatorService>();
 
   NavigatorService get navigationService => _navigationService;
 
-  DialogService _dialogService = locator<DialogService>();
+  final DialogService _dialogService = locator<DialogService>();
 
   DialogService get dialogService => _dialogService;
 
@@ -19,11 +19,11 @@ class HistoryOPHNotifier extends ChangeNotifier {
 
   List<OPH> get listOPH => _listOPH;
 
-  List<OPH> _listOPHResult = [];
+  final List<OPH> _listOPHResult = [];
 
   List<OPH> get listOPHResult => _listOPHResult;
 
-  List<String> _blockList = ["Semua"];
+  final List<String> _blockList = ["Semua"];
 
   List<String> get blockList => _blockList;
 
@@ -46,14 +46,14 @@ class HistoryOPHNotifier extends ChangeNotifier {
   getListOPH() async {
     List<String> listBlockTemp = [];
     _listOPH = await DatabaseOPH().selectOPH();
-    _listOPH.forEach((element) {
+    for (var element in _listOPH) {
       _totalBunches = _totalBunches + element.bunchesTotal;
       _totalLooseFruits = _totalLooseFruits + element.looseFruits;
       if (!listBlockTemp.contains(element.ophBlockCode)) {
         listBlockTemp.add(element.ophBlockCode!);
         listBlockTemp.sort((a, b) => a.toString().compareTo(b.toString()));
       }
-    });
+    }
     _blockList.addAll(listBlockTemp);
     _countOPH = _listOPH.length;
     notifyListeners();
@@ -61,7 +61,7 @@ class HistoryOPHNotifier extends ChangeNotifier {
 
   onSelectedOPH(OPH oph, String method) {
     _navigationService.push(Routes.OPH_DETAIL_PAGE,
-        arguments: {"oph": oph, "method": method, "restan" : false});
+        arguments: {"oph": oph, "method": method, "restan": false});
   }
 
   onChangeFilterBlock(String blockValue) {
@@ -71,22 +71,23 @@ class HistoryOPHNotifier extends ChangeNotifier {
     _totalLooseFruits = 0;
     _totalBunches = 0;
     if (blockValue == "Semua") {
-      _listOPH.forEach((element) {
+      for (var element in _listOPH) {
         _totalBunches = _totalBunches + element.bunchesTotal;
         _totalLooseFruits = _totalLooseFruits + element.looseFruits;
-      });
+      }
       _countOPH = _listOPH.length;
       notifyListeners();
       return;
     } else {
-      _listOPH.forEach((element) {
-        if (element.ophBlockCode!.contains(blockValue))
+      for (var element in _listOPH) {
+        if (element.ophBlockCode!.contains(blockValue)) {
           _listOPHResult.add(element);
-      });
-      _listOPHResult.forEach((element) {
+        }
+      }
+      for (var element in _listOPHResult) {
         _totalBunches = _totalBunches + element.bunchesTotal;
         _totalLooseFruits = _totalLooseFruits + element.looseFruits;
-      });
+      }
       _countOPH = _listOPHResult.length;
       notifyListeners();
       return;

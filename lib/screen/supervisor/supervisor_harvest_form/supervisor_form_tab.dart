@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class SupervisorFormTab extends StatefulWidget {
-  const SupervisorFormTab({Key? key}) : super(key: key);
+  const SupervisorFormTab({super.key});
 
   @override
   State<SupervisorFormTab> createState() => _SupervisorFormTabState();
@@ -35,15 +35,15 @@ class _SupervisorFormTabState extends State<SupervisorFormTab> {
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Supervisi ID:"),
-                    Text("${notifier.harvestingID}", style: Style.textBold16)
+                    const Text("Supervisi ID:"),
+                    Text(notifier.harvestingID, style: Style.textBold16)
                   ]),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [Text("Tanggal:"), Text("${notifier.date}")],
+                children: [const Text("Tanggal:"), Text(notifier.date)],
               ),
             ),
             Padding(
@@ -51,7 +51,7 @@ class _SupervisorFormTabState extends State<SupervisorFormTab> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Name:"),
+                  const Text("Name:"),
                   Text("${notifier.mConfigSchema?.employeeName}")
                 ],
               ),
@@ -61,8 +61,8 @@ class _SupervisorFormTabState extends State<SupervisorFormTab> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("GPS Geolocation:"),
-                  Text("${notifier.gpsLocation}")
+                  const Text("GPS Geolocation:"),
+                  Text(notifier.gpsLocation)
                 ],
               ),
             ),
@@ -75,21 +75,21 @@ class _SupervisorFormTabState extends State<SupervisorFormTab> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text("Kemandoran:"),
+                        const Text("Kemandoran:"),
                         InkWell(
                           onTap: () async {
                             MEmployeeSchema? mEmployee = await Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) =>
-                                        SearchEmployeeScreen()));
+                                        const SearchEmployeeScreen()));
                             if (mEmployee != null) {
                               notifier.onSetKemandoran(mEmployee);
                             }
                           },
-                          child: Card(
+                          child: const Card(
                             child: Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: EdgeInsets.all(8.0),
                               child: Icon(Icons.search),
                             ),
                           ),
@@ -98,14 +98,14 @@ class _SupervisorFormTabState extends State<SupervisorFormTab> {
                     ),
                     notifier.kemandoran != null
                         ? Table(border: TableBorder.all(), children: [
-                            TableRow(children: [
+                            const TableRow(children: [
                               Padding(
-                                padding: const EdgeInsets.all(8.0),
+                                padding: EdgeInsets.all(8.0),
                                 child:
                                     Text("Kode", textAlign: TextAlign.center),
                               ),
                               Padding(
-                                padding: const EdgeInsets.all(8.0),
+                                padding: EdgeInsets.all(8.0),
                                 child:
                                     Text('Nama', textAlign: TextAlign.center),
                               ),
@@ -137,21 +137,21 @@ class _SupervisorFormTabState extends State<SupervisorFormTab> {
                     Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("Kerani Panen:"),
+                          const Text("Kerani Panen:"),
                           InkWell(
                             onTap: () async {
                               MEmployeeSchema? mEmployee = await Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                          SearchEmployeeScreen()));
+                                          const SearchEmployeeScreen()));
                               if (mEmployee != null) {
                                 notifier.onSetKeraniPanen(mEmployee);
                               }
                             },
-                            child: Card(
+                            child: const Card(
                               child: Padding(
-                                padding: const EdgeInsets.all(8.0),
+                                padding: EdgeInsets.all(8.0),
                                 child: Icon(Icons.search),
                               ),
                             ),
@@ -159,14 +159,14 @@ class _SupervisorFormTabState extends State<SupervisorFormTab> {
                         ]),
                     notifier.keraniPanen != null
                         ? Table(border: TableBorder.all(), children: [
-                            TableRow(children: [
+                            const TableRow(children: [
                               Padding(
-                                padding: const EdgeInsets.all(8.0),
+                                padding: EdgeInsets.all(8.0),
                                 child:
                                     Text("Kode", textAlign: TextAlign.center),
                               ),
                               Padding(
-                                padding: const EdgeInsets.all(8.0),
+                                padding: EdgeInsets.all(8.0),
                                 child:
                                     Text('Nama', textAlign: TextAlign.center),
                               ),
@@ -198,21 +198,21 @@ class _SupervisorFormTabState extends State<SupervisorFormTab> {
                     Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("Pemanen:"),
+                          const Text("Pemanen:"),
                           InkWell(
                             onTap: () async {
                               MEmployeeSchema? mEmployee = await Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                          SearchEmployeeScreen()));
+                                          const SearchEmployeeScreen()));
                               if (mEmployee != null) {
                                 notifier.onSetPemanen(mEmployee);
                               }
                             },
-                            child: Card(
+                            child: const Card(
                               child: Padding(
-                                padding: const EdgeInsets.all(8.0),
+                                padding: EdgeInsets.all(8.0),
                                 child: Icon(Icons.search),
                               ),
                             ),
@@ -220,9 +220,9 @@ class _SupervisorFormTabState extends State<SupervisorFormTab> {
                         ]),
                     notifier.pemanen != null
                         ? Table(border: TableBorder.all(), children: [
-                            TableRow(children: [
+                            const TableRow(children: [
                               Padding(
-                                padding: const EdgeInsets.all(8.0),
+                                padding: EdgeInsets.all(8.0),
                                 child:
                                     Text('Nama', textAlign: TextAlign.center),
                               ),
@@ -243,7 +243,7 @@ class _SupervisorFormTabState extends State<SupervisorFormTab> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Estate Code:"),
+                  const Text("Estate Code:"),
                   Text("${notifier.mConfigSchema?.estateCode}")
                 ],
               ),
@@ -253,16 +253,17 @@ class _SupervisorFormTabState extends State<SupervisorFormTab> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Blok:"),
+                  const Text("Blok:"),
                   Flexible(
-                    child: Container(
+                    child: SizedBox(
                       width: 160,
                       child: Focus(
                         child: TextFormField(
                           controller: notifier.blockCode,
                           textAlign: TextAlign.center,
                           textCapitalization: TextCapitalization.characters,
-                          decoration: InputDecoration(hintText: "Tulis blok"),
+                          decoration:
+                              const InputDecoration(hintText: "Tulis blok"),
                           onChanged: (value) {
                             if (value.length >= 3) {
                               notifier.blockNumberCheck(context, value);
@@ -280,8 +281,8 @@ class _SupervisorFormTabState extends State<SupervisorFormTab> {
             ),
             Column(
               children: [
-                Text("TPH"),
-                Container(
+                const Text("TPH"),
+                SizedBox(
                   width: 160,
                   child: Focus(
                     child: TextFormField(
@@ -294,7 +295,8 @@ class _SupervisorFormTabState extends State<SupervisorFormTab> {
                       textCapitalization: TextCapitalization.characters,
                       textAlign: TextAlign.center,
                       keyboardType: TextInputType.number,
-                      decoration: InputDecoration(hintText: "Tulis Nomor TPH"),
+                      decoration:
+                          const InputDecoration(hintText: "Tulis Nomor TPH"),
                       onFieldSubmitted: (value) {
                         notifier.tPHNumberCheck(context, value);
                       },
@@ -308,7 +310,7 @@ class _SupervisorFormTabState extends State<SupervisorFormTab> {
                       String? result = await Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => QRReaderScreen()));
+                              builder: (context) => const QRReaderScreen()));
                       if (result != null) {
                         setState(() {
                           notifier.tphCode =
@@ -333,7 +335,7 @@ class _SupervisorFormTabState extends State<SupervisorFormTab> {
                 )
               ],
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -347,15 +349,15 @@ class _SupervisorFormTabState extends State<SupervisorFormTab> {
                         children: [
                           Column(
                             children: [
-                              Text("No ID OPH"),
-                              Container(
+                              const Text("No ID OPH"),
+                              SizedBox(
                                 width: 160,
                                 child: Focus(
                                   child: TextFormField(
                                     enabled: notifier.activeText,
                                     controller: notifier.ophID,
                                     textAlign: TextAlign.center,
-                                    decoration: InputDecoration(
+                                    decoration: const InputDecoration(
                                         hintText: "Tulis No ID OPH"),
                                   ),
                                 ),
@@ -364,8 +366,8 @@ class _SupervisorFormTabState extends State<SupervisorFormTab> {
                           ),
                           Column(
                             children: [
-                              Text("Aktifkan Tulisan"),
-                              Container(
+                              const Text("Aktifkan Tulisan"),
+                              SizedBox(
                                 width: 160,
                                 child: Switch(
                                     activeColor: Palette.greenColor,
@@ -378,7 +380,7 @@ class _SupervisorFormTabState extends State<SupervisorFormTab> {
                           )
                         ],
                       ),
-                      SizedBox(height: 18),
+                      const SizedBox(height: 18),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: InkWell(
@@ -417,7 +419,7 @@ class _SupervisorFormTabState extends State<SupervisorFormTab> {
                 onTap: () {
                   notifier.getCamera(context);
                 },
-                child: Container(
+                child: SizedBox(
                   width: MediaQuery.of(context).size.width,
                   child: Card(
                     shape: RoundedRectangleBorder(
@@ -449,9 +451,9 @@ class _SupervisorFormTabState extends State<SupervisorFormTab> {
                     borderRadius: BorderRadius.circular(10.0),
                   ),
                   child: Container(
-                    padding: EdgeInsets.all(14),
+                    padding: const EdgeInsets.all(14),
                     width: MediaQuery.of(context).size.width,
-                    child: Text(
+                    child: const Text(
                       "SIMPAN",
                       style: TextStyle(
                           fontSize: 18,

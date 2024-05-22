@@ -7,16 +7,16 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class EditSPBPage extends StatefulWidget {
+  const EditSPBPage({
+    super.key,
+    required this.spb,
+    required this.spbDetail,
+    required this.spbLoader,
+  });
+
   final SPB spb;
   final List<SPBDetail> spbDetail;
   final List<SPBLoader> spbLoader;
-
-  const EditSPBPage(
-      {Key? key,
-      required this.spb,
-      required this.spbDetail,
-      required this.spbLoader})
-      : super(key: key);
 
   @override
   State<EditSPBPage> createState() => _EditSPBPageState();
@@ -26,11 +26,12 @@ class _EditSPBPageState extends State<EditSPBPage> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-        create: (context) => EditSPBNotifier(),
-        child: EditSPBScreen(
-          spb: widget.spb,
-          listSPBDetail: widget.spbDetail,
-          listSPBLoader: widget.spbLoader,
-        ));
+      create: (context) => EditSPBNotifier(),
+      child: EditSPBScreen(
+        spb: widget.spb,
+        listSPBDetail: widget.spbDetail,
+        listSPBLoader: widget.spbLoader,
+      ),
+    );
   }
 }

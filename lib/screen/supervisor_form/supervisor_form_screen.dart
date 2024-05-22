@@ -10,12 +10,12 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class SupervisorFormScreen extends StatefulWidget {
+  const SupervisorFormScreen({super.key, this.form});
+
   final String? form;
 
-  const SupervisorFormScreen({Key? key, this.form}) : super(key: key);
-
   @override
-  _SupervisorFormScreenState createState() => _SupervisorFormScreenState();
+  State<SupervisorFormScreen> createState() => _SupervisorFormScreenState();
 }
 
 class _SupervisorFormScreenState extends State<SupervisorFormScreen> {
@@ -42,25 +42,25 @@ class _SupervisorFormScreenState extends State<SupervisorFormScreen> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         height: 30,
                       ),
                       Image.asset(
                         ImageAssets.ANJ_LOGO,
                         height: 60,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 40,
                       ),
                       Text(
                         "Halaman Supervisi",
                         style: Style.primaryBold16,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 40,
                       ),
                       Container(
-                        padding: EdgeInsets.symmetric(horizontal: 40),
+                        padding: const EdgeInsets.symmetric(horizontal: 40),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -74,18 +74,21 @@ class _SupervisorFormScreenState extends State<SupervisorFormScreen> {
                                   child: Card(
                                     child: Padding(
                                       padding: const EdgeInsets.all(8.0),
-                                      child: Container(
+                                      child: SizedBox(
                                         width:
                                             MediaQuery.of(context).size.width *
                                                 0.6,
                                         child: Column(
                                           children: [
                                             Text(
-                                              "${supervisor.mandorValue?.employeeCode ?? "Tidak ada data"}",
+                                              supervisor.mandorValue
+                                                      ?.employeeCode ??
+                                                  "Tidak ada data",
                                               style: Style.textBold14,
                                             ),
-                                            Text(
-                                                "${supervisor.mandorValue?.employeeName ?? "belum di mapping"}")
+                                            Text(supervisor.mandorValue
+                                                    ?.employeeName ??
+                                                "belum di mapping")
                                           ],
                                         ),
                                       ),
@@ -93,9 +96,9 @@ class _SupervisorFormScreenState extends State<SupervisorFormScreen> {
                                   ),
                                 ),
                                 InkWell(
-                                  child: Card(
+                                  child: const Card(
                                     child: Padding(
-                                      padding: const EdgeInsets.all(8.0),
+                                      padding: EdgeInsets.all(8.0),
                                       child: Icon(Icons.search),
                                     ),
                                   ),
@@ -105,7 +108,7 @@ class _SupervisorFormScreenState extends State<SupervisorFormScreen> {
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    SearchEmployeeScreen()));
+                                                    const SearchEmployeeScreen()));
                                     if (mEmployee != null) {
                                       supervisor.onSetSupervisi(mEmployee);
                                     }
@@ -113,7 +116,7 @@ class _SupervisorFormScreenState extends State<SupervisorFormScreen> {
                                 ),
                               ],
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 10,
                             ),
                             Text("Mandor 1:", style: Style.textBold16),
@@ -125,18 +128,21 @@ class _SupervisorFormScreenState extends State<SupervisorFormScreen> {
                                   child: Card(
                                     child: Padding(
                                       padding: const EdgeInsets.all(8.0),
-                                      child: Container(
+                                      child: SizedBox(
                                         width:
                                             MediaQuery.of(context).size.width *
                                                 0.6,
                                         child: Column(
                                           children: [
                                             Text(
-                                              "${supervisor.mandorValue1?.employeeCode ?? "Tidak ada data"}",
+                                              supervisor.mandorValue1
+                                                      ?.employeeCode ??
+                                                  "Tidak ada data",
                                               style: Style.textBold14,
                                             ),
-                                            Text(
-                                                "${supervisor.mandorValue1?.employeeName ?? "belum di mapping"}")
+                                            Text(supervisor.mandorValue1
+                                                    ?.employeeName ??
+                                                "belum di mapping")
                                           ],
                                         ),
                                       ),
@@ -144,9 +150,9 @@ class _SupervisorFormScreenState extends State<SupervisorFormScreen> {
                                   ),
                                 ),
                                 InkWell(
-                                  child: Card(
+                                  child: const Card(
                                       child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
+                                    padding: EdgeInsets.all(8.0),
                                     child: Icon(Icons.search),
                                   )),
                                   onTap: () async {
@@ -155,7 +161,7 @@ class _SupervisorFormScreenState extends State<SupervisorFormScreen> {
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    SearchEmployeeScreen()));
+                                                    const SearchEmployeeScreen()));
                                     if (mEmployee != null) {
                                       supervisor.onSetSupervisi1(mEmployee);
                                     }
@@ -163,7 +169,7 @@ class _SupervisorFormScreenState extends State<SupervisorFormScreen> {
                                 ),
                               ],
                             ),
-                            SizedBox(height: 10),
+                            const SizedBox(height: 10),
                             Text("Kerani Panen:", style: Style.textBold16),
                             Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
@@ -173,18 +179,21 @@ class _SupervisorFormScreenState extends State<SupervisorFormScreen> {
                                   child: Card(
                                     child: Padding(
                                       padding: const EdgeInsets.all(8.0),
-                                      child: Container(
+                                      child: SizedBox(
                                         width:
                                             MediaQuery.of(context).size.width *
                                                 0.6,
                                         child: Column(
                                           children: [
                                             Text(
-                                              "${supervisor.keraniPanenValue?.employeeCode ?? "Tidak ada data"}",
+                                              supervisor.keraniPanenValue
+                                                      ?.employeeCode ??
+                                                  "Tidak ada data",
                                               style: Style.textBold14,
                                             ),
-                                            Text(
-                                                "${supervisor.keraniPanenValue?.employeeName ?? "belum di mapping"}")
+                                            Text(supervisor.keraniPanenValue
+                                                    ?.employeeName ??
+                                                "belum di mapping")
                                           ],
                                         ),
                                       ),
@@ -192,9 +201,9 @@ class _SupervisorFormScreenState extends State<SupervisorFormScreen> {
                                   ),
                                 ),
                                 InkWell(
-                                  child: Card(
+                                  child: const Card(
                                     child: Padding(
-                                      padding: const EdgeInsets.all(8.0),
+                                      padding: EdgeInsets.all(8.0),
                                       child: Icon(Icons.search),
                                     ),
                                   ),
@@ -204,7 +213,7 @@ class _SupervisorFormScreenState extends State<SupervisorFormScreen> {
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    SearchEmployeeScreen()));
+                                                    const SearchEmployeeScreen()));
                                     if (mEmployee != null) {
                                       supervisor.onSetKeraniPanen(mEmployee);
                                     }
@@ -212,7 +221,7 @@ class _SupervisorFormScreenState extends State<SupervisorFormScreen> {
                                 ),
                               ],
                             ),
-                            SizedBox(height: 10),
+                            const SizedBox(height: 10),
                             Text("Kerani Kirim:", style: Style.textBold16),
                             Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
@@ -222,18 +231,21 @@ class _SupervisorFormScreenState extends State<SupervisorFormScreen> {
                                   child: Card(
                                     child: Padding(
                                       padding: const EdgeInsets.all(8.0),
-                                      child: Container(
+                                      child: SizedBox(
                                         width:
                                             MediaQuery.of(context).size.width *
                                                 0.6,
                                         child: Column(
                                           children: [
                                             Text(
-                                              "${supervisor.keraniKirimValue?.employeeCode ?? "Tidak ada data"}",
+                                              supervisor.keraniKirimValue
+                                                      ?.employeeCode ??
+                                                  "Tidak ada data",
                                               style: Style.textBold14,
                                             ),
-                                            Text(
-                                                "${supervisor.keraniKirimValue?.employeeName ?? "belum di mapping"}")
+                                            Text(supervisor.keraniKirimValue
+                                                    ?.employeeName ??
+                                                "belum di mapping")
                                           ],
                                         ),
                                       ),
@@ -241,9 +253,9 @@ class _SupervisorFormScreenState extends State<SupervisorFormScreen> {
                                   ),
                                 ),
                                 InkWell(
-                                  child: Card(
+                                  child: const Card(
                                     child: Padding(
-                                      padding: const EdgeInsets.all(8.0),
+                                      padding: EdgeInsets.all(8.0),
                                       child: Icon(Icons.search),
                                     ),
                                   ),
@@ -253,7 +265,7 @@ class _SupervisorFormScreenState extends State<SupervisorFormScreen> {
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    SearchEmployeeScreen()));
+                                                    const SearchEmployeeScreen()));
                                     if (mEmployee != null) {
                                       supervisor.onSetKeraniKirim(mEmployee);
                                     }
@@ -261,7 +273,7 @@ class _SupervisorFormScreenState extends State<SupervisorFormScreen> {
                                 ),
                               ],
                             ),
-                            SizedBox(height: 30),
+                            const SizedBox(height: 30),
                             InkWell(
                               onTap: () {
                                 supervisor.onSaveClick(context);
@@ -273,9 +285,9 @@ class _SupervisorFormScreenState extends State<SupervisorFormScreen> {
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
                                 child: Container(
-                                  padding: EdgeInsets.all(14),
+                                  padding: const EdgeInsets.all(14),
                                   width: MediaQuery.of(context).size.width,
-                                  child: Text(
+                                  child: const Text(
                                     "SIMPAN",
                                     style: TextStyle(
                                         fontSize: 18,
@@ -286,7 +298,7 @@ class _SupervisorFormScreenState extends State<SupervisorFormScreen> {
                                 ),
                               ),
                             ),
-                            SizedBox(height: 10),
+                            const SizedBox(height: 10),
                             widget.form == "Home"
                                 ? InkWell(
                                     onTap: () {
@@ -300,10 +312,10 @@ class _SupervisorFormScreenState extends State<SupervisorFormScreen> {
                                             BorderRadius.circular(10.0),
                                       ),
                                       child: Container(
-                                        padding: EdgeInsets.all(14),
+                                        padding: const EdgeInsets.all(14),
                                         width:
                                             MediaQuery.of(context).size.width,
-                                        child: Text(
+                                        child: const Text(
                                           "KEMBALI",
                                           style: TextStyle(
                                               fontSize: 18,
@@ -315,13 +327,13 @@ class _SupervisorFormScreenState extends State<SupervisorFormScreen> {
                                     ),
                                   )
                                 : Container(),
-                            SizedBox(height: 30),
-                            Divider(),
+                            const SizedBox(height: 30),
+                            const Divider(),
                             Card(
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: InkWell(
-                                  child: Text("Sync Ulang"),
+                                  child: const Text("Sync Ulang"),
                                   onTap: () {
                                     KeraniPanenNotifier().reSynch();
                                   },
@@ -337,16 +349,16 @@ class _SupervisorFormScreenState extends State<SupervisorFormScreen> {
                                     height: 25,
                                   ),
                                 ),
-                                Text("ePMS ANJ Group")
+                                const Text("ePMS ANJ Group")
                               ],
                             ),
                             Container(
                                 alignment: Alignment.center,
-                                child: Row(
+                                child: const Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Text(
-                                      "${Constanta.APP_VERSION}",
+                                      Constanta.APP_VERSION,
                                       style: TextStyle(
                                           fontWeight: FontWeight.bold),
                                     ),

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class WorkPlanPage extends StatefulWidget {
-  const WorkPlanPage({Key? key}) : super(key: key);
+  const WorkPlanPage({super.key});
 
   @override
   State<WorkPlanPage> createState() => _WorkPlanPageState();
@@ -14,7 +14,8 @@ class _WorkPlanPageState extends State<WorkPlanPage> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-        create: (context) => WorkPlanNotifier(),
-        child: WorkPlanScreen());
+      create: (context) => WorkPlanNotifier(),
+      child: const WorkPlanScreen(),
+    );
   }
 }

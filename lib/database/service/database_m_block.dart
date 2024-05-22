@@ -50,10 +50,10 @@ class DatabaseMBlockSchema {
     // }
     // return count;
     Batch batch = db.batch();
-    object.forEach((val) {
-      MBlockSchema mBlockSchema =  val;
+    for (var val in object) {
+      MBlockSchema mBlockSchema = val;
       batch.insert(mBlockSchemaTable, mBlockSchema.toJson());
-    });
+    }
     List<Object?> i = await batch.commit();
     return i.length;
   }
@@ -69,12 +69,15 @@ class DatabaseMBlockSchema {
     return list;
   }
 
-  Future<MBlockSchema?> selectMBlockSchemaByID(String blockCode, String estateCode) async {
+  Future<MBlockSchema?> selectMBlockSchemaByID(
+      String blockCode, String estateCode) async {
     MBlockSchema? mBlockSchema;
     Database db = await DatabaseHelper().database;
     var mapList = await db.query(mBlockSchemaTable,
-        where: "${BlockEntity.blockCode} = ? AND ${BlockEntity.blockEstateCode} = ?", whereArgs: [blockCode, estateCode]);
-    if(mapList.isNotEmpty) {
+        where:
+            "${BlockEntity.blockCode} = ? AND ${BlockEntity.blockEstateCode} = ?",
+        whereArgs: [blockCode, estateCode]);
+    if (mapList.isNotEmpty) {
       mBlockSchema = MBlockSchema.fromJson(mapList[0]);
     }
     return mBlockSchema;

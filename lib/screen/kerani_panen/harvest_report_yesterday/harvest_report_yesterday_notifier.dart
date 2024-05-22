@@ -19,7 +19,7 @@ class HarvestReportYesterdayNotifier extends ChangeNotifier {
 
   List<LaporanPanenKemarin> get listResult => _listResult;
 
-  List<String> _dateFilter = ["Hari ini"];
+  final List<String> _dateFilter = ["Hari ini"];
 
   List<String> get dateFilter => _dateFilter;
 
@@ -69,7 +69,7 @@ class HarvestReportYesterdayNotifier extends ChangeNotifier {
 
   getListLaporanPanenKemarin() async {
     DateTime now = DateTime.now();
-    var yesterday = new DateTime(now.year, now.month, now.day - 1);
+    var yesterday = DateTime(now.year, now.month, now.day - 1);
     String date = TimeManager.dateWithDash(yesterday);
     _listLaporanPanenHariIni = await DatabaseOPH().selectLaporanHarian();
     _listLaporanPanenKemarin = await DatabaseLaporanPanenKemarin()
@@ -77,7 +77,7 @@ class HarvestReportYesterdayNotifier extends ChangeNotifier {
     if (_listLaporanPanenKemarin.isEmpty) {
       _dateFilterValue = "Hari ini";
       _listResult = _listLaporanPanenHariIni;
-      _listResult.forEach((element) {
+      for (var element in _listResult) {
         _totalBunches = _totalBunches + element.bunchesTotal;
         _totalLooseFruits = _totalLooseFruits + element.looseFruits;
         _totalBunchesRipe = _totalBunchesRipe + element.bunchesRipe;
@@ -88,12 +88,12 @@ class HarvestReportYesterdayNotifier extends ChangeNotifier {
         _totalBunchesEmpty = _totalBunchesEmpty + element.bunchesEmpty;
         _totalBunchesNotSent = _totalBunchesNotSent + element.bunchesNotSent;
         _totalHarvester = listResult.length;
-      });
+      }
     } else {
       _dateFilter.insert(0, _listLaporanPanenKemarin[0].createdDate!);
       _dateFilterValue = _listLaporanPanenKemarin[0].createdDate!;
       _listResult = _listLaporanPanenKemarin;
-      _listResult.forEach((element) {
+      for (var element in _listResult) {
         _totalBunches = _totalBunches + element.bunchesTotal;
         _totalLooseFruits = _totalLooseFruits + element.looseFruits;
         _totalBunchesRipe = _totalBunchesRipe + element.bunchesRipe;
@@ -104,7 +104,7 @@ class HarvestReportYesterdayNotifier extends ChangeNotifier {
         _totalBunchesEmpty = _totalBunchesEmpty + element.bunchesEmpty;
         _totalBunchesNotSent = _totalBunchesNotSent + element.bunchesNotSent;
         _totalHarvester = listResult.length;
-      });
+      }
     }
     notifyListeners();
   }
@@ -123,7 +123,7 @@ class HarvestReportYesterdayNotifier extends ChangeNotifier {
     _totalHarvester = 0;
     if (value == "Hari ini") {
       _listResult = _listLaporanPanenHariIni;
-      _listResult.forEach((element) {
+      for (var element in _listResult) {
         _totalBunches = _totalBunches + element.bunchesTotal;
         _totalLooseFruits = _totalLooseFruits + element.looseFruits;
         _totalBunchesRipe = _totalBunchesRipe + element.bunchesRipe;
@@ -134,11 +134,11 @@ class HarvestReportYesterdayNotifier extends ChangeNotifier {
         _totalBunchesEmpty = _totalBunchesEmpty + element.bunchesEmpty;
         _totalBunchesNotSent = _totalBunchesNotSent + element.bunchesNotSent;
         _totalHarvester = _listLaporanPanenHariIni.length;
-      });
+      }
       notifyListeners();
     } else {
       _listResult = _listLaporanPanenKemarin;
-      _listResult.forEach((element) {
+      for (var element in _listResult) {
         _totalBunches = _totalBunches + element.bunchesTotal;
         _totalLooseFruits = _totalLooseFruits + element.looseFruits;
         _totalBunchesRipe = _totalBunchesRipe + element.bunchesRipe;
@@ -149,7 +149,7 @@ class HarvestReportYesterdayNotifier extends ChangeNotifier {
         _totalBunchesEmpty = _totalBunchesEmpty + element.bunchesEmpty;
         _totalBunchesNotSent = _totalBunchesNotSent + element.bunchesNotSent;
         _totalHarvester = _listLaporanPanenKemarin.length;
-      });
+      }
       notifyListeners();
       return;
     }

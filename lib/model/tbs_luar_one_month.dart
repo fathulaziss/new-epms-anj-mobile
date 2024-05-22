@@ -9,16 +9,16 @@ class TBSLuarOneMonth {
     if (json['supervisi_3rd_party'] != null) {
       supervisi3rdParty = <Supervisi3rdParty>[];
       json['supervisi_3rd_party'].forEach((v) {
-        supervisi3rdParty!.add(new Supervisi3rdParty.fromJson(v));
+        supervisi3rdParty!.add(Supervisi3rdParty.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.supervisi3rdParty != null) {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (supervisi3rdParty != null) {
       data['supervisi_3rd_party'] =
-          this.supervisi3rdParty!.map((v) => v.toJson()).toList();
+          supervisi3rdParty!.map((v) => v.toJson()).toList();
     }
     return data;
   }

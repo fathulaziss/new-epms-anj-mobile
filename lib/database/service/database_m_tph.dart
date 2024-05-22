@@ -47,10 +47,10 @@ class DatabaseMTPHSchema {
     //   // }
     // }
     Batch batch = db.batch();
-    object.forEach((val) {
-      MTPHSchema mtphSchema =  val;
+    for (var val in object) {
+      MTPHSchema mtphSchema = val;
       batch.insert(mTPHSchemaTable, mtphSchema.toJson());
-    });
+    }
     List<Object?> i = await batch.commit();
     return i.length;
   }
@@ -71,7 +71,8 @@ class DatabaseMTPHSchema {
     MTPHSchema? mTPHSchema;
     Database db = await DatabaseHelper().database;
     var mapList = await db.query(mTPHSchemaTable,
-        where: "${MTPHEntity.tphCode}=? AND ${MTPHEntity.tphEstateCode}=? AND ${MTPHEntity.tphBlockCode}=?",
+        where:
+            "${MTPHEntity.tphCode}=? AND ${MTPHEntity.tphEstateCode}=? AND ${MTPHEntity.tphBlockCode}=?",
         whereArgs: [tphCode, estateCode, blocCode]);
     if (mapList.isNotEmpty) {
       mTPHSchema = MTPHSchema.fromJson(mapList[0]);

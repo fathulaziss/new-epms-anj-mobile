@@ -105,42 +105,40 @@ class SPB {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['spb_id'] = this.spbId;
-    data['spb_card_id'] = this.spbCardId;
-    data['spb_estate_code'] = this.spbEstateCode;
-    data['spb_division_code'] = this.spbDivisionCode;
-    data['spb_license_number'] = this.spbLicenseNumber;
-    data['spb_type'] = this.spbType;
-    data['spb_vendor_others'] = this.spbVendorOthers;
-    data['spb_deliver_to_code'] = this.spbDeliverToCode;
-    data['spb_deliver_to_name'] = this.spbDeliverToName;
-    data['spb_delivery_note'] = this.spbDeliveryNote;
-    data['spb_lat'] = this.spbLat;
-    data['spb_long'] = this.spbLong;
-    data['spb_photo'] = this.spbPhoto;
-    data['spb_kerani_transport_employee_code'] =
-        this.spbKeraniTransportEmployeeCode;
-    data['spb_kerani_transport_employee_name'] =
-        this.spbKeraniTransportEmployeeName;
-    data['spb_driver_employee_code'] = this.spbDriverEmployeeCode;
-    data['spb_driver_employee_name'] = this.spbDriverEmployeeName;
-    data['spb_total_bunches'] = this.spbTotalBunches;
-    data['spb_total_oph'] = this.spbTotalOph;
-    data['spb_total_loose_fruit'] = this.spbTotalLooseFruit;
-    data['spb_capacity_tonnage'] = this.spbCapacityTonnage;
-    data['spb_estimate_tonnage'] = this.spbEstimateTonnage;
-    data['spb_actual_weight_date'] = this.spbActualWeightDate;
-    data['spb_actual_weight_time'] = this.spbActualWeightTime;
-    data['spb_actual_tonnage'] = this.spbActualTonnage;
-    data['spb_estate_vendor_code'] = this.spbEstateVendorCode;
-    data['created_by'] = this.createdBy;
-    data['created_date'] = this.createdDate;
-    data['created_time'] = this.createdTime;
-    data['updated_by'] = this.updatedBy;
-    data['updated_date'] = this.updatedDate;
-    data['updated_time'] = this.updatedTime;
-    data['spb_is_closed'] = this.spbIsClosed;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['spb_id'] = spbId;
+    data['spb_card_id'] = spbCardId;
+    data['spb_estate_code'] = spbEstateCode;
+    data['spb_division_code'] = spbDivisionCode;
+    data['spb_license_number'] = spbLicenseNumber;
+    data['spb_type'] = spbType;
+    data['spb_vendor_others'] = spbVendorOthers;
+    data['spb_deliver_to_code'] = spbDeliverToCode;
+    data['spb_deliver_to_name'] = spbDeliverToName;
+    data['spb_delivery_note'] = spbDeliveryNote;
+    data['spb_lat'] = spbLat;
+    data['spb_long'] = spbLong;
+    data['spb_photo'] = spbPhoto;
+    data['spb_kerani_transport_employee_code'] = spbKeraniTransportEmployeeCode;
+    data['spb_kerani_transport_employee_name'] = spbKeraniTransportEmployeeName;
+    data['spb_driver_employee_code'] = spbDriverEmployeeCode;
+    data['spb_driver_employee_name'] = spbDriverEmployeeName;
+    data['spb_total_bunches'] = spbTotalBunches;
+    data['spb_total_oph'] = spbTotalOph;
+    data['spb_total_loose_fruit'] = spbTotalLooseFruit;
+    data['spb_capacity_tonnage'] = spbCapacityTonnage;
+    data['spb_estimate_tonnage'] = spbEstimateTonnage;
+    data['spb_actual_weight_date'] = spbActualWeightDate;
+    data['spb_actual_weight_time'] = spbActualWeightTime;
+    data['spb_actual_tonnage'] = spbActualTonnage;
+    data['spb_estate_vendor_code'] = spbEstateVendorCode;
+    data['created_by'] = createdBy;
+    data['created_date'] = createdDate;
+    data['created_time'] = createdTime;
+    data['updated_by'] = updatedBy;
+    data['updated_date'] = updatedDate;
+    data['updated_time'] = updatedTime;
+    data['spb_is_closed'] = spbIsClosed;
     return data;
   }
 }

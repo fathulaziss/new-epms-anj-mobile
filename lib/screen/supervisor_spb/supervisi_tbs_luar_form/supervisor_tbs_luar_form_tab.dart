@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class SupervisorTBSLuarFormTab extends StatefulWidget {
-  const SupervisorTBSLuarFormTab({Key? key}) : super(key: key);
+  const SupervisorTBSLuarFormTab({super.key});
 
   @override
   State<SupervisorTBSLuarFormTab> createState() =>
@@ -35,29 +35,18 @@ class _SupervisorTBSLuarFormTabState extends State<SupervisorTBSLuarFormTab> {
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("ID Supervisi:"),
-                    Text("${notifier.supervisiTBSID}", style: Style.textBold16)
+                    const Text("ID Supervisi:"),
+                    Text(notifier.supervisiTBSID, style: Style.textBold16)
                   ]),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [Text("Tanggal:"), Text("${notifier.date} ${notifier.time}")],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [Text("Nama:"), Text("${notifier.mConfigSchema?.employeeName}")],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [Text("GPS Geolocation:"), Text("${notifier.gpsLocation}")],
+                children: [
+                  const Text("Tanggal:"),
+                  Text("${notifier.date} ${notifier.time}")
+                ],
               ),
             ),
             Padding(
@@ -65,16 +54,35 @@ class _SupervisorTBSLuarFormTabState extends State<SupervisorTBSLuarFormTab> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Quantity:"),
+                  const Text("Nama:"),
+                  Text("${notifier.mConfigSchema?.employeeName}")
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text("GPS Geolocation:"),
+                  Text(notifier.gpsLocation)
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text("Quantity:"),
                   Flexible(
-                    child: Container(
+                    child: SizedBox(
                       width: 200,
                       child: TextFormField(
                         textCapitalization: TextCapitalization.characters,
                         controller: notifier.quantity,
                         textAlign: TextAlign.center,
-                        decoration:
-                        InputDecoration(hintText: "Quantity"),
+                        decoration: const InputDecoration(hintText: "Quantity"),
                       ),
                     ),
                   ),
@@ -86,16 +94,16 @@ class _SupervisorTBSLuarFormTabState extends State<SupervisorTBSLuarFormTab> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Contract No:"),
+                  const Text("Contract No:"),
                   Flexible(
-                    child: Container(
+                    child: SizedBox(
                       width: 200,
                       child: TextFormField(
                         textCapitalization: TextCapitalization.characters,
                         controller: notifier.contractNumber,
                         textAlign: TextAlign.center,
                         decoration:
-                        InputDecoration(hintText: "No Kontrak"),
+                            const InputDecoration(hintText: "No Kontrak"),
                       ),
                     ),
                   ),
@@ -107,19 +115,18 @@ class _SupervisorTBSLuarFormTabState extends State<SupervisorTBSLuarFormTab> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Supplier:"),
+                  const Text("Supplier:"),
                   Flexible(
-                    child: Container(
+                    child: SizedBox(
                       width: 200,
                       child: DropdownButton(
                         isExpanded: true,
-                        hint: Text("Pilih Supplier"),
+                        hint: const Text("Pilih Supplier"),
                         value: notifier.vendor,
                         items: notifier.listVendor.map((value) {
                           return DropdownMenuItem(
-                            child: Text(
-                                "${value.vendorName}"),
                             value: value,
+                            child: Text("${value.vendorName}"),
                           );
                         }).toList(),
                         onChanged: (MVendorSchema? value) {
@@ -136,39 +143,39 @@ class _SupervisorTBSLuarFormTabState extends State<SupervisorTBSLuarFormTab> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Driver:"),
+                  const Text("Driver:"),
                   Flexible(
-                    child: Container(
+                    child: SizedBox(
                       width: 200,
                       child: TextFormField(
                         textCapitalization: TextCapitalization.characters,
                         controller: notifier.driver,
                         textAlign: TextAlign.center,
                         decoration:
-                        InputDecoration(hintText: "Nama Supir"),
+                            const InputDecoration(hintText: "Nama Supir"),
                       ),
                     ),
                   ),
                 ],
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Column(
               children: [
-                Text("Nomor Kendaraan"),
-                Container(
+                const Text("Nomor Kendaraan"),
+                SizedBox(
                   width: 160,
                   child: TextFormField(
                     textCapitalization: TextCapitalization.characters,
                     controller: notifier.vehicleNumber,
                     textAlign: TextAlign.center,
                     decoration:
-                        InputDecoration(hintText: "Tulis No. Kendaraan"),
+                        const InputDecoration(hintText: "Tulis No. Kendaraan"),
                   ),
                 ),
               ],
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -182,8 +189,8 @@ class _SupervisorTBSLuarFormTabState extends State<SupervisorTBSLuarFormTab> {
                         children: [
                           Column(
                             children: [
-                              Text("No ID DO"),
-                              Container(
+                              const Text("No ID DO"),
+                              SizedBox(
                                 width: 160,
                                 child: Focus(
                                   child: TextFormField(
@@ -192,12 +199,10 @@ class _SupervisorTBSLuarFormTabState extends State<SupervisorTBSLuarFormTab> {
                                     textCapitalization:
                                         TextCapitalization.characters,
                                     onChanged: (value) {
-                                      if(value.length >= 17) {
-
-                                      }
+                                      if (value.length >= 17) {}
                                     },
                                     textAlign: TextAlign.center,
-                                    decoration: InputDecoration(
+                                    decoration: const InputDecoration(
                                         hintText: "Tulis No Kartu SPB"),
                                   ),
                                 ),
@@ -206,8 +211,8 @@ class _SupervisorTBSLuarFormTabState extends State<SupervisorTBSLuarFormTab> {
                           ),
                           Column(
                             children: [
-                              Text("Aktifkan Tulisan"),
-                              Container(
+                              const Text("Aktifkan Tulisan"),
+                              SizedBox(
                                 width: 160,
                                 child: Switch(
                                     activeColor: Palette.greenColor,
@@ -220,7 +225,7 @@ class _SupervisorTBSLuarFormTabState extends State<SupervisorTBSLuarFormTab> {
                           )
                         ],
                       ),
-                      SizedBox(height: 18),
+                      const SizedBox(height: 18),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: InkWell(
@@ -228,9 +233,10 @@ class _SupervisorTBSLuarFormTabState extends State<SupervisorTBSLuarFormTab> {
                             String? result = await Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => QRReaderScreen()));
+                                    builder: (context) =>
+                                        const QRReaderScreen()));
                             if (result != null) {
-                                notifier.setQRResult(result);
+                              notifier.setQRResult(result);
                             }
                           },
                           child: Card(
@@ -265,7 +271,7 @@ class _SupervisorTBSLuarFormTabState extends State<SupervisorTBSLuarFormTab> {
                 onTap: () {
                   notifier.getCamera(context);
                 },
-                child: Container(
+                child: SizedBox(
                   width: MediaQuery.of(context).size.width,
                   child: Card(
                     shape: RoundedRectangleBorder(
@@ -297,9 +303,9 @@ class _SupervisorTBSLuarFormTabState extends State<SupervisorTBSLuarFormTab> {
                     borderRadius: BorderRadius.circular(10.0),
                   ),
                   child: Container(
-                    padding: EdgeInsets.all(14),
+                    padding: const EdgeInsets.all(14),
                     width: MediaQuery.of(context).size.width,
-                    child: Text(
+                    child: const Text(
                       "SIMPAN",
                       style: TextStyle(
                           fontSize: 18,

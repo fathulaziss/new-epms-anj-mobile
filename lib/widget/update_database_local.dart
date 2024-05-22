@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:epms/database/entity/laporan_spb_kemarin_entity.dart';
 import 'package:epms/database/entity/spb_supervise_entity.dart';
 import 'package:epms/database/helper/database_helper.dart';
