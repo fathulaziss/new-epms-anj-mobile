@@ -50,10 +50,10 @@ class DatabaseMBlockSchema {
     // }
     // return count;
     Batch batch = db.batch();
-    object.forEach((val) {
+    for (var val in object) {
       MBlockSchema mBlockSchema = val;
       batch.insert(mBlockSchemaTable, mBlockSchema.toJson());
-    });
+    }
     List<Object?> i = await batch.commit();
     return i.length;
   }

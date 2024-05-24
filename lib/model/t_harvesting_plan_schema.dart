@@ -68,30 +68,29 @@ class THarvestingPlanSchema {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['harvesting_plan_id'] = this.harvestingPlanId;
-    data['harvesting_plan_date'] = this.harvestingPlanDate;
-    data['harvesting_plan_estate_code'] = this.harvestingPlanEstateCode;
-    data['harvesting_plan_division_code'] = this.harvestingPlanDivisionCode;
-    data['harvesting_plan_block_code'] = this.harvestingPlanBlockCode;
-    data['harvesting_plan_total_hk'] = this.harvestingPlanTotalHk;
-    data['harvesting_plan_hectarage'] = this.harvestingPlanHectarage;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['harvesting_plan_id'] = harvestingPlanId;
+    data['harvesting_plan_date'] = harvestingPlanDate;
+    data['harvesting_plan_estate_code'] = harvestingPlanEstateCode;
+    data['harvesting_plan_division_code'] = harvestingPlanDivisionCode;
+    data['harvesting_plan_block_code'] = harvestingPlanBlockCode;
+    data['harvesting_plan_total_hk'] = harvestingPlanTotalHk;
+    data['harvesting_plan_hectarage'] = harvestingPlanHectarage;
     data['harvesting_plan_assistant_employee_code'] =
-        this.harvestingPlanAssistantEmployeeCode;
+        harvestingPlanAssistantEmployeeCode;
     data['harvesting_plan_assistant_employee_name'] =
-        this.harvestingPlanAssistantEmployeeName;
-    data['is_approved'] = this.isApproved;
-    data['harvesting_plan_approved_by'] = this.harvestingPlanApprovedBy;
-    data['harvesting_plan_approved_by_name'] =
-        this.harvestingPlanApprovedByName;
-    data['harvesting_plan_approved_date'] = this.harvestingPlanApprovedDate;
-    data['harvesting_plan_approved_time'] = this.harvestingPlanApprovedTime;
-    data['created_by'] = this.createdBy;
-    data['created_date'] = this.createdDate;
-    data['created_time'] = this.createdTime;
-    data['updated_by'] = this.updatedBy;
-    data['updated_date'] = this.updatedDate;
-    data['updated_time'] = this.updatedTime;
+        harvestingPlanAssistantEmployeeName;
+    data['is_approved'] = isApproved;
+    data['harvesting_plan_approved_by'] = harvestingPlanApprovedBy;
+    data['harvesting_plan_approved_by_name'] = harvestingPlanApprovedByName;
+    data['harvesting_plan_approved_date'] = harvestingPlanApprovedDate;
+    data['harvesting_plan_approved_time'] = harvestingPlanApprovedTime;
+    data['created_by'] = createdBy;
+    data['created_date'] = createdDate;
+    data['created_time'] = createdTime;
+    data['updated_by'] = updatedBy;
+    data['updated_date'] = updatedDate;
+    data['updated_time'] = updatedTime;
     return data;
   }
 }

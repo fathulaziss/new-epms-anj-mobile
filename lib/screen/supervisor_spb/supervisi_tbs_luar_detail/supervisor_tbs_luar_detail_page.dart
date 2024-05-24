@@ -5,12 +5,14 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class SupervisorTBSLuarDetailPage extends StatefulWidget {
+  const SupervisorTBSLuarDetailPage({
+    super.key,
+    this.tbsLuar,
+    required this.method,
+  });
+
   final TBSLuar? tbsLuar;
   final String method;
-
-  const SupervisorTBSLuarDetailPage(
-      {Key? key, this.tbsLuar, required this.method})
-      : super(key: key);
 
   @override
   State<SupervisorTBSLuarDetailPage> createState() =>
@@ -22,8 +24,11 @@ class _SupervisorTBSLuarDetailPageState
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-        create: (context) => SupervisorTBSLuarDetailNotifier(),
-        child: SupervisorTBSLuarDetailScreen(
-            tbsLuar: widget.tbsLuar, method: widget.method));
+      create: (context) => SupervisorTBSLuarDetailNotifier(),
+      child: SupervisorTBSLuarDetailScreen(
+        tbsLuar: widget.tbsLuar,
+        method: widget.method,
+      ),
+    );
   }
 }

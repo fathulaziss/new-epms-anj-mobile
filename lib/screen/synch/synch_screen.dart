@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_typing_uninitialized_variables
+
 import 'package:epms/base/ui/palette.dart';
 import 'package:epms/base/ui/style.dart';
 import 'package:epms/screen/synch/synch_notifier.dart';
@@ -6,8 +8,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class SynchScreen extends StatefulWidget {
+  const SynchScreen({super.key});
+
   @override
-  _SynchScreenState createState() => _SynchScreenState();
+  State<SynchScreen> createState() => _SynchScreenState();
 }
 
 class _SynchScreenState extends State<SynchScreen> {
@@ -45,14 +49,12 @@ class _SynchScreenState extends State<SynchScreen> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Container(
-                  child: SizedBox(
-                    height: 50.0,
-                    width: 50.0,
-                    child: CircularProgressIndicator(
-                      backgroundColor: Palette.greenColorDark,
-                      strokeWidth: 4.0,
-                    ),
+                SizedBox(
+                  height: 50.0,
+                  width: 50.0,
+                  child: CircularProgressIndicator(
+                    backgroundColor: Palette.greenColorDark,
+                    strokeWidth: 4.0,
                   ),
                 ),
                 Container(
@@ -60,8 +62,8 @@ class _SynchScreenState extends State<SynchScreen> {
                   child: Center(
                     child: Column(
                       children: [
-                        Text("Sinkronisasi data.."),
-                        Text("${synch.dataText}"),
+                        const Text("Sinkronisasi data.."),
+                        Text(synch.dataText),
                       ],
                     ),
                   ),

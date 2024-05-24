@@ -38,10 +38,10 @@ class MVendorSchema extends Equatable {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['vendor_id'] = this.vendorId;
-    data['vendor_code'] = this.vendorCode;
-    data['vendor_name'] = this.vendorName;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['vendor_id'] = vendorId;
+    data['vendor_code'] = vendorCode;
+    data['vendor_name'] = vendorName;
     // data['created_by'] = this.createdBy;
     // data['created_date'] = this.createdDate;
     // data['created_time'] = this.createdTime;

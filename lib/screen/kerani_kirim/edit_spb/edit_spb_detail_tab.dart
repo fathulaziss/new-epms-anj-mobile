@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class EditSPBDetailTab extends StatefulWidget {
-  const EditSPBDetailTab({Key? key}) : super(key: key);
+  const EditSPBDetailTab({super.key});
 
   @override
   State<EditSPBDetailTab> createState() => _EditSPBDetailTabState();
@@ -29,10 +29,10 @@ class _EditSPBDetailTabState extends State<EditSPBDetailTab> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("ID OPH:"),
+                  const Text("ID OPH:"),
                   Expanded(
                     child: Text(
-                      "${editSPB.globalSPB.spbId ?? ""}",
+                      editSPB.globalSPB.spbId ?? "",
                       style: Style.textBold16,
                       textAlign: TextAlign.end,
                     ),
@@ -45,10 +45,10 @@ class _EditSPBDetailTabState extends State<EditSPBDetailTab> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Tanggal:"),
+                  const Text("Tanggal:"),
                   Expanded(
                       child: Text(
-                    "${editSPB.globalSPB.createdDate ?? ""}",
+                    editSPB.globalSPB.createdDate ?? "",
                     textAlign: TextAlign.end,
                   ))
                 ],
@@ -59,7 +59,7 @@ class _EditSPBDetailTabState extends State<EditSPBDetailTab> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("GPS Geolocation:"),
+                  const Text("GPS Geolocation:"),
                   Expanded(
                     child: Text(
                       "${editSPB.globalSPB.spbLat}, ${editSPB.globalSPB.spbLong}",
@@ -74,17 +74,17 @@ class _EditSPBDetailTabState extends State<EditSPBDetailTab> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Jenis Pengangkutan:"),
+                  const Text("Jenis Pengangkutan:"),
                   Flexible(
-                    child: Container(
+                    child: SizedBox(
                       width: 140,
                       child: DropdownButton(
                         isExpanded: true,
                         value: editSPB.typeDeliverValue,
                         items: editSPB.typeDeliver.map((value) {
                           return DropdownMenuItem(
-                            child: Text(value),
                             value: value,
+                            child: Text(value),
                           );
                         }).toList(),
                         onChanged: (String? value) {
@@ -101,7 +101,7 @@ class _EditSPBDetailTabState extends State<EditSPBDetailTab> {
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Tujuan:"),
+                    const Text("Tujuan:"),
                     Expanded(
                       child: Text(
                         "${editSPB.globalSPB.spbDeliverToCode} ${editSPB.globalSPB.spbDeliverToName}",
@@ -116,18 +116,18 @@ class _EditSPBDetailTabState extends State<EditSPBDetailTab> {
                     child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Flexible(child: Text("Supir:")),
+                          const Flexible(child: Text("Supir:")),
                           Flexible(
-                            child: Container(
+                            child: SizedBox(
                               width: 180,
                               child: DropdownButton(
                                 isExpanded: true,
-                                hint: Text("Pilih Supir"),
+                                hint: const Text("Pilih Supir"),
                                 value: editSPB.driverNameValue,
                                 items: editSPB.driverNameList.map((value) {
                                   return DropdownMenuItem(
-                                    child: Text(value.employeeName!),
                                     value: value,
+                                    child: Text(value.employeeName!),
                                   );
                                 }).toList(),
                                 onChanged: (MEmployeeSchema? value) {
@@ -143,18 +143,18 @@ class _EditSPBDetailTabState extends State<EditSPBDetailTab> {
                     child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Flexible(child: Text("Vendor:")),
+                          const Flexible(child: Text("Vendor:")),
                           Flexible(
-                            child: Container(
+                            child: SizedBox(
                               width: 180,
                               child: DropdownButton(
                                 isExpanded: true,
-                                hint: Text("Pilih Vendor"),
+                                hint: const Text("Pilih Vendor"),
                                 value: editSPB.vendorSchemaValue,
                                 items: editSPB.vendorList.map((value) {
                                   return DropdownMenuItem(
-                                    child: Text(value.vendorName!),
                                     value: value,
+                                    child: Text(value.vendorName!),
                                   );
                                 }).toList(),
                                 onChanged: !editSPB.isOthersVendor
@@ -175,7 +175,7 @@ class _EditSPBDetailTabState extends State<EditSPBDetailTab> {
                       children: [
                         Row(
                           children: [
-                            Text("Lainnya:"),
+                            const Text("Lainnya:"),
                             Checkbox(
                               checkColor: Colors.white,
                               value: editSPB.isOthersVendor,
@@ -186,14 +186,14 @@ class _EditSPBDetailTabState extends State<EditSPBDetailTab> {
                           ],
                         ),
                         Flexible(
-                          child: Container(
+                          child: SizedBox(
                             width: 180,
                             child: TextFormField(
                               enabled: editSPB.isOthersVendor,
                               controller: editSPB.vendorOther,
                               textAlign: TextAlign.center,
-                              decoration:
-                                  InputDecoration(hintText: "Tulis Vendor"),
+                              decoration: const InputDecoration(
+                                  hintText: "Tulis Vendor"),
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return 'Please enter some text';
@@ -207,7 +207,7 @@ class _EditSPBDetailTabState extends State<EditSPBDetailTab> {
                     ),
                   )
                 : Container(),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -215,8 +215,8 @@ class _EditSPBDetailTabState extends State<EditSPBDetailTab> {
                   Expanded(
                     child: Column(
                       children: [
-                        Text("No. Kendaraan"),
-                        Container(
+                        const Text("No. Kendaraan"),
+                        SizedBox(
                           width: 160,
                           child: TextFormField(
                             onFieldSubmitted: (value) {
@@ -231,8 +231,8 @@ class _EditSPBDetailTabState extends State<EditSPBDetailTab> {
                             controller: editSPB.vehicleNumber,
                             textAlign: TextAlign.center,
                             textCapitalization: TextCapitalization.characters,
-                            decoration:
-                                InputDecoration(hintText: "Tulis No Kendaraan"),
+                            decoration: const InputDecoration(
+                                hintText: "Tulis No Kendaraan"),
                             validator: (value) {
                               if (value == null || value.isEmpty) {
                                 return 'Please enter some text';
@@ -248,7 +248,8 @@ class _EditSPBDetailTabState extends State<EditSPBDetailTab> {
                               String? result = await Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => QRReaderScreen()));
+                                      builder: (context) =>
+                                          const QRReaderScreen()));
                               if (result != null) {
                                 setState(() {
                                   editSPB.vehicleNumber =
@@ -275,13 +276,13 @@ class _EditSPBDetailTabState extends State<EditSPBDetailTab> {
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 16,
                   ),
                   Expanded(
                     child: Column(children: [
-                      Text("Kartu SPB"),
-                      Container(
+                      const Text("Kartu SPB"),
+                      SizedBox(
                           width: 160,
                           child: Padding(
                             padding: const EdgeInsets.all(20.0),
@@ -298,7 +299,7 @@ class _EditSPBDetailTabState extends State<EditSPBDetailTab> {
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Total OPH:"),
+                    const Text("Total OPH:"),
                     Text("${editSPB.listSPBDetail.length}")
                   ]),
             ),
@@ -307,7 +308,7 @@ class _EditSPBDetailTabState extends State<EditSPBDetailTab> {
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Total janjang:"),
+                    const Text("Total janjang:"),
                     Text("${editSPB.globalSPB.spbTotalBunches}")
                   ]),
             ),
@@ -316,7 +317,7 @@ class _EditSPBDetailTabState extends State<EditSPBDetailTab> {
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Total brondolan (kg):"),
+                    const Text("Total brondolan (kg):"),
                     Text("${editSPB.globalSPB.spbTotalLooseFruit}")
                   ]),
             ),
@@ -325,7 +326,7 @@ class _EditSPBDetailTabState extends State<EditSPBDetailTab> {
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Estimasi berat (kg):"),
+                    const Text("Estimasi berat (kg):"),
                     Text("${editSPB.globalSPB.spbEstimateTonnage}")
                   ]),
             ),
@@ -334,7 +335,7 @@ class _EditSPBDetailTabState extends State<EditSPBDetailTab> {
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Sisa kapasitas truk (kg):"),
+                    const Text("Sisa kapasitas truk (kg):"),
                     Text("${editSPB.globalSPB.spbCapacityTonnage ?? 0}")
                   ]),
             ),
@@ -343,14 +344,14 @@ class _EditSPBDetailTabState extends State<EditSPBDetailTab> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Berat aktual (Kg):"),
+                  const Text("Berat aktual (Kg):"),
                   Text("${editSPB.globalSPB.spbActualTonnage ?? "0"}")
                 ],
               ),
             ),
             Column(children: [
-              Text("Catatan"),
-              Container(child: Text("${editSPB.globalSPB.spbDeliveryNote}")),
+              const Text("Catatan"),
+              Text("${editSPB.globalSPB.spbDeliveryNote}"),
             ]),
             editSPB.globalSPB.spbPhoto != null
                 ? Padding(
@@ -371,7 +372,7 @@ class _EditSPBDetailTabState extends State<EditSPBDetailTab> {
                 onTap: () {
                   editSPB.getCamera(context);
                 },
-                child: Container(
+                child: SizedBox(
                   width: MediaQuery.of(context).size.width,
                   child: Card(
                     shape: RoundedRectangleBorder(
@@ -403,9 +404,9 @@ class _EditSPBDetailTabState extends State<EditSPBDetailTab> {
                     borderRadius: BorderRadius.circular(10.0),
                   ),
                   child: Container(
-                    padding: EdgeInsets.all(14),
+                    padding: const EdgeInsets.all(14),
                     width: MediaQuery.of(context).size.width,
-                    child: Text(
+                    child: const Text(
                       "SIMPAN",
                       style: TextStyle(
                           fontSize: 18,

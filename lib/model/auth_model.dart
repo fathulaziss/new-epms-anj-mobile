@@ -10,9 +10,9 @@ class AuthModel {
   final String pin;
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['pin'] = this.pin;
-    data['supervisi_name'] = this.supervisiName;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['pin'] = pin;
+    data['supervisi_name'] = supervisiName;
     return data;
   }
 

@@ -10,7 +10,7 @@ import 'package:provider/provider.dart';
 import 'detail_supervise_harvest_notifier.dart';
 
 class SuperviseHarvestDetailTab extends StatefulWidget {
-  const SuperviseHarvestDetailTab({Key? key}) : super(key: key);
+  const SuperviseHarvestDetailTab({super.key});
 
   @override
   State<SuperviseHarvestDetailTab> createState() =>
@@ -37,7 +37,7 @@ class _SuperviseHarvestDetailTabState extends State<SuperviseHarvestDetailTab> {
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("ID Supervisi:"),
+                      const Text("ID Supervisi:"),
                       Text("${notifier.ophSupervise?.ophSupervisiId}",
                           style: Style.textBold16)
                     ]),
@@ -47,7 +47,7 @@ class _SuperviseHarvestDetailTabState extends State<SuperviseHarvestDetailTab> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Tanggal:"),
+                    const Text("Tanggal:"),
                     Text(
                         "${notifier.ophSupervise?.createdDate} ${notifier.ophSupervise?.createdTime}")
                   ],
@@ -58,7 +58,7 @@ class _SuperviseHarvestDetailTabState extends State<SuperviseHarvestDetailTab> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("GPS Latitude:"),
+                    const Text("GPS Latitude:"),
                     Text("${notifier.ophSupervise?.supervisiLat}")
                   ],
                 ),
@@ -68,7 +68,7 @@ class _SuperviseHarvestDetailTabState extends State<SuperviseHarvestDetailTab> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("GPS Longitude:"),
+                    const Text("GPS Longitude:"),
                     Text("${notifier.ophSupervise?.supervisiLong}")
                   ],
                 ),
@@ -82,7 +82,7 @@ class _SuperviseHarvestDetailTabState extends State<SuperviseHarvestDetailTab> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("Kemandoran:"),
+                          const Text("Kemandoran:"),
                           notifier.onEdit
                               ? InkWell(
                                   onTap: () async {
@@ -91,12 +91,12 @@ class _SuperviseHarvestDetailTabState extends State<SuperviseHarvestDetailTab> {
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    SearchEmployeeScreen()));
+                                                    const SearchEmployeeScreen()));
                                     notifier.onSetKemandoran(mEmployee!);
                                   },
-                                  child: Card(
+                                  child: const Card(
                                     child: Padding(
-                                      padding: const EdgeInsets.all(8.0),
+                                      padding: EdgeInsets.all(8.0),
                                       child: Icon(Icons.search),
                                     ),
                                   ),
@@ -106,14 +106,14 @@ class _SuperviseHarvestDetailTabState extends State<SuperviseHarvestDetailTab> {
                       ),
                       notifier.kemandoran != null
                           ? Table(border: TableBorder.all(), children: [
-                              TableRow(children: [
+                              const TableRow(children: [
                                 Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: EdgeInsets.all(8.0),
                                   child:
                                       Text("Kode", textAlign: TextAlign.center),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: EdgeInsets.all(8.0),
                                   child:
                                       Text('Nama', textAlign: TextAlign.center),
                                 ),
@@ -145,7 +145,7 @@ class _SuperviseHarvestDetailTabState extends State<SuperviseHarvestDetailTab> {
                       Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text("Kerani Panen:"),
+                            const Text("Kerani Panen:"),
                             notifier.onEdit
                                 ? InkWell(
                                     onTap: () async {
@@ -154,12 +154,12 @@ class _SuperviseHarvestDetailTabState extends State<SuperviseHarvestDetailTab> {
                                               context,
                                               MaterialPageRoute(
                                                   builder: (context) =>
-                                                      SearchEmployeeScreen()));
+                                                      const SearchEmployeeScreen()));
                                       notifier.onSetKeraniPanen(mEmployee!);
                                     },
-                                    child: Card(
+                                    child: const Card(
                                       child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
+                                        padding: EdgeInsets.all(8.0),
                                         child: Icon(Icons.search),
                                       ),
                                     ),
@@ -168,14 +168,14 @@ class _SuperviseHarvestDetailTabState extends State<SuperviseHarvestDetailTab> {
                           ]),
                       notifier.keraniPanen != null
                           ? Table(border: TableBorder.all(), children: [
-                              TableRow(children: [
+                              const TableRow(children: [
                                 Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: EdgeInsets.all(8.0),
                                   child:
                                       Text("Kode", textAlign: TextAlign.center),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: EdgeInsets.all(8.0),
                                   child:
                                       Text('Nama', textAlign: TextAlign.center),
                                 ),
@@ -207,7 +207,7 @@ class _SuperviseHarvestDetailTabState extends State<SuperviseHarvestDetailTab> {
                       Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text("Pemanen:"),
+                            const Text("Pemanen:"),
                             notifier.onEdit
                                 ? InkWell(
                                     onTap: () async {
@@ -216,12 +216,12 @@ class _SuperviseHarvestDetailTabState extends State<SuperviseHarvestDetailTab> {
                                               context,
                                               MaterialPageRoute(
                                                   builder: (context) =>
-                                                      SearchEmployeeScreen()));
+                                                      const SearchEmployeeScreen()));
                                       notifier.onSetPemanen(mEmployee!);
                                     },
-                                    child: Card(
+                                    child: const Card(
                                       child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
+                                        padding: EdgeInsets.all(8.0),
                                         child: Icon(Icons.search),
                                       ),
                                     ),
@@ -230,9 +230,9 @@ class _SuperviseHarvestDetailTabState extends State<SuperviseHarvestDetailTab> {
                           ]),
                       notifier.pemanen != null
                           ? Table(border: TableBorder.all(), children: [
-                              TableRow(children: [
+                              const TableRow(children: [
                                 Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: EdgeInsets.all(8.0),
                                   child:
                                       Text('Nama', textAlign: TextAlign.center),
                                 ),
@@ -254,7 +254,7 @@ class _SuperviseHarvestDetailTabState extends State<SuperviseHarvestDetailTab> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Estate Code:"),
+                    const Text("Estate Code:"),
                     Text("${notifier.ophSupervise?.supervisiEstateCode}")
                   ],
                 ),
@@ -264,7 +264,7 @@ class _SuperviseHarvestDetailTabState extends State<SuperviseHarvestDetailTab> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Divisi:"),
+                    const Text("Divisi:"),
                     Text("${notifier.ophSupervise?.supervisiDivisionCode}")
                   ],
                 ),
@@ -274,12 +274,12 @@ class _SuperviseHarvestDetailTabState extends State<SuperviseHarvestDetailTab> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("OPH ID:"),
+                    const Text("OPH ID:"),
                     Text("${notifier.ophSupervise?.ophId}")
                   ],
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               notifier.ophSupervise?.supervisiPhoto != null
                   ? Image.file(File("${notifier.ophSupervise?.supervisiPhoto}"),
                       height: 400)
@@ -291,7 +291,7 @@ class _SuperviseHarvestDetailTabState extends State<SuperviseHarvestDetailTab> {
                         onTap: () {
                           notifier.getCamera(context);
                         },
-                        child: Container(
+                        child: SizedBox(
                           width: MediaQuery.of(context).size.width,
                           child: Card(
                             shape: RoundedRectangleBorder(
@@ -310,7 +310,7 @@ class _SuperviseHarvestDetailTabState extends State<SuperviseHarvestDetailTab> {
                       ),
                     )
                   : Container(),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               notifier.onEdit
                   ? Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -325,9 +325,9 @@ class _SuperviseHarvestDetailTabState extends State<SuperviseHarvestDetailTab> {
                             borderRadius: BorderRadius.circular(10.0),
                           ),
                           child: Container(
-                            padding: EdgeInsets.all(14),
+                            padding: const EdgeInsets.all(14),
                             width: MediaQuery.of(context).size.width,
-                            child: Text(
+                            child: const Text(
                               "SIMPAN",
                               style: TextStyle(
                                   fontSize: 18,
@@ -352,9 +352,9 @@ class _SuperviseHarvestDetailTabState extends State<SuperviseHarvestDetailTab> {
                             borderRadius: BorderRadius.circular(10.0),
                           ),
                           child: Container(
-                            padding: EdgeInsets.all(14),
+                            padding: const EdgeInsets.all(14),
                             width: MediaQuery.of(context).size.width,
-                            child: Text(
+                            child: const Text(
                               "UBAH DATA",
                               style: TextStyle(
                                   fontSize: 18,

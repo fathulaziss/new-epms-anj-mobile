@@ -9,6 +9,17 @@ import 'package:epms/model/auth_model.dart';
 import 'package:flutter/material.dart';
 
 class DialogApprovalTbsLuar extends StatefulWidget {
+  const DialogApprovalTbsLuar({
+    super.key,
+    required this.title,
+    required this.labelButton,
+    required this.hintText,
+    required this.onSubmit,
+    required this.listAuthenticator,
+    required this.selectedAuthenticator,
+    required this.onChangeAuthenticator,
+  });
+
   final String title;
   final String labelButton;
   final String hintText;
@@ -17,24 +28,13 @@ class DialogApprovalTbsLuar extends StatefulWidget {
   final AuthModel selectedAuthenticator;
   final ValueSetter<AuthModel> onChangeAuthenticator;
 
-  const DialogApprovalTbsLuar({
-    Key? key,
-    required this.title,
-    required this.labelButton,
-    required this.hintText,
-    required this.onSubmit,
-    required this.listAuthenticator,
-    required this.selectedAuthenticator,
-    required this.onChangeAuthenticator,
-  }) : super(key: key);
-
   @override
   State<DialogApprovalTbsLuar> createState() => _DialogApprovalTbsLuarState();
 }
 
 class _DialogApprovalTbsLuarState extends State<DialogApprovalTbsLuar> {
   final controller = TextEditingController();
-  NavigatorService _navigationService = locator<NavigatorService>();
+  final NavigatorService _navigationService = locator<NavigatorService>();
   AuthModel selectedAuthenticator = AuthModel();
   bool obsecureText = true;
 
@@ -83,7 +83,7 @@ class _DialogApprovalTbsLuarState extends State<DialogApprovalTbsLuar> {
               },
               child: Container(
                 width: MediaQuery.of(context).size.width,
-                padding: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
                 child: Center(
                     child: Text(widget.labelButton, style: Style.whiteBold16)),
               ),
@@ -96,8 +96,8 @@ class _DialogApprovalTbsLuarState extends State<DialogApprovalTbsLuar> {
           children: [
             Row(
               children: [
-                Expanded(flex: 4, child: Text('Manager')),
-                SizedBox(width: 12),
+                const Expanded(flex: 4, child: Text('Manager')),
+                const SizedBox(width: 12),
                 Expanded(
                   flex: 7,
                   child: DropdownButton(
@@ -105,8 +105,8 @@ class _DialogApprovalTbsLuarState extends State<DialogApprovalTbsLuar> {
                     value: selectedAuthenticator,
                     items: widget.listAuthenticator.map((value) {
                       return DropdownMenuItem(
-                        child: Text(value.supervisiName),
                         value: value,
+                        child: Text(value.supervisiName),
                       );
                     }).toList(),
                     onChanged: (value) {
@@ -123,8 +123,8 @@ class _DialogApprovalTbsLuarState extends State<DialogApprovalTbsLuar> {
             ),
             Row(
               children: [
-                Expanded(flex: 4, child: Text('PIN')),
-                SizedBox(width: 12),
+                const Expanded(flex: 4, child: Text('PIN')),
+                const SizedBox(width: 12),
                 Expanded(
                   flex: 7,
                   child: TextFormField(

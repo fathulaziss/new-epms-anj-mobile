@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:epms/base/constants/image_assets.dart';
 import 'package:epms/base/ui/palette.dart';
 import 'package:epms/base/ui/style.dart';
@@ -61,20 +63,21 @@ class _HomeInspectionScreenState extends State<HomeInspectionScreen> {
                       ],
                     ),
                     body: Padding(
-                      padding: EdgeInsets.only(bottom: 10, left: 5, right: 5),
+                      padding:
+                          const EdgeInsets.only(bottom: 10, left: 5, right: 5),
                       child: SingleChildScrollView(
                         child: Padding(
                           padding: const EdgeInsets.all(18),
                           child: Column(
                             children: [
                               Padding(
-                                padding: EdgeInsets.only(
+                                padding: const EdgeInsets.only(
                                     left: 10, right: 10, bottom: 10),
                                 child: Image.asset(ImageAssets.ANJ_LOGO,
                                     height: 60),
                               ),
                               Padding(
-                                padding: EdgeInsets.all(6),
+                                padding: const EdgeInsets.all(6),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
@@ -111,7 +114,7 @@ class _HomeInspectionScreenState extends State<HomeInspectionScreen> {
                                     homeInspectionNotifier
                                         .goToMenuBacaKartuOPH();
                                   },
-                                  child: Text("BACA KARTU OPH",
+                                  child: const Text("BACA KARTU OPH",
                                       style: TextStyle(
                                           fontSize: 14,
                                           fontWeight: FontWeight.bold)),
@@ -141,22 +144,22 @@ class _HomeInspectionScreenState extends State<HomeInspectionScreen> {
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Text("INSPECTION",
+                                      const Text("INSPECTION",
                                           style: TextStyle(
                                               fontSize: 14,
                                               fontWeight: FontWeight.bold)),
-                                      SizedBox(width: 4),
+                                      const SizedBox(width: 4),
                                       homeInspectionNotifier.countInspection ==
                                               0
                                           ? const SizedBox()
                                           : Row(children: [
-                                              Icon(Icons.warning,
+                                              const Icon(Icons.warning,
                                                   color: Colors.yellow,
                                                   size: 18),
-                                              SizedBox(width: 4),
+                                              const SizedBox(width: 4),
                                               Text(
                                                   "${homeInspectionNotifier.countInspection}",
-                                                  style: TextStyle(
+                                                  style: const TextStyle(
                                                     fontSize: 14,
                                                     fontWeight: FontWeight.bold,
                                                     overflow:
@@ -219,30 +222,28 @@ class _HomeInspectionScreenState extends State<HomeInspectionScreen> {
 
                                     homeInspectionNotifier.showPopUpLogOut();
                                   },
-                                  child: Text("KELUAR",
+                                  child: const Text("KELUAR",
                                       style: TextStyle(
                                           fontSize: 14,
                                           fontWeight: FontWeight.bold)),
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsets.only(top: 16),
+                                padding: const EdgeInsets.only(top: 16),
                                 child: Column(
                                   children: [
-                                    Text(
-                                        "${homeInspectionNotifier.dataUser.code}",
+                                    Text(homeInspectionNotifier.dataUser.code,
                                         style: Style.textBold14),
-                                    Text(
-                                        "${homeInspectionNotifier.dataUser.name}",
+                                    Text(homeInspectionNotifier.dataUser.name,
                                         style: Style.textBold14),
-                                    SizedBox(height: 30),
-                                    Divider(),
+                                    const SizedBox(height: 30),
+                                    const Divider(),
                                     Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: Image.asset(ImageAssets.ANJ_LOGO,
                                           height: 25),
                                     ),
-                                    Text("ePMS ANJ Group")
+                                    const Text("ePMS ANJ Group")
                                   ],
                                 ),
                               ),

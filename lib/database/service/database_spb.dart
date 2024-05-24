@@ -53,8 +53,7 @@ class DatabaseSPB {
 
   Future<List<SPB>> selectSPB() async {
     Database db = await DatabaseHelper().database;
-    var mapList =
-        await db.query(tSPBSchemaListTable, groupBy: "${SPBEntity.spbId}");
+    var mapList = await db.query(tSPBSchemaListTable, groupBy: SPBEntity.spbId);
     List<SPB> list = [];
     for (int i = 0; i < mapList.length; i++) {
       SPB spb = SPB.fromJson(mapList[i]);

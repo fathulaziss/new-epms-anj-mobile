@@ -50,12 +50,12 @@ class MDivisionSchema extends Equatable {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['division_id'] = this.divisionId;
-    data['division_company_code'] = this.divisionCompanyCode;
-    data['division_estate_code'] = this.divisionEstateCode;
-    data['division_code'] = this.divisionCode;
-    data['division_name'] = this.divisionName;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['division_id'] = divisionId;
+    data['division_company_code'] = divisionCompanyCode;
+    data['division_estate_code'] = divisionEstateCode;
+    data['division_code'] = divisionCode;
+    data['division_name'] = divisionName;
     // data['division_valid_from'] = this.divisionValidFrom;
     // data['division_valid_to'] = this.divisionValidTo;
     // data['created_by'] = this.createdBy;

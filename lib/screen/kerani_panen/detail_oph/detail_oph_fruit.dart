@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class DetailOPHFruit extends StatefulWidget {
-  const DetailOPHFruit({Key? key}) : super(key: key);
+  const DetailOPHFruit({super.key});
 
   @override
   State<DetailOPHFruit> createState() => _DetailOPHFruitState();
@@ -22,23 +22,23 @@ class _DetailOPHFruitState extends State<DetailOPHFruit> {
               Table(
                 defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                 children: <TableRow>[
-                  TableRow(
+                  const TableRow(
                     children: <Widget>[
-                      Container(
+                      SizedBox(
                         width: 110,
                         child: Column(children: [
                           Text("Masak"),
                           SizedBox(height: 8),
                         ]),
                       ),
-                      Container(
+                      SizedBox(
                         width: 110,
                         child: Column(children: [
                           Text("Lewat Masak"),
                           SizedBox(height: 8),
                         ]),
                       ),
-                      Container(
+                      SizedBox(
                         width: 110,
                         child: Column(children: [
                           Text("Mengkal"),
@@ -49,7 +49,7 @@ class _DetailOPHFruitState extends State<DetailOPHFruit> {
                   ),
                   TableRow(
                     children: <Widget>[
-                      Container(
+                      SizedBox(
                         width: 110,
                         child: Column(children: [
                           Padding(
@@ -59,48 +59,48 @@ class _DetailOPHFruitState extends State<DetailOPHFruit> {
                               style: Style.textBold20,
                             ),
                           ),
-                          SizedBox(height: 20),
+                          const SizedBox(height: 20),
                         ]),
                       ),
-                      Container(
+                      SizedBox(
                         width: 110,
                         child: Column(children: [
                           Text(
                             "${notifier.oph.bunchesOverripe ?? 0}",
                             style: Style.textBold20,
                           ),
-                          SizedBox(height: 20),
+                          const SizedBox(height: 20),
                         ]),
                       ),
-                      Container(
+                      SizedBox(
                         width: 110,
                         child: Column(children: [
                           Text(
                             "${notifier.oph.bunchesHalfripe ?? 0}",
                             style: Style.textBold20,
                           ),
-                          SizedBox(height: 20),
+                          const SizedBox(height: 20),
                         ]),
                       ),
                     ],
                   ),
-                  TableRow(
+                  const TableRow(
                     children: <Widget>[
-                      Container(
+                      SizedBox(
                         width: 110,
                         child: Column(children: [
                           Text("Mentah"),
                           SizedBox(height: 8),
                         ]),
                       ),
-                      Container(
+                      SizedBox(
                         width: 110,
                         child: Column(children: [
                           Text("Tidak Normal"),
                           SizedBox(height: 8),
                         ]),
                       ),
-                      Container(
+                      SizedBox(
                         width: 110,
                         child: Column(children: [
                           Text("Janjang Kosong"),
@@ -111,58 +111,58 @@ class _DetailOPHFruitState extends State<DetailOPHFruit> {
                   ),
                   TableRow(
                     children: <Widget>[
-                      Container(
+                      SizedBox(
                         width: 110,
                         child: Column(children: [
                           Text(
                             "${notifier.oph.bunchesUnripe ?? 0}",
                             style: Style.textBold20,
                           ),
-                          SizedBox(height: 20),
+                          const SizedBox(height: 20),
                         ]),
                       ),
-                      Container(
+                      SizedBox(
                         width: 110,
                         child: Column(children: [
                           Text(
                             "${notifier.oph.bunchesAbnormal ?? 0}",
                             style: Style.textBold20,
                           ),
-                          SizedBox(height: 20),
+                          const SizedBox(height: 20),
                         ]),
                       ),
-                      Container(
+                      SizedBox(
                         width: 110,
                         child: Column(children: [
                           Text(
                             "${notifier.oph.bunchesEmpty ?? 0}",
                             style: Style.textBold20,
                           ),
-                          SizedBox(height: 20),
+                          const SizedBox(height: 20),
                         ]),
                       ),
                     ],
                   ),
-                  TableRow(
+                  const TableRow(
                     children: <Widget>[
-                      Container(
+                      SizedBox(
                         width: 110,
                         child: Column(children: [
                           Text("Total Janjang"),
                           SizedBox(height: 8),
                         ]),
                       ),
-                      Container(
+                      SizedBox(
                         width: 110,
                         child: Column(children: [
                           Text("Brondolan (Kg)"),
                           SizedBox(height: 8),
                         ]),
                       ),
-                      Container(
+                      SizedBox(
                         width: 110,
                         child: Column(children: [
-                          Container(
+                          SizedBox(
                               width: 100,
                               child: Text(
                                 "Janjang Tidak Dikirim",
@@ -175,44 +175,44 @@ class _DetailOPHFruitState extends State<DetailOPHFruit> {
                   ),
                   TableRow(
                     children: <Widget>[
-                      Container(
+                      SizedBox(
                         width: 110,
                         child: Column(children: [
                           Text("${notifier.oph.bunchesTotal ?? 0}",
                               style: Style.textBold20),
-                          SizedBox(height: 20),
+                          const SizedBox(height: 20),
                         ]),
                       ),
-                      Container(
+                      SizedBox(
                         width: 110,
                         child: Column(children: [
                           Text(
                             "${notifier.oph.looseFruits ?? 0}",
                             style: Style.textBold20,
                           ),
-                          SizedBox(height: 20),
+                          const SizedBox(height: 20),
                         ]),
                       ),
-                      Container(
+                      SizedBox(
                         width: 110,
                         child: Column(children: [
                           Text(
                             "${notifier.oph.bunchesNotSent ?? 0}",
                             style: Style.textBold20,
                           ),
-                          SizedBox(height: 20),
+                          const SizedBox(height: 20),
                         ]),
                       ),
                     ],
                   ),
                 ],
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Column(children: [
                 Text(
                     "Catatan (${notifier.oph.ophNotes != null ? 50 - notifier.oph.ophNotes!.length : 50})"),
-                SizedBox(height: 8),
-                Text("${notifier.oph.ophNotes ?? "Tidak ada catatan"}")
+                const SizedBox(height: 8),
+                Text(notifier.oph.ophNotes ?? "Tidak ada catatan")
               ]),
             ]),
           ),

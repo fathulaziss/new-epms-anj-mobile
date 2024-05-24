@@ -10,7 +10,7 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 class FormSPBLoaderTab extends StatefulWidget {
-  const FormSPBLoaderTab({Key? key}) : super(key: key);
+  const FormSPBLoaderTab({super.key});
 
   @override
   State<FormSPBLoaderTab> createState() => _FormSPBLoaderTabState();
@@ -32,17 +32,17 @@ class _FormSPBLoaderTabState extends State<FormSPBLoaderTab> {
                   child: Column(
                     children: [
                       Text("Daftar Loader (${formSPB.spbLoaderList.length})"),
-                      SizedBox(height: 12),
+                      const SizedBox(height: 12),
                       Text(
                           "Jumlah Presentase: (${formSPB.totalPercentageAngkut}) %"),
-                      SizedBox(height: 12),
+                      const SizedBox(height: 12),
                       Padding(
                         padding: const EdgeInsets.all(0.0),
                         child: InkWell(
                           onTap: () {
                             formSPB.onAddLoader(context);
                           },
-                          child: Container(
+                          child: SizedBox(
                             width: MediaQuery.of(context).size.width,
                             child: Card(
                               shape: RoundedRectangleBorder(
@@ -65,7 +65,7 @@ class _FormSPBLoaderTabState extends State<FormSPBLoaderTab> {
                   ),
                 ),
                 if (formSPB.spbLoaderList.isEmpty)
-                  Text("Tidak Ada loader yang dibuat")
+                  const Text("Tidak Ada loader yang dibuat")
                 else
                   Flexible(
                     child: ListView.builder(
@@ -93,9 +93,9 @@ class _FormSPBLoaderTabState extends State<FormSPBLoaderTab> {
                                         onTap: () {
                                           formSPB.onDeleteLoader(index);
                                         },
-                                        child: Card(
+                                        child: const Card(
                                           child: Padding(
-                                            padding: const EdgeInsets.all(12.0),
+                                            padding: EdgeInsets.all(12.0),
                                             child: Icon(Icons.delete,
                                                 color: Colors.red),
                                           ),
@@ -110,9 +110,9 @@ class _FormSPBLoaderTabState extends State<FormSPBLoaderTab> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Text("Jenis Loader:"),
+                                        const Text("Jenis Loader:"),
                                         Flexible(
-                                          child: Container(
+                                          child: SizedBox(
                                             width: 170,
                                             child: DropdownButton(
                                               isExpanded: true,
@@ -120,8 +120,8 @@ class _FormSPBLoaderTabState extends State<FormSPBLoaderTab> {
                                               items: formSPB.typeDeliver
                                                   .map((value) {
                                                 return DropdownMenuItem(
-                                                  child: Text(value),
                                                   value: value,
+                                                  child: Text(value),
                                                 );
                                               }).toList(),
                                               onChanged: (String? value) {
@@ -143,10 +143,10 @@ class _FormSPBLoaderTabState extends State<FormSPBLoaderTab> {
                                                   MainAxisAlignment
                                                       .spaceBetween,
                                               children: [
-                                                Text("Nama Loader:"),
+                                                const Text("Nama Loader:"),
                                                 Row(
                                                   children: [
-                                                    Container(
+                                                    SizedBox(
                                                       width: 170,
                                                       child: DropdownButton(
                                                         isExpanded: true,
@@ -156,13 +156,13 @@ class _FormSPBLoaderTabState extends State<FormSPBLoaderTab> {
                                                             .listLoader
                                                             .map((value) {
                                                           return DropdownMenuItem(
+                                                            value: value,
                                                             child: Text(
                                                               "${value.employeeName}",
                                                               overflow:
                                                                   TextOverflow
                                                                       .ellipsis,
                                                             ),
-                                                            value: value,
                                                           );
                                                         }).toList(),
                                                         onChanged:
@@ -175,12 +175,11 @@ class _FormSPBLoaderTabState extends State<FormSPBLoaderTab> {
                                                         },
                                                       ),
                                                     ),
-                                                    SizedBox(width: 10),
+                                                    const SizedBox(width: 10),
                                                     InkWell(
-                                                      child: Padding(
+                                                      child: const Padding(
                                                         padding:
-                                                            const EdgeInsets
-                                                                .only(
+                                                            EdgeInsets.only(
                                                                 right: 2.0),
                                                         child:
                                                             Icon(Icons.search),
@@ -193,7 +192,7 @@ class _FormSPBLoaderTabState extends State<FormSPBLoaderTab> {
                                                                 MaterialPageRoute(
                                                                     builder:
                                                                         (context) =>
-                                                                            SearchDriverScreen()));
+                                                                            const SearchDriverScreen()));
                                                         formSPB
                                                             .onChangeLoaderName(
                                                                 index,
@@ -212,9 +211,9 @@ class _FormSPBLoaderTabState extends State<FormSPBLoaderTab> {
                                                   MainAxisAlignment
                                                       .spaceBetween,
                                               children: [
-                                                Text("Nama Vendor:"),
+                                                const Text("Nama Vendor:"),
                                                 Flexible(
-                                                  child: Container(
+                                                  child: SizedBox(
                                                     width: 170,
                                                     child: DropdownButton(
                                                         isExpanded: true,
@@ -224,12 +223,12 @@ class _FormSPBLoaderTabState extends State<FormSPBLoaderTab> {
                                                             .vendorList
                                                             .map((value) {
                                                           return DropdownMenuItem(
+                                                            value: value,
                                                             child: Text(
                                                                 "${value.vendorName}",
                                                                 overflow:
                                                                     TextOverflow
                                                                         .ellipsis),
-                                                            value: value,
                                                           );
                                                         }).toList(),
                                                         onChanged:
@@ -251,9 +250,9 @@ class _FormSPBLoaderTabState extends State<FormSPBLoaderTab> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
-                                          Text("Jenis Angkut:"),
+                                          const Text("Jenis Angkut:"),
                                           Flexible(
-                                            child: Container(
+                                            child: SizedBox(
                                               width: 170,
                                               child: DropdownButton(
                                                 isExpanded: true,
@@ -262,10 +261,10 @@ class _FormSPBLoaderTabState extends State<FormSPBLoaderTab> {
                                                 items: formSPB.jenisAngkut
                                                     .map((value) {
                                                   return DropdownMenuItem(
-                                                      child: Text("$value",
+                                                      value: value,
+                                                      child: Text(value,
                                                           overflow: TextOverflow
-                                                              .ellipsis),
-                                                      value: value);
+                                                              .ellipsis));
                                                 }).toList(),
                                                 onChanged: (String? value) {
                                                   formSPB.onChangeJenisAngkut(
@@ -282,9 +281,9 @@ class _FormSPBLoaderTabState extends State<FormSPBLoaderTab> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
-                                          Text("Presentase Angkut (%):"),
+                                          const Text("Presentase Angkut (%):"),
                                           Flexible(
-                                            child: Container(
+                                            child: SizedBox(
                                               width: 170,
                                               child: TextFormField(
                                                 maxLength: 3,
@@ -305,8 +304,9 @@ class _FormSPBLoaderTabState extends State<FormSPBLoaderTab> {
                                                 controller: formSPB
                                                     .percentageAngkut[index],
                                                 textAlign: TextAlign.center,
-                                                decoration: InputDecoration(
-                                                    hintText: "presentase"),
+                                                decoration:
+                                                    const InputDecoration(
+                                                        hintText: "presentase"),
                                               ),
                                             ),
                                           ),

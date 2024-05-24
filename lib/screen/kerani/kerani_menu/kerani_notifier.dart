@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print, use_build_context_synchronously
+
 import 'dart:convert';
 import 'dart:io';
 
@@ -39,20 +41,20 @@ import 'package:open_settings/open_settings.dart';
 import 'package:provider/provider.dart';
 
 class KeraniNotifier extends ChangeNotifier {
-  NavigatorService _navigationService = locator<NavigatorService>();
+  final NavigatorService _navigationService = locator<NavigatorService>();
 
   NavigatorService get navigationService => _navigationService;
 
-  DialogService _dialogService = locator<DialogService>();
+  final DialogService _dialogService = locator<DialogService>();
 
   DialogService get dialogService => _dialogService;
 
   doUploadOph() async {
     _dialogService.popDialog();
-    List<OPH> _listOPH = await DatabaseOPH().selectOPH();
-    List<TAttendanceSchema> _listAttendance =
+    List<OPH> listOPH0 = await DatabaseOPH().selectOPH();
+    List<TAttendanceSchema> listAttendance0 =
         await DatabaseAttendance().selectEmployeeAttendance();
-    if (_listOPH.isNotEmpty) {
+    if (listOPH0.isNotEmpty) {
       List<OPH> photo = await DatabaseOPH().selectOPHPhoto();
       if (photo.isNotEmpty) {
         onErrorUploadImageEmpty(_navigationService.navigatorKey.currentContext!,
@@ -62,13 +64,13 @@ class KeraniNotifier extends ChangeNotifier {
         List<String> mapListOPH = [];
         List<String> mapListAttendance = [];
 
-        for (int i = 0; i < _listOPH.length; i++) {
-          String jsonString = jsonEncode(_listOPH[i]);
+        for (int i = 0; i < listOPH0.length; i++) {
+          String jsonString = jsonEncode(listOPH0[i]);
           mapListOPH.add("\"$i\":$jsonString");
         }
 
-        for (int i = 0; i < _listAttendance.length; i++) {
-          String jsonString = jsonEncode(_listAttendance[i]);
+        for (int i = 0; i < listAttendance0.length; i++) {
+          String jsonString = jsonEncode(listAttendance0[i]);
           mapListAttendance.add("\"$i\":$jsonString");
         }
         var stringListOPH = mapListOPH.join(",");
@@ -78,13 +80,13 @@ class KeraniNotifier extends ChangeNotifier {
         UploadOPHRepository().doPostUploadOPH(
             listOPH, listAttendance, onSuccessUploadOPH, onErrorUploadOPH);
       }
-    } else if (_listAttendance.isNotEmpty) {
+    } else if (listAttendance0.isNotEmpty) {
       _dialogService.showLoadingDialog(title: "Upload OPH");
       List<String> mapListAttendance = [];
-      List<TAttendanceSchema> _listAttendance =
+      List<TAttendanceSchema> listAttendance0 =
           await DatabaseAttendance().selectEmployeeAttendance();
-      for (int i = 0; i < _listAttendance.length; i++) {
-        String jsonString = jsonEncode(_listAttendance[i]);
+      for (int i = 0; i < listAttendance0.length; i++) {
+        String jsonString = jsonEncode(listAttendance0[i]);
         mapListAttendance.add("\"$i\":$jsonString");
       }
       var stringListAttendance = mapListAttendance.join(",");
@@ -102,27 +104,27 @@ class KeraniNotifier extends ChangeNotifier {
 
   doUploadSpb() async {
     _dialogService.popDialog();
-    List<SPB> _listSPB = await DatabaseSPB().selectSPB();
-    List<SPBDetail> _listSPBDetail =
+    List<SPB> listSPB0 = await DatabaseSPB().selectSPB();
+    List<SPBDetail> listSPBDetail0 =
         await DatabaseSPBDetail().selectSPBDetail();
-    List<SPBLoader> _listSPBLoader =
+    List<SPBLoader> listSPBLoader0 =
         await DatabaseSPBLoader().selectSPBLoader();
-    if (_listSPB.isNotEmpty) {
+    if (listSPB0.isNotEmpty) {
       List<String> mapListSPB = [];
       List<String> mapListSPBDetail = [];
       List<String> mapListSPBLoader = [];
 
-      for (int i = 0; i < _listSPB.length; i++) {
-        String jsonString = jsonEncode(_listSPB[i]);
+      for (int i = 0; i < listSPB0.length; i++) {
+        String jsonString = jsonEncode(listSPB0[i]);
         mapListSPB.add("\"$i\":$jsonString");
       }
-      for (int i = 0; i < _listSPBDetail.length; i++) {
-        String jsonString = jsonEncode(_listSPBDetail[i]);
+      for (int i = 0; i < listSPBDetail0.length; i++) {
+        String jsonString = jsonEncode(listSPBDetail0[i]);
         mapListSPBDetail.add("\"$i\":$jsonString");
       }
 
-      for (int i = 0; i < _listSPBLoader.length; i++) {
-        String jsonString = jsonEncode(_listSPBLoader[i]);
+      for (int i = 0; i < listSPBLoader0.length; i++) {
+        String jsonString = jsonEncode(listSPBLoader0[i]);
         mapListSPBLoader.add("\"$i\":$jsonString");
       }
 
@@ -152,17 +154,17 @@ class KeraniNotifier extends ChangeNotifier {
 
   doUpload() async {
     _dialogService.popDialog();
-    List<OPH> _listOPH = await DatabaseOPH().selectOPH();
-    List<TAttendanceSchema> _listAttendance =
+    List<OPH> listOPH0 = await DatabaseOPH().selectOPH();
+    List<TAttendanceSchema> listAttendance0 =
         await DatabaseAttendance().selectEmployeeAttendance();
 
-    List<SPB> _listSPB = await DatabaseSPB().selectSPB();
-    List<SPBDetail> _listSPBDetail =
+    List<SPB> listSPB0 = await DatabaseSPB().selectSPB();
+    List<SPBDetail> listSPBDetail0 =
         await DatabaseSPBDetail().selectSPBDetail();
-    List<SPBLoader> _listSPBLoader =
+    List<SPBLoader> listSPBLoader0 =
         await DatabaseSPBLoader().selectSPBLoader();
 
-    if (_listOPH.isNotEmpty && _listSPB.isNotEmpty) {
+    if (listOPH0.isNotEmpty && listSPB0.isNotEmpty) {
       _dialogService.showLoadingDialog(title: "Upload Data Kerani");
       // PROSES BC
       List<OPH> photo = await DatabaseOPH().selectOPHPhoto();
@@ -175,13 +177,13 @@ class KeraniNotifier extends ChangeNotifier {
         List<String> mapListOPH = [];
         List<String> mapListAttendance = [];
 
-        for (int i = 0; i < _listOPH.length; i++) {
-          String jsonString = jsonEncode(_listOPH[i]);
+        for (int i = 0; i < listOPH0.length; i++) {
+          String jsonString = jsonEncode(listOPH0[i]);
           mapListOPH.add("\"$i\":$jsonString");
         }
 
-        for (int i = 0; i < _listAttendance.length; i++) {
-          String jsonString = jsonEncode(_listAttendance[i]);
+        for (int i = 0; i < listAttendance0.length; i++) {
+          String jsonString = jsonEncode(listAttendance0[i]);
           mapListAttendance.add("\"$i\":$jsonString");
         }
         var stringListOPH = mapListOPH.join(",");
@@ -195,17 +197,17 @@ class KeraniNotifier extends ChangeNotifier {
       List<String> mapListSPBDetail = [];
       List<String> mapListSPBLoader = [];
 
-      for (int i = 0; i < _listSPB.length; i++) {
-        String jsonString = jsonEncode(_listSPB[i]);
+      for (int i = 0; i < listSPB0.length; i++) {
+        String jsonString = jsonEncode(listSPB0[i]);
         mapListSPB.add("\"$i\":$jsonString");
       }
-      for (int i = 0; i < _listSPBDetail.length; i++) {
-        String jsonString = jsonEncode(_listSPBDetail[i]);
+      for (int i = 0; i < listSPBDetail0.length; i++) {
+        String jsonString = jsonEncode(listSPBDetail0[i]);
         mapListSPBDetail.add("\"$i\":$jsonString");
       }
 
-      for (int i = 0; i < _listSPBLoader.length; i++) {
-        String jsonString = jsonEncode(_listSPBLoader[i]);
+      for (int i = 0; i < listSPBLoader0.length; i++) {
+        String jsonString = jsonEncode(listSPBLoader0[i]);
         mapListSPBLoader.add("\"$i\":$jsonString");
       }
 
@@ -623,7 +625,7 @@ class KeraniNotifier extends ChangeNotifier {
     File? fileExport = await FileManagerJson().writeFileJsonKerani();
     if (fileExport != null) {
       FlushBarManager.showFlushBarSuccess(
-          context, "Export Json Berhasil", "${fileExport.path}");
+          context, "Export Json Berhasil", fileExport.path);
     } else {
       FlushBarManager.showFlushBarWarning(
           context, "Export Json", "Belum ada transaksi OPH dan SPB");

@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'dart:developer';
 
 import 'package:epms/base/common/locator.dart';
@@ -13,51 +15,51 @@ import 'package:epms/model/oph_supervise.dart';
 import 'package:flutter/material.dart';
 
 class DetailSuperviseHarvestNotifier extends ChangeNotifier {
-  NavigatorService _navigationService = locator<NavigatorService>();
+  final NavigatorService _navigationService = locator<NavigatorService>();
 
   NavigatorService get navigationService => _navigationService;
 
-  DialogService _dialogService = locator<DialogService>();
+  final DialogService _dialogService = locator<DialogService>();
 
   DialogService get dialogService => _dialogService;
 
-  TextEditingController _bunchesRipe = TextEditingController();
+  final TextEditingController _bunchesRipe = TextEditingController();
 
   TextEditingController get bunchesRipe => _bunchesRipe;
 
-  TextEditingController _bunchesOverRipe = TextEditingController();
+  final TextEditingController _bunchesOverRipe = TextEditingController();
 
   TextEditingController get bunchesOverRipe => _bunchesOverRipe;
 
-  TextEditingController _bunchesHalfRipe = TextEditingController();
+  final TextEditingController _bunchesHalfRipe = TextEditingController();
 
   TextEditingController get bunchesHalfRipe => _bunchesHalfRipe;
 
-  TextEditingController _bunchesUnRipe = TextEditingController();
+  final TextEditingController _bunchesUnRipe = TextEditingController();
 
   TextEditingController get bunchesUnRipe => _bunchesUnRipe;
 
-  TextEditingController _bunchesAbnormal = TextEditingController();
+  final TextEditingController _bunchesAbnormal = TextEditingController();
 
   TextEditingController get bunchesAbnormal => _bunchesAbnormal;
 
-  TextEditingController _bunchesEmpty = TextEditingController();
+  final TextEditingController _bunchesEmpty = TextEditingController();
 
   TextEditingController get bunchesEmpty => _bunchesEmpty;
 
-  TextEditingController _looseFruits = TextEditingController();
+  final TextEditingController _looseFruits = TextEditingController();
 
   TextEditingController get looseFruits => _looseFruits;
 
-  TextEditingController _bunchesTotal = TextEditingController();
+  final TextEditingController _bunchesTotal = TextEditingController();
 
   TextEditingController get bunchesTotal => _bunchesTotal;
 
-  TextEditingController _bunchesNotSent = TextEditingController();
+  final TextEditingController _bunchesNotSent = TextEditingController();
 
   TextEditingController get bunchesNotSent => _bunchesNotSent;
 
-  TextEditingController _notesOPH = TextEditingController();
+  final TextEditingController _notesOPH = TextEditingController();
 
   TextEditingController get notesOPH => _notesOPH;
 
@@ -129,7 +131,7 @@ class DetailSuperviseHarvestNotifier extends ChangeNotifier {
       BuildContext context, TextEditingController textEditingController) {
     if (textEditingController.text.isEmpty ||
         textEditingController.text == "0") {
-      textEditingController.value = TextEditingValue(text: "0");
+      textEditingController.value = const TextEditingValue(text: "0");
       textEditingController.selection = TextSelection.fromPosition(
           TextPosition(offset: textEditingController.text.length));
     } else {
@@ -202,7 +204,7 @@ class DetailSuperviseHarvestNotifier extends ChangeNotifier {
   Future getCamera(BuildContext context) async {
     String? picked = await CameraService.getImageByCamera(context);
     if (picked != null) {
-      this.ophSupervise?.supervisiPhoto = picked;
+      ophSupervise?.supervisiPhoto = picked;
       notifyListeners();
     }
   }

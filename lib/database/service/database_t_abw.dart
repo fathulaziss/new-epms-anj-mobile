@@ -38,10 +38,10 @@ class DatabaseTABWSchema {
     // }
     // return count;
     Batch batch = db.batch();
-    object.forEach((val) {
+    for (var val in object) {
       TABWSchema tabwSchema = val;
       batch.insert(tABWSchemaTable, tabwSchema.toJson());
-    });
+    }
     List<Object?> i = await batch.commit();
     return i.length;
   }

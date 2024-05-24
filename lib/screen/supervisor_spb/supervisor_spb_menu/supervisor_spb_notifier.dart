@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously, avoid_print
+
 import 'dart:convert';
 import 'dart:io';
 
@@ -31,11 +33,11 @@ import 'package:open_settings/open_settings.dart';
 import 'package:provider/provider.dart';
 
 class SupervisorSPBNotifier extends ChangeNotifier {
-  NavigatorService _navigationService = locator<NavigatorService>();
+  final NavigatorService _navigationService = locator<NavigatorService>();
 
   NavigatorService get navigationService => _navigationService;
 
-  DialogService _dialogService = locator<DialogService>();
+  final DialogService _dialogService = locator<DialogService>();
 
   DialogService get dialogService => _dialogService;
 
@@ -59,22 +61,22 @@ class SupervisorSPBNotifier extends ChangeNotifier {
 
   doUpload() async {
     _dialogService.popDialog();
-    List<SPBSupervise> _listOPHSupervise =
+    List<SPBSupervise> listOPHSupervise =
         await DatabaseSPBSupervise().selectSPBSupervise();
-    List<TBSLuar> _listTBSLuarGrading = await DatabaseTBSLuar().selectTBSLuar();
+    List<TBSLuar> listTBSLuarGrading = await DatabaseTBSLuar().selectTBSLuar();
 
-    if (_listOPHSupervise.isNotEmpty || _listTBSLuarGrading.isNotEmpty) {
+    if (listOPHSupervise.isNotEmpty || listTBSLuarGrading.isNotEmpty) {
       List<String> mapListOPHSupervise = [];
       List<String> mapListTBSLuarGrading = [];
 
-      for (int i = 0; i < _listOPHSupervise.length; i++) {
-        String jsonString = jsonEncode(_listOPHSupervise[i]);
+      for (int i = 0; i < listOPHSupervise.length; i++) {
+        String jsonString = jsonEncode(listOPHSupervise[i]);
         mapListOPHSupervise.add("\"$i\":$jsonString");
       }
 
-      for (int i = 0; i < _listTBSLuarGrading.length; i++) {
+      for (int i = 0; i < listTBSLuarGrading.length; i++) {
         // _listTBSLuarGrading[i].formType = 2;
-        String jsonString = jsonEncode(_listTBSLuarGrading[i]);
+        String jsonString = jsonEncode(listTBSLuarGrading[i]);
         mapListTBSLuarGrading.add("\"$i\":$jsonString");
       }
 
@@ -322,7 +324,7 @@ class SupervisorSPBNotifier extends ChangeNotifier {
     File? fileExport = await FileManagerJson().writeFileJsonSupervisiSPB();
     if (fileExport != null) {
       FlushBarManager.showFlushBarSuccess(
-          context, "Export Json Berhasil", "${fileExport.path}");
+          context, "Export Json Berhasil", fileExport.path);
     } else {
       FlushBarManager.showFlushBarWarning(
           context, "Export Json", "Belum ada Transaksi Supervisi SPB");

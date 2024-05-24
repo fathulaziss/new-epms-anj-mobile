@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class SupervisorTBSLuarHistoryScreen extends StatefulWidget {
-  const SupervisorTBSLuarHistoryScreen({Key? key}) : super(key: key);
+  const SupervisorTBSLuarHistoryScreen({super.key});
 
   @override
   State<SupervisorTBSLuarHistoryScreen> createState() =>
@@ -33,7 +33,7 @@ class _SupervisorTBSLuarHistoryScreenState
           data: Style.mediaQueryText(context),
           child: Scaffold(
             appBar: AppBar(
-              title: Text("Laporan Supervisi TBS Luar"),
+              title: const Text("Laporan Supervisi TBS Luar"),
             ),
             body: Padding(
               padding: const EdgeInsets.all(8.0),
@@ -45,15 +45,15 @@ class _SupervisorTBSLuarHistoryScreenState
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("Tanggal:"),
-                          Text("${TimeManager.dateWithDash(DateTime.now())}")
+                          const Text("Tanggal:"),
+                          Text(TimeManager.dateWithDash(DateTime.now()))
                         ],
                       ),
-                      SizedBox(height: 14),
+                      const SizedBox(height: 14),
                     ],
                   ),
                 ),
-                SizedBox(height: 14),
+                const SizedBox(height: 14),
                 if (notifier.listTBSLuarSupervise.isEmpty)
                   Container(
                       alignment: Alignment.center,
@@ -88,46 +88,46 @@ class _SupervisorTBSLuarHistoryScreenState
                                       ),
                                     ],
                                   ),
-                                  SizedBox(height: 8),
+                                  const SizedBox(height: 8),
                                   Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Text("Total Janjang:"),
+                                      const Text("Total Janjang:"),
                                       Text(
                                           "${notifier.listTBSLuarSupervise[index].bunchesTotal} Janjang"),
                                     ],
                                   ),
-                                  SizedBox(height: 8),
+                                  const SizedBox(height: 8),
                                   Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Text("Potongan:"),
+                                      const Text("Potongan:"),
                                       Text(
                                           "${notifier.listTBSLuarSupervise[index].deduction} Janjang"),
                                     ],
                                   ),
-                                  SizedBox(height: 8),
+                                  const SizedBox(height: 8),
                                   Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Text("Supir:"),
+                                      const Text("Supir:"),
                                       Text(
                                           "${notifier.listTBSLuarSupervise[index].driverName}")
                                     ],
                                   ),
-                                  SizedBox(height: 8),
+                                  const SizedBox(height: 8),
                                   Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Text("No Kendaraan:"),
+                                        const Text("No Kendaraan:"),
                                         Text(
                                             "${notifier.listTBSLuarSupervise[index].licenseNumber} "),
                                       ]),
-                                  SizedBox(height: 8),
+                                  const SizedBox(height: 8),
                                   Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,

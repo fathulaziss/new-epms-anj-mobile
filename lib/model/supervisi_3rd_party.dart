@@ -12,10 +12,10 @@ class Supervisi3rdParty {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['sortasi_id'] = this.sortasiId;
-    data['spb_id'] = this.spbId;
-    data['grading_date'] = this.gradingDate;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['sortasi_id'] = sortasiId;
+    data['spb_id'] = spbId;
+    data['grading_date'] = gradingDate;
     return data;
   }
 }

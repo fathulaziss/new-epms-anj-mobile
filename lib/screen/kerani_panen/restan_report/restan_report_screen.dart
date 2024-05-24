@@ -5,12 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class RestanReportScreen extends StatefulWidget {
+  const RestanReportScreen({super.key, required this.method});
+
   final String method;
 
-  const RestanReportScreen({Key? key, required this.method}) : super(key: key);
-
   @override
-  _RestanReportScreenState createState() => _RestanReportScreenState();
+  State<RestanReportScreen> createState() => _RestanReportScreenState();
 }
 
 class _RestanReportScreenState extends State<RestanReportScreen> {
@@ -28,7 +28,7 @@ class _RestanReportScreenState extends State<RestanReportScreen> {
           data: Style.mediaQueryText(context),
           child: Scaffold(
             appBar: AppBar(
-              title: Text("Laporan Restan Hari Ini"),
+              title: const Text("Laporan Restan Hari Ini"),
             ),
             body: Padding(
               padding: const EdgeInsets.all(0.0),
@@ -40,25 +40,25 @@ class _RestanReportScreenState extends State<RestanReportScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("Tanggal:"),
-                          Text("${TimeManager.todayWithSlash(DateTime.now())}")
+                          const Text("Tanggal:"),
+                          Text(TimeManager.todayWithSlash(DateTime.now()))
                         ],
                       ),
-                      SizedBox(height: 14),
+                      const SizedBox(height: 14),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("Divisi:"),
+                          const Text("Divisi:"),
                           Flexible(
-                            child: Container(
+                            child: SizedBox(
                               width: 160,
                               child: DropdownButton(
                                 isExpanded: true,
                                 value: restanReport.divisionValue,
                                 items: restanReport.listDivision.map((value) {
                                   return DropdownMenuItem(
-                                    child: Text(value),
                                     value: value,
+                                    child: Text(value),
                                   );
                                 }).toList(),
                                 onChanged: (String? value) {
@@ -71,21 +71,21 @@ class _RestanReportScreenState extends State<RestanReportScreen> {
                           ),
                         ],
                       ),
-                      SizedBox(height: 14),
+                      const SizedBox(height: 14),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("Blok:"),
+                          const Text("Blok:"),
                           Flexible(
-                            child: Container(
+                            child: SizedBox(
                               width: 160,
                               child: DropdownButton(
                                 isExpanded: true,
                                 value: restanReport.blockValue,
                                 items: restanReport.listBlock.map((value) {
                                   return DropdownMenuItem(
-                                    child: Text(value),
                                     value: value,
+                                    child: Text(value),
                                   );
                                 }).toList(),
                                 onChanged: (String? value) {
@@ -98,34 +98,34 @@ class _RestanReportScreenState extends State<RestanReportScreen> {
                           ),
                         ],
                       ),
-                      SizedBox(height: 14),
+                      const SizedBox(height: 14),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("Jumlah OPH:"),
+                          const Text("Jumlah OPH:"),
                           Text("${restanReport.countOPHRestan}")
                         ],
                       ),
-                      SizedBox(height: 14),
+                      const SizedBox(height: 14),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("Total Janjang:"),
+                          const Text("Total Janjang:"),
                           Text("${restanReport.totalBunches}")
                         ],
                       ),
-                      SizedBox(height: 14),
+                      const SizedBox(height: 14),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("Total Brondolan (Kg):"),
+                          const Text("Total Brondolan (Kg):"),
                           Text("${restanReport.totalLooseFruits}")
                         ],
                       ),
                     ],
                   ),
                 ),
-                Divider(),
+                const Divider(),
                 restanReport.listRestanResult.isEmpty
                     ? Container(
                         alignment: Alignment.center,
@@ -159,7 +159,7 @@ class _RestanReportScreenState extends State<RestanReportScreen> {
                                               "${restanReport.listRestanResult[index].bunchesTotal} Janjang"),
                                         ],
                                       ),
-                                      SizedBox(height: 12),
+                                      const SizedBox(height: 12),
                                       Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
@@ -172,7 +172,7 @@ class _RestanReportScreenState extends State<RestanReportScreen> {
                                               "Kartu: ${restanReport.listRestanResult[index].ophCardId}"),
                                         ],
                                       ),
-                                      SizedBox(height: 12),
+                                      const SizedBox(height: 12),
                                       Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
@@ -181,7 +181,7 @@ class _RestanReportScreenState extends State<RestanReportScreen> {
                                                 "${restanReport.listRestanResult[index].createdDate} ${restanReport.listRestanResult[index].createdTime}"),
                                             Text(
                                               "${TimeManager.countDaysRestan(restanReport.listRestanResult[index].createdDate!)} Hari",
-                                              style: TextStyle(
+                                              style: const TextStyle(
                                                   color: Colors.red,
                                                   fontWeight: FontWeight.bold),
                                             )

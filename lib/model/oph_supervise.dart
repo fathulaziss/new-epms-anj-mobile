@@ -110,43 +110,43 @@ class OPHSupervise {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['oph_supervisi_id'] = this.ophSupervisiId;
-    data['supervisi_estate_code'] = this.supervisiEstateCode;
-    data['supervisi_block_code'] = this.supervisiBlockCode;
-    data['supervisi_tph_code'] = this.supervisiTphCode;
-    data['oph_id'] = this.ophId;
-    data['supervisi_employee_code'] = this.supervisiEmployeeCode;
-    data['supervisi_employee_name'] = this.supervisiEmployeeName;
-    data['supervisi_lat'] = this.supervisiLat;
-    data['supervisi_long'] = this.supervisiLong;
-    data['supervisi_mandor_employee_code'] = this.supervisiMandorEmployeeCode;
-    data['supervisi_mandor_employee_name'] = this.supervisiMandorEmployeeName;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['oph_supervisi_id'] = ophSupervisiId;
+    data['supervisi_estate_code'] = supervisiEstateCode;
+    data['supervisi_block_code'] = supervisiBlockCode;
+    data['supervisi_tph_code'] = supervisiTphCode;
+    data['oph_id'] = ophId;
+    data['supervisi_employee_code'] = supervisiEmployeeCode;
+    data['supervisi_employee_name'] = supervisiEmployeeName;
+    data['supervisi_lat'] = supervisiLat;
+    data['supervisi_long'] = supervisiLong;
+    data['supervisi_mandor_employee_code'] = supervisiMandorEmployeeCode;
+    data['supervisi_mandor_employee_name'] = supervisiMandorEmployeeName;
     data['supervisi_kerani_panen_employee_code'] =
-        this.supervisiKeraniPanenEmployeeCode;
+        supervisiKeraniPanenEmployeeCode;
     data['supervisi_kerani_panen_employee_name'] =
-        this.supervisiKeraniPanenEmployeeName;
-    data['supervisi_pemanen_employee_name'] = this.supervisiPemanenEmployeeName;
-    data['supervisi_pemanen_employee_code'] = this.supervisiPemanenEmployeeCode;
-    data['supervisi_photo'] = this.supervisiPhoto;
-    data['supervisi_division_code'] = this.supervisiDivisionCode;
-    data['bunches_ripe'] = this.bunchesRipe;
-    data['bunches_overripe'] = this.bunchesOverripe;
-    data['bunches_halfripe'] = this.bunchesHalfripe;
-    data['bunches_unripe'] = this.bunchesUnripe;
-    data['bunches_abnormal'] = this.bunchesAbnormal;
-    data['bunches_empty'] = this.bunchesEmpty;
-    data['loose_fruits'] = this.looseFruits;
-    data['bunches_total'] = this.bunchesTotal;
-    data['bunches_not_sent'] = this.bunchesNotSent;
-    data['supervisi_notes'] = this.supervisiNotes;
-    data['created_by'] = this.createdBy;
-    data['supervisi_date'] = this.supervisiDate;
-    data['created_date'] = this.createdDate;
-    data['created_time'] = this.createdTime;
-    data['updated_by'] = this.updatedBy;
-    data['updated_date'] = this.updatedDate;
-    data['updated_time'] = this.updatedTime;
+        supervisiKeraniPanenEmployeeName;
+    data['supervisi_pemanen_employee_name'] = supervisiPemanenEmployeeName;
+    data['supervisi_pemanen_employee_code'] = supervisiPemanenEmployeeCode;
+    data['supervisi_photo'] = supervisiPhoto;
+    data['supervisi_division_code'] = supervisiDivisionCode;
+    data['bunches_ripe'] = bunchesRipe;
+    data['bunches_overripe'] = bunchesOverripe;
+    data['bunches_halfripe'] = bunchesHalfripe;
+    data['bunches_unripe'] = bunchesUnripe;
+    data['bunches_abnormal'] = bunchesAbnormal;
+    data['bunches_empty'] = bunchesEmpty;
+    data['loose_fruits'] = looseFruits;
+    data['bunches_total'] = bunchesTotal;
+    data['bunches_not_sent'] = bunchesNotSent;
+    data['supervisi_notes'] = supervisiNotes;
+    data['created_by'] = createdBy;
+    data['supervisi_date'] = supervisiDate;
+    data['created_date'] = createdDate;
+    data['created_time'] = createdTime;
+    data['updated_by'] = updatedBy;
+    data['updated_date'] = updatedDate;
+    data['updated_time'] = updatedTime;
     return data;
   }
 

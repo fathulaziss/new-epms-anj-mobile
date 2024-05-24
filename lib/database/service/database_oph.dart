@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:epms/common_manager/time_manager.dart';
 import 'package:epms/database/entity/oph_entity.dart';
 import 'package:epms/database/helper/database_helper.dart';
@@ -73,7 +75,7 @@ class DatabaseOPH {
   Future<List<OPH>> selectOPH() async {
     Database db = await DatabaseHelper().database;
     var mapList = await db.query(tOPHSchemaListTable,
-        orderBy: "${OPHEntity.createdTime}", groupBy: "${OPHEntity.ophId}");
+        orderBy: OPHEntity.createdTime, groupBy: OPHEntity.ophId);
     List<OPH> list = [];
     for (int i = 0; i < mapList.length; i++) {
       OPH oph = OPH.fromJson(mapList[i]);
@@ -124,8 +126,8 @@ class DatabaseOPH {
   Future<OPH?> selectOPHLast() async {
     OPH? ophLast;
     Database db = await DatabaseHelper().database;
-    var mapList = await db.query(tOPHSchemaListTable,
-        orderBy: "${OPHEntity.createdTime}");
+    var mapList =
+        await db.query(tOPHSchemaListTable, orderBy: OPHEntity.createdTime);
     if (mapList.isNotEmpty) {
       ophLast = OPH.fromJson(mapList.last);
     }

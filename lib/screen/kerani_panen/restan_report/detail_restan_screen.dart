@@ -4,13 +4,12 @@ import 'package:epms/model/laporan_restan.dart';
 import 'package:flutter/material.dart';
 
 class DetailRestanScreen extends StatefulWidget {
+  const DetailRestanScreen({super.key, required this.laporanRestan});
+
   final LaporanRestan laporanRestan;
 
-  const DetailRestanScreen({Key? key, required this.laporanRestan})
-      : super(key: key);
-
   @override
-  _DetailRestanScreenState createState() => _DetailRestanScreenState();
+  State<DetailRestanScreen> createState() => _DetailRestanScreenState();
 }
 
 class _DetailRestanScreenState extends State<DetailRestanScreen> {
@@ -45,7 +44,7 @@ class _DetailRestanScreenState extends State<DetailRestanScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text("ID OPH:"),
+                        const Text("ID OPH:"),
                         Text(
                           "${widget.laporanRestan.ophId}",
                           style: Style.textBold16,
@@ -58,8 +57,8 @@ class _DetailRestanScreenState extends State<DetailRestanScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text("Tanggal:"),
-                        Text("${widget.laporanRestan.createdDate ?? ""}")
+                        const Text("Tanggal:"),
+                        Text(widget.laporanRestan.createdDate ?? "")
                       ],
                     ),
                   ),
@@ -68,7 +67,7 @@ class _DetailRestanScreenState extends State<DetailRestanScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text("Jenis Pekerja:"),
+                        const Text("Jenis Pekerja:"),
                         Text(
                             "${ValueService.typeOfFormToText(widget.laporanRestan.ophHarvestingType)}")
                       ],
@@ -79,7 +78,7 @@ class _DetailRestanScreenState extends State<DetailRestanScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text("Apakah Panen Mekanis?"),
+                        const Text("Apakah Panen Mekanis?"),
                         Text(
                             "${ValueService.harvestingType(widget.laporanRestan.ophHarvestingMethod)}")
                       ],
@@ -90,7 +89,7 @@ class _DetailRestanScreenState extends State<DetailRestanScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Expanded(
+                        const Expanded(
                           flex: 3,
                           child: Text("Kemandoran:"),
                         ),
@@ -109,7 +108,7 @@ class _DetailRestanScreenState extends State<DetailRestanScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Expanded(
+                        const Expanded(
                           flex: 3,
                           child: Text("Pekerja:"),
                         ),
@@ -127,14 +126,14 @@ class _DetailRestanScreenState extends State<DetailRestanScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Expanded(
+                        const Expanded(
                           flex: 3,
                           child: Text("Customer:"),
                         ),
                         Expanded(
                             flex: 4,
                             child: Text(
-                              "${widget.laporanRestan.ophCustomerCode ?? ""}",
+                              widget.laporanRestan.ophCustomerCode ?? "",
                               textAlign: TextAlign.end,
                             ))
                       ],
@@ -145,14 +144,14 @@ class _DetailRestanScreenState extends State<DetailRestanScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Expanded(
+                        const Expanded(
                           flex: 3,
                           child: Text("Estate:"),
                         ),
                         Expanded(
                             flex: 4,
                             child: Text(
-                              "${widget.laporanRestan.ophEstateCode ?? ""}",
+                              widget.laporanRestan.ophEstateCode ?? "",
                               textAlign: TextAlign.end,
                             ))
                       ],
@@ -163,14 +162,14 @@ class _DetailRestanScreenState extends State<DetailRestanScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Expanded(
+                        const Expanded(
                           flex: 3,
                           child: Text("Divisi:"),
                         ),
                         Expanded(
                             flex: 4,
                             child: Text(
-                              "${widget.laporanRestan.ophDivisionCode ?? ""}",
+                              widget.laporanRestan.ophDivisionCode ?? "",
                               textAlign: TextAlign.end,
                             ))
                       ],
@@ -181,14 +180,14 @@ class _DetailRestanScreenState extends State<DetailRestanScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Expanded(
+                        const Expanded(
                           flex: 3,
                           child: Text("Blok:"),
                         ),
                         Expanded(
                             flex: 4,
                             child: Text(
-                              "${widget.laporanRestan.ophBlockCode ?? ""}",
+                              widget.laporanRestan.ophBlockCode ?? "",
                               textAlign: TextAlign.end,
                             ))
                       ],
@@ -199,7 +198,7 @@ class _DetailRestanScreenState extends State<DetailRestanScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Expanded(
+                        const Expanded(
                           flex: 4,
                           child: Text("Estimasi berat OPH (Kg):"),
                         ),
@@ -212,7 +211,7 @@ class _DetailRestanScreenState extends State<DetailRestanScreen> {
                       ],
                     ),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Row(
@@ -223,29 +222,29 @@ class _DetailRestanScreenState extends State<DetailRestanScreen> {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text("TPH"),
-                              Text("${widget.laporanRestan.ophTphCode ?? ""}")
+                              const Text("TPH"),
+                              Text(widget.laporanRestan.ophTphCode ?? "")
                             ],
                           ),
                         ),
-                        SizedBox(width: 80),
+                        const SizedBox(width: 80),
                         Flexible(
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text("Kartu OPH"),
-                              Text("${widget.laporanRestan.ophCardId ?? ""}")
+                              const Text("Kartu OPH"),
+                              Text(widget.laporanRestan.ophCardId ?? "")
                             ],
                           ),
                         )
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   // Container(
@@ -285,23 +284,23 @@ class _DetailRestanScreenState extends State<DetailRestanScreen> {
                   Table(
                     defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                     children: <TableRow>[
-                      TableRow(
+                      const TableRow(
                         children: <Widget>[
-                          Container(
+                          SizedBox(
                             width: 110,
                             child: Column(children: [
                               Text("Masak"),
                               SizedBox(height: 8),
                             ]),
                           ),
-                          Container(
+                          SizedBox(
                             width: 110,
                             child: Column(children: [
                               Text("Lewat Masak"),
                               SizedBox(height: 8),
                             ]),
                           ),
-                          Container(
+                          SizedBox(
                             width: 110,
                             child: Column(children: [
                               Text("Mengkal"),
@@ -312,55 +311,55 @@ class _DetailRestanScreenState extends State<DetailRestanScreen> {
                       ),
                       TableRow(
                         children: <Widget>[
-                          Container(
+                          SizedBox(
                             width: 110,
                             child: Column(children: [
                               Text(
                                 "${widget.laporanRestan.bunchesRipe}",
-                                style: TextStyle(fontSize: 18),
+                                style: const TextStyle(fontSize: 18),
                               ),
-                              SizedBox(height: 20),
+                              const SizedBox(height: 20),
                             ]),
                           ),
-                          Container(
+                          SizedBox(
                             width: 110,
                             child: Column(children: [
                               Text(
                                 "${widget.laporanRestan.bunchesOverripe}",
-                                style: TextStyle(fontSize: 18),
+                                style: const TextStyle(fontSize: 18),
                               ),
-                              SizedBox(height: 20),
+                              const SizedBox(height: 20),
                             ]),
                           ),
-                          Container(
+                          SizedBox(
                             width: 110,
                             child: Column(children: [
                               Text(
                                 "${widget.laporanRestan.bunchesHalfripe}",
-                                style: TextStyle(fontSize: 18),
+                                style: const TextStyle(fontSize: 18),
                               ),
-                              SizedBox(height: 20),
+                              const SizedBox(height: 20),
                             ]),
                           ),
                         ],
                       ),
-                      TableRow(
+                      const TableRow(
                         children: <Widget>[
-                          Container(
+                          SizedBox(
                             width: 110,
                             child: Column(children: [
                               Text("Mentah"),
                               SizedBox(height: 8),
                             ]),
                           ),
-                          Container(
+                          SizedBox(
                             width: 110,
                             child: Column(children: [
                               Text("Tidak Normal"),
                               SizedBox(height: 8),
                             ]),
                           ),
-                          Container(
+                          SizedBox(
                             width: 110,
                             child: Column(children: [
                               Text("Janjang Kosong"),
@@ -371,52 +370,52 @@ class _DetailRestanScreenState extends State<DetailRestanScreen> {
                       ),
                       TableRow(
                         children: <Widget>[
-                          Container(
+                          SizedBox(
                             width: 110,
                             child: Column(children: [
                               Text("${widget.laporanRestan.bunchesUnripe}",
-                                  style: TextStyle(fontSize: 18)),
-                              SizedBox(height: 20),
+                                  style: const TextStyle(fontSize: 18)),
+                              const SizedBox(height: 20),
                             ]),
                           ),
-                          Container(
+                          SizedBox(
                             width: 110,
                             child: Column(children: [
                               Text("${widget.laporanRestan.bunchesAbnormal}",
-                                  style: TextStyle(fontSize: 18)),
-                              SizedBox(height: 20),
+                                  style: const TextStyle(fontSize: 18)),
+                              const SizedBox(height: 20),
                             ]),
                           ),
-                          Container(
+                          SizedBox(
                             width: 110,
                             child: Column(children: [
                               Text("${widget.laporanRestan.bunchesEmpty}",
-                                  style: TextStyle(fontSize: 18)),
-                              SizedBox(height: 20),
+                                  style: const TextStyle(fontSize: 18)),
+                              const SizedBox(height: 20),
                             ]),
                           ),
                         ],
                       ),
-                      TableRow(
+                      const TableRow(
                         children: <Widget>[
-                          Container(
+                          SizedBox(
                             width: 110,
                             child: Column(children: [
                               Text("Total Janjang"),
                               SizedBox(height: 8),
                             ]),
                           ),
-                          Container(
+                          SizedBox(
                             width: 110,
                             child: Column(children: [
                               Text("Brondolan (Kg)"),
                               SizedBox(height: 8),
                             ]),
                           ),
-                          Container(
+                          SizedBox(
                             width: 110,
                             child: Column(children: [
-                              Container(
+                              SizedBox(
                                   width: 100,
                                   child: Text(
                                     "Janjang Tidak Dikirim",
@@ -429,40 +428,40 @@ class _DetailRestanScreenState extends State<DetailRestanScreen> {
                       ),
                       TableRow(
                         children: <Widget>[
-                          Container(
+                          SizedBox(
                             width: 110,
                             child: Column(children: [
                               Text("${widget.laporanRestan.bunchesTotal}",
-                                  style: TextStyle(fontSize: 18)),
-                              SizedBox(height: 20),
+                                  style: const TextStyle(fontSize: 18)),
+                              const SizedBox(height: 20),
                             ]),
                           ),
-                          Container(
+                          SizedBox(
                             width: 110,
                             child: Column(children: [
                               Text("${widget.laporanRestan.looseFruits}",
-                                  style: TextStyle(fontSize: 18)),
-                              SizedBox(height: 20),
+                                  style: const TextStyle(fontSize: 18)),
+                              const SizedBox(height: 20),
                             ]),
                           ),
-                          Container(
+                          SizedBox(
                             width: 110,
                             child: Column(children: [
                               Text("${widget.laporanRestan.bunchesNotSent}",
-                                  style: TextStyle(fontSize: 18)),
-                              SizedBox(height: 20),
+                                  style: const TextStyle(fontSize: 18)),
+                              const SizedBox(height: 20),
                             ]),
                           ),
                         ],
                       ),
                     ],
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Column(children: [
                     Text(
                         "Catatan (${50 - (widget.laporanRestan.ophNotes?.length ?? 0)})"),
-                    SizedBox(height: 8),
-                    Text("${widget.laporanRestan.ophNotes ?? ""}")
+                    const SizedBox(height: 8),
+                    Text(widget.laporanRestan.ophNotes ?? "")
                   ]),
                 ]),
               ),

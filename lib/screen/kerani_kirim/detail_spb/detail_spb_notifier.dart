@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:epms/base/common/locator.dart';
 import 'package:epms/base/common/routes.dart';
 import 'package:epms/common_manager/dialog_services.dart';
@@ -21,11 +23,11 @@ import 'package:flutter/material.dart';
 import 'package:nfc_manager/nfc_manager.dart';
 
 class DetailSPBNotifier extends ChangeNotifier {
-  NavigatorService _navigationService = locator<NavigatorService>();
+  final NavigatorService _navigationService = locator<NavigatorService>();
 
   NavigatorService get navigationService => _navigationService;
 
-  DialogService _dialogService = locator<DialogService>();
+  final DialogService _dialogService = locator<DialogService>();
 
   DialogService get dialogService => _dialogService;
 
@@ -83,7 +85,7 @@ class DetailSPBNotifier extends ChangeNotifier {
             .employeeName;
       }
     }
-    Future.delayed(Duration(seconds: 1), () {
+    Future.delayed(const Duration(seconds: 1), () {
       NfcManager.instance.stopSession();
     });
     _dialogService.popDialog();
@@ -94,7 +96,7 @@ class DetailSPBNotifier extends ChangeNotifier {
     _listMVendorSchema = await DatabaseMVendorSchema().selectMVendorSchema();
     _listDriver = await DatabaseMEmployeeSchema().selectMEmployeeSchema();
     if (method == "BACA") {
-      await Future.delayed(Duration(milliseconds: 50));
+      await Future.delayed(const Duration(milliseconds: 50));
       SPBCardManager().readSPBCard(context, onSuccessRead, onErrorRead);
       _dialogService.showNFCDialog(
           title: "Tempel Kartu NFC",
@@ -121,7 +123,7 @@ class DetailSPBNotifier extends ChangeNotifier {
 
   onErrorRead(BuildContext context, String message) {
     _dialogService.popDialog();
-    Future.delayed(Duration(seconds: 1), () {
+    Future.delayed(const Duration(seconds: 1), () {
       NfcManager.instance.stopSession();
     });
     FlushBarManager.showFlushBarWarning(context, "Gagal Membaca", message);
@@ -130,7 +132,7 @@ class DetailSPBNotifier extends ChangeNotifier {
   onPressCancelRead() {
     _dialogService.popDialog();
     _navigationService.push(Routes.HOME_PAGE);
-    Future.delayed(Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 2), () {
       NfcManager.instance.stopSession();
     });
   }

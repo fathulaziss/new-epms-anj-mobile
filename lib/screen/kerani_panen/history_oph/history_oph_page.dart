@@ -4,18 +4,20 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class HistoryOPHPage extends StatefulWidget {
+  const HistoryOPHPage({super.key, required this.method});
+
   final String method;
-  const HistoryOPHPage({Key? key, required this.method}) : super(key: key);
 
   @override
-  _HistoryOPHPageState createState() => _HistoryOPHPageState();
+  State<HistoryOPHPage> createState() => _HistoryOPHPageState();
 }
 
 class _HistoryOPHPageState extends State<HistoryOPHPage> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-        create: (context) => HistoryOPHNotifier(),
-        child: HistoryOPHScreen(method: widget.method));
+      create: (context) => HistoryOPHNotifier(),
+      child: HistoryOPHScreen(method: widget.method),
+    );
   }
 }

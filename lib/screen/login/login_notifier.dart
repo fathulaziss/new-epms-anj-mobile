@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:developer';
 
 import 'package:epms/app_config.dart';
@@ -47,15 +49,15 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 
 class LoginNotifier extends ChangeNotifier {
-  GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   GlobalKey<FormState> get formKey => _formKey;
 
-  NavigatorService _navigationService = locator<NavigatorService>();
+  final NavigatorService _navigationService = locator<NavigatorService>();
 
   NavigatorService get navigationService => _navigationService;
 
-  DialogService _dialogService = locator<DialogService>();
+  final DialogService _dialogService = locator<DialogService>();
 
   DialogService get dialogService => _dialogService;
 
@@ -69,11 +71,11 @@ class LoginNotifier extends ChangeNotifier {
 
   bool get loading => _loading;
 
-  TextEditingController _username = TextEditingController();
+  final TextEditingController _username = TextEditingController();
 
   TextEditingController get username => _username;
 
-  TextEditingController _password = TextEditingController();
+  final TextEditingController _password = TextEditingController();
 
   TextEditingController get password => _password;
 
@@ -215,7 +217,7 @@ class LoginNotifier extends ChangeNotifier {
   onErrorLogin(BuildContext context, String response) {
     _loading = false;
     _dialogService.showNoOptionDialog(
-      subtitle: "$response",
+      subtitle: response,
       title: 'Gagal Login',
       onPress: _dialogService.popDialog,
     );

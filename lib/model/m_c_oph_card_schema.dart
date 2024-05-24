@@ -34,15 +34,15 @@ class MCOPHCardSchema {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['oph_card_id'] = this.ophCardId;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['oph_card_id'] = ophCardId;
     // data['created_by'] = this.createdBy;
     // data['created_date'] = this.createdDate;
     // data['created_time'] = this.createdTime;
     // data['updated_by'] = this.updatedBy;
     // data['updated_date'] = this.updatedDate;
     // data['updated_time'] = this.updatedTime;
-    data['oph_card_division'] = this.ophCardDivision;
+    data['oph_card_division'] = ophCardDivision;
     // data['oph_card_status'] = this.ophCardStatus;
     return data;
   }

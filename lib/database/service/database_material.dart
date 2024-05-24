@@ -27,10 +27,10 @@ class DatabaseMaterial {
     // }
     // return count;
     Batch batch = db.batch();
-    object.forEach((val) {
+    for (var val in object) {
       Materials materials = val;
       batch.insert(tMaterial, materials.toJson());
-    });
+    }
     List<Object?> i = await batch.commit();
     return i.length;
   }

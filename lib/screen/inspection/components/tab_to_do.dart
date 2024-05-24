@@ -24,7 +24,7 @@ class _TabToDoState extends State<TabToDo> {
     return Consumer<InspectionNotifier>(
       builder: (context, provider, _) {
         return Padding(
-          padding: EdgeInsets.all(12),
+          padding: const EdgeInsets.all(12),
           child: provider.listTodoInspection.isNotEmpty
               ? ListView.builder(
                   itemCount: provider.listTodoInspection.length,
@@ -130,7 +130,7 @@ class _TabToDoState extends State<TabToDo> {
                     );
                   },
                 )
-              : Center(child: Text('Belum Ada Data')),
+              : const Center(child: Text('Belum Ada Data')),
         );
       },
     );

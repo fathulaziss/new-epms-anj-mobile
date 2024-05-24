@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print, use_build_context_synchronously
+
 import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
@@ -35,31 +37,31 @@ import 'package:open_settings/open_settings.dart';
 import 'package:provider/provider.dart';
 
 class KeraniKirimNotifier extends ChangeNotifier {
-  NavigatorService _navigationService = locator<NavigatorService>();
+  final NavigatorService _navigationService = locator<NavigatorService>();
 
   NavigatorService get navigationService => _navigationService;
 
-  DialogService _dialogService = locator<DialogService>();
+  final DialogService _dialogService = locator<DialogService>();
 
   DialogService get dialogService => _dialogService;
 
   Future<void> doUpload() async {
     _dialogService.popDialog();
-    List<SPB> _listSPB = await DatabaseSPB().selectSPB();
-    List<SPBDetail> _listSPBDetail =
+    List<SPB> listSPB0 = await DatabaseSPB().selectSPB();
+    List<SPBDetail> listSPBDetail0 =
         await DatabaseSPBDetail().selectSPBDetail();
-    List<SPBLoader> _listSPBLoader =
+    List<SPBLoader> listSPBLoader0 =
         await DatabaseSPBLoader().selectSPBLoader();
 
-    if (_listSPB.isNotEmpty) {
+    if (listSPB0.isNotEmpty) {
       List<String> mapListSPB = [];
       List<String> mapListSPBDetail = [];
       List<String> mapListSPBLoader = [];
       List<Map<String, dynamic>> listFotoSPB = [];
 
-      for (int i = 0; i < _listSPBLoader.length; i++) {
-        final spbDetailByLoaderSpbId = _listSPBDetail
-            .where((element) => element.spbId! == _listSPBLoader[i].spbId!);
+      for (int i = 0; i < listSPBLoader0.length; i++) {
+        final spbDetailByLoaderSpbId = listSPBDetail0
+            .where((element) => element.spbId! == listSPBLoader0[i].spbId!);
         final listSPBDetailTemp =
             List<SPBDetail>.from(spbDetailByLoaderSpbId.map((e) {
           return SPBDetail.fromJson(e.toJson2());
@@ -69,39 +71,39 @@ class KeraniKirimNotifier extends ChangeNotifier {
         if (typeTBS == 3) {
           String jsonString2 = jsonEncode(
             SPBLoader(
-              loaderDestinationType: _listSPBLoader[i].loaderDestinationType,
-              loaderEmployeeCode: _listSPBLoader[i].loaderEmployeeCode,
-              loaderEmployeeName: _listSPBLoader[i].loaderEmployeeName,
-              loaderPercentage: _listSPBLoader[i].loaderPercentage,
-              loaderType: _listSPBLoader[i].loaderType,
-              spbId: "${_listSPBLoader[i].spbId}_2",
-              spbLoaderId: _listSPBLoader[i].spbLoaderId,
+              loaderDestinationType: listSPBLoader0[i].loaderDestinationType,
+              loaderEmployeeCode: listSPBLoader0[i].loaderEmployeeCode,
+              loaderEmployeeName: listSPBLoader0[i].loaderEmployeeName,
+              loaderPercentage: listSPBLoader0[i].loaderPercentage,
+              loaderType: listSPBLoader0[i].loaderType,
+              spbId: "${listSPBLoader0[i].spbId}_2",
+              spbLoaderId: listSPBLoader0[i].spbLoaderId,
             ),
           );
           mapListSPBLoader.add("\"${mapListSPBLoader.length}\":$jsonString2");
           String jsonString1 = jsonEncode(
             SPBLoader(
-              loaderDestinationType: _listSPBLoader[i].loaderDestinationType,
-              loaderEmployeeCode: _listSPBLoader[i].loaderEmployeeCode,
-              loaderEmployeeName: _listSPBLoader[i].loaderEmployeeName,
-              loaderPercentage: _listSPBLoader[i].loaderPercentage,
-              loaderType: _listSPBLoader[i].loaderType,
-              spbId: "${_listSPBLoader[i].spbId}_1",
-              spbLoaderId: _listSPBLoader[i].spbLoaderId,
+              loaderDestinationType: listSPBLoader0[i].loaderDestinationType,
+              loaderEmployeeCode: listSPBLoader0[i].loaderEmployeeCode,
+              loaderEmployeeName: listSPBLoader0[i].loaderEmployeeName,
+              loaderPercentage: listSPBLoader0[i].loaderPercentage,
+              loaderType: listSPBLoader0[i].loaderType,
+              spbId: "${listSPBLoader0[i].spbId}_1",
+              spbLoaderId: listSPBLoader0[i].spbLoaderId,
             ),
           );
           mapListSPBLoader.add("\"${mapListSPBLoader.length}\":$jsonString1");
         } else {
-          String jsonString = jsonEncode(_listSPBLoader[i]);
+          String jsonString = jsonEncode(listSPBLoader0[i]);
           mapListSPBLoader.add("\"${mapListSPBLoader.length}\":$jsonString");
         }
       }
       log('cek mapListSPBLoader : $mapListSPBLoader');
 
-      for (int i = 0; i < _listSPB.length; i++) {
+      for (int i = 0; i < listSPB0.length; i++) {
         // Mapping listSPBDetail
-        final spbDetailBySpbId = _listSPBDetail
-            .where((element) => element.spbId! == _listSPB[i].spbId!);
+        final spbDetailBySpbId = listSPBDetail0
+            .where((element) => element.spbId! == listSPB0[i].spbId!);
         final listSPBDetailTemp =
             List<SPBDetail>.from(spbDetailBySpbId.map((e) {
           return SPBDetail.fromJson(e.toJson2());
@@ -247,8 +249,8 @@ class KeraniKirimNotifier extends ChangeNotifier {
         }
 
         if (typeTBS == 3) {
-          SPB spbPlasmaTemp = _listSPB[i];
-          spbPlasmaTemp.spbId = '${_listSPB[i].spbId}_1';
+          SPB spbPlasmaTemp = listSPB0[i];
+          spbPlasmaTemp.spbId = '${listSPB0[i].spbId}_1';
           spbPlasmaTemp.spbEstateCode = mostEstateCodePlasma;
           spbPlasmaTemp.spbDivisionCode = mostDivisionCodePlasma;
           spbPlasmaTemp.spbTotalOph = totalOphPlasma;
@@ -258,14 +260,14 @@ class KeraniKirimNotifier extends ChangeNotifier {
           mapListSPB.add("\"${mapListSPB.length}\":$jsonStringPlasma");
           listFotoSPB.add(
             {
-              'id': '${_listSPB[i].spbId!.replaceAll(RegExp(r'_1'), '_1')}',
-              'foto': _listSPB[i].spbPhoto,
+              'id': listSPB0[i].spbId!.replaceAll(RegExp(r'_1'), '_1'),
+              'foto': listSPB0[i].spbPhoto,
             },
           );
 
-          SPB spbIntiTemp = _listSPB[i];
+          SPB spbIntiTemp = listSPB0[i];
           spbIntiTemp.spbId =
-              '${_listSPB[i].spbId!.replaceAll(RegExp(r'_1'), '_2')}';
+              listSPB0[i].spbId!.replaceAll(RegExp(r'_1'), '_2');
           spbIntiTemp.spbEstateCode = mostEstateCodeInti;
           spbPlasmaTemp.spbTotalOph = totalOphInti;
           spbPlasmaTemp.spbTotalBunches = totalJanjangInti;
@@ -275,17 +277,17 @@ class KeraniKirimNotifier extends ChangeNotifier {
           mapListSPB.add("\"${mapListSPB.length}\":$jsonStringInti");
           listFotoSPB.add(
             {
-              'id': '${_listSPB[i].spbId!.replaceAll(RegExp(r'_1'), '_2')}',
-              'foto': _listSPB[i].spbPhoto,
+              'id': listSPB0[i].spbId!.replaceAll(RegExp(r'_1'), '_2'),
+              'foto': listSPB0[i].spbPhoto,
             },
           );
         } else {
-          String jsonString = jsonEncode(_listSPB[i]);
+          String jsonString = jsonEncode(listSPB0[i]);
           mapListSPB.add("\"${mapListSPB.length}\":$jsonString");
           listFotoSPB.add(
             {
-              'id': '${_listSPB[i].spbId!}',
-              'foto': _listSPB[i].spbPhoto,
+              'id': listSPB0[i].spbId!,
+              'foto': listSPB0[i].spbPhoto,
             },
           );
         }
@@ -572,7 +574,7 @@ class KeraniKirimNotifier extends ChangeNotifier {
     File? fileExport = await FileManagerJson().writeFileJsonSPB();
     if (fileExport != null) {
       FlushBarManager.showFlushBarSuccess(
-          context, "Export Json Berhasil", "${fileExport.path}");
+          context, "Export Json Berhasil", fileExport.path);
     } else {
       FlushBarManager.showFlushBarWarning(
           context, "Export Json Berhasil", "Belum ada Transaksi SPB");

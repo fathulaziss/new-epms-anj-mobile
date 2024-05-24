@@ -43,10 +43,10 @@ class _DialogAttachmentState extends State<DialogAttachment> {
                 textStyle: const TextStyle(fontSize: 20, color: Colors.white),
               ),
               onPressed: widget.onTapCamera,
-              child: Text("KAMERA",
+              child: const Text("KAMERA",
                   style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
             ),
-            SizedBox(height: 12),
+            const SizedBox(height: 12),
             TextButton(
               style: TextButton.styleFrom(
                 foregroundColor: Colors.white,
@@ -59,7 +59,7 @@ class _DialogAttachmentState extends State<DialogAttachment> {
                 textStyle: const TextStyle(fontSize: 20, color: Colors.white),
               ),
               onPressed: widget.onTapGallery,
-              child: Text("GALERI",
+              child: const Text("GALERI",
                   style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
             ),
           ],
@@ -76,7 +76,7 @@ class _DialogAttachmentState extends State<DialogAttachment> {
               child: SizedBox(
                 width: MediaQuery.of(context).size.width,
                 child: Padding(
-                  padding: EdgeInsets.all(16),
+                  padding: const EdgeInsets.all(16),
                   child: Text(
                     "BATAL",
                     style: Style.whiteBold14,

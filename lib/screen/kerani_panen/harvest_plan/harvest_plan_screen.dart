@@ -6,10 +6,10 @@ import 'package:provider/provider.dart';
 import 'harvest_plan_notifier.dart';
 
 class HarvestPlanScreen extends StatefulWidget {
-  const HarvestPlanScreen({Key? key}) : super(key: key);
+  const HarvestPlanScreen({super.key});
 
   @override
-  _HarvestPlanScreenState createState() => _HarvestPlanScreenState();
+  State<HarvestPlanScreen> createState() => _HarvestPlanScreenState();
 }
 
 class _HarvestPlanScreenState extends State<HarvestPlanScreen> {
@@ -27,7 +27,7 @@ class _HarvestPlanScreenState extends State<HarvestPlanScreen> {
         data: Style.mediaQueryText(context),
         child: Scaffold(
           appBar: AppBar(
-            title: Text("Rencana Panen Hari Ini"),
+            title: const Text("Rencana Panen Hari Ini"),
           ),
           body: Padding(
             padding: const EdgeInsets.all(20.0),
@@ -35,31 +35,31 @@ class _HarvestPlanScreenState extends State<HarvestPlanScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Tanggal:"),
-                  Text("${TimeManager.todayWithSlash(DateTime.now())}")
+                  const Text("Tanggal:"),
+                  Text(TimeManager.todayWithSlash(DateTime.now()))
                 ],
               ),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               Table(
                 defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-                children: <TableRow>[
+                children: const <TableRow>[
                   TableRow(
                     children: <Widget>[
-                      Container(
+                      SizedBox(
                         width: 110,
                         child: Column(children: [
                           Text("Divisi/Blok"),
                           SizedBox(height: 8),
                         ]),
                       ),
-                      Container(
+                      SizedBox(
                         width: 110,
                         child: Column(children: [
                           Text("Hektar"),
                           SizedBox(height: 8),
                         ]),
                       ),
-                      Container(
+                      SizedBox(
                         width: 110,
                         child: Column(children: [
                           Text("Total HK"),
@@ -70,7 +70,7 @@ class _HarvestPlanScreenState extends State<HarvestPlanScreen> {
                   ),
                 ],
               ),
-              SizedBox(height: 14),
+              const SizedBox(height: 14),
               harvestPlan.listHarvestingPlanSchema.isEmpty
                   ? Container(
                       alignment: Alignment.center,
@@ -86,37 +86,35 @@ class _HarvestPlanScreenState extends State<HarvestPlanScreen> {
                           itemBuilder: (BuildContext context, int index) {
                             return Column(
                               children: [
-                                Container(
-                                  child: Table(
-                                    defaultVerticalAlignment:
-                                        TableCellVerticalAlignment.middle,
-                                    children: <TableRow>[
-                                      TableRow(
-                                        children: <Widget>[
-                                          Container(
-                                            width: 90,
-                                            alignment: Alignment.center,
-                                            child: Text(
-                                                "${harvestPlan.listHarvestingPlanSchema[index].harvestingPlanDivisionCode}/${harvestPlan.listHarvestingPlanSchema[index].harvestingPlanBlockCode}"),
-                                          ),
-                                          Container(
-                                            width: 90,
-                                            alignment: Alignment.center,
-                                            child: Text(
-                                                "${harvestPlan.listHarvestingPlanSchema[index].harvestingPlanHectarage}"),
-                                          ),
-                                          Container(
-                                            width: 90,
-                                            alignment: Alignment.center,
-                                            child: Text(
-                                                "${harvestPlan.listHarvestingPlanSchema[index].harvestingPlanTotalHk}"),
-                                          )
-                                        ],
-                                      ),
-                                    ],
-                                  ),
+                                Table(
+                                  defaultVerticalAlignment:
+                                      TableCellVerticalAlignment.middle,
+                                  children: <TableRow>[
+                                    TableRow(
+                                      children: <Widget>[
+                                        Container(
+                                          width: 90,
+                                          alignment: Alignment.center,
+                                          child: Text(
+                                              "${harvestPlan.listHarvestingPlanSchema[index].harvestingPlanDivisionCode}/${harvestPlan.listHarvestingPlanSchema[index].harvestingPlanBlockCode}"),
+                                        ),
+                                        Container(
+                                          width: 90,
+                                          alignment: Alignment.center,
+                                          child: Text(
+                                              "${harvestPlan.listHarvestingPlanSchema[index].harvestingPlanHectarage}"),
+                                        ),
+                                        Container(
+                                          width: 90,
+                                          alignment: Alignment.center,
+                                          child: Text(
+                                              "${harvestPlan.listHarvestingPlanSchema[index].harvestingPlanTotalHk}"),
+                                        )
+                                      ],
+                                    ),
+                                  ],
                                 ),
-                                Divider()
+                                const Divider()
                               ],
                             );
                           }),

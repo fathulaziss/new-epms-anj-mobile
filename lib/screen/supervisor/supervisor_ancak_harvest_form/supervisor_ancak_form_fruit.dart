@@ -6,7 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 class SupervisorAncakFormFruit extends StatefulWidget {
-  const SupervisorAncakFormFruit({Key? key}) : super(key: key);
+  const SupervisorAncakFormFruit({super.key});
 
   @override
   State<SupervisorAncakFormFruit> createState() =>
@@ -26,9 +26,9 @@ class _SupervisorAncakFormFruitState extends State<SupervisorAncakFormFruit> {
               Table(
                   defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                   children: <TableRow>[
-                    TableRow(
+                    const TableRow(
                       children: <Widget>[
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -36,7 +36,7 @@ class _SupervisorAncakFormFruitState extends State<SupervisorAncakFormFruit> {
                             SizedBox(height: 6),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -44,7 +44,7 @@ class _SupervisorAncakFormFruitState extends State<SupervisorAncakFormFruit> {
                             SizedBox(height: 6),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -58,7 +58,7 @@ class _SupervisorAncakFormFruitState extends State<SupervisorAncakFormFruit> {
                       children: <Widget>[
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: TextFormField(
                             controller: notifier.pokokPanen,
                             keyboardType: TextInputType.number,
@@ -69,7 +69,7 @@ class _SupervisorAncakFormFruitState extends State<SupervisorAncakFormFruit> {
                                   RegExp(r'[0-9]')),
                               BunchesFormatter()
                             ],
-                            decoration: InputDecoration(hintText: "0"),
+                            decoration: const InputDecoration(hintText: "0"),
                             onChanged: (value) {
                               notifier.countLoosesBrondolan(
                                   notifier.brondolanTinggal.text, value);
@@ -80,7 +80,7 @@ class _SupervisorAncakFormFruitState extends State<SupervisorAncakFormFruit> {
                         ),
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: TextFormField(
                             controller: notifier.totalJanjang,
                             keyboardType: TextInputType.number,
@@ -91,13 +91,13 @@ class _SupervisorAncakFormFruitState extends State<SupervisorAncakFormFruit> {
                                   RegExp(r'[0-9]')),
                               BunchesFormatter()
                             ],
-                            decoration: InputDecoration(hintText: "0"),
+                            decoration: const InputDecoration(hintText: "0"),
                             onChanged: (value) {},
                           ),
                         ),
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: TextFormField(
                             controller: notifier.totalBrondolan,
                             keyboardType: TextInputType.number,
@@ -108,7 +108,7 @@ class _SupervisorAncakFormFruitState extends State<SupervisorAncakFormFruit> {
                                   RegExp(r'[0-9]')),
                               BunchesFormatter()
                             ],
-                            decoration: InputDecoration(hintText: "0"),
+                            decoration: const InputDecoration(hintText: "0"),
                             onChanged: (value) {},
                           ),
                         ),
@@ -123,9 +123,9 @@ class _SupervisorAncakFormFruitState extends State<SupervisorAncakFormFruit> {
                         height: 80,
                       )
                     ]),
-                    TableRow(
+                    const TableRow(
                       children: <Widget>[
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -133,7 +133,7 @@ class _SupervisorAncakFormFruitState extends State<SupervisorAncakFormFruit> {
                             SizedBox(height: 6),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -141,7 +141,7 @@ class _SupervisorAncakFormFruitState extends State<SupervisorAncakFormFruit> {
                             SizedBox(height: 6),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -155,7 +155,7 @@ class _SupervisorAncakFormFruitState extends State<SupervisorAncakFormFruit> {
                       children: <Widget>[
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: TextFormField(
                             controller: notifier.rat,
                             keyboardType: TextInputType.number,
@@ -166,13 +166,13 @@ class _SupervisorAncakFormFruitState extends State<SupervisorAncakFormFruit> {
                                   RegExp(r'[0-9]')),
                               BunchesFormatter()
                             ],
-                            decoration: InputDecoration(hintText: "0"),
+                            decoration: const InputDecoration(hintText: "0"),
                             onChanged: (value) {},
                           ),
                         ),
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: TextFormField(
                             controller: notifier.vCut,
                             keyboardType: TextInputType.number,
@@ -183,13 +183,13 @@ class _SupervisorAncakFormFruitState extends State<SupervisorAncakFormFruit> {
                                   RegExp(r'[0-9]')),
                               BunchesFormatter()
                             ],
-                            decoration: InputDecoration(hintText: "0"),
+                            decoration: const InputDecoration(hintText: "0"),
                             onChanged: (value) {},
                           ),
                         ),
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: TextFormField(
                             controller: notifier.tangkaiPanjang,
                             keyboardType: TextInputType.number,
@@ -200,15 +200,15 @@ class _SupervisorAncakFormFruitState extends State<SupervisorAncakFormFruit> {
                                   RegExp(r'[0-9]')),
                               BunchesFormatter()
                             ],
-                            decoration: InputDecoration(hintText: "0"),
+                            decoration: const InputDecoration(hintText: "0"),
                             onChanged: (value) {},
                           ),
                         ),
                       ],
                     ),
-                    TableRow(
+                    const TableRow(
                       children: <Widget>[
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -219,7 +219,7 @@ class _SupervisorAncakFormFruitState extends State<SupervisorAncakFormFruit> {
                             SizedBox(height: 6),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -230,7 +230,7 @@ class _SupervisorAncakFormFruitState extends State<SupervisorAncakFormFruit> {
                             SizedBox(height: 6),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -246,7 +246,7 @@ class _SupervisorAncakFormFruitState extends State<SupervisorAncakFormFruit> {
                     TableRow(children: <Widget>[
                       Container(
                         width: 100,
-                        padding: EdgeInsets.symmetric(horizontal: 16),
+                        padding: const EdgeInsets.symmetric(horizontal: 16),
                         child: TextFormField(
                           controller: notifier.pelepahSengkleh,
                           keyboardType: TextInputType.number,
@@ -257,12 +257,12 @@ class _SupervisorAncakFormFruitState extends State<SupervisorAncakFormFruit> {
                             FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
                             BunchesFormatter()
                           ],
-                          decoration: InputDecoration(hintText: "0"),
+                          decoration: const InputDecoration(hintText: "0"),
                         ),
                       ),
                       Container(
                         width: 100,
-                        padding: EdgeInsets.symmetric(horizontal: 16),
+                        padding: const EdgeInsets.symmetric(horizontal: 16),
                         child: TextFormField(
                           controller: notifier.janjangTinggal,
                           keyboardType: TextInputType.number,
@@ -272,7 +272,7 @@ class _SupervisorAncakFormFruitState extends State<SupervisorAncakFormFruit> {
                             FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
                             BunchesFormatter()
                           ],
-                          decoration: InputDecoration(hintText: "0"),
+                          decoration: const InputDecoration(hintText: "0"),
                           onChanged: (value) {
                             notifier.countLoosesBuahTinggal(
                                 value, notifier.pokokPanen.text);
@@ -281,7 +281,7 @@ class _SupervisorAncakFormFruitState extends State<SupervisorAncakFormFruit> {
                       ),
                       Container(
                         width: 100,
-                        padding: EdgeInsets.symmetric(horizontal: 16),
+                        padding: const EdgeInsets.symmetric(horizontal: 16),
                         child: TextFormField(
                           controller: notifier.brondolanTinggal,
                           keyboardType: TextInputType.number,
@@ -291,7 +291,7 @@ class _SupervisorAncakFormFruitState extends State<SupervisorAncakFormFruit> {
                             FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
                             BunchesFormatter()
                           ],
-                          decoration: InputDecoration(hintText: "0"),
+                          decoration: const InputDecoration(hintText: "0"),
                           onChanged: (value) {
                             notifier.countLoosesBrondolan(
                                 value, notifier.pokokPanen.text);
@@ -300,19 +300,17 @@ class _SupervisorAncakFormFruitState extends State<SupervisorAncakFormFruit> {
                       ),
                     ]),
                   ]),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               Column(
                 children: [
-                  Text("Catatan"),
-                  Container(
-                    child: TextFormField(
-                      controller: notifier.notes,
-                      textAlign: TextAlign.center,
-                      decoration: InputDecoration(hintText: "Catatan"),
-                      keyboardType: TextInputType.multiline,
-                      maxLength: 50,
-                      maxLengthEnforcement: MaxLengthEnforcement.enforced,
-                    ),
+                  const Text("Catatan"),
+                  TextFormField(
+                    controller: notifier.notes,
+                    textAlign: TextAlign.center,
+                    decoration: const InputDecoration(hintText: "Catatan"),
+                    keyboardType: TextInputType.multiline,
+                    maxLength: 50,
+                    maxLengthEnforcement: MaxLengthEnforcement.enforced,
                   ),
                 ],
               ),

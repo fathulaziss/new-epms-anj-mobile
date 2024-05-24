@@ -174,7 +174,7 @@ class _InspectionLocationViewState extends State<InspectionLocationView> {
       data: Style.mediaQueryText(context),
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Inspection Location'),
+          title: const Text('Inspection Location'),
         ),
         body: _shapeSource != null
             ? Stack(
@@ -252,18 +252,18 @@ class _InspectionLocationViewState extends State<InspectionLocationView> {
                   Align(
                     alignment: Alignment.bottomRight,
                     child: Padding(
-                      padding: EdgeInsets.only(bottom: 48, right: 48),
+                      padding: const EdgeInsets.only(bottom: 48, right: 48),
                       child: InkWell(
                         onTap: () {
                           updateLocation();
                         },
                         child: Container(
-                          padding: EdgeInsets.all(8),
-                          decoration: BoxDecoration(
+                          padding: const EdgeInsets.all(8),
+                          decoration: const BoxDecoration(
                             shape: BoxShape.circle,
                             color: Colors.orange,
                           ),
-                          child: Icon(Icons.my_location_rounded,
+                          child: const Icon(Icons.my_location_rounded,
                               color: Colors.white),
                         ),
                       ),

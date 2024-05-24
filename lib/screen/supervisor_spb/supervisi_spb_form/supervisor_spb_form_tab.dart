@@ -13,7 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class SupervisorSPBFormTab extends StatefulWidget {
-  const SupervisorSPBFormTab({Key? key}) : super(key: key);
+  const SupervisorSPBFormTab({super.key});
 
   @override
   State<SupervisorSPBFormTab> createState() => _SupervisorSPBFormTabState();
@@ -38,15 +38,15 @@ class _SupervisorSPBFormTabState extends State<SupervisorSPBFormTab> {
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("ID Supervisi:"),
-                    Text("${notifier.supervisiID}", style: Style.textBold16)
+                    const Text("ID Supervisi:"),
+                    Text(notifier.supervisiID, style: Style.textBold16)
                   ]),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [Text("Tanggal:"), Text("${notifier.date}")],
+                children: [const Text("Tanggal:"), Text(notifier.date)],
               ),
             ),
             Padding(
@@ -54,8 +54,8 @@ class _SupervisorSPBFormTabState extends State<SupervisorSPBFormTab> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Nama:"),
-                  Text("${notifier.mConfigSchema?.employeeName ?? ""}")
+                  const Text("Nama:"),
+                  Text(notifier.mConfigSchema?.employeeName ?? "")
                 ],
               ),
             ),
@@ -64,8 +64,8 @@ class _SupervisorSPBFormTabState extends State<SupervisorSPBFormTab> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("GPS Geolocation:"),
-                  Text("${notifier.gpsLocation}")
+                  const Text("GPS Geolocation:"),
+                  Text(notifier.gpsLocation)
                 ],
               ),
             ),
@@ -78,17 +78,17 @@ class _SupervisorSPBFormTabState extends State<SupervisorSPBFormTab> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text("Sumber SPB:"),
+                        const Text("Sumber SPB:"),
                         Flexible(
-                          child: Container(
+                          child: SizedBox(
                             width: 140,
                             child: DropdownButton(
                               isExpanded: true,
                               value: notifier.sourceSPBValue,
                               items: notifier.sourceSPB.map((value) {
                                 return DropdownMenuItem(
-                                  child: Text(value),
                                   value: value,
+                                  child: Text(value),
                                 );
                               }).toList(),
                               onChanged: (String? value) {
@@ -99,22 +99,22 @@ class _SupervisorSPBFormTabState extends State<SupervisorSPBFormTab> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 8),
+                    const SizedBox(height: 8),
                     notifier.sourceSPBValue == "Internal"
                         ? Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text("Jenis Pekerja:"),
+                              const Text("Jenis Pekerja:"),
                               Flexible(
-                                child: Container(
+                                child: SizedBox(
                                   width: 140,
                                   child: DropdownButton(
                                     isExpanded: true,
                                     value: notifier.employeeTypeValue,
                                     items: notifier.employeeType.map((value) {
                                       return DropdownMenuItem(
-                                        child: Text(value),
                                         value: value,
+                                        child: Text(value),
                                       );
                                     }).toList(),
                                     onChanged: (String? value) {
@@ -126,23 +126,23 @@ class _SupervisorSPBFormTabState extends State<SupervisorSPBFormTab> {
                             ],
                           )
                         : Container(),
-                    SizedBox(height: 8),
+                    const SizedBox(height: 8),
                     notifier.sourceSPBValue == "External"
                         ? Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text("Driver:"),
+                                const Text("Driver:"),
                                 Flexible(
-                                  child: Container(
+                                  child: SizedBox(
                                     width: 200,
                                     child: TextFormField(
                                       textCapitalization:
                                           TextCapitalization.characters,
                                       controller: notifier.driverTBSLuar,
                                       textAlign: TextAlign.center,
-                                      decoration: InputDecoration(
+                                      decoration: const InputDecoration(
                                           hintText: "Nama Supir"),
                                     ),
                                   ),
@@ -156,35 +156,35 @@ class _SupervisorSPBFormTabState extends State<SupervisorSPBFormTab> {
                         ? Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text("Nama Supir:"),
+                              const Text("Nama Supir:"),
                               Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Container(
+                                  SizedBox(
                                     width: 180,
                                     child: DropdownButton(
                                       isExpanded: true,
-                                      icon: Visibility(
+                                      icon: const Visibility(
                                           visible: false,
                                           child: Icon(Icons.arrow_downward)),
-                                      hint: Text("Nama Supir"),
+                                      hint: const Text("Nama Supir"),
                                       value: notifier.driver,
                                       items: notifier.listDriver.map((value) {
                                         return DropdownMenuItem(
+                                          value: value,
                                           child: Text(
                                             value.employeeName!,
                                             style: Style.textBold14,
                                           ),
-                                          value: value,
                                         );
                                       }).toList(),
                                       onChanged: null,
                                     ),
                                   ),
                                   InkWell(
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(8.0),
+                                    child: const Padding(
+                                      padding: EdgeInsets.all(8.0),
                                       child: Icon(Icons.search),
                                     ),
                                     onTap: () async {
@@ -193,7 +193,7 @@ class _SupervisorSPBFormTabState extends State<SupervisorSPBFormTab> {
                                               context,
                                               MaterialPageRoute(
                                                   builder: (context) =>
-                                                      SearchDriverScreen()));
+                                                      const SearchDriverScreen()));
                                       notifier.onSetDriver(mEmployee!);
                                     },
                                   ),
@@ -202,24 +202,24 @@ class _SupervisorSPBFormTabState extends State<SupervisorSPBFormTab> {
                             ],
                           )
                         : Container(),
-                    SizedBox(height: 8),
+                    const SizedBox(height: 8),
                     notifier.employeeTypeValue == "Kontrak" ||
                             notifier.sourceSPBValue == "External"
                         ? Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text("Vendor:"),
+                              const Text("Vendor:"),
                               Flexible(
-                                child: Container(
+                                child: SizedBox(
                                   width: 200,
                                   child: DropdownButton(
                                     isExpanded: true,
-                                    hint: Text("Pilih Vendor"),
+                                    hint: const Text("Pilih Vendor"),
                                     value: notifier.vendor,
                                     items: notifier.listVendor.map((value) {
                                       return DropdownMenuItem(
-                                        child: Text("${value.vendorName}"),
                                         value: value,
+                                        child: Text("${value.vendorName}"),
                                       );
                                     }).toList(),
                                     onChanged: (MVendorSchema? value) {
@@ -231,7 +231,7 @@ class _SupervisorSPBFormTabState extends State<SupervisorSPBFormTab> {
                             ],
                           )
                         : Container(),
-                    SizedBox(height: 8),
+                    const SizedBox(height: 8),
                     notifier.employeeTypeValue == "Kontrak" ||
                             notifier.sourceSPBValue == "External"
                         ? Padding(
@@ -247,13 +247,13 @@ class _SupervisorSPBFormTabState extends State<SupervisorSPBFormTab> {
                                   },
                                 ),
                                 Flexible(
-                                  child: Container(
+                                  child: SizedBox(
                                     width: 200,
                                     child: TextFormField(
                                       enabled: notifier.isChecked,
                                       controller: notifier.vendorOther,
                                       textAlign: TextAlign.center,
-                                      decoration: InputDecoration(
+                                      decoration: const InputDecoration(
                                           hintText: "Tulis Vendor"),
                                       validator: (value) {
                                         if (value == null || value.isEmpty) {
@@ -268,26 +268,26 @@ class _SupervisorSPBFormTabState extends State<SupervisorSPBFormTab> {
                             ),
                           )
                         : Container(),
-                    SizedBox(height: 8),
+                    const SizedBox(height: 8),
                     notifier.sourceSPBValue == "Internal"
                         ? Padding(
                             padding: const EdgeInsets.all(0.0),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text("Estate Code:"),
+                                const Text("Estate Code:"),
                                 Flexible(
-                                  child: Container(
+                                  child: SizedBox(
                                     width: 140,
                                     child: DropdownButton(
                                       isExpanded: true,
-                                      hint: Text("Pilih Estate"),
+                                      hint: const Text("Pilih Estate"),
                                       value: notifier.mEstateSchemaValue,
                                       items: notifier.listMEstateSchema
                                           .map((value) {
                                         return DropdownMenuItem(
-                                          child: Text("${value.estateCode}"),
                                           value: value,
+                                          child: Text("${value.estateCode}"),
                                         );
                                       }).toList(),
                                       onChanged: (MEstateSchema? value) {
@@ -308,18 +308,18 @@ class _SupervisorSPBFormTabState extends State<SupervisorSPBFormTab> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text("Divisi:"),
+                        const Text("Divisi:"),
                         Flexible(
-                          child: Container(
+                          child: SizedBox(
                             width: 140,
                             child: DropdownButton(
                               isExpanded: true,
-                              hint: Text("Pilih Divisi"),
+                              hint: const Text("Pilih Divisi"),
                               value: notifier.division,
                               items: notifier.listDivision.map((value) {
                                 return DropdownMenuItem(
-                                  child: Text("${value.divisionCode}"),
                                   value: value,
+                                  child: Text("${value.divisionCode}"),
                                 );
                               }).toList(),
                               onChanged: (MDivisionSchema? value) {
@@ -332,18 +332,18 @@ class _SupervisorSPBFormTabState extends State<SupervisorSPBFormTab> {
                     ),
                   )
                 : Container(),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Column(
               children: [
-                Text("Nomor Kendaraan"),
-                Container(
+                const Text("Nomor Kendaraan"),
+                SizedBox(
                   width: 160,
                   child: TextFormField(
                     textCapitalization: TextCapitalization.characters,
                     controller: notifier.vehicleNumber,
                     textAlign: TextAlign.center,
                     decoration:
-                        InputDecoration(hintText: "Tulis No. Kendaraan"),
+                        const InputDecoration(hintText: "Tulis No. Kendaraan"),
                   ),
                 ),
                 if (notifier.sourceSPBValue == 'Internal')
@@ -354,7 +354,7 @@ class _SupervisorSPBFormTabState extends State<SupervisorSPBFormTab> {
                         String? result = await Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => QRReaderScreen()));
+                                builder: (context) => const QRReaderScreen()));
                         if (result != null) {
                           setState(() {
                             notifier.vehicleNumber =
@@ -379,7 +379,7 @@ class _SupervisorSPBFormTabState extends State<SupervisorSPBFormTab> {
                   )
               ],
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -393,8 +393,8 @@ class _SupervisorSPBFormTabState extends State<SupervisorSPBFormTab> {
                         children: [
                           Column(
                             children: [
-                              Text("No ID SPB"),
-                              Container(
+                              const Text("No ID SPB"),
+                              SizedBox(
                                 width: 160,
                                 child: Focus(
                                   child: TextFormField(
@@ -408,7 +408,7 @@ class _SupervisorSPBFormTabState extends State<SupervisorSPBFormTab> {
                                       }
                                     },
                                     textAlign: TextAlign.center,
-                                    decoration: InputDecoration(
+                                    decoration: const InputDecoration(
                                         hintText: "Tulis No Kartu SPB"),
                                   ),
                                 ),
@@ -417,8 +417,8 @@ class _SupervisorSPBFormTabState extends State<SupervisorSPBFormTab> {
                           ),
                           Column(
                             children: [
-                              Text("Aktifkan Tulisan"),
-                              Container(
+                              const Text("Aktifkan Tulisan"),
+                              SizedBox(
                                 width: 160,
                                 child: Switch(
                                     activeColor: Palette.greenColor,
@@ -431,7 +431,7 @@ class _SupervisorSPBFormTabState extends State<SupervisorSPBFormTab> {
                           )
                         ],
                       ),
-                      SizedBox(height: 18),
+                      const SizedBox(height: 18),
                       notifier.sourceSPBValue == "External"
                           ? Padding(
                               padding: const EdgeInsets.all(8.0),
@@ -441,7 +441,7 @@ class _SupervisorSPBFormTabState extends State<SupervisorSPBFormTab> {
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) =>
-                                              QRReaderScreen()));
+                                              const QRReaderScreen()));
                                   if (result != null) {
                                     notifier.setQRResult(result);
                                   }
@@ -499,7 +499,7 @@ class _SupervisorSPBFormTabState extends State<SupervisorSPBFormTab> {
                 onTap: () {
                   notifier.getCamera(context);
                 },
-                child: Container(
+                child: SizedBox(
                   width: MediaQuery.of(context).size.width,
                   child: Card(
                     shape: RoundedRectangleBorder(
@@ -531,9 +531,9 @@ class _SupervisorSPBFormTabState extends State<SupervisorSPBFormTab> {
                     borderRadius: BorderRadius.circular(10.0),
                   ),
                   child: Container(
-                    padding: EdgeInsets.all(14),
+                    padding: const EdgeInsets.all(14),
                     width: MediaQuery.of(context).size.width,
-                    child: Text(
+                    child: const Text(
                       "SIMPAN",
                       style: TextStyle(
                           fontSize: 18,

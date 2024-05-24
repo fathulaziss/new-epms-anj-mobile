@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class DetailSuperviseHarvestPage extends StatefulWidget {
+  const DetailSuperviseHarvestPage({super.key, required this.ophSupervise});
+
   final OPHSupervise ophSupervise;
-  const DetailSuperviseHarvestPage({Key? key, required this.ophSupervise})
-      : super(key: key);
 
   @override
   State<DetailSuperviseHarvestPage> createState() =>
@@ -19,7 +19,8 @@ class _DetailSuperviseHarvestPageState
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-        create: (context) => DetailSuperviseHarvestNotifier(),
-        child: DetailSuperviseHarvestScreen(ophSupervise: widget.ophSupervise));
+      create: (context) => DetailSuperviseHarvestNotifier(),
+      child: DetailSuperviseHarvestScreen(ophSupervise: widget.ophSupervise),
+    );
   }
 }

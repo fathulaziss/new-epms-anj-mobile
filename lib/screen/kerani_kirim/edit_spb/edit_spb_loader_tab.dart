@@ -9,7 +9,7 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 class EditSPBLoaderTab extends StatefulWidget {
-  const EditSPBLoaderTab({Key? key}) : super(key: key);
+  const EditSPBLoaderTab({super.key});
 
   @override
   State<EditSPBLoaderTab> createState() => _EditSPBLoaderTabState();
@@ -28,17 +28,17 @@ class _EditSPBLoaderTabState extends State<EditSPBLoaderTab> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text("Daftar Loader (${editSPB.spbLoaderList.length})"),
-                  SizedBox(height: 12),
+                  const SizedBox(height: 12),
                   Text(
                       "Jumlah Presentase: (${editSPB.totalPercentageAngkut}) %"),
-                  SizedBox(height: 12),
+                  const SizedBox(height: 12),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: InkWell(
                       onTap: () {
                         editSPB.onAddLoader(context);
                       },
-                      child: Container(
+                      child: SizedBox(
                         width: MediaQuery.of(context).size.width,
                         child: Card(
                           shape: RoundedRectangleBorder(
@@ -55,9 +55,9 @@ class _EditSPBLoaderTabState extends State<EditSPBLoaderTab> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
                   editSPB.spbLoaderList.isEmpty
-                      ? Text("Tidak Ada loader yang dibuat")
+                      ? const Text("Tidak Ada loader yang dibuat")
                       : Flexible(
                           child: ListView.builder(
                               controller: editSPB.scrollController,
@@ -85,10 +85,9 @@ class _EditSPBLoaderTabState extends State<EditSPBLoaderTab> {
                                               onTap: () {
                                                 editSPB.onDeleteLoader(index);
                                               },
-                                              child: Card(
+                                              child: const Card(
                                                 child: Padding(
-                                                  padding: const EdgeInsets.all(
-                                                      12.0),
+                                                  padding: EdgeInsets.all(12.0),
                                                   child: Icon(Icons.delete,
                                                       color: Colors.red),
                                                 ),
@@ -103,9 +102,9 @@ class _EditSPBLoaderTabState extends State<EditSPBLoaderTab> {
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
-                                              Text("Jenis Loader:"),
+                                              const Text("Jenis Loader:"),
                                               Flexible(
-                                                child: Container(
+                                                child: SizedBox(
                                                   width: 170,
                                                   child: DropdownButton(
                                                     isExpanded: true,
@@ -114,8 +113,8 @@ class _EditSPBLoaderTabState extends State<EditSPBLoaderTab> {
                                                     items: editSPB.typeDeliver
                                                         .map((value) {
                                                       return DropdownMenuItem(
-                                                        child: Text(value),
                                                         value: value,
+                                                        child: Text(value),
                                                       );
                                                     }).toList(),
                                                     onChanged: (String? value) {
@@ -138,9 +137,10 @@ class _EditSPBLoaderTabState extends State<EditSPBLoaderTab> {
                                                         MainAxisAlignment
                                                             .spaceBetween,
                                                     children: [
-                                                      Text("Nama Loader:"),
+                                                      const Text(
+                                                          "Nama Loader:"),
                                                       Flexible(
-                                                        child: Container(
+                                                        child: SizedBox(
                                                           width: 170,
                                                           child: DropdownButton(
                                                             isExpanded: true,
@@ -151,13 +151,13 @@ class _EditSPBLoaderTabState extends State<EditSPBLoaderTab> {
                                                                 .driverNameList
                                                                 .map((value) {
                                                               return DropdownMenuItem(
+                                                                value: value,
                                                                 child: Text(
                                                                   "${value.employeeName}",
                                                                   overflow:
                                                                       TextOverflow
                                                                           .ellipsis,
                                                                 ),
-                                                                value: value,
                                                               );
                                                             }).toList(),
                                                             onChanged:
@@ -181,9 +181,10 @@ class _EditSPBLoaderTabState extends State<EditSPBLoaderTab> {
                                                         MainAxisAlignment
                                                             .spaceBetween,
                                                     children: [
-                                                      Text("Nama Vendor:"),
+                                                      const Text(
+                                                          "Nama Vendor:"),
                                                       Flexible(
-                                                        child: Container(
+                                                        child: SizedBox(
                                                           width: 170,
                                                           child: DropdownButton(
                                                               isExpanded: true,
@@ -194,12 +195,12 @@ class _EditSPBLoaderTabState extends State<EditSPBLoaderTab> {
                                                                   .vendorList
                                                                   .map((value) {
                                                                 return DropdownMenuItem(
+                                                                  value: value,
                                                                   child: Text(
                                                                       "${value.vendorName}",
                                                                       overflow:
                                                                           TextOverflow
                                                                               .ellipsis),
-                                                                  value: value,
                                                                 );
                                                               }).toList(),
                                                               onChanged:
@@ -222,9 +223,9 @@ class _EditSPBLoaderTabState extends State<EditSPBLoaderTab> {
                                                   MainAxisAlignment
                                                       .spaceBetween,
                                               children: [
-                                                Text("Jenis Angkut:"),
+                                                const Text("Jenis Angkut:"),
                                                 Flexible(
-                                                  child: Container(
+                                                  child: SizedBox(
                                                     width: 170,
                                                     child: DropdownButton(
                                                       isExpanded: true,
@@ -234,12 +235,11 @@ class _EditSPBLoaderTabState extends State<EditSPBLoaderTab> {
                                                       items: editSPB.jenisAngkut
                                                           .map((value) {
                                                         return DropdownMenuItem(
-                                                            child: Text(
-                                                                "$value",
+                                                            value: value,
+                                                            child: Text(value,
                                                                 overflow:
                                                                     TextOverflow
-                                                                        .ellipsis),
-                                                            value: value);
+                                                                        .ellipsis));
                                                       }).toList(),
                                                       onChanged:
                                                           (String? value) {
@@ -259,9 +259,10 @@ class _EditSPBLoaderTabState extends State<EditSPBLoaderTab> {
                                                   MainAxisAlignment
                                                       .spaceBetween,
                                               children: [
-                                                Text("Presentase Angkut (%):"),
+                                                const Text(
+                                                    "Presentase Angkut (%):"),
                                                 Flexible(
-                                                  child: Container(
+                                                  child: SizedBox(
                                                     width: 170,
                                                     child: TextFormField(
                                                       maxLength: 3,
@@ -286,7 +287,7 @@ class _EditSPBLoaderTabState extends State<EditSPBLoaderTab> {
                                                       textAlign:
                                                           TextAlign.center,
                                                       decoration:
-                                                          InputDecoration(
+                                                          const InputDecoration(
                                                               hintText:
                                                                   "presentase"),
                                                     ),

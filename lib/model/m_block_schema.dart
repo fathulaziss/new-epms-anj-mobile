@@ -58,13 +58,13 @@ class MBlockSchema {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['block_id'] = this.blockId;
-    data['block_company_code'] = this.blockCompanyCode;
-    data['block_estate_code'] = this.blockEstateCode;
-    data['block_division_code'] = this.blockDivisionCode;
-    data['block_code'] = this.blockCode;
-    data['block_name'] = this.blockName;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['block_id'] = blockId;
+    data['block_company_code'] = blockCompanyCode;
+    data['block_estate_code'] = blockEstateCode;
+    data['block_division_code'] = blockDivisionCode;
+    data['block_code'] = blockCode;
+    data['block_name'] = blockName;
     // data['block_planted_date'] = this.blockPlantedDate;
     // data['block_valid_from'] = this.blockValidFrom;
     // data['block_valid_to'] = this.blockValidTo;

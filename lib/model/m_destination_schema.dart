@@ -34,10 +34,10 @@ class MDestinationSchema {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['destination_id'] = this.destinationId;
-    data['destination_code'] = this.destinationCode;
-    data['destination_name'] = this.destinationName;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['destination_id'] = destinationId;
+    data['destination_code'] = destinationCode;
+    data['destination_name'] = destinationName;
     // data['created_by'] = this.createdBy;
     // data['created_date'] = this.createdDate;
     // data['created_time'] = this.createdTime;

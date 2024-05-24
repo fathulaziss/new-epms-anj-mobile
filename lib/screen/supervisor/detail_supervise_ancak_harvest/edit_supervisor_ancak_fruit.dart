@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 class EditSupervisorAncakFormFruit extends StatefulWidget {
-  const EditSupervisorAncakFormFruit({Key? key}) : super(key: key);
+  const EditSupervisorAncakFormFruit({super.key});
 
   @override
   State<EditSupervisorAncakFormFruit> createState() =>
@@ -26,9 +26,9 @@ class _EditSupervisorAncakFormFruitState
               Table(
                   defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                   children: <TableRow>[
-                    TableRow(
+                    const TableRow(
                       children: <Widget>[
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -36,7 +36,7 @@ class _EditSupervisorAncakFormFruitState
                             SizedBox(height: 6),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -44,7 +44,7 @@ class _EditSupervisorAncakFormFruitState
                             SizedBox(height: 6),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -58,7 +58,7 @@ class _EditSupervisorAncakFormFruitState
                       children: <Widget>[
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: TextFormField(
                             controller: notifier.pokokPanen,
                             keyboardType: TextInputType.number,
@@ -68,7 +68,7 @@ class _EditSupervisorAncakFormFruitState
                               FilteringTextInputFormatter.allow(
                                   RegExp(r'[0-9]')),
                             ],
-                            decoration: InputDecoration(hintText: "0"),
+                            decoration: const InputDecoration(hintText: "0"),
                             onChanged: (value) {
                               notifier.countLoosesBrondolan(
                                   notifier.brondolanTinggal.text, value);
@@ -79,7 +79,7 @@ class _EditSupervisorAncakFormFruitState
                         ),
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: TextFormField(
                             controller: notifier.totalJanjang,
                             keyboardType: TextInputType.number,
@@ -89,7 +89,7 @@ class _EditSupervisorAncakFormFruitState
                               FilteringTextInputFormatter.allow(
                                   RegExp(r'[0-9]')),
                             ],
-                            decoration: InputDecoration(hintText: "0"),
+                            decoration: const InputDecoration(hintText: "0"),
                             onChanged: (value) {
                               notifier.countBunches(
                                   context, notifier.totalJanjang);
@@ -98,7 +98,7 @@ class _EditSupervisorAncakFormFruitState
                         ),
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: TextFormField(
                             controller: notifier.totalBrondolan,
                             keyboardType: TextInputType.number,
@@ -108,7 +108,7 @@ class _EditSupervisorAncakFormFruitState
                               FilteringTextInputFormatter.allow(
                                   RegExp(r'[0-9]')),
                             ],
-                            decoration: InputDecoration(hintText: "0"),
+                            decoration: const InputDecoration(hintText: "0"),
                             onChanged: (value) {
                               notifier.countBunches(
                                   context, notifier.totalBrondolan);
@@ -126,9 +126,9 @@ class _EditSupervisorAncakFormFruitState
                         height: 80,
                       )
                     ]),
-                    TableRow(
+                    const TableRow(
                       children: <Widget>[
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -136,7 +136,7 @@ class _EditSupervisorAncakFormFruitState
                             SizedBox(height: 6),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -144,7 +144,7 @@ class _EditSupervisorAncakFormFruitState
                             SizedBox(height: 6),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -158,7 +158,7 @@ class _EditSupervisorAncakFormFruitState
                       children: <Widget>[
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: TextFormField(
                             controller: notifier.rat,
                             keyboardType: TextInputType.number,
@@ -168,7 +168,7 @@ class _EditSupervisorAncakFormFruitState
                               FilteringTextInputFormatter.allow(
                                   RegExp(r'[0-9]')),
                             ],
-                            decoration: InputDecoration(hintText: "0"),
+                            decoration: const InputDecoration(hintText: "0"),
                             onChanged: (value) {
                               notifier.countBunches(context, notifier.rat);
                             },
@@ -176,7 +176,7 @@ class _EditSupervisorAncakFormFruitState
                         ),
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: TextFormField(
                             controller: notifier.vCut,
                             keyboardType: TextInputType.number,
@@ -186,7 +186,7 @@ class _EditSupervisorAncakFormFruitState
                               FilteringTextInputFormatter.allow(
                                   RegExp(r'[0-9]')),
                             ],
-                            decoration: InputDecoration(hintText: "0"),
+                            decoration: const InputDecoration(hintText: "0"),
                             onChanged: (value) {
                               notifier.countBunches(context, notifier.vCut);
                             },
@@ -194,7 +194,7 @@ class _EditSupervisorAncakFormFruitState
                         ),
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: TextFormField(
                             controller: notifier.tangkaiPanjang,
                             keyboardType: TextInputType.number,
@@ -204,7 +204,7 @@ class _EditSupervisorAncakFormFruitState
                               FilteringTextInputFormatter.allow(
                                   RegExp(r'[0-9]')),
                             ],
-                            decoration: InputDecoration(hintText: "0"),
+                            decoration: const InputDecoration(hintText: "0"),
                             onChanged: (value) {
                               notifier.countBunches(
                                   context, notifier.tangkaiPanjang);
@@ -213,9 +213,9 @@ class _EditSupervisorAncakFormFruitState
                         ),
                       ],
                     ),
-                    TableRow(
+                    const TableRow(
                       children: <Widget>[
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -224,7 +224,7 @@ class _EditSupervisorAncakFormFruitState
                             SizedBox(height: 6),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -232,7 +232,7 @@ class _EditSupervisorAncakFormFruitState
                             SizedBox(height: 6),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -246,7 +246,7 @@ class _EditSupervisorAncakFormFruitState
                     TableRow(children: <Widget>[
                       Container(
                         width: 100,
-                        padding: EdgeInsets.symmetric(horizontal: 16),
+                        padding: const EdgeInsets.symmetric(horizontal: 16),
                         child: TextFormField(
                           controller: notifier.pelepahSengkleh,
                           keyboardType: TextInputType.number,
@@ -259,12 +259,12 @@ class _EditSupervisorAncakFormFruitState
                           inputFormatters: [
                             FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
                           ],
-                          decoration: InputDecoration(hintText: "0"),
+                          decoration: const InputDecoration(hintText: "0"),
                         ),
                       ),
                       Container(
                         width: 100,
-                        padding: EdgeInsets.symmetric(horizontal: 16),
+                        padding: const EdgeInsets.symmetric(horizontal: 16),
                         child: TextFormField(
                           controller: notifier.janjangTinggal,
                           keyboardType: TextInputType.number,
@@ -273,7 +273,7 @@ class _EditSupervisorAncakFormFruitState
                           inputFormatters: [
                             FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
                           ],
-                          decoration: InputDecoration(hintText: "0"),
+                          decoration: const InputDecoration(hintText: "0"),
                           onChanged: (value) {
                             notifier.countLoosesBuahTinggal(
                                 value, notifier.pokokPanen.text);
@@ -282,7 +282,7 @@ class _EditSupervisorAncakFormFruitState
                       ),
                       Container(
                         width: 100,
-                        padding: EdgeInsets.symmetric(horizontal: 16),
+                        padding: const EdgeInsets.symmetric(horizontal: 16),
                         child: TextFormField(
                           controller: notifier.brondolanTinggal,
                           keyboardType: TextInputType.number,
@@ -291,7 +291,7 @@ class _EditSupervisorAncakFormFruitState
                           inputFormatters: [
                             FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
                           ],
-                          decoration: InputDecoration(hintText: "0"),
+                          decoration: const InputDecoration(hintText: "0"),
                           onChanged: (value) {
                             notifier.countLoosesBrondolan(
                                 value, notifier.pokokPanen.text);
@@ -300,19 +300,17 @@ class _EditSupervisorAncakFormFruitState
                       ),
                     ]),
                   ]),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               Column(
                 children: [
-                  Text("Catatan"),
-                  Container(
-                    child: TextFormField(
-                      controller: notifier.notes,
-                      textAlign: TextAlign.center,
-                      decoration: InputDecoration(hintText: "Catatan"),
-                      keyboardType: TextInputType.multiline,
-                      maxLength: 50,
-                      maxLengthEnforcement: MaxLengthEnforcement.enforced,
-                    ),
+                  const Text("Catatan"),
+                  TextFormField(
+                    controller: notifier.notes,
+                    textAlign: TextAlign.center,
+                    decoration: const InputDecoration(hintText: "Catatan"),
+                    keyboardType: TextInputType.multiline,
+                    maxLength: 50,
+                    maxLengthEnforcement: MaxLengthEnforcement.enforced,
                   ),
                 ],
               ),

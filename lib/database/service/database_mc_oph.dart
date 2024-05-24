@@ -38,10 +38,10 @@ class DatabaseMCOPHSchema {
     //   }
     // }
     Batch batch = db.batch();
-    object.forEach((val) {
+    for (var val in object) {
       MCOPHCardSchema mcophCardSchema = val;
       batch.insert(mCOPHCardSchemaTable, mcophCardSchema.toJson());
-    });
+    }
     List<Object?> i = await batch.commit();
     return i.length;
   }

@@ -27,14 +27,14 @@ class TABWSchema {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['abw_id'] = this.abwId;
-    data['abw_company_code'] = this.abwCompanyCode;
-    data['abw_estate_code'] = this.abwEstateCode;
-    data['abw_block_code'] = this.abwBlockCode;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['abw_id'] = abwId;
+    data['abw_company_code'] = abwCompanyCode;
+    data['abw_estate_code'] = abwEstateCode;
+    data['abw_block_code'] = abwBlockCode;
     // data['abw_year'] = this.abwYear;
     // data['abw_month'] = this.abwMonth;
-    data['bunch_weight'] = this.bunchWeight;
+    data['bunch_weight'] = bunchWeight;
     return data;
   }
 }

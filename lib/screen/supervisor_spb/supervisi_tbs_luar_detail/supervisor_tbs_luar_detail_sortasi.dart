@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class SupervisorTBSLuarDetailSortasi extends StatefulWidget {
-  const SupervisorTBSLuarDetailSortasi({Key? key}) : super(key: key);
+  const SupervisorTBSLuarDetailSortasi({super.key});
 
   @override
   State<SupervisorTBSLuarDetailSortasi> createState() =>
@@ -24,10 +24,10 @@ class _SupervisorTBSLuarDetailSortasiState
             child: Column(children: [
               Container(
                 height: 60,
-                padding: EdgeInsets.symmetric(horizontal: 40),
+                padding: const EdgeInsets.symmetric(horizontal: 40),
                 child: Row(
                   children: <Widget>[
-                    Text("Tipe Input"),
+                    const Text("Tipe Input"),
                     Flexible(
                         child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
@@ -57,13 +57,13 @@ class _SupervisorTBSLuarDetailSortasiState
                   ],
                 ),
               ),
-              Divider(),
+              const Divider(),
               Table(
                   defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                   children: <TableRow>[
-                    TableRow(
+                    const TableRow(
                       children: <Widget>[
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -71,7 +71,7 @@ class _SupervisorTBSLuarDetailSortasiState
                             SizedBox(height: 6),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -79,7 +79,7 @@ class _SupervisorTBSLuarDetailSortasiState
                             SizedBox(height: 6),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -93,7 +93,7 @@ class _SupervisorTBSLuarDetailSortasiState
                       children: <Widget>[
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(
+                          padding: const EdgeInsets.symmetric(
                               horizontal: 16, vertical: 16),
                           child: Text(
                             "${notifier.tbsLuar?.bunchesUnripe}",
@@ -103,7 +103,7 @@ class _SupervisorTBSLuarDetailSortasiState
                         ),
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(
+                          padding: const EdgeInsets.symmetric(
                               horizontal: 16, vertical: 16),
                           child: Text(
                             "${notifier.tbsLuar?.bunchesHalfripe}",
@@ -113,7 +113,7 @@ class _SupervisorTBSLuarDetailSortasiState
                         ),
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(
+                          padding: const EdgeInsets.symmetric(
                               horizontal: 16, vertical: 16),
                           child: Text(
                             "${notifier.tbsLuar?.bunchesOverripe}",
@@ -123,9 +123,9 @@ class _SupervisorTBSLuarDetailSortasiState
                         ),
                       ],
                     ),
-                    TableRow(
+                    const TableRow(
                       children: <Widget>[
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -133,7 +133,7 @@ class _SupervisorTBSLuarDetailSortasiState
                             SizedBox(height: 6),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -141,7 +141,7 @@ class _SupervisorTBSLuarDetailSortasiState
                             SizedBox(height: 6),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -155,7 +155,7 @@ class _SupervisorTBSLuarDetailSortasiState
                       children: <Widget>[
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(
+                          padding: const EdgeInsets.symmetric(
                               horizontal: 16, vertical: 16),
                           child: Text(
                             "${notifier.tbsLuar?.bunchesRotten}",
@@ -165,7 +165,7 @@ class _SupervisorTBSLuarDetailSortasiState
                         ),
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(
+                          padding: const EdgeInsets.symmetric(
                               horizontal: 16, vertical: 16),
                           child: Text(
                             "${notifier.tbsLuar?.bunchesAbnormal}",
@@ -175,7 +175,7 @@ class _SupervisorTBSLuarDetailSortasiState
                         ),
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(
+                          padding: const EdgeInsets.symmetric(
                               horizontal: 16, vertical: 16),
                           child: Text(
                             "${notifier.tbsLuar?.bunchesEmpty}",
@@ -185,9 +185,9 @@ class _SupervisorTBSLuarDetailSortasiState
                         ),
                       ],
                     ),
-                    TableRow(
+                    const TableRow(
                       children: <Widget>[
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -195,7 +195,7 @@ class _SupervisorTBSLuarDetailSortasiState
                             SizedBox(height: 6),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -203,7 +203,7 @@ class _SupervisorTBSLuarDetailSortasiState
                             SizedBox(height: 6),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -217,7 +217,7 @@ class _SupervisorTBSLuarDetailSortasiState
                       children: <Widget>[
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(
+                          padding: const EdgeInsets.symmetric(
                               horizontal: 16, vertical: 16),
                           child: Text(
                             "${notifier.tbsLuar?.rubbish}",
@@ -227,7 +227,7 @@ class _SupervisorTBSLuarDetailSortasiState
                         ),
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(
+                          padding: const EdgeInsets.symmetric(
                               horizontal: 16, vertical: 16),
                           child: Text(
                             "${notifier.tbsLuar?.water}",
@@ -237,7 +237,7 @@ class _SupervisorTBSLuarDetailSortasiState
                         ),
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(
+                          padding: const EdgeInsets.symmetric(
                               horizontal: 16, vertical: 16),
                           child: Text(
                             "${notifier.tbsLuar?.longStalk}",
@@ -304,15 +304,15 @@ class _SupervisorTBSLuarDetailSortasiState
                     //   ],
                     // ),
                   ]),
-              SizedBox(height: 30),
-              Divider(),
-              SizedBox(height: 20),
+              const SizedBox(height: 30),
+              const Divider(),
+              const SizedBox(height: 20),
               Table(
                   defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                   children: <TableRow>[
-                    TableRow(
+                    const TableRow(
                       children: <Widget>[
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -320,7 +320,7 @@ class _SupervisorTBSLuarDetailSortasiState
                             SizedBox(height: 6),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -334,7 +334,7 @@ class _SupervisorTBSLuarDetailSortasiState
                       children: <Widget>[
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(
+                          padding: const EdgeInsets.symmetric(
                               horizontal: 16, vertical: 16),
                           child: Text(
                             "${notifier.tbsLuar?.bunchesTotal}",
@@ -344,7 +344,7 @@ class _SupervisorTBSLuarDetailSortasiState
                         ),
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(
+                          padding: const EdgeInsets.symmetric(
                               horizontal: 16, vertical: 16),
                           child: Text(
                             "${notifier.tbsLuar?.deduction}",
@@ -355,15 +355,15 @@ class _SupervisorTBSLuarDetailSortasiState
                       ],
                     ),
                   ]),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               Text("KOMIDAL", style: Style.textBold16),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Table(
                   defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                   children: <TableRow>[
-                    TableRow(
+                    const TableRow(
                       children: <Widget>[
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -402,7 +402,7 @@ class _SupervisorTBSLuarDetailSortasiState
                       children: <Widget>[
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: Text(
                             "${notifier.tbsLuar?.small}",
                             style: Style.textBold18,
@@ -428,15 +428,15 @@ class _SupervisorTBSLuarDetailSortasiState
                       ],
                     ),
                   ]),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               Column(
                 children: [
-                  Text("Catatan"),
+                  const Text("Catatan"),
                   Container(
                     // width: 100,
-                    padding: EdgeInsets.symmetric(horizontal: 16),
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: Text(
-                      "${notifier.tbsLuar?.notes ?? ""}",
+                      notifier.tbsLuar?.notes ?? "",
                       style: Style.textBold18,
                       textAlign: TextAlign.center,
                     ),

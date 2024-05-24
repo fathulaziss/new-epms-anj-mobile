@@ -4,16 +4,18 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class BagiOPHPage extends StatefulWidget {
-  const BagiOPHPage({Key? key}) : super(key: key);
+  const BagiOPHPage({super.key});
 
   @override
-  _BagiOPHPageState createState() => _BagiOPHPageState();
+  State<BagiOPHPage> createState() => _BagiOPHPageState();
 }
 
 class _BagiOPHPageState extends State<BagiOPHPage> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-        create: (context) => BagiOPHNotifier(), child: BagiOPHScreen());
+      create: (context) => BagiOPHNotifier(),
+      child: const BagiOPHScreen(),
+    );
   }
 }

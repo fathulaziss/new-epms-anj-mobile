@@ -6,7 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 class DetailOPHEditFruit extends StatefulWidget {
-  const DetailOPHEditFruit({Key? key}) : super(key: key);
+  const DetailOPHEditFruit({super.key});
 
   @override
   State<DetailOPHEditFruit> createState() => _DetailOPHEditFruitState();
@@ -24,9 +24,9 @@ class _DetailOPHEditFruitState extends State<DetailOPHEditFruit> {
               Table(
                   defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                   children: <TableRow>[
-                    TableRow(
+                    const TableRow(
                       children: <Widget>[
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -34,7 +34,7 @@ class _DetailOPHEditFruitState extends State<DetailOPHEditFruit> {
                             SizedBox(height: 6),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -42,7 +42,7 @@ class _DetailOPHEditFruitState extends State<DetailOPHEditFruit> {
                             SizedBox(height: 6),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -56,7 +56,7 @@ class _DetailOPHEditFruitState extends State<DetailOPHEditFruit> {
                       children: <Widget>[
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: TextFormField(
                             controller: notifier.bunchesRipe,
                             keyboardType: TextInputType.number,
@@ -67,7 +67,7 @@ class _DetailOPHEditFruitState extends State<DetailOPHEditFruit> {
                                   RegExp(r'[0-9]')),
                               BunchesFormatter()
                             ],
-                            decoration: InputDecoration(hintText: "0"),
+                            decoration: const InputDecoration(hintText: "0"),
                             onChanged: (value) {
                               notifier.countBunches(
                                   context, notifier.bunchesRipe);
@@ -76,7 +76,7 @@ class _DetailOPHEditFruitState extends State<DetailOPHEditFruit> {
                         ),
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: TextFormField(
                             controller: notifier.bunchesOverRipe,
                             keyboardType: TextInputType.number,
@@ -87,7 +87,7 @@ class _DetailOPHEditFruitState extends State<DetailOPHEditFruit> {
                                   RegExp(r'[0-9]')),
                               BunchesFormatter()
                             ],
-                            decoration: InputDecoration(hintText: "0"),
+                            decoration: const InputDecoration(hintText: "0"),
                             onChanged: (value) {
                               notifier.countBunches(
                                   context, notifier.bunchesOverRipe);
@@ -96,7 +96,7 @@ class _DetailOPHEditFruitState extends State<DetailOPHEditFruit> {
                         ),
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: TextFormField(
                             controller: notifier.bunchesHalfRipe,
                             keyboardType: TextInputType.number,
@@ -107,7 +107,7 @@ class _DetailOPHEditFruitState extends State<DetailOPHEditFruit> {
                                   RegExp(r'[0-9]')),
                               BunchesFormatter()
                             ],
-                            decoration: InputDecoration(hintText: "0"),
+                            decoration: const InputDecoration(hintText: "0"),
                             onChanged: (value) {
                               notifier.countBunches(
                                   context, notifier.bunchesHalfRipe);
@@ -116,9 +116,9 @@ class _DetailOPHEditFruitState extends State<DetailOPHEditFruit> {
                         ),
                       ],
                     ),
-                    TableRow(
+                    const TableRow(
                       children: <Widget>[
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -126,7 +126,7 @@ class _DetailOPHEditFruitState extends State<DetailOPHEditFruit> {
                             SizedBox(height: 6),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -134,7 +134,7 @@ class _DetailOPHEditFruitState extends State<DetailOPHEditFruit> {
                             SizedBox(height: 6),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -148,7 +148,7 @@ class _DetailOPHEditFruitState extends State<DetailOPHEditFruit> {
                       children: <Widget>[
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: TextFormField(
                             controller: notifier.bunchesUnRipe,
                             keyboardType: TextInputType.number,
@@ -159,7 +159,7 @@ class _DetailOPHEditFruitState extends State<DetailOPHEditFruit> {
                                   RegExp(r'[0-9]')),
                               BunchesFormatter()
                             ],
-                            decoration: InputDecoration(hintText: "0"),
+                            decoration: const InputDecoration(hintText: "0"),
                             onChanged: (value) {
                               notifier.countBunches(
                                   context, notifier.bunchesUnRipe);
@@ -168,7 +168,7 @@ class _DetailOPHEditFruitState extends State<DetailOPHEditFruit> {
                         ),
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: TextFormField(
                             controller: notifier.bunchesAbnormal,
                             keyboardType: TextInputType.number,
@@ -179,7 +179,7 @@ class _DetailOPHEditFruitState extends State<DetailOPHEditFruit> {
                                   RegExp(r'[0-9]')),
                               BunchesFormatter()
                             ],
-                            decoration: InputDecoration(hintText: "0"),
+                            decoration: const InputDecoration(hintText: "0"),
                             onChanged: (value) {
                               notifier.countBunches(
                                   context, notifier.bunchesAbnormal);
@@ -188,7 +188,7 @@ class _DetailOPHEditFruitState extends State<DetailOPHEditFruit> {
                         ),
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: TextFormField(
                             controller: notifier.bunchesEmpty,
                             keyboardType: TextInputType.number,
@@ -199,7 +199,7 @@ class _DetailOPHEditFruitState extends State<DetailOPHEditFruit> {
                                   RegExp(r'[0-9]')),
                               BunchesFormatter()
                             ],
-                            decoration: InputDecoration(hintText: "0"),
+                            decoration: const InputDecoration(hintText: "0"),
                             onChanged: (value) {
                               notifier.countBunches(
                                   context, notifier.bunchesEmpty);
@@ -208,9 +208,9 @@ class _DetailOPHEditFruitState extends State<DetailOPHEditFruit> {
                         ),
                       ],
                     ),
-                    TableRow(
+                    const TableRow(
                       children: <Widget>[
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -218,7 +218,7 @@ class _DetailOPHEditFruitState extends State<DetailOPHEditFruit> {
                             SizedBox(height: 6),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -226,11 +226,11 @@ class _DetailOPHEditFruitState extends State<DetailOPHEditFruit> {
                             SizedBox(height: 6),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
-                            Container(
+                            SizedBox(
                                 width: 100,
                                 child: Text(
                                   "Janjang Tidak Dikirim",
@@ -244,7 +244,7 @@ class _DetailOPHEditFruitState extends State<DetailOPHEditFruit> {
                     TableRow(children: <Widget>[
                       Container(
                         width: 100,
-                        padding: EdgeInsets.symmetric(horizontal: 16),
+                        padding: const EdgeInsets.symmetric(horizontal: 16),
                         child: TextFormField(
                           enabled: false,
                           controller: notifier.bunchesTotal,
@@ -255,12 +255,12 @@ class _DetailOPHEditFruitState extends State<DetailOPHEditFruit> {
                             FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
                             BunchesFormatter()
                           ],
-                          decoration: InputDecoration(hintText: "0"),
+                          decoration: const InputDecoration(hintText: "0"),
                         ),
                       ),
                       Container(
                         width: 100,
-                        padding: EdgeInsets.symmetric(horizontal: 16),
+                        padding: const EdgeInsets.symmetric(horizontal: 16),
                         child: TextFormField(
                           controller: notifier.looseFruits,
                           keyboardType: TextInputType.number,
@@ -270,7 +270,7 @@ class _DetailOPHEditFruitState extends State<DetailOPHEditFruit> {
                             FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
                             BunchesFormatter()
                           ],
-                          decoration: InputDecoration(hintText: "0"),
+                          decoration: const InputDecoration(hintText: "0"),
                           onChanged: (value) {
                             notifier.countBunches(
                                 context, notifier.looseFruits);
@@ -279,7 +279,7 @@ class _DetailOPHEditFruitState extends State<DetailOPHEditFruit> {
                       ),
                       Container(
                         width: 100,
-                        padding: EdgeInsets.symmetric(horizontal: 16),
+                        padding: const EdgeInsets.symmetric(horizontal: 16),
                         child: TextFormField(
                           controller: notifier.bunchesNotSent,
                           keyboardType: TextInputType.number,
@@ -289,7 +289,7 @@ class _DetailOPHEditFruitState extends State<DetailOPHEditFruit> {
                             FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
                             BunchesFormatter()
                           ],
-                          decoration: InputDecoration(hintText: "0"),
+                          decoration: const InputDecoration(hintText: "0"),
                           onChanged: (value) {
                             notifier.countBunches(
                                 context, notifier.bunchesNotSent);
@@ -298,20 +298,18 @@ class _DetailOPHEditFruitState extends State<DetailOPHEditFruit> {
                       ),
                     ]),
                   ]),
-              SizedBox(height: 26),
+              const SizedBox(height: 26),
               Column(
                 children: [
-                  Text("Catatan"),
-                  Container(
-                    child: TextFormField(
-                      controller: notifier.notesOPH,
-                      textAlign: TextAlign.center,
-                      decoration: InputDecoration(hintText: "Catatan"),
-                      keyboardType: TextInputType.multiline,
-                      maxLength: 50,
-                      maxLengthEnforcement: MaxLengthEnforcement.enforced,
-                      onChanged: (value) {},
-                    ),
+                  const Text("Catatan"),
+                  TextFormField(
+                    controller: notifier.notesOPH,
+                    textAlign: TextAlign.center,
+                    decoration: const InputDecoration(hintText: "Catatan"),
+                    keyboardType: TextInputType.multiline,
+                    maxLength: 50,
+                    maxLengthEnforcement: MaxLengthEnforcement.enforced,
+                    onChanged: (value) {},
                   ),
                 ],
               ),

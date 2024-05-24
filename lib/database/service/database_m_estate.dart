@@ -45,10 +45,10 @@ class DatabaseMEstateSchema {
     // }
     // return count;
     Batch batch = db.batch();
-    object.forEach((val) {
+    for (var val in object) {
       MEstateSchema mEstateSchema = val;
       batch.insert(mEstateSchemaTable, mEstateSchema.toJson());
-    });
+    }
     List<Object?> i = await batch.commit();
     return i.length;
   }

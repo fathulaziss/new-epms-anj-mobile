@@ -40,7 +40,7 @@ class _AppState extends State<App> {
             child = ScreenStyle.responsiveBuilder(context, child);
             return child;
           },
-          home: SplashScreen(),
+          home: const SplashScreen(),
         ),
       ),
     );

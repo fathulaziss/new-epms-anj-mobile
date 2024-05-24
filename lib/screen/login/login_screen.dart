@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:epms/base/constants/constanta.dart';
 import 'package:epms/base/constants/image_assets.dart';
 import 'package:epms/base/ui/palette.dart';
@@ -9,10 +11,10 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+  const LoginScreen({super.key});
 
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
 class _LoginScreenState extends State<LoginScreen> {
@@ -41,18 +43,18 @@ class _LoginScreenState extends State<LoginScreen> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        SizedBox(
+                        const SizedBox(
                           height: 30,
                         ),
                         Image.asset(
                           ImageAssets.ANJ_LOGO,
                           height: 70,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 40,
                         ),
                         Container(
-                          padding: EdgeInsets.symmetric(horizontal: 55),
+                          padding: const EdgeInsets.symmetric(horizontal: 55),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -62,7 +64,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 textInputAction: TextInputAction.next,
                                 autovalidateMode:
                                     AutovalidateMode.onUserInteraction,
-                                decoration: InputDecoration(
+                                decoration: const InputDecoration(
                                     hintText: "Username",
                                     labelText: "Username"),
                                 validator: (value) {
@@ -83,8 +85,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                     suffixIcon: InkWell(
                                         onTap: login.toggle,
                                         child: login.obscureText
-                                            ? Icon(Elusive.eye)
-                                            : Icon(Elusive.eye_off)),
+                                            ? const Icon(Elusive.eye)
+                                            : const Icon(Elusive.eye_off)),
                                     hintText: "Password",
                                     labelText: "Password"),
                                 validator: (value) {
@@ -94,8 +96,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                   return null;
                                 },
                               ),
-                              SizedBox(height: 30),
-                              Container(
+                              const SizedBox(height: 30),
+                              SizedBox(
                                 width: MediaQuery.of(context).size.width,
                                 child: login.loading
                                     ? Card(
@@ -107,14 +109,14 @@ class _LoginScreenState extends State<LoginScreen> {
                                         ),
                                         child: Container(
                                             alignment: Alignment.center,
-                                            padding: EdgeInsets.all(14),
-                                            child: SizedBox(
+                                            padding: const EdgeInsets.all(14),
+                                            child: const SizedBox(
+                                              height: 26.0,
+                                              width: 26.0,
                                               child: CircularProgressIndicator(
                                                 color: Colors.white,
                                                 strokeWidth: 3,
                                               ),
-                                              height: 26.0,
-                                              width: 26.0,
                                             )),
                                       )
                                     : InkWell(
@@ -145,18 +147,18 @@ class _LoginScreenState extends State<LoginScreen> {
                                           ),
                                           child: Container(
                                             alignment: Alignment.center,
-                                            padding: EdgeInsets.all(14),
+                                            padding: const EdgeInsets.all(14),
                                             child: login.loading
-                                                ? SizedBox(
+                                                ? const SizedBox(
+                                                    height: 26.0,
+                                                    width: 26.0,
                                                     child:
                                                         CircularProgressIndicator(
                                                       color: Colors.white,
                                                       strokeWidth: 3,
                                                     ),
-                                                    height: 26.0,
-                                                    width: 26.0,
                                                   )
-                                                : Text(
+                                                : const Text(
                                                     "LOGIN",
                                                     style: TextStyle(
                                                         fontSize: 18,
@@ -169,7 +171,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                         ),
                                       ),
                               ),
-                              SizedBox(height: 30),
+                              const SizedBox(height: 30),
                               Container(
                                   alignment: Alignment.center,
                                   child: Row(
@@ -210,22 +212,22 @@ class _LoginScreenState extends State<LoginScreen> {
                                       ),
                                     ],
                                   )),
-                              SizedBox(height: 30),
+                              const SizedBox(height: 30),
                               Container(
                                   alignment: Alignment.center,
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Text(
-                                        "${Constanta.APP_VERSION}",
+                                      const Text(
+                                        Constanta.APP_VERSION,
                                         style: TextStyle(
                                             fontWeight: FontWeight.bold),
                                       ),
-                                      SizedBox(height: 10),
-                                      Text("${login.appName}"),
+                                      const SizedBox(height: 10),
+                                      Text(login.appName),
                                     ],
                                   )),
-                              SizedBox(height: 30),
+                              const SizedBox(height: 30),
                               Container(
                                   alignment: Alignment.center,
                                   child: Row(

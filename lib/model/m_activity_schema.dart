@@ -36,17 +36,17 @@ class MActivitySchema {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['activity_id'] = this.activityId;
-    data['activity_code'] = this.activityCode;
-    data['activity_name'] = this.activityName;
-    data['activity_uom'] = this.activityUom;
-    data['created_by'] = this.createdBy;
-    data['created_date'] = this.createdDate;
-    data['created_time'] = this.createdTime;
-    data['updated_by'] = this.updatedBy;
-    data['updated_date'] = this.updatedDate;
-    data['updated_time'] = this.updatedTime;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['activity_id'] = activityId;
+    data['activity_code'] = activityCode;
+    data['activity_name'] = activityName;
+    data['activity_uom'] = activityUom;
+    data['created_by'] = createdBy;
+    data['created_date'] = createdDate;
+    data['created_time'] = createdTime;
+    data['updated_by'] = updatedBy;
+    data['updated_date'] = updatedDate;
+    data['updated_time'] = updatedTime;
     return data;
   }
 }

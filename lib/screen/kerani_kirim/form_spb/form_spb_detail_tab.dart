@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:io';
 
 import 'package:epms/base/ui/palette.dart';
@@ -16,7 +18,7 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
 
 class FormSPBDetailTab extends StatefulWidget {
-  const FormSPBDetailTab({Key? key}) : super(key: key);
+  const FormSPBDetailTab({super.key});
 
   @override
   State<FormSPBDetailTab> createState() => _FormSPBDetailTabState();
@@ -36,10 +38,10 @@ class _FormSPBDetailTabState extends State<FormSPBDetailTab> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("ID SPB:"),
+                    const Text("ID SPB:"),
                     Expanded(
                       child: Text(
-                        "${formSPB.spbID ?? ""}",
+                        formSPB.spbID ?? "",
                         style: Style.textBold16,
                         textAlign: TextAlign.end,
                       ),
@@ -52,10 +54,10 @@ class _FormSPBDetailTabState extends State<FormSPBDetailTab> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Tanggal:"),
+                    const Text("Tanggal:"),
                     Expanded(
-                        child: Text("${formSPB.date ?? ""}",
-                            textAlign: TextAlign.end)),
+                        child:
+                            Text(formSPB.date ?? "", textAlign: TextAlign.end)),
                   ],
                 ),
               ),
@@ -64,10 +66,10 @@ class _FormSPBDetailTabState extends State<FormSPBDetailTab> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("GPS Geolocation:"),
+                    const Text("GPS Geolocation:"),
                     Expanded(
                         child: Text(
-                      "${formSPB.gpsLocation}",
+                      formSPB.gpsLocation,
                       textAlign: TextAlign.end,
                     ))
                   ],
@@ -78,17 +80,17 @@ class _FormSPBDetailTabState extends State<FormSPBDetailTab> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Jenis Pengangkutan:"),
+                    const Text("Jenis Pengangkutan:"),
                     Flexible(
-                      child: Container(
+                      child: SizedBox(
                         width: 140,
                         child: DropdownButton(
                           isExpanded: true,
                           value: formSPB.typeDeliverValue,
                           items: formSPB.typeDeliver.map((value) {
                             return DropdownMenuItem(
-                              child: Text(value),
                               value: value,
+                              child: Text(value),
                             );
                           }).toList(),
                           onChanged: (String? value) {
@@ -105,16 +107,16 @@ class _FormSPBDetailTabState extends State<FormSPBDetailTab> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Expanded(child: Text("Tujuan:")),
+                    const Expanded(child: Text("Tujuan:")),
                     Expanded(
                       child: DropdownButton(
                         isExpanded: true,
-                        hint: Text("Pilih tujuan"),
+                        hint: const Text("Pilih tujuan"),
                         value: formSPB.destinationValue,
                         items: formSPB.destinationList.map((value) {
                           return DropdownMenuItem(
-                            child: Text(value.destinationName!),
                             value: value,
+                            child: Text(value.destinationName!),
                           );
                         }).toList(),
                         onChanged: (MDestinationSchema? value) {
@@ -131,21 +133,21 @@ class _FormSPBDetailTabState extends State<FormSPBDetailTab> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Flexible(child: Text("Supir:")),
+                          const Flexible(child: Text("Supir:")),
                           Flexible(
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Container(
+                                SizedBox(
                                   width: 145,
                                   child: DropdownButton(
                                     isExpanded: true,
-                                    hint: Text("Pilih Supir"),
+                                    hint: const Text("Pilih Supir"),
                                     value: formSPB.driverNameValue,
                                     items: formSPB.driverNameList.map((value) {
                                       return DropdownMenuItem(
-                                        child: Text(value.employeeName!),
                                         value: value,
+                                        child: Text(value.employeeName!),
                                       );
                                     }).toList(),
                                     onChanged: (MEmployeeSchema? value) {
@@ -155,9 +157,8 @@ class _FormSPBDetailTabState extends State<FormSPBDetailTab> {
                                 ),
                                 Expanded(
                                   child: InkWell(
-                                    child: Padding(
-                                      padding:
-                                          const EdgeInsets.only(right: 2.0),
+                                    child: const Padding(
+                                      padding: EdgeInsets.only(right: 2.0),
                                       child: Icon(Icons.search),
                                     ),
                                     onTap: () async {
@@ -166,7 +167,7 @@ class _FormSPBDetailTabState extends State<FormSPBDetailTab> {
                                               context,
                                               MaterialPageRoute(
                                                   builder: (context) =>
-                                                      SearchDriverScreen()));
+                                                      const SearchDriverScreen()));
                                       formSPB.onChangeDriver(mEmployee!);
                                     },
                                   ),
@@ -182,18 +183,18 @@ class _FormSPBDetailTabState extends State<FormSPBDetailTab> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Flexible(child: Text("Vendor:")),
+                          const Flexible(child: Text("Vendor:")),
                           Flexible(
-                            child: Container(
+                            child: SizedBox(
                               width: 180,
                               child: DropdownButton(
                                 isExpanded: true,
-                                hint: Text("Pilih Vendor"),
+                                hint: const Text("Pilih Vendor"),
                                 value: formSPB.vendorSchemaValue,
                                 items: formSPB.vendorList.map((value) {
                                   return DropdownMenuItem(
-                                    child: Text(value.vendorName!),
                                     value: value,
+                                    child: Text(value.vendorName!),
                                   );
                                 }).toList(),
                                 onChanged: !formSPB.isOthersVendor
@@ -215,7 +216,7 @@ class _FormSPBDetailTabState extends State<FormSPBDetailTab> {
                         children: [
                           Row(
                             children: [
-                              Text("Lainnya:"),
+                              const Text("Lainnya:"),
                               Checkbox(
                                 checkColor: Colors.white,
                                 value: formSPB.isOthersVendor,
@@ -226,14 +227,14 @@ class _FormSPBDetailTabState extends State<FormSPBDetailTab> {
                             ],
                           ),
                           Flexible(
-                            child: Container(
+                            child: SizedBox(
                               width: 180,
                               child: TextFormField(
                                 enabled: formSPB.isOthersVendor,
                                 controller: formSPB.vendorOther,
                                 textAlign: TextAlign.center,
-                                decoration:
-                                    InputDecoration(hintText: "Tulis Vendor"),
+                                decoration: const InputDecoration(
+                                    hintText: "Tulis Vendor"),
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
                                     return 'Please enter some text';
@@ -247,15 +248,15 @@ class _FormSPBDetailTabState extends State<FormSPBDetailTab> {
                       ),
                     )
                   : Container(),
-              SizedBox(height: 40),
+              const SizedBox(height: 40),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Expanded(
                     child: Column(
                       children: [
-                        Text("No. Kendaraan"),
-                        Container(
+                        const Text("No. Kendaraan"),
+                        SizedBox(
                           width: 160,
                           child: Focus(
                             onFocusChange: (hasFocus) {
@@ -276,7 +277,7 @@ class _FormSPBDetailTabState extends State<FormSPBDetailTab> {
                               controller: formSPB.vehicleNumber,
                               textCapitalization: TextCapitalization.characters,
                               textAlign: TextAlign.center,
-                              decoration: InputDecoration(
+                              decoration: const InputDecoration(
                                   hintText: "Tulis No Kendaraan"),
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
@@ -294,7 +295,8 @@ class _FormSPBDetailTabState extends State<FormSPBDetailTab> {
                               String? result = await Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => QRReaderScreen()));
+                                      builder: (context) =>
+                                          const QRReaderScreen()));
                               if (result != null) {
                                 setState(() {
                                   formSPB.vehicleNumber =
@@ -321,14 +323,14 @@ class _FormSPBDetailTabState extends State<FormSPBDetailTab> {
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 16,
                   ),
                   Expanded(
                     child: Column(
                       children: [
-                        Text("Kartu SPB"),
-                        Container(
+                        const Text("Kartu SPB"),
+                        SizedBox(
                           width: 160,
                           child: Focus(
                             child: TextFormField(
@@ -343,8 +345,8 @@ class _FormSPBDetailTabState extends State<FormSPBDetailTab> {
                               onFieldSubmitted: (value) {
                                 formSPB.checkSPBCard(context, value);
                               },
-                              decoration:
-                                  InputDecoration(hintText: "Tulis Kartu SPB"),
+                              decoration: const InputDecoration(
+                                  hintText: "Tulis Kartu SPB"),
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return 'Please enter some text';
@@ -361,7 +363,8 @@ class _FormSPBDetailTabState extends State<FormSPBDetailTab> {
                               String? result = await Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => QRReaderScreen()));
+                                      builder: (context) =>
+                                          const QRReaderScreen()));
                               if (result != null) {
                                 setState(() {
                                   formSPB.spbCardNumber =
@@ -395,7 +398,7 @@ class _FormSPBDetailTabState extends State<FormSPBDetailTab> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Total OPH:"),
+                    const Text("Total OPH:"),
                     Text("${formSPB.listSPBDetail.length}")
                   ],
                 ),
@@ -405,9 +408,8 @@ class _FormSPBDetailTabState extends State<FormSPBDetailTab> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Total janjang:"),
-                    Text(
-                        "${ValueService.thousandSeparator(formSPB.totalBunches)}")
+                    const Text("Total janjang:"),
+                    Text(ValueService.thousandSeparator(formSPB.totalBunches))
                   ],
                 ),
               ),
@@ -416,9 +418,9 @@ class _FormSPBDetailTabState extends State<FormSPBDetailTab> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Total brondolan (kg):"),
-                    Text(
-                        "${ValueService.thousandSeparator(formSPB.totalLooseFruits)}")
+                    const Text("Total brondolan (kg):"),
+                    Text(ValueService.thousandSeparator(
+                        formSPB.totalLooseFruits))
                   ],
                 ),
               ),
@@ -427,9 +429,9 @@ class _FormSPBDetailTabState extends State<FormSPBDetailTab> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Estimasi berat (kg):"),
-                    Text(
-                        "${ValueService.thousandSeparator(formSPB.totalWeightEstimation.toInt())}")
+                    const Text("Estimasi berat (kg):"),
+                    Text(ValueService.thousandSeparator(
+                        formSPB.totalWeightEstimation.toInt()))
                   ],
                 ),
               ),
@@ -438,18 +440,19 @@ class _FormSPBDetailTabState extends State<FormSPBDetailTab> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Sisa kapasitas truk (kg):"),
+                    const Text("Sisa kapasitas truk (kg):"),
                     Text(
-                      "${ValueService.thousandSeparator(formSPB.totalCapacityTruck)}",
+                      ValueService.thousandSeparator(
+                          formSPB.totalCapacityTruck),
                       style: formSPB.totalCapacityTruck < 0
-                          ? TextStyle(color: Colors.red)
+                          ? const TextStyle(color: Colors.red)
                           : Style.textBold,
                     )
                   ],
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
+              const Padding(
+                padding: EdgeInsets.all(8.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [Text("Berat aktual (Kg):"), Text("${0}")],
@@ -457,15 +460,14 @@ class _FormSPBDetailTabState extends State<FormSPBDetailTab> {
               ),
               Column(
                 children: [
-                  Text("Catatan"),
-                  Container(
-                    child: TextFormField(
-                      controller: formSPB.notesSPB,
-                      textAlign: TextAlign.center,
-                      decoration: InputDecoration(hintText: "Tulis Catatan"),
-                      maxLength: 50,
-                      maxLengthEnforcement: MaxLengthEnforcement.enforced,
-                    ),
+                  const Text("Catatan"),
+                  TextFormField(
+                    controller: formSPB.notesSPB,
+                    textAlign: TextAlign.center,
+                    decoration:
+                        const InputDecoration(hintText: "Tulis Catatan"),
+                    maxLength: 50,
+                    maxLengthEnforcement: MaxLengthEnforcement.enforced,
                   ),
                 ],
               ),
@@ -484,7 +486,7 @@ class _FormSPBDetailTabState extends State<FormSPBDetailTab> {
                   onTap: () {
                     formSPB.getCamera(context);
                   },
-                  child: Container(
+                  child: SizedBox(
                     width: MediaQuery.of(context).size.width,
                     child: Card(
                       shape: RoundedRectangleBorder(
@@ -524,9 +526,9 @@ class _FormSPBDetailTabState extends State<FormSPBDetailTab> {
                       borderRadius: BorderRadius.circular(10.0),
                     ),
                     child: Container(
-                      padding: EdgeInsets.all(14),
+                      padding: const EdgeInsets.all(14),
                       width: MediaQuery.of(context).size.width,
-                      child: Text(
+                      child: const Text(
                         "SIMPAN",
                         style: TextStyle(
                             fontSize: 18,

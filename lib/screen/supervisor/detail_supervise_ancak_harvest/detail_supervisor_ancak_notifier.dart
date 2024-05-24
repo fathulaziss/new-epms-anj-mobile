@@ -12,11 +12,11 @@ import 'package:epms/model/oph_supervise_ancak.dart';
 import 'package:flutter/material.dart';
 
 class DetailSupervisorAncakNotifier extends ChangeNotifier {
-  NavigatorService _navigationService = locator<NavigatorService>();
+  final NavigatorService _navigationService = locator<NavigatorService>();
 
   NavigatorService get navigationService => _navigationService;
 
-  DialogService _dialogService = locator<DialogService>();
+  final DialogService _dialogService = locator<DialogService>();
 
   DialogService get dialogService => _dialogService;
 
@@ -40,56 +40,56 @@ class DetailSupervisorAncakNotifier extends ChangeNotifier {
 
   MEmployeeSchema? get pemanen => _pemanen;
 
-  TextEditingController _pokokPanen = TextEditingController();
+  final TextEditingController _pokokPanen = TextEditingController();
 
   TextEditingController get pokokPanen => _pokokPanen;
 
-  TextEditingController _totalJanjang = TextEditingController();
+  final TextEditingController _totalJanjang = TextEditingController();
 
   TextEditingController get totalJanjang => _totalJanjang;
 
-  TextEditingController _totalBrondolan = TextEditingController();
+  final TextEditingController _totalBrondolan = TextEditingController();
 
   TextEditingController get totalBrondolan => _totalBrondolan;
 
-  TextEditingController _rat = TextEditingController();
+  final TextEditingController _rat = TextEditingController();
 
   TextEditingController get rat => _rat;
 
-  TextEditingController _vCut = TextEditingController();
+  final TextEditingController _vCut = TextEditingController();
 
   TextEditingController get vCut => _vCut;
 
-  TextEditingController _tangkaiPanjang = TextEditingController();
+  final TextEditingController _tangkaiPanjang = TextEditingController();
 
   TextEditingController get tangkaiPanjang => _tangkaiPanjang;
 
-  TextEditingController _pelepahSengkleh = TextEditingController();
+  final TextEditingController _pelepahSengkleh = TextEditingController();
 
   TextEditingController get pelepahSengkleh => _pelepahSengkleh;
 
-  TextEditingController _janjangTinggal = TextEditingController();
+  final TextEditingController _janjangTinggal = TextEditingController();
 
   TextEditingController get janjangTinggal => _janjangTinggal;
 
-  TextEditingController _brondolanTinggal = TextEditingController();
+  final TextEditingController _brondolanTinggal = TextEditingController();
 
   TextEditingController get brondolanTinggal => _brondolanTinggal;
 
-  TextEditingController _notes = TextEditingController();
+  final TextEditingController _notes = TextEditingController();
 
   TextEditingController get notes => _notes;
 
-  double _loosesBuahTinggal = 0.0;
+  final double _loosesBuahTinggal = 0.0;
 
   double get loosesBuahTinggal => _loosesBuahTinggal;
 
-  double _loosesBrondolan = 0.0;
+  final double _loosesBrondolan = 0.0;
 
   double get loosesBrondolan => _loosesBrondolan;
 
   onInit(OPHSuperviseAncak ophSuperviseAncak) {
-    this._ophSuperviseAncak = ophSuperviseAncak;
+    _ophSuperviseAncak = ophSuperviseAncak;
     _ancakEmployee = MAncakEmployee(
         userId: _ophSuperviseAncak?.supervisiAncakAssignToId,
         userName: _ophSuperviseAncak?.supervisiAncakAssignToName);
@@ -132,7 +132,7 @@ class DetailSupervisorAncakNotifier extends ChangeNotifier {
   getCamera(BuildContext context) async {
     String? picked = await CameraService.getImageByCamera(context);
     if (picked != null) {
-      this._ophSuperviseAncak?.supervisiAncakPhoto = picked;
+      _ophSuperviseAncak?.supervisiAncakPhoto = picked;
       notifyListeners();
     }
   }
@@ -182,7 +182,7 @@ class DetailSupervisorAncakNotifier extends ChangeNotifier {
       BuildContext context, TextEditingController textEditingController) {
     if (textEditingController.text.isEmpty ||
         textEditingController.text == "0") {
-      textEditingController.value = TextEditingValue(text: "0");
+      textEditingController.value = const TextEditingValue(text: "0");
       textEditingController.selection = TextSelection.fromPosition(
           TextPosition(offset: textEditingController.text.length));
     } else {

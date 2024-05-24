@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'dart:convert';
 
 import 'package:epms/base/common/locator.dart';
@@ -10,11 +12,11 @@ import 'package:epms/model/oph.dart';
 import 'package:flutter/material.dart';
 
 class RestanReportNotifier extends ChangeNotifier {
-  NavigatorService _navigationService = locator<NavigatorService>();
+  final NavigatorService _navigationService = locator<NavigatorService>();
 
   NavigatorService get navigationService => _navigationService;
 
-  DialogService _dialogService = locator<DialogService>();
+  final DialogService _dialogService = locator<DialogService>();
 
   DialogService get dialogService => _dialogService;
 
@@ -22,7 +24,7 @@ class RestanReportNotifier extends ChangeNotifier {
 
   List<LaporanRestan> get listRestan => _listRestan;
 
-  List<LaporanRestan> _listRestanResult = [];
+  final List<LaporanRestan> _listRestanResult = [];
 
   List<LaporanRestan> get listRestanResult => _listRestanResult;
 
@@ -34,7 +36,7 @@ class RestanReportNotifier extends ChangeNotifier {
 
   String get blockValue => _blockValue;
 
-  List<String> _listDivision = ["Semua"];
+  final List<String> _listDivision = ["Semua"];
 
   List<String> get listDivision => _listDivision;
 
@@ -59,7 +61,7 @@ class RestanReportNotifier extends ChangeNotifier {
     List<String> listDivisionTemp = [];
     _listRestan = await DatabaseLaporanRestan().selectLaporanRestan();
     print('cek total list : ${_listRestan.length}');
-    _listRestan.forEach((element) {
+    for (var element in _listRestan) {
       _totalBunches = _totalBunches + element.bunchesTotal;
       _totalLooseFruits = _totalLooseFruits + element.looseFruits;
       if (!listBlockTemp.contains(element.ophBlockCode)) {
@@ -80,7 +82,7 @@ class RestanReportNotifier extends ChangeNotifier {
           listDivisionTemp.sort((a, b) => a.toString().compareTo(b.toString()));
         }
       }
-    });
+    }
     _listBlock.addAll(listBlockTemp);
     _listDivision.addAll(listDivisionTemp);
     _countOPHRestan = listRestan.length;
@@ -224,8 +226,9 @@ class RestanReportNotifier extends ChangeNotifier {
           if (_listRestan[i]
               .ophDivisionCode!
               .toLowerCase()
-              .contains(value.toLowerCase()))
+              .contains(value.toLowerCase())) {
             _listRestanResult.add(_listRestan[i]);
+          }
         }
       }
       for (int i = 0; i < _listRestanResult.length; i++) {
@@ -254,8 +257,9 @@ class RestanReportNotifier extends ChangeNotifier {
               _listRestan[i]
                   .ophBlockCode!
                   .toLowerCase()
-                  .contains(value.toLowerCase()))
+                  .contains(value.toLowerCase())) {
             _listRestanResult.add(_listRestan[i]);
+          }
         }
       }
       for (int i = 0; i < _listRestanResult.length; i++) {
@@ -297,8 +301,9 @@ class RestanReportNotifier extends ChangeNotifier {
           if (_listRestan[i]
               .ophBlockCode!
               .toLowerCase()
-              .contains(value.toLowerCase()))
+              .contains(value.toLowerCase())) {
             _listRestanResult.add(_listRestan[i]);
+          }
         }
       }
       for (int i = 0; i < _listRestanResult.length; i++) {

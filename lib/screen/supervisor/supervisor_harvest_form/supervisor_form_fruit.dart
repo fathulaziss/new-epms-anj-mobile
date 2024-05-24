@@ -6,7 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 class SupervisorFormFruit extends StatefulWidget {
-  const SupervisorFormFruit({Key? key}) : super(key: key);
+  const SupervisorFormFruit({super.key});
 
   @override
   State<SupervisorFormFruit> createState() => _SupervisorFormFruitState();
@@ -25,9 +25,9 @@ class _SupervisorFormFruitState extends State<SupervisorFormFruit> {
               Table(
                   defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                   children: <TableRow>[
-                    TableRow(
+                    const TableRow(
                       children: <Widget>[
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -35,7 +35,7 @@ class _SupervisorFormFruitState extends State<SupervisorFormFruit> {
                             SizedBox(height: 6),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -43,7 +43,7 @@ class _SupervisorFormFruitState extends State<SupervisorFormFruit> {
                             SizedBox(height: 6),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -57,7 +57,7 @@ class _SupervisorFormFruitState extends State<SupervisorFormFruit> {
                       children: <Widget>[
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: TextFormField(
                             controller: notifier.bunchesRipe,
                             keyboardType: TextInputType.number,
@@ -68,7 +68,7 @@ class _SupervisorFormFruitState extends State<SupervisorFormFruit> {
                                   RegExp(r'[0-9]')),
                               BunchesFormatter()
                             ],
-                            decoration: InputDecoration(hintText: "0"),
+                            decoration: const InputDecoration(hintText: "0"),
                             onChanged: (value) {
                               notifier.countBunches(
                                   context, notifier.bunchesRipe);
@@ -77,7 +77,7 @@ class _SupervisorFormFruitState extends State<SupervisorFormFruit> {
                         ),
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: TextFormField(
                             controller: notifier.bunchesOverRipe,
                             keyboardType: TextInputType.number,
@@ -88,7 +88,7 @@ class _SupervisorFormFruitState extends State<SupervisorFormFruit> {
                                   RegExp(r'[0-9]')),
                               BunchesFormatter()
                             ],
-                            decoration: InputDecoration(hintText: "0"),
+                            decoration: const InputDecoration(hintText: "0"),
                             onChanged: (value) {
                               notifier.countBunches(
                                   context, notifier.bunchesOverRipe);
@@ -97,7 +97,7 @@ class _SupervisorFormFruitState extends State<SupervisorFormFruit> {
                         ),
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: TextFormField(
                             controller: notifier.bunchesHalfRipe,
                             keyboardType: TextInputType.number,
@@ -108,7 +108,7 @@ class _SupervisorFormFruitState extends State<SupervisorFormFruit> {
                                   RegExp(r'[0-9]')),
                               BunchesFormatter()
                             ],
-                            decoration: InputDecoration(hintText: "0"),
+                            decoration: const InputDecoration(hintText: "0"),
                             onChanged: (value) {
                               notifier.countBunches(
                                   context, notifier.bunchesHalfRipe);
@@ -117,9 +117,9 @@ class _SupervisorFormFruitState extends State<SupervisorFormFruit> {
                         ),
                       ],
                     ),
-                    TableRow(
+                    const TableRow(
                       children: <Widget>[
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -127,7 +127,7 @@ class _SupervisorFormFruitState extends State<SupervisorFormFruit> {
                             SizedBox(height: 6),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -135,7 +135,7 @@ class _SupervisorFormFruitState extends State<SupervisorFormFruit> {
                             SizedBox(height: 6),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -149,7 +149,7 @@ class _SupervisorFormFruitState extends State<SupervisorFormFruit> {
                       children: <Widget>[
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: TextFormField(
                             controller: notifier.bunchesUnRipe,
                             keyboardType: TextInputType.number,
@@ -160,7 +160,7 @@ class _SupervisorFormFruitState extends State<SupervisorFormFruit> {
                                   RegExp(r'[0-9]')),
                               BunchesFormatter()
                             ],
-                            decoration: InputDecoration(hintText: "0"),
+                            decoration: const InputDecoration(hintText: "0"),
                             onChanged: (value) {
                               notifier.countBunches(
                                   context, notifier.bunchesUnRipe);
@@ -169,7 +169,7 @@ class _SupervisorFormFruitState extends State<SupervisorFormFruit> {
                         ),
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: TextFormField(
                             controller: notifier.bunchesAbnormal,
                             keyboardType: TextInputType.number,
@@ -180,7 +180,7 @@ class _SupervisorFormFruitState extends State<SupervisorFormFruit> {
                                   RegExp(r'[0-9]')),
                               BunchesFormatter()
                             ],
-                            decoration: InputDecoration(hintText: "0"),
+                            decoration: const InputDecoration(hintText: "0"),
                             onChanged: (value) {
                               notifier.countBunches(
                                   context, notifier.bunchesAbnormal);
@@ -189,7 +189,7 @@ class _SupervisorFormFruitState extends State<SupervisorFormFruit> {
                         ),
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: TextFormField(
                             controller: notifier.bunchesEmpty,
                             keyboardType: TextInputType.number,
@@ -200,7 +200,7 @@ class _SupervisorFormFruitState extends State<SupervisorFormFruit> {
                                   RegExp(r'[0-9]')),
                               BunchesFormatter()
                             ],
-                            decoration: InputDecoration(hintText: "0"),
+                            decoration: const InputDecoration(hintText: "0"),
                             onChanged: (value) {
                               notifier.countBunches(
                                   context, notifier.bunchesEmpty);
@@ -209,9 +209,9 @@ class _SupervisorFormFruitState extends State<SupervisorFormFruit> {
                         ),
                       ],
                     ),
-                    TableRow(
+                    const TableRow(
                       children: <Widget>[
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -219,7 +219,7 @@ class _SupervisorFormFruitState extends State<SupervisorFormFruit> {
                             SizedBox(height: 6),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -227,11 +227,11 @@ class _SupervisorFormFruitState extends State<SupervisorFormFruit> {
                             SizedBox(height: 6),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
-                            Container(
+                            SizedBox(
                                 width: 100,
                                 child: Text(
                                   "Janjang Tidak Dikirim",
@@ -245,7 +245,7 @@ class _SupervisorFormFruitState extends State<SupervisorFormFruit> {
                     TableRow(children: <Widget>[
                       Container(
                         width: 100,
-                        padding: EdgeInsets.symmetric(horizontal: 16),
+                        padding: const EdgeInsets.symmetric(horizontal: 16),
                         child: TextFormField(
                           enabled: false,
                           controller: notifier.bunchesTotal,
@@ -256,13 +256,13 @@ class _SupervisorFormFruitState extends State<SupervisorFormFruit> {
                             FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
                             BunchesFormatter()
                           ],
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                               hintText: "0", border: InputBorder.none),
                         ),
                       ),
                       Container(
                         width: 100,
-                        padding: EdgeInsets.symmetric(horizontal: 16),
+                        padding: const EdgeInsets.symmetric(horizontal: 16),
                         child: TextFormField(
                           controller: notifier.looseFruits,
                           keyboardType: TextInputType.number,
@@ -272,7 +272,7 @@ class _SupervisorFormFruitState extends State<SupervisorFormFruit> {
                             FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
                             BunchesFormatter()
                           ],
-                          decoration: InputDecoration(hintText: "0"),
+                          decoration: const InputDecoration(hintText: "0"),
                           onChanged: (value) {
                             notifier.countBunches(
                                 context, notifier.looseFruits);
@@ -281,7 +281,7 @@ class _SupervisorFormFruitState extends State<SupervisorFormFruit> {
                       ),
                       Container(
                         width: 100,
-                        padding: EdgeInsets.symmetric(horizontal: 16),
+                        padding: const EdgeInsets.symmetric(horizontal: 16),
                         child: TextFormField(
                           controller: notifier.bunchesNotSent,
                           keyboardType: TextInputType.number,
@@ -291,7 +291,7 @@ class _SupervisorFormFruitState extends State<SupervisorFormFruit> {
                             FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
                             BunchesFormatter()
                           ],
-                          decoration: InputDecoration(hintText: "0"),
+                          decoration: const InputDecoration(hintText: "0"),
                           onChanged: (value) {
                             notifier.countBunches(
                                 context, notifier.bunchesNotSent);
@@ -300,19 +300,17 @@ class _SupervisorFormFruitState extends State<SupervisorFormFruit> {
                       ),
                     ]),
                   ]),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               Column(
                 children: [
-                  Text("Catatan"),
-                  Container(
-                    child: TextFormField(
-                      controller: notifier.notesOPH,
-                      textAlign: TextAlign.center,
-                      decoration: InputDecoration(hintText: "Catatan"),
-                      keyboardType: TextInputType.multiline,
-                      maxLength: 50,
-                      maxLengthEnforcement: MaxLengthEnforcement.enforced,
-                    ),
+                  const Text("Catatan"),
+                  TextFormField(
+                    controller: notifier.notesOPH,
+                    textAlign: TextAlign.center,
+                    decoration: const InputDecoration(hintText: "Catatan"),
+                    keyboardType: TextInputType.multiline,
+                    maxLength: 50,
+                    maxLengthEnforcement: MaxLengthEnforcement.enforced,
                   ),
                 ],
               ),

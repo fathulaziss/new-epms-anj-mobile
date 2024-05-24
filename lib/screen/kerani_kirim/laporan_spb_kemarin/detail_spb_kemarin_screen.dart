@@ -3,10 +3,9 @@ import 'package:epms/model/laporan_spb_kemarin.dart';
 import 'package:flutter/material.dart';
 
 class DetailSPBKemarinScreen extends StatefulWidget {
-  final LaporanSPBKemarin laporanSPBKemarin;
+  const DetailSPBKemarinScreen({super.key, required this.laporanSPBKemarin});
 
-  const DetailSPBKemarinScreen({Key? key, required this.laporanSPBKemarin})
-      : super(key: key);
+  final LaporanSPBKemarin laporanSPBKemarin;
 
   @override
   State<DetailSPBKemarinScreen> createState() => _DetailSPBKemarinScreenState();
@@ -19,7 +18,7 @@ class _DetailSPBKemarinScreenState extends State<DetailSPBKemarinScreen> {
       data: Style.mediaQueryText(context),
       child: Scaffold(
         appBar: AppBar(
-          title: Text("Detail SPB Kemarin"),
+          title: const Text("Detail SPB Kemarin"),
         ),
         body: SingleChildScrollView(
           child: Padding(
@@ -30,9 +29,9 @@ class _DetailSPBKemarinScreenState extends State<DetailSPBKemarinScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("ID OPH:"),
+                    const Text("ID OPH:"),
                     Text(
-                      "${widget.laporanSPBKemarin.spbId ?? ""}",
+                      widget.laporanSPBKemarin.spbId ?? "",
                       style: Style.textBold16,
                     )
                   ],
@@ -43,7 +42,7 @@ class _DetailSPBKemarinScreenState extends State<DetailSPBKemarinScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Tanggal:"),
+                    const Text("Tanggal:"),
                     Text(
                         "${widget.laporanSPBKemarin.createdDate} ${widget.laporanSPBKemarin.createdTime}")
                   ],
@@ -54,7 +53,7 @@ class _DetailSPBKemarinScreenState extends State<DetailSPBKemarinScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("GPS Geolocation:"),
+                    const Text("GPS Geolocation:"),
                     Text(
                         "${widget.laporanSPBKemarin.spbLat}, ${widget.laporanSPBKemarin.spbLong}")
                   ],
@@ -65,7 +64,7 @@ class _DetailSPBKemarinScreenState extends State<DetailSPBKemarinScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Jenis Pengangkutan:"),
+                    const Text("Jenis Pengangkutan:"),
                     Text("${widget.laporanSPBKemarin.spbType}")
                   ],
                 ),
@@ -75,7 +74,7 @@ class _DetailSPBKemarinScreenState extends State<DetailSPBKemarinScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Estate:"),
+                    const Text("Estate:"),
                     Text("${widget.laporanSPBKemarin.spbEstateCode}")
                   ],
                 ),
@@ -85,7 +84,7 @@ class _DetailSPBKemarinScreenState extends State<DetailSPBKemarinScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Tujuan:"),
+                    const Text("Tujuan:"),
                     Text(
                         "${widget.laporanSPBKemarin.spbDeliverToCode}, ${widget.laporanSPBKemarin.spbDeliverToName}"),
                   ],
@@ -96,45 +95,45 @@ class _DetailSPBKemarinScreenState extends State<DetailSPBKemarinScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Pekerja:"),
+                    const Text("Pekerja:"),
                     Text("${widget.laporanSPBKemarin.spbDriverEmployeeCode}"),
                   ],
                 ),
               ),
-              SizedBox(height: 14),
+              const SizedBox(height: 14),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Column(
                     children: [
-                      Text("No. Kendaraan"),
-                      SizedBox(height: 20),
+                      const Text("No. Kendaraan"),
+                      const SizedBox(height: 20),
                       Text(
                         "${widget.laporanSPBKemarin.spbLicenseNumber}",
-                        style: TextStyle(fontSize: 18),
+                        style: const TextStyle(fontSize: 18),
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 30,
                   ),
                   Column(
                     children: [
-                      Text("Kartu SPB"),
-                      SizedBox(height: 20),
+                      const Text("Kartu SPB"),
+                      const SizedBox(height: 20),
                       Text("${widget.laporanSPBKemarin.spbCardId}",
-                          style: TextStyle(fontSize: 18)),
+                          style: const TextStyle(fontSize: 18)),
                     ],
                   ),
                 ],
               ),
-              SizedBox(height: 14),
+              const SizedBox(height: 14),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Total OPH:"),
+                    const Text("Total OPH:"),
                     Text("${widget.laporanSPBKemarin.spbTotalOph}")
                   ],
                 ),
@@ -144,7 +143,7 @@ class _DetailSPBKemarinScreenState extends State<DetailSPBKemarinScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Total janjang:"),
+                    const Text("Total janjang:"),
                     Text("${widget.laporanSPBKemarin.spbTotalBunches}")
                   ],
                 ),
@@ -154,7 +153,7 @@ class _DetailSPBKemarinScreenState extends State<DetailSPBKemarinScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Total brondolan (kg):"),
+                    const Text("Total brondolan (kg):"),
                     Text("${widget.laporanSPBKemarin.spbTotalLooseFruit}")
                   ],
                 ),
@@ -164,7 +163,7 @@ class _DetailSPBKemarinScreenState extends State<DetailSPBKemarinScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Estimasi berat (kg):"),
+                    const Text("Estimasi berat (kg):"),
                     Text("${widget.laporanSPBKemarin.spbEstimateTonnage}")
                   ],
                 ),
@@ -174,7 +173,7 @@ class _DetailSPBKemarinScreenState extends State<DetailSPBKemarinScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Sisa kapasitas truk (kg):"),
+                    const Text("Sisa kapasitas truk (kg):"),
                     Text("${widget.laporanSPBKemarin.spbCapacityTonnage}")
                   ],
                 ),
@@ -184,19 +183,19 @@ class _DetailSPBKemarinScreenState extends State<DetailSPBKemarinScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Berat aktual (Kg):"),
+                    const Text("Berat aktual (Kg):"),
                     Text("${widget.laporanSPBKemarin.spbActualTonnage}")
                   ],
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Column(
                 children: [
-                  Text("Catatan (50)"),
-                  Text("${widget.laporanSPBKemarin.spbDeliveryNote ?? ""}")
+                  const Text("Catatan (50)"),
+                  Text(widget.laporanSPBKemarin.spbDeliveryNote ?? "")
                 ],
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               // Container(
               //   width: MediaQuery.of(context).size.width,
               //   child: InkWell(

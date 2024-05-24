@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:epms/base/common/locator.dart';
 import 'package:epms/common_manager/camera_service.dart';
 import 'package:epms/common_manager/dialog_services.dart';
@@ -20,11 +22,11 @@ import 'package:geolocator/geolocator.dart';
 import 'package:intl/intl.dart';
 
 class SupervisorAncakFormNotifier extends ChangeNotifier {
-  NavigatorService _navigationService = locator<NavigatorService>();
+  final NavigatorService _navigationService = locator<NavigatorService>();
 
   NavigatorService get navigationService => _navigationService;
 
-  DialogService _dialogService = locator<DialogService>();
+  final DialogService _dialogService = locator<DialogService>();
 
   DialogService get dialogService => _dialogService;
 
@@ -52,43 +54,43 @@ class SupervisorAncakFormNotifier extends ChangeNotifier {
 
   String get gpsLocationUpdate => _gpsLocationUpdate;
 
-  TextEditingController _pokokPanen = TextEditingController();
+  final TextEditingController _pokokPanen = TextEditingController();
 
   TextEditingController get pokokPanen => _pokokPanen;
 
-  TextEditingController _totalJanjang = TextEditingController();
+  final TextEditingController _totalJanjang = TextEditingController();
 
   TextEditingController get totalJanjang => _totalJanjang;
 
-  TextEditingController _totalBrondolan = TextEditingController();
+  final TextEditingController _totalBrondolan = TextEditingController();
 
   TextEditingController get totalBrondolan => _totalBrondolan;
 
-  TextEditingController _rat = TextEditingController();
+  final TextEditingController _rat = TextEditingController();
 
   TextEditingController get rat => _rat;
 
-  TextEditingController _vCut = TextEditingController();
+  final TextEditingController _vCut = TextEditingController();
 
   TextEditingController get vCut => _vCut;
 
-  TextEditingController _tangkaiPanjang = TextEditingController();
+  final TextEditingController _tangkaiPanjang = TextEditingController();
 
   TextEditingController get tangkaiPanjang => _tangkaiPanjang;
 
-  TextEditingController _pelepahSengkleh = TextEditingController();
+  final TextEditingController _pelepahSengkleh = TextEditingController();
 
   TextEditingController get pelepahSengkleh => _pelepahSengkleh;
 
-  TextEditingController _janjangTinggal = TextEditingController();
+  final TextEditingController _janjangTinggal = TextEditingController();
 
   TextEditingController get janjangTinggal => _janjangTinggal;
 
-  TextEditingController _brondolanTinggal = TextEditingController();
+  final TextEditingController _brondolanTinggal = TextEditingController();
 
   TextEditingController get brondolanTinggal => _brondolanTinggal;
 
-  TextEditingController _notes = TextEditingController();
+  final TextEditingController _notes = TextEditingController();
 
   TextEditingController get notes => _notes;
 
@@ -167,13 +169,12 @@ class SupervisorAncakFormNotifier extends ChangeNotifier {
   generateVariable() async {
     _mConfigSchema = await DatabaseMConfig().selectMConfig();
     DateTime now = DateTime.now();
-    NumberFormat formatterNumber = new NumberFormat("000");
+    NumberFormat formatterNumber = NumberFormat("000");
     String number = formatterNumber.format(mConfigSchema?.userId);
     _date = TimeManager.dateWithDash(now);
     _time = TimeManager.timeWithColon(now);
-    _harvestingID = "${mConfigSchema?.estateCode}" +
-        ValueService.generateIDFromDateTime(now) +
-        "$number" "SM";
+    _harvestingID =
+        "${mConfigSchema?.estateCode}${ValueService.generateIDFromDateTime(now)}${number}SM";
     _pokokPanen.text = "0";
     _totalJanjang.text = "0";
     _totalBrondolan.text = "0";

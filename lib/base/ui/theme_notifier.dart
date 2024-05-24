@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:epms/base/ui/palette.dart';
 import 'package:epms/common_manager/storage_manager.dart';
 import 'package:flutter/material.dart';

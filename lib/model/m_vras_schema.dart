@@ -40,10 +40,10 @@ class MVRASchema {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['vra_id'] = this.vraId;
-    data['vra_license_number'] = this.vraLicenseNumber;
-    data['vra_max_cap'] = this.vraMaxCap;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['vra_id'] = vraId;
+    data['vra_license_number'] = vraLicenseNumber;
+    data['vra_max_cap'] = vraMaxCap;
     // data['vra_valid_from'] = this.vraValidFrom;
     // data['vra_valid_to'] = this.vraValidTo;
     // data['created_by'] = this.createdBy;

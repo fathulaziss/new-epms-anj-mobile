@@ -111,44 +111,42 @@ class SPBSupervise {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['spb_supervisi_id'] = this.spbSuperviseId;
-    data['spb_id'] = this.spbId;
-    data['supervisi_spb_employee_code'] = this.supervisiSpbEmployeeCode;
-    data['supervisi_spb_employee_name'] = this.supervisiSpbEmployeeName;
-    data['supervisi_spb_estate_code'] = this.supervisiEstateCode;
-    data['supervisi_spb_lat'] = this.supervisiSpbLat;
-    data['supervisi_spb_long'] = this.supervisiSpbLong;
-    data['supervisi_spb_driver_employee_code'] =
-        this.supervisiSpbDriverEmployeeCode;
-    data['supervisi_spb_driver_employee_name'] =
-        this.supervisiSpbDriverEmployeeName;
-    data['supervisi_spb_division_code'] = this.supervisiSpbDivisionCode;
-    data['supervisi_spb_license_number'] = this.supervisiSpbLicenseNumber;
-    data['supervisi_spb_type'] = this.supervisiSpbType;
-    data['supervisi_spb_method'] = this.supervisiSpbMethod;
-    data['supervisi_spb_photo'] = this.supervisiSpbPhoto;
-    data['bunches_ripe'] = this.bunchesRipe;
-    data['bunches_overripe'] = this.bunchesOverripe;
-    data['bunches_halfripe'] = this.bunchesHalfripe;
-    data['bunches_unripe'] = this.bunchesUnripe;
-    data['bunches_abnormal'] = this.bunchesAbnormal;
-    data['bunches_empty'] = this.bunchesEmpty;
-    data['loose_fruits'] = this.looseFruits;
-    data['bunches_total'] = this.bunchesTotal;
-    data['bunches_total_normal'] = this.bunchesTotalNormal;
-    data['bunches_tangkai_panjang'] = this.bunchesTangkaiPanjang;
-    data['bunches_sampah'] = this.bunchesSampah;
-    data['bunches_batu'] = this.bunchesBatu;
-    data['catatan_bunches_tangkai_panjang'] = this.catatanBunchesTangkaiPanjang;
-    data['supervisi_notes'] = this.supervisiNotes;
-    data['created_by'] = this.createdBy;
-    data['supervisi_spb_date'] = this.supervisiSpbDate;
-    data['created_date'] = this.createdDate;
-    data['created_time'] = this.createdTime;
-    data['updated_by'] = this.updatedBy;
-    data['updated_date'] = this.updatedDate;
-    data['updated_time'] = this.updatedTime;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['spb_supervisi_id'] = spbSuperviseId;
+    data['spb_id'] = spbId;
+    data['supervisi_spb_employee_code'] = supervisiSpbEmployeeCode;
+    data['supervisi_spb_employee_name'] = supervisiSpbEmployeeName;
+    data['supervisi_spb_estate_code'] = supervisiEstateCode;
+    data['supervisi_spb_lat'] = supervisiSpbLat;
+    data['supervisi_spb_long'] = supervisiSpbLong;
+    data['supervisi_spb_driver_employee_code'] = supervisiSpbDriverEmployeeCode;
+    data['supervisi_spb_driver_employee_name'] = supervisiSpbDriverEmployeeName;
+    data['supervisi_spb_division_code'] = supervisiSpbDivisionCode;
+    data['supervisi_spb_license_number'] = supervisiSpbLicenseNumber;
+    data['supervisi_spb_type'] = supervisiSpbType;
+    data['supervisi_spb_method'] = supervisiSpbMethod;
+    data['supervisi_spb_photo'] = supervisiSpbPhoto;
+    data['bunches_ripe'] = bunchesRipe;
+    data['bunches_overripe'] = bunchesOverripe;
+    data['bunches_halfripe'] = bunchesHalfripe;
+    data['bunches_unripe'] = bunchesUnripe;
+    data['bunches_abnormal'] = bunchesAbnormal;
+    data['bunches_empty'] = bunchesEmpty;
+    data['loose_fruits'] = looseFruits;
+    data['bunches_total'] = bunchesTotal;
+    data['bunches_total_normal'] = bunchesTotalNormal;
+    data['bunches_tangkai_panjang'] = bunchesTangkaiPanjang;
+    data['bunches_sampah'] = bunchesSampah;
+    data['bunches_batu'] = bunchesBatu;
+    data['catatan_bunches_tangkai_panjang'] = catatanBunchesTangkaiPanjang;
+    data['supervisi_notes'] = supervisiNotes;
+    data['created_by'] = createdBy;
+    data['supervisi_spb_date'] = supervisiSpbDate;
+    data['created_date'] = createdDate;
+    data['created_time'] = createdTime;
+    data['updated_by'] = updatedBy;
+    data['updated_date'] = updatedDate;
+    data['updated_time'] = updatedTime;
     return data;
   }
 }

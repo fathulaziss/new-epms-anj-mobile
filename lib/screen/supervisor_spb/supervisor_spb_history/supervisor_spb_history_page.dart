@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class SupervisorSPBHistoryPage extends StatefulWidget {
-  const SupervisorSPBHistoryPage({Key? key}) : super(key: key);
+  const SupervisorSPBHistoryPage({super.key});
 
   @override
   State<SupervisorSPBHistoryPage> createState() =>
@@ -15,7 +15,8 @@ class _SupervisorSPBHistoryPageState extends State<SupervisorSPBHistoryPage> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-        create: (context) => SupervisorSPBHistoryNotifier(),
-        child: SupervisorSPBHistoryScreen());
+      create: (context) => SupervisorSPBHistoryNotifier(),
+      child: const SupervisorSPBHistoryScreen(),
+    );
   }
 }

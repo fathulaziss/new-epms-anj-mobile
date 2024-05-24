@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously, avoid_print
+
 import 'dart:developer';
 
 import 'package:epms/base/common/locator.dart';
@@ -18,11 +20,11 @@ import 'package:flutter/material.dart';
 import 'package:nfc_manager/nfc_manager.dart';
 
 class SupervisorTBSLuarDetailNotifier extends ChangeNotifier {
-  NavigatorService _navigationService = locator<NavigatorService>();
+  final NavigatorService _navigationService = locator<NavigatorService>();
 
   NavigatorService get navigationService => _navigationService;
 
-  DialogService _dialogService = locator<DialogService>();
+  final DialogService _dialogService = locator<DialogService>();
 
   DialogService get dialogService => _dialogService;
 
@@ -42,79 +44,79 @@ class SupervisorTBSLuarDetailNotifier extends ChangeNotifier {
 
   String? get pickedFile => _pickedFile;
 
-  TextEditingController _bunchesUnRipe = TextEditingController();
+  final TextEditingController _bunchesUnRipe = TextEditingController();
 
   TextEditingController get bunchesUnRipe => _bunchesUnRipe;
 
-  TextEditingController _bunchesHalfRipe = TextEditingController();
+  final TextEditingController _bunchesHalfRipe = TextEditingController();
 
   TextEditingController get bunchesHalfRipe => _bunchesHalfRipe;
 
-  TextEditingController _bunchesOverRipe = TextEditingController();
+  final TextEditingController _bunchesOverRipe = TextEditingController();
 
   TextEditingController get bunchesOverRipe => _bunchesOverRipe;
 
-  TextEditingController _bunchesRotten = TextEditingController();
+  final TextEditingController _bunchesRotten = TextEditingController();
 
   TextEditingController get bunchesRotten => _bunchesRotten;
 
-  TextEditingController _bunchesAbnormal = TextEditingController();
+  final TextEditingController _bunchesAbnormal = TextEditingController();
 
   TextEditingController get bunchesAbnormal => _bunchesAbnormal;
 
-  TextEditingController _bunchesEmpty = TextEditingController();
+  final TextEditingController _bunchesEmpty = TextEditingController();
 
   TextEditingController get bunchesEmpty => _bunchesEmpty;
 
-  TextEditingController _rubbish = TextEditingController();
+  final TextEditingController _rubbish = TextEditingController();
 
   TextEditingController get rubbish => _rubbish;
 
-  TextEditingController _water = TextEditingController();
+  final TextEditingController _water = TextEditingController();
 
   TextEditingController get water => _water;
 
-  TextEditingController _longStalk = TextEditingController();
+  final TextEditingController _longStalk = TextEditingController();
 
   TextEditingController get longStalk => _longStalk;
 
-  TextEditingController _looseFruits = TextEditingController();
+  final TextEditingController _looseFruits = TextEditingController();
 
   TextEditingController get looseFruits => _looseFruits;
 
-  TextEditingController _bunchesTotal = TextEditingController();
+  final TextEditingController _bunchesTotal = TextEditingController();
 
   TextEditingController get bunchesTotal => _bunchesTotal;
 
-  TextEditingController _deduction = TextEditingController();
+  final TextEditingController _deduction = TextEditingController();
 
   TextEditingController get deduction => _deduction;
 
-  TextEditingController _bunchesLarge = TextEditingController();
+  final TextEditingController _bunchesLarge = TextEditingController();
 
   TextEditingController get bunchesLarge => _bunchesLarge;
 
-  TextEditingController _bunchesMedium = TextEditingController();
+  final TextEditingController _bunchesMedium = TextEditingController();
 
   TextEditingController get bunchesMedium => _bunchesMedium;
 
-  TextEditingController _bunchesSmall = TextEditingController();
+  final TextEditingController _bunchesSmall = TextEditingController();
 
   TextEditingController get bunchesSmall => _bunchesSmall;
 
-  TextEditingController _bunchesLess4Kg = TextEditingController();
+  final TextEditingController _bunchesLess4Kg = TextEditingController();
 
   TextEditingController get bunchesLess4Kg => _bunchesLess4Kg;
 
-  TextEditingController _bunchesCengkeh = TextEditingController();
+  final TextEditingController _bunchesCengkeh = TextEditingController();
 
   TextEditingController get bunchesCengkeh => _bunchesCengkeh;
 
-  TextEditingController _brondolanRotten = TextEditingController();
+  final TextEditingController _brondolanRotten = TextEditingController();
 
   TextEditingController get brondolanRotten => _brondolanRotten;
 
-  TextEditingController _notesOPH = TextEditingController();
+  final TextEditingController _notesOPH = TextEditingController();
 
   TextEditingController get notesOPH => _notesOPH;
 
@@ -149,7 +151,7 @@ class SupervisorTBSLuarDetailNotifier extends ChangeNotifier {
       _notesOPH.text = _tbsLuar!.notes ?? "";
       _pickedFile = _tbsLuar?.gradingPhoto ?? "";
     } else {
-      await Future.delayed(Duration(milliseconds: 50));
+      await Future.delayed(const Duration(milliseconds: 50));
       TBSLuarCardManager().readTBSLuarCard(context, onSuccessRead, onErrorRead);
       _dialogService.showNFCDialog(
           title: "TBS Luar",
@@ -184,7 +186,7 @@ class SupervisorTBSLuarDetailNotifier extends ChangeNotifier {
     if (textEditingController.text.isEmpty ||
         textEditingController.text == "0" ||
         textEditingController.text == "00") {
-      textEditingController.value = TextEditingValue(text: "0");
+      textEditingController.value = const TextEditingValue(text: "0");
       textEditingController.selection = TextSelection.fromPosition(
           TextPosition(offset: textEditingController.text.length));
       String deductionText = (double.parse(_bunchesUnRipe.text) +
@@ -442,7 +444,7 @@ class SupervisorTBSLuarDetailNotifier extends ChangeNotifier {
       //     "Tidak tersedia di gadget");
     }
 
-    Future.delayed(Duration(seconds: 1), () {
+    Future.delayed(const Duration(seconds: 1), () {
       NfcManager.instance.stopSession();
     });
     _dialogService.popDialog();

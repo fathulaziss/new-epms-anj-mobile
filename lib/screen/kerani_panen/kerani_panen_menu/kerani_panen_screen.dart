@@ -13,10 +13,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class KeraniPanenScreen extends StatefulWidget {
-  const KeraniPanenScreen({Key? key}) : super(key: key);
+  const KeraniPanenScreen({super.key});
 
   @override
-  _KeraniPanenScreenState createState() => _KeraniPanenScreenState();
+  State<KeraniPanenScreen> createState() => _KeraniPanenScreenState();
 }
 
 class _KeraniPanenScreenState extends State<KeraniPanenScreen> {
@@ -34,12 +34,12 @@ class _KeraniPanenScreenState extends State<KeraniPanenScreen> {
   getSupervisor() async {
     final isLoginInspectionSuccess =
         await StorageManager.readData('is_login_inspection_success');
-    Supervisor? _supervisor = await DatabaseSupervisor().selectSupervisor();
+    Supervisor? supervisor = await DatabaseSupervisor().selectSupervisor();
     List<LaporanRestan> count =
         await DatabaseLaporanRestan().selectLaporanRestan();
     setState(() {
       countRestan = count.length;
-      supervisor = _supervisor;
+      supervisor = supervisor;
       isShowMenuInspection = isLoginInspectionSuccess;
     });
   }
@@ -85,19 +85,19 @@ class _KeraniPanenScreenState extends State<KeraniPanenScreen> {
               ],
             ),
             body: Padding(
-              padding: EdgeInsets.only(bottom: 10, left: 5, right: 5),
+              padding: const EdgeInsets.only(bottom: 10, left: 5, right: 5),
               child: SingleChildScrollView(
                 child: Padding(
                   padding: const EdgeInsets.all(18),
                   child: Column(
                     children: [
                       Padding(
-                        padding:
-                            EdgeInsets.only(left: 10, right: 10, bottom: 10),
+                        padding: const EdgeInsets.only(
+                            left: 10, right: 10, bottom: 10),
                         child: Image.asset(ImageAssets.ANJ_LOGO, height: 60),
                       ),
                       Padding(
-                        padding: EdgeInsets.all(6),
+                        padding: const EdgeInsets.all(6),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -136,7 +136,7 @@ class _KeraniPanenScreenState extends State<KeraniPanenScreen> {
                             KeraniPanenNotifier()
                                 .onClickedMenu(context, 'ABSENSI');
                           },
-                          child: Text("ABSENSI",
+                          child: const Text("ABSENSI",
                               style: TextStyle(
                                   fontSize: 14, fontWeight: FontWeight.bold)),
                         ),
@@ -161,7 +161,7 @@ class _KeraniPanenScreenState extends State<KeraniPanenScreen> {
                             KeraniPanenNotifier()
                                 .onClickedMenu(context, 'BUAT FORM OPH');
                           },
-                          child: Text("BUAT FORM OPH",
+                          child: const Text("BUAT FORM OPH",
                               style: TextStyle(
                                   fontSize: 14, fontWeight: FontWeight.bold)),
                         ),
@@ -186,7 +186,7 @@ class _KeraniPanenScreenState extends State<KeraniPanenScreen> {
                             KeraniPanenNotifier()
                                 .onClickedMenu(context, 'RIWAYAT OPH');
                           },
-                          child: Text("RIWAYAT OPH",
+                          child: const Text("RIWAYAT OPH",
                               style: TextStyle(
                                   fontSize: 14, fontWeight: FontWeight.bold)),
                         ),
@@ -211,7 +211,7 @@ class _KeraniPanenScreenState extends State<KeraniPanenScreen> {
                             KeraniPanenNotifier()
                                 .onClickedMenu(context, 'BACA KARTU OPH');
                           },
-                          child: Text("BACA KARTU OPH",
+                          child: const Text("BACA KARTU OPH",
                               style: TextStyle(
                                   fontSize: 14, fontWeight: FontWeight.bold)),
                         ),
@@ -236,7 +236,7 @@ class _KeraniPanenScreenState extends State<KeraniPanenScreen> {
                             KeraniPanenNotifier().onClickedMenu(
                                 context, 'RENCANA PANEN HARI INI');
                           },
-                          child: Text("RENCANA PANEN HARI INI",
+                          child: const Text("RENCANA PANEN HARI INI",
                               style: TextStyle(
                                   fontSize: 14, fontWeight: FontWeight.bold)),
                         ),
@@ -261,7 +261,7 @@ class _KeraniPanenScreenState extends State<KeraniPanenScreen> {
                             KeraniPanenNotifier()
                                 .onClickedMenu(context, 'LAPORAN PANEN HARIAN');
                           },
-                          child: Text("LAPORAN PANEN HARIAN",
+                          child: const Text("LAPORAN PANEN HARIAN",
                               style: TextStyle(
                                   fontSize: 14, fontWeight: FontWeight.bold)),
                         ),
@@ -289,19 +289,19 @@ class _KeraniPanenScreenState extends State<KeraniPanenScreen> {
                           child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Text("LAPORAN RESTAN HARI INI",
+                                const Text("LAPORAN RESTAN HARI INI",
                                     style: TextStyle(
                                         fontSize: 14,
                                         fontWeight: FontWeight.bold)),
-                                SizedBox(width: 4),
+                                const SizedBox(width: 4),
                                 countRestan == 0
                                     ? const SizedBox()
                                     : Row(children: [
-                                        Icon(Icons.warning,
+                                        const Icon(Icons.warning,
                                             color: Colors.yellow),
-                                        SizedBox(width: 10),
+                                        const SizedBox(width: 10),
                                         Text("$countRestan",
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 fontSize: 14,
                                                 fontWeight: FontWeight.bold)),
                                       ])
@@ -332,20 +332,20 @@ class _KeraniPanenScreenState extends State<KeraniPanenScreen> {
                               child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    Text("INSPECTION",
+                                    const Text("INSPECTION",
                                         style: TextStyle(
                                             fontSize: 14,
                                             fontWeight: FontWeight.bold)),
-                                    SizedBox(width: 10),
+                                    const SizedBox(width: 10),
                                     homeNotifier.countInspection == 0
                                         ? const SizedBox()
                                         : Row(children: [
-                                            Icon(Icons.warning,
+                                            const Icon(Icons.warning,
                                                 color: Colors.yellow),
-                                            SizedBox(width: 10),
+                                            const SizedBox(width: 10),
                                             Text(
                                                 "${homeNotifier.countInspection}",
-                                                style: TextStyle(
+                                                style: const TextStyle(
                                                     fontSize: 14,
                                                     fontWeight:
                                                         FontWeight.bold)),
@@ -372,7 +372,7 @@ class _KeraniPanenScreenState extends State<KeraniPanenScreen> {
                             KeraniPanenNotifier()
                                 .onClickedMenu(context, 'ADMINISTRASI OPH');
                           },
-                          child: Text("ADMINISTRASI OPH",
+                          child: const Text("ADMINISTRASI OPH",
                               style: TextStyle(
                                   fontSize: 14, fontWeight: FontWeight.bold)),
                         ),
@@ -387,7 +387,7 @@ class _KeraniPanenScreenState extends State<KeraniPanenScreen> {
                                 Size(MediaQuery.of(context).size.width, 50),
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(5.0),
-                                side: BorderSide(color: Colors.green)),
+                                side: const BorderSide(color: Colors.green)),
                             padding: const EdgeInsets.all(16.0),
                             textStyle: const TextStyle(
                                 fontSize: 20, color: Colors.white),
@@ -396,7 +396,7 @@ class _KeraniPanenScreenState extends State<KeraniPanenScreen> {
                             KeraniPanenNotifier()
                                 .onClickedMenu(context, 'UPLOAD DATA');
                           },
-                          child: Text("UPLOAD DATA",
+                          child: const Text("UPLOAD DATA",
                               style: TextStyle(
                                   fontSize: 14, fontWeight: FontWeight.bold)),
                         ),
@@ -420,24 +420,24 @@ class _KeraniPanenScreenState extends State<KeraniPanenScreen> {
                             KeraniPanenNotifier()
                                 .onClickedMenu(context, 'KELUAR');
                           },
-                          child: Text("KELUAR",
+                          child: const Text("KELUAR",
                               style: TextStyle(
                                   fontSize: 14, fontWeight: FontWeight.bold)),
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(top: 16),
+                        padding: const EdgeInsets.only(top: 16),
                         child: Column(
                           children: [
                             Text("${homeNotifier.configSchema.employeeCode}",
                                 style: Style.textBold14),
                             Text("${homeNotifier.configSchema.employeeName}",
                                 style: Style.textBold14),
-                            SizedBox(height: 20),
+                            const SizedBox(height: 20),
                             Text(
                                 "Estate ${homeNotifier.configSchema.estateCode}",
                                 style: Style.textBold14),
-                            SizedBox(height: 30),
+                            const SizedBox(height: 30),
                             InkWell(
                               onTap: () {
                                 KeraniPanenNotifier()
@@ -446,31 +446,31 @@ class _KeraniPanenScreenState extends State<KeraniPanenScreen> {
                               child: Text("Lihat Supervisi",
                                   style: Style.primaryBold16),
                             ),
-                            SizedBox(height: 30),
+                            const SizedBox(height: 30),
                             Card(
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: InkWell(
-                                  child: Text("Sync Ulang"),
+                                  child: const Text("Sync Ulang"),
                                   onTap: () {
                                     KeraniPanenNotifier().reSynch();
                                   },
                                 ),
                               ),
                             ),
-                            SizedBox(height: 10),
+                            const SizedBox(height: 10),
                             Card(
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: InkWell(
-                                  child: Text("Export Json"),
+                                  child: const Text("Export Json"),
                                   onTap: () {
                                     KeraniPanenNotifier().exportJson(context);
                                   },
                                 ),
                               ),
                             ),
-                            Divider(),
+                            const Divider(),
                             Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Image.asset(
@@ -478,7 +478,7 @@ class _KeraniPanenScreenState extends State<KeraniPanenScreen> {
                                 height: 25,
                               ),
                             ),
-                            Text("ePMS ANJ Group")
+                            const Text("ePMS ANJ Group")
                           ],
                         ),
                       ),

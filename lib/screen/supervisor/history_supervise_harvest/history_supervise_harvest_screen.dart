@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class HistorySuperviseHarvestScreen extends StatefulWidget {
-  const HistorySuperviseHarvestScreen({Key? key}) : super(key: key);
+  const HistorySuperviseHarvestScreen({super.key});
 
   @override
   State<HistorySuperviseHarvestScreen> createState() =>
@@ -35,7 +35,7 @@ class _HistorySuperviseHarvestScreenState
           data: Style.mediaQueryText(context),
           child: Scaffold(
             appBar: AppBar(
-              title: Text("Laporan Supervisi Panen"),
+              title: const Text("Laporan Supervisi Panen"),
             ),
             body: Padding(
               padding: const EdgeInsets.all(8.0),
@@ -47,25 +47,25 @@ class _HistorySuperviseHarvestScreenState
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("Tanggal:"),
-                          Text("${TimeManager.dateWithDash(DateTime.now())}")
+                          const Text("Tanggal:"),
+                          Text(TimeManager.dateWithDash(DateTime.now()))
                         ],
                       ),
-                      SizedBox(height: 14),
+                      const SizedBox(height: 14),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("Divisi:"),
+                          const Text("Divisi:"),
                           Flexible(
-                            child: Container(
+                            child: SizedBox(
                               width: 120,
                               child: DropdownButton(
                                 isExpanded: true,
                                 value: notifier.valueDivision,
                                 items: notifier.listDivision.map((value) {
                                   return DropdownMenuItem(
-                                    child: Text(value),
                                     value: value,
+                                    child: Text(value),
                                   );
                                 }).toList(),
                                 onChanged: (String? value) {
@@ -76,34 +76,34 @@ class _HistorySuperviseHarvestScreenState
                           ),
                         ],
                       ),
-                      SizedBox(height: 14),
+                      const SizedBox(height: 14),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("Jumlah Supervisi OPH:"),
+                          const Text("Jumlah Supervisi OPH:"),
                           Text("${notifier.listOPHSupervise.length}")
                         ],
                       ),
-                      SizedBox(height: 14),
+                      const SizedBox(height: 14),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("Total Janjang:"),
+                          const Text("Total Janjang:"),
                           Text("${notifier.totalBunches}")
                         ],
                       ),
-                      SizedBox(height: 14),
+                      const SizedBox(height: 14),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("Total Brondolan (Kg):"),
+                          const Text("Total Brondolan (Kg):"),
                           Text("${notifier.totalLooseFruits}")
                         ],
                       ),
                     ],
                   ),
                 ),
-                SizedBox(height: 14),
+                const SizedBox(height: 14),
                 notifier.listOPHSupervise.isEmpty
                     ? Container(
                         alignment: Alignment.center,
@@ -145,18 +145,18 @@ class _HistorySuperviseHarvestScreenState
                                                     "${notifier.listOPHSuperviseResult[index].bunchesTotal} Janjang"),
                                               ],
                                             ),
-                                            SizedBox(height: 8),
+                                            const SizedBox(height: 8),
                                             Row(
                                               mainAxisAlignment:
                                                   MainAxisAlignment
                                                       .spaceBetween,
                                               children: [
-                                                Text("Pemanen:"),
+                                                const Text("Pemanen:"),
                                                 Text(
                                                     "${notifier.listOPHSuperviseResult[index].supervisiPemanenEmployeeName}"),
                                               ],
                                             ),
-                                            SizedBox(height: 8),
+                                            const SizedBox(height: 8),
                                             Row(
                                               mainAxisAlignment:
                                                   MainAxisAlignment
@@ -168,7 +168,7 @@ class _HistorySuperviseHarvestScreenState
                                                     "Estate: ${notifier.listOPHSuperviseResult[index].supervisiEstateCode}"),
                                               ],
                                             ),
-                                            SizedBox(height: 8),
+                                            const SizedBox(height: 8),
                                             Row(
                                               mainAxisAlignment:
                                                   MainAxisAlignment
@@ -216,17 +216,17 @@ class _HistorySuperviseHarvestScreenState
                                                   "${notifier.listOPHSupervise[index].bunchesTotal} Janjang"),
                                             ],
                                           ),
-                                          SizedBox(height: 8),
+                                          const SizedBox(height: 8),
                                           Row(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
-                                              Text("Pemanen:"),
+                                              const Text("Pemanen:"),
                                               Text(
                                                   "${notifier.listOPHSupervise[index].supervisiPemanenEmployeeName}"),
                                             ],
                                           ),
-                                          SizedBox(height: 8),
+                                          const SizedBox(height: 8),
                                           Row(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceBetween,
@@ -237,7 +237,7 @@ class _HistorySuperviseHarvestScreenState
                                                   "Estate: ${notifier.listOPHSupervise[index].supervisiEstateCode}"),
                                             ],
                                           ),
-                                          SizedBox(height: 8),
+                                          const SizedBox(height: 8),
                                           Row(
                                               mainAxisAlignment:
                                                   MainAxisAlignment

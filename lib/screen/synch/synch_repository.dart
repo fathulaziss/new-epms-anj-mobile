@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
@@ -45,7 +47,7 @@ class SynchRepository extends APIConfiguration {
     try {
       var url = baseUrl + APIEndPoint.SYNCH_ENDPOINT;
       var uri = Uri.parse(url);
-      var map = new Map<String, dynamic>();
+      var map = <String, dynamic>{};
       map['user_token'] = userToken;
       if (estateCode != estateCodeSaved) {
         deleteMasterData(context);

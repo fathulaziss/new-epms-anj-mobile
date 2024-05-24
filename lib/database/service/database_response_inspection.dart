@@ -186,7 +186,7 @@ class DatabaseResponseInspection {
   static Future<void> deleteResponseOneWeekAgo() async {
     Database db = await DatabaseHelper().database;
     var date = DateTime.now();
-    var newDate = new DateTime(date.year, date.month, date.day - 7);
+    var newDate = DateTime(date.year, date.month, date.day - 7);
     String oneWeekAgoDate = DateFormat('yyyy-MM-dd HH:mm:ss').format(newDate);
 
     var mapList = await db.query(

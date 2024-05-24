@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously, avoid_print
+
 import 'dart:convert';
 import 'dart:developer';
 
@@ -63,11 +65,11 @@ import 'package:flutter/material.dart';
 import 'package:open_settings/open_settings.dart';
 
 class SynchNotifier extends ChangeNotifier {
-  NavigatorService _navigationService = locator<NavigatorService>();
+  final NavigatorService _navigationService = locator<NavigatorService>();
 
   NavigatorService get navigationService => _navigationService;
 
-  DialogService _dialogService = locator<DialogService>();
+  final DialogService _dialogService = locator<DialogService>();
 
   DialogService get dialogService => _dialogService;
 
@@ -117,7 +119,7 @@ class SynchNotifier extends ChangeNotifier {
     log("Error Gagal Sync : $message");
     _dialogService.showOptionDialog(
       title: "Gagal Sync",
-      subtitle: "$message",
+      subtitle: message,
       buttonTextYes: "Ulang",
       buttonTextNo: "Log Out",
       onPressYes: onClickReSynch,
@@ -588,7 +590,7 @@ class SynchNotifier extends ChangeNotifier {
     log("Gagal Sync Inspection : $message");
     _dialogService.showOptionDialog(
       title: "Gagal Sync",
-      subtitle: "$message",
+      subtitle: message,
       buttonTextYes: "Ulang",
       buttonTextNo: "Log Out",
       onPressYes: onClickReSynch,
@@ -803,14 +805,14 @@ class SynchNotifier extends ChangeNotifier {
     _dialogService.popDialog();
     _dialogService.showNoOptionDialog(
       title: "Gagal Log Out",
-      subtitle: "$response",
+      subtitle: response,
       onPress: _dialogService.popDialog,
     );
   }
 
   Future<void> saveOphHistory(String role, List? ophHistory) async {
     if (role == 'KR' || role == 'TP') {
-      final data = jsonEncode(ophHistory != null ? ophHistory : []);
+      final data = jsonEncode(ophHistory ?? []);
       StorageManager.saveData('ophHistory', data);
     }
   }

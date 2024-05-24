@@ -34,9 +34,9 @@ class InspectionPhoto extends StatelessWidget {
               child: InkWell(
                 onTap: onTapRemove,
                 child: Container(
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       shape: BoxShape.circle, color: Colors.white),
-                  child: Icon(Icons.cancel, color: Colors.black),
+                  child: const Icon(Icons.cancel, color: Colors.black),
                 ),
               ),
             ),

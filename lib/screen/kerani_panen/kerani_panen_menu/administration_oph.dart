@@ -11,25 +11,37 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class AdministrationOPHScreen extends StatefulWidget {
-  const AdministrationOPHScreen({Key? key}) : super(key: key);
+  const AdministrationOPHScreen({super.key});
 
   @override
-  _AdministrationOPHScreenState createState() =>
+  State<AdministrationOPHScreen> createState() =>
       _AdministrationOPHScreenState();
 }
 
 class _AdministrationOPHScreenState extends State<AdministrationOPHScreen> {
-  NavigatorService _navigationService = locator<NavigatorService>();
+  final NavigatorService _navigationService = locator<NavigatorService>();
 
   NavigatorService get navigationService => _navigationService;
 
-  DialogService _dialogService = locator<DialogService>();
+  final DialogService _dialogService = locator<DialogService>();
 
   DialogService get dialogService => _dialogService;
 
-  @override
-  void initState() {
-    super.initState();
+  onClickMenu(int index) {
+    switch (administrationOPHMenuEntries[index - 2].toUpperCase()) {
+      case "UBAH DATA OPH":
+        _navigationService.push(Routes.OPH_HISTORY_PAGE, arguments: 'UBAH');
+        break;
+      case "GANTI OPH HILANG":
+        _navigationService.push(Routes.OPH_HISTORY_PAGE, arguments: 'GANTI');
+        break;
+      case "BAGI OPH":
+        _navigationService.push(Routes.BAGI_OPH);
+        break;
+      case "KEMBALI":
+        _navigationService.pop();
+        break;
+    }
   }
 
   @override
@@ -54,7 +66,7 @@ class _AdministrationOPHScreenState extends State<AdministrationOPHScreen> {
           ],
         ),
         body: Container(
-          padding: EdgeInsets.only(bottom: 10, left: 20, right: 20),
+          padding: const EdgeInsets.only(bottom: 10, left: 20, right: 20),
           child: Column(
             children: [
               Flexible(
@@ -66,7 +78,7 @@ class _AdministrationOPHScreenState extends State<AdministrationOPHScreen> {
                         padding: const EdgeInsets.all(8.0),
                         child: index == 0
                             ? Padding(
-                                padding: EdgeInsets.only(
+                                padding: const EdgeInsets.only(
                                     left: 10, right: 10, bottom: 10),
                                 child: Image.asset(
                                   ImageAssets.ANJ_LOGO,
@@ -75,7 +87,7 @@ class _AdministrationOPHScreenState extends State<AdministrationOPHScreen> {
                               )
                             : index == 1
                                 ? Padding(
-                                    padding: EdgeInsets.all(6),
+                                    padding: const EdgeInsets.all(6),
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
@@ -97,14 +109,14 @@ class _AdministrationOPHScreenState extends State<AdministrationOPHScreen> {
                                 : index ==
                                         administrationOPHMenuEntries.length + 2
                                     ? Container(
-                                        padding: EdgeInsets.only(top: 16),
+                                        padding: const EdgeInsets.only(top: 16),
                                         alignment: Alignment.center,
                                         child: Column(
                                           children: [
-                                            SizedBox(
+                                            const SizedBox(
                                               height: 10,
                                             ),
-                                            Divider(),
+                                            const Divider(),
                                             Column(
                                               children: [
                                                 Padding(
@@ -115,7 +127,7 @@ class _AdministrationOPHScreenState extends State<AdministrationOPHScreen> {
                                                     height: 25,
                                                   ),
                                                 ),
-                                                Text("ePMS ANJ Group")
+                                                const Text("ePMS ANJ Group")
                                               ],
                                             )
                                           ],
@@ -149,7 +161,7 @@ class _AdministrationOPHScreenState extends State<AdministrationOPHScreen> {
                                             administrationOPHMenuEntries[
                                                     index - 2]
                                                 .toUpperCase(),
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 fontSize: 14,
                                                 fontWeight: FontWeight.bold)),
                                       ),
@@ -161,22 +173,5 @@ class _AdministrationOPHScreenState extends State<AdministrationOPHScreen> {
         ),
       ),
     );
-  }
-
-  onClickMenu(int index) {
-    switch (administrationOPHMenuEntries[index - 2].toUpperCase()) {
-      case "UBAH DATA OPH":
-        _navigationService.push(Routes.OPH_HISTORY_PAGE, arguments: 'UBAH');
-        break;
-      case "GANTI OPH HILANG":
-        _navigationService.push(Routes.OPH_HISTORY_PAGE, arguments: 'GANTI');
-        break;
-      case "BAGI OPH":
-        _navigationService.push(Routes.BAGI_OPH);
-        break;
-      case "KEMBALI":
-        _navigationService.pop();
-        break;
-    }
   }
 }

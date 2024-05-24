@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class LaporanSPBKemarinScreen extends StatefulWidget {
-  const LaporanSPBKemarinScreen({Key? key}) : super(key: key);
+  const LaporanSPBKemarinScreen({super.key});
 
   @override
   State<LaporanSPBKemarinScreen> createState() =>
@@ -27,7 +27,7 @@ class _LaporanSPBKemarinScreenState extends State<LaporanSPBKemarinScreen> {
         data: Style.mediaQueryText(context),
         child: Scaffold(
           appBar: AppBar(
-            title: Text("Laporan SPB Kemarin"),
+            title: const Text("Laporan SPB Kemarin"),
           ),
           body: Column(children: [
             Padding(
@@ -37,40 +37,40 @@ class _LaporanSPBKemarinScreenState extends State<LaporanSPBKemarinScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Tanggal:"),
-                      Text(
-                          "${TimeManager.todayWithSlash(DateTime.now().subtract(Duration(days: 1)))}")
+                      const Text("Tanggal:"),
+                      Text(TimeManager.todayWithSlash(
+                          DateTime.now().subtract(const Duration(days: 1))))
                     ],
                   ),
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Jumlah SPB:"),
+                      const Text("Jumlah SPB:"),
                       Text("${spbKemarin.listLaporanSPBKemarin.length}")
                     ],
                   ),
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Total Janjang:"),
+                      const Text("Total Janjang:"),
                       Text("${spbKemarin.totalBunches}")
                     ],
                   ),
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Total Brondolan (Kg):"),
+                      const Text("Total Brondolan (Kg):"),
                       Text("${spbKemarin.totalLoosFruits}")
                     ],
                   ),
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Total Berat (Kg):"),
+                      const Text("Total Berat (Kg):"),
                       Text("${spbKemarin.totalWeight}")
                     ],
                   )
@@ -97,7 +97,7 @@ class _LaporanSPBKemarinScreenState extends State<LaporanSPBKemarinScreen> {
                             },
                             child: Card(
                               child: Container(
-                                padding: EdgeInsets.all(10),
+                                padding: const EdgeInsets.all(10),
                                 child: Column(
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment:
@@ -106,12 +106,12 @@ class _LaporanSPBKemarinScreenState extends State<LaporanSPBKemarinScreen> {
                                       Text(
                                           "${spbKemarin.listLaporanSPBKemarin[index].spbId}",
                                           style: Style.textBold16),
-                                      SizedBox(height: 10),
+                                      const SizedBox(height: 10),
                                       Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
                                           children: [
-                                            Text("Total Janjang:"),
+                                            const Text("Total Janjang:"),
                                             Text(
                                                 "${spbKemarin.listLaporanSPBKemarin[index].spbTotalBunches}")
                                           ]),
@@ -119,7 +119,7 @@ class _LaporanSPBKemarinScreenState extends State<LaporanSPBKemarinScreen> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
                                           children: [
-                                            Text("Total Brondolan:"),
+                                            const Text("Total Brondolan:"),
                                             Text(
                                                 "${spbKemarin.listLaporanSPBKemarin[index].spbTotalLooseFruit}")
                                           ]),
@@ -136,7 +136,7 @@ class _LaporanSPBKemarinScreenState extends State<LaporanSPBKemarinScreen> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
                                           children: [
-                                            Text("Tujuan:"),
+                                            const Text("Tujuan:"),
                                             Text(
                                                 "${spbKemarin.listLaporanSPBKemarin[index].spbDeliverToCode} ${spbKemarin.listLaporanSPBKemarin[index].spbDeliverToName}")
                                           ]),

@@ -45,20 +45,20 @@ class MCostControlSchema {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['cost_control_id'] = this.costControlId;
-    data['activity_code_start'] = this.activityCodeStart;
-    data['activity_code_end'] = this.activityCodeEnd;
-    data['cost_by_block'] = this.costByBlock;
-    data['cost_by_auc'] = this.costByAuc;
-    data['cost_by_order_number'] = this.costByOrderNumber;
-    data['cost_by_cost_center'] = this.costByCostCenter;
-    data['created_by'] = this.createdBy;
-    data['created_date'] = this.createdDate;
-    data['created_time'] = this.createdTime;
-    data['updated_by'] = this.updatedBy;
-    data['updated_date'] = this.updatedDate;
-    data['updated_time'] = this.updatedTime;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['cost_control_id'] = costControlId;
+    data['activity_code_start'] = activityCodeStart;
+    data['activity_code_end'] = activityCodeEnd;
+    data['cost_by_block'] = costByBlock;
+    data['cost_by_auc'] = costByAuc;
+    data['cost_by_order_number'] = costByOrderNumber;
+    data['cost_by_cost_center'] = costByCostCenter;
+    data['created_by'] = createdBy;
+    data['created_date'] = createdDate;
+    data['created_time'] = createdTime;
+    data['updated_by'] = updatedBy;
+    data['updated_date'] = updatedDate;
+    data['updated_time'] = updatedTime;
     return data;
   }
 }

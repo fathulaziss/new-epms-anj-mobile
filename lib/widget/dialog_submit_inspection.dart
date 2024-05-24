@@ -53,7 +53,7 @@ class _DialogSubmitInspectionState extends State<DialogSubmitInspection> {
                     child: SizedBox(
                       width: MediaQuery.of(context).size.width,
                       child: Padding(
-                        padding: EdgeInsets.all(16),
+                        padding: const EdgeInsets.all(16),
                         child: Text(
                           widget.labelConfirm,
                           style: Style.whiteBold14,
@@ -76,7 +76,7 @@ class _DialogSubmitInspectionState extends State<DialogSubmitInspection> {
                     child: SizedBox(
                       width: MediaQuery.of(context).size.width,
                       child: Padding(
-                        padding: EdgeInsets.all(16),
+                        padding: const EdgeInsets.all(16),
                         child: Text(
                           widget.labelCancel,
                           style: Style.whiteBold14,

@@ -55,11 +55,11 @@ class MEmployeeSchema extends Equatable {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['employee_id'] = this.employeeId;
-    data['employee_estate_code'] = this.employeeEstateCode;
-    data['employee_code'] = this.employeeCode;
-    data['employee_name'] = this.employeeName;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['employee_id'] = employeeId;
+    data['employee_estate_code'] = employeeEstateCode;
+    data['employee_code'] = employeeCode;
+    data['employee_name'] = employeeName;
     // data['employee_sex'] = this.employeeSex;
     // data['employee_valid_from'] = this.employeeValidFrom;
     // data['employee_valid_to'] = this.employeeValidTo;
@@ -69,8 +69,8 @@ class MEmployeeSchema extends Equatable {
     // data['updated_by'] = this.updatedBy;
     // data['updated_date'] = this.updatedDate;
     // data['updated_time'] = this.updatedTime;
-    data['employee_job_code'] = this.employeeJobCode;
-    data['employee_division_code'] = this.employeeDivisionCode;
+    data['employee_job_code'] = employeeJobCode;
+    data['employee_division_code'] = employeeDivisionCode;
     return data;
   }
 

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class SupervisorTBSLuarFormPage extends StatefulWidget {
-  const SupervisorTBSLuarFormPage({Key? key}) : super(key: key);
+  const SupervisorTBSLuarFormPage({super.key});
 
   @override
   State<SupervisorTBSLuarFormPage> createState() =>
@@ -15,7 +15,8 @@ class _SupervisorTBSLuarFormPageState extends State<SupervisorTBSLuarFormPage> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-        create: (context) => SupervisorTBSLuarNotifier(),
-        child: SupervisorTBSLuarFormScreen());
+      create: (context) => SupervisorTBSLuarNotifier(),
+      child: const SupervisorTBSLuarFormScreen(),
+    );
   }
 }

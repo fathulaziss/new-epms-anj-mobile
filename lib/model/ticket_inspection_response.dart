@@ -13,7 +13,7 @@ class TicketInspectionResponse {
         message: json['message'] ?? '',
         data: json['data'] != null
             ? TicketInspectionDataModel.fromJson(json['data'])
-            : TicketInspectionDataModel(),
+            : const TicketInspectionDataModel(),
       );
 
   final bool success;

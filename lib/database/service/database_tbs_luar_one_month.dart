@@ -17,10 +17,10 @@ class DatabaseTBSLuarOneMonth {
   Future<int> insertTBSLuarOneMonth(List<Supervisi3rdParty> objectList) async {
     Database db = await DatabaseHelper().database;
     Batch batch = db.batch();
-    objectList.forEach((val) {
+    for (var val in objectList) {
       Supervisi3rdParty supervisi3rdParty = val;
       batch.insert(tTBSLuarOneMonth, supervisi3rdParty.toJson());
-    });
+    }
     List<Object?> i = await batch.commit();
     return i.length;
   }

@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class FormSPBOPHTab extends StatefulWidget {
-  const FormSPBOPHTab({Key? key}) : super(key: key);
+  const FormSPBOPHTab({super.key});
 
   @override
   State<FormSPBOPHTab> createState() => _FormSPBOPHTabState();
@@ -29,14 +29,14 @@ class _FormSPBOPHTabState extends State<FormSPBOPHTab> {
                   padding: const EdgeInsets.all(8.0),
                   child: Text("Daftar OPH (${formSPB.listSPBDetail.length})"),
                 ),
-                SizedBox(height: 6),
+                const SizedBox(height: 6),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: InkWell(
                     onTap: () {
                       formSPB.onClickScanOPH(context);
                     },
-                    child: Container(
+                    child: SizedBox(
                       width: MediaQuery.of(context).size.width,
                       child: Card(
                         shape: RoundedRectangleBorder(
@@ -55,7 +55,7 @@ class _FormSPBOPHTabState extends State<FormSPBOPHTab> {
                     ),
                   ),
                 ),
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
                 formSPB.listSPBDetail.isEmpty
                     ? Text(
                         "Belum ada OPH",
@@ -103,7 +103,8 @@ class _FormSPBOPHTabState extends State<FormSPBOPHTab> {
                                                                   .orangeAccent,
                                                         ),
                                                       ),
-                                                      SizedBox(height: 16),
+                                                      const SizedBox(
+                                                          height: 16),
                                                       Text(
                                                         "Janjang terkirim : ${formSPB.listSPBDetail[index].ophBunchesDelivered}",
                                                         style: TextStyle(
@@ -149,18 +150,17 @@ class _FormSPBOPHTabState extends State<FormSPBOPHTab> {
                                                   onTap: () {
                                                     formSPB.onDeleteOPH(index);
                                                   },
-                                                  child: Card(
+                                                  child: const Card(
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsets.all(
-                                                              12.0),
+                                                          EdgeInsets.all(12.0),
                                                       child: Icon(Icons.delete,
                                                           color: Colors.red),
                                                     ),
                                                   ),
                                                 ),
                                               ]),
-                                          Divider(),
+                                          const Divider(),
                                           Row(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceBetween,

@@ -21,7 +21,7 @@ class InspectionListView extends StatefulWidget {
 }
 
 class _InspectionListViewState extends State<InspectionListView> {
-  NavigatorService _navigationService = locator<NavigatorService>();
+  final NavigatorService _navigationService = locator<NavigatorService>();
   List<TicketInspectionModel> myInspection = [];
 
   @override
@@ -41,9 +41,9 @@ class _InspectionListViewState extends State<InspectionListView> {
     return MediaQuery(
       data: Style.mediaQueryText(context),
       child: Scaffold(
-        appBar: AppBar(title: Text('My Inspection')),
+        appBar: AppBar(title: const Text('My Inspection')),
         body: Padding(
-          padding: EdgeInsets.all(12),
+          padding: const EdgeInsets.all(12),
           child: myInspection.isNotEmpty
               ? ListView.builder(
                   itemCount: myInspection.length,
@@ -104,7 +104,7 @@ class _InspectionListViewState extends State<InspectionListView> {
                     );
                   },
                 )
-              : Center(child: Text('Belum Ada Data')),
+              : const Center(child: Text('Belum Ada Data')),
         ),
       ),
     );

@@ -54,23 +54,23 @@ class TAttendanceSchema {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['attendance_mandor_employee_code'] = this.attendanceMandorEmployeeCode;
-    data['attendance_mandor_employee_name'] = this.attendanceMandorEmployeeName;
-    data['attendance_employee_code'] = this.attendanceEmployeeCode;
-    data['attendance_employee_name'] = this.attendanceEmployeeName;
-    data['attendance_kerani_employee_code'] = this.attendanceKeraniEmployeeCode;
-    data['attendance_kerani_employee_name'] = this.attendanceKeraniEmployeeName;
-    data['attendance_id'] = this.attendanceId;
-    data['attendance_date'] = this.attendanceDate;
-    data['attendance_code'] = this.attendanceCode;
-    data['attendance_desc'] = this.attendanceDesc;
-    data['created_by'] = this.createdBy;
-    data['created_date'] = this.createdDate;
-    data['created_time'] = this.createdTime;
-    data['updated_by'] = this.updatedBy;
-    data['updated_date'] = this.updatedDate;
-    data['updated_time'] = this.updatedTime;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['attendance_mandor_employee_code'] = attendanceMandorEmployeeCode;
+    data['attendance_mandor_employee_name'] = attendanceMandorEmployeeName;
+    data['attendance_employee_code'] = attendanceEmployeeCode;
+    data['attendance_employee_name'] = attendanceEmployeeName;
+    data['attendance_kerani_employee_code'] = attendanceKeraniEmployeeCode;
+    data['attendance_kerani_employee_name'] = attendanceKeraniEmployeeName;
+    data['attendance_id'] = attendanceId;
+    data['attendance_date'] = attendanceDate;
+    data['attendance_code'] = attendanceCode;
+    data['attendance_desc'] = attendanceDesc;
+    data['created_by'] = createdBy;
+    data['created_date'] = createdDate;
+    data['created_time'] = createdTime;
+    data['updated_by'] = updatedBy;
+    data['updated_date'] = updatedDate;
+    data['updated_time'] = updatedTime;
     return data;
   }
 }

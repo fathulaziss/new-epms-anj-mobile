@@ -12,26 +12,25 @@ class KeraniKirim {
     if (json['Laporan_SPB_Kemarin'] != null) {
       laporanSPBKemarin = <LaporanSPBKemarin>[];
       json['Laporan_SPB_Kemarin'].forEach((v) {
-        laporanSPBKemarin!.add(new LaporanSPBKemarin.fromJson(v));
+        laporanSPBKemarin!.add(LaporanSPBKemarin.fromJson(v));
       });
     }
     if (json['Laporan_Restan'] != null) {
       laporanRestan = <LaporanRestan>[];
       json['Laporan_Restan'].forEach((v) {
-        laporanRestan!.add(new LaporanRestan.fromJson(v));
+        laporanRestan!.add(LaporanRestan.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.laporanSPBKemarin != null) {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (laporanSPBKemarin != null) {
       data['Laporan_SPB_Kemarin'] =
-          this.laporanSPBKemarin!.map((v) => v.toJson()).toList();
+          laporanSPBKemarin!.map((v) => v.toJson()).toList();
     }
-    if (this.laporanRestan != null) {
-      data['Laporan_Restan'] =
-          this.laporanRestan!.map((v) => v.toJson()).toList();
+    if (laporanRestan != null) {
+      data['Laporan_Restan'] = laporanRestan!.map((v) => v.toJson()).toList();
     }
     return data;
   }

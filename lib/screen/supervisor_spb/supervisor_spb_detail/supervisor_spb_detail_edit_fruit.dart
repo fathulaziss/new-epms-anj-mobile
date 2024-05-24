@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 class SupervisorSPBFormEditFruit extends StatefulWidget {
-  const SupervisorSPBFormEditFruit({Key? key}) : super(key: key);
+  const SupervisorSPBFormEditFruit({super.key});
 
   @override
   State<SupervisorSPBFormEditFruit> createState() =>
@@ -26,9 +26,9 @@ class _SupervisorSPBFormEditFruitState
               Table(
                   defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                   children: <TableRow>[
-                    TableRow(
+                    const TableRow(
                       children: <Widget>[
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -36,7 +36,7 @@ class _SupervisorSPBFormEditFruitState
                             SizedBox(height: 6),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -44,7 +44,7 @@ class _SupervisorSPBFormEditFruitState
                             SizedBox(height: 6),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -58,7 +58,7 @@ class _SupervisorSPBFormEditFruitState
                       children: <Widget>[
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: TextFormField(
                             controller: notifier.bunchesRipe,
                             keyboardType: TextInputType.number,
@@ -68,7 +68,7 @@ class _SupervisorSPBFormEditFruitState
                               FilteringTextInputFormatter.allow(
                                   RegExp(r'[0-9]')),
                             ],
-                            decoration: InputDecoration(hintText: "0"),
+                            decoration: const InputDecoration(hintText: "0"),
                             onChanged: (value) {
                               notifier.countBunches(
                                   context, notifier.bunchesRipe);
@@ -77,7 +77,7 @@ class _SupervisorSPBFormEditFruitState
                         ),
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: TextFormField(
                             controller: notifier.bunchesOverRipe,
                             keyboardType: TextInputType.number,
@@ -87,7 +87,7 @@ class _SupervisorSPBFormEditFruitState
                               FilteringTextInputFormatter.allow(
                                   RegExp(r'[0-9]')),
                             ],
-                            decoration: InputDecoration(hintText: "0"),
+                            decoration: const InputDecoration(hintText: "0"),
                             onChanged: (value) {
                               notifier.countBunches(
                                   context, notifier.bunchesOverRipe);
@@ -96,7 +96,7 @@ class _SupervisorSPBFormEditFruitState
                         ),
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: TextFormField(
                             controller: notifier.bunchesHalfRipe,
                             keyboardType: TextInputType.number,
@@ -106,7 +106,7 @@ class _SupervisorSPBFormEditFruitState
                               FilteringTextInputFormatter.allow(
                                   RegExp(r'[0-9]')),
                             ],
-                            decoration: InputDecoration(hintText: "0"),
+                            decoration: const InputDecoration(hintText: "0"),
                             onChanged: (value) {
                               notifier.countBunches(
                                   context, notifier.bunchesHalfRipe);
@@ -115,9 +115,9 @@ class _SupervisorSPBFormEditFruitState
                         ),
                       ],
                     ),
-                    TableRow(
+                    const TableRow(
                       children: <Widget>[
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -125,7 +125,7 @@ class _SupervisorSPBFormEditFruitState
                             SizedBox(height: 6),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -133,7 +133,7 @@ class _SupervisorSPBFormEditFruitState
                             SizedBox(height: 6),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -147,7 +147,7 @@ class _SupervisorSPBFormEditFruitState
                       children: <Widget>[
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: TextFormField(
                             controller: notifier.bunchesUnRipe,
                             keyboardType: TextInputType.number,
@@ -157,7 +157,7 @@ class _SupervisorSPBFormEditFruitState
                               FilteringTextInputFormatter.allow(
                                   RegExp(r'[0-9]')),
                             ],
-                            decoration: InputDecoration(hintText: "0"),
+                            decoration: const InputDecoration(hintText: "0"),
                             onChanged: (value) {
                               notifier.countBunches(
                                   context, notifier.bunchesUnRipe);
@@ -166,7 +166,7 @@ class _SupervisorSPBFormEditFruitState
                         ),
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: TextFormField(
                             controller: notifier.bunchesAbnormal,
                             keyboardType: TextInputType.number,
@@ -176,7 +176,7 @@ class _SupervisorSPBFormEditFruitState
                               FilteringTextInputFormatter.allow(
                                   RegExp(r'[0-9]')),
                             ],
-                            decoration: InputDecoration(hintText: "0"),
+                            decoration: const InputDecoration(hintText: "0"),
                             onChanged: (value) {
                               notifier.countBunches(
                                   context, notifier.bunchesAbnormal);
@@ -185,7 +185,7 @@ class _SupervisorSPBFormEditFruitState
                         ),
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: TextFormField(
                             controller: notifier.bunchesEmpty,
                             keyboardType: TextInputType.number,
@@ -195,7 +195,7 @@ class _SupervisorSPBFormEditFruitState
                               FilteringTextInputFormatter.allow(
                                   RegExp(r'[0-9]')),
                             ],
-                            decoration: InputDecoration(hintText: "0"),
+                            decoration: const InputDecoration(hintText: "0"),
                             onChanged: (value) {
                               notifier.countBunches(
                                   context, notifier.bunchesEmpty);
@@ -204,9 +204,9 @@ class _SupervisorSPBFormEditFruitState
                         ),
                       ],
                     ),
-                    TableRow(
+                    const TableRow(
                       children: <Widget>[
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -214,7 +214,7 @@ class _SupervisorSPBFormEditFruitState
                             SizedBox(height: 6),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -222,11 +222,11 @@ class _SupervisorSPBFormEditFruitState
                             SizedBox(height: 6),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
-                            Container(
+                            SizedBox(
                                 width: 100,
                                 child: Text(
                                   "Total Janjang Normal",
@@ -240,7 +240,7 @@ class _SupervisorSPBFormEditFruitState
                     TableRow(children: <Widget>[
                       Container(
                         width: 100,
-                        padding: EdgeInsets.symmetric(horizontal: 16),
+                        padding: const EdgeInsets.symmetric(horizontal: 16),
                         child: TextFormField(
                           enabled: false,
                           controller: notifier.bunchesTotal,
@@ -250,13 +250,13 @@ class _SupervisorSPBFormEditFruitState
                           inputFormatters: [
                             FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
                           ],
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                               hintText: "0", border: InputBorder.none),
                         ),
                       ),
                       Container(
                         width: 100,
-                        padding: EdgeInsets.symmetric(horizontal: 16),
+                        padding: const EdgeInsets.symmetric(horizontal: 16),
                         child: TextFormField(
                           controller: notifier.looseFruits,
                           keyboardType: TextInputType.number,
@@ -265,7 +265,7 @@ class _SupervisorSPBFormEditFruitState
                           inputFormatters: [
                             FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
                           ],
-                          decoration: InputDecoration(hintText: "0"),
+                          decoration: const InputDecoration(hintText: "0"),
                           onChanged: (value) {
                             notifier.countBunches(
                                 context, notifier.looseFruits);
@@ -274,7 +274,7 @@ class _SupervisorSPBFormEditFruitState
                       ),
                       Container(
                         width: 100,
-                        padding: EdgeInsets.symmetric(horizontal: 16),
+                        padding: const EdgeInsets.symmetric(horizontal: 16),
                         child: TextFormField(
                           enabled: false,
                           controller: notifier.bunchesNormalTotal,
@@ -284,7 +284,7 @@ class _SupervisorSPBFormEditFruitState
                           inputFormatters: [
                             FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
                           ],
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                               hintText: "0", border: InputBorder.none),
                           onChanged: (value) {
                             notifier.countBunches(
@@ -294,15 +294,15 @@ class _SupervisorSPBFormEditFruitState
                       ),
                     ]),
                   ]),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               Text("KUALITAS JANJANG", style: Style.textBold16),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Table(
                   defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                   children: <TableRow>[
-                    TableRow(
+                    const TableRow(
                       children: <Widget>[
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -311,7 +311,7 @@ class _SupervisorSPBFormEditFruitState
                             SizedBox(height: 6),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -326,7 +326,7 @@ class _SupervisorSPBFormEditFruitState
                       children: <Widget>[
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: TextFormField(
                             controller: notifier.janjangTangkaiPanjang,
                             keyboardType: TextInputType.number,
@@ -336,7 +336,7 @@ class _SupervisorSPBFormEditFruitState
                               FilteringTextInputFormatter.allow(
                                   RegExp(r'[0-9]')),
                             ],
-                            decoration: InputDecoration(hintText: "0"),
+                            decoration: const InputDecoration(hintText: "0"),
                             onChanged: (value) {
                               notifier.countBunches(
                                   context, notifier.janjangTangkaiPanjang);
@@ -345,26 +345,27 @@ class _SupervisorSPBFormEditFruitState
                         ),
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: TextFormField(
                             controller: notifier.noteJanjangTangkaiPanjang,
                             keyboardType: TextInputType.text,
                             textAlign: TextAlign.center,
-                            decoration: InputDecoration(hintText: "Catatan"),
+                            decoration:
+                                const InputDecoration(hintText: "Catatan"),
                           ),
                         ),
                       ],
                     ),
                   ]),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               Text("KUALITAS BRONDOLAN", style: Style.textBold16),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Table(
                   defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                   children: <TableRow>[
-                    TableRow(
+                    const TableRow(
                       children: <Widget>[
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -372,7 +373,7 @@ class _SupervisorSPBFormEditFruitState
                             SizedBox(height: 6),
                           ]),
                         ),
-                        Container(
+                        SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
@@ -386,7 +387,7 @@ class _SupervisorSPBFormEditFruitState
                       children: <Widget>[
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: TextFormField(
                             controller: notifier.sampah,
                             keyboardType: TextInputType.number,
@@ -396,7 +397,7 @@ class _SupervisorSPBFormEditFruitState
                               FilteringTextInputFormatter.allow(
                                   RegExp(r'[0-9]')),
                             ],
-                            decoration: InputDecoration(hintText: "0"),
+                            decoration: const InputDecoration(hintText: "0"),
                             onChanged: (value) {
                               notifier.countBunches(context, notifier.sampah);
                             },
@@ -404,13 +405,13 @@ class _SupervisorSPBFormEditFruitState
                         ),
                         Container(
                           width: 100,
-                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: TextFormField(
                             controller: notifier.batu,
                             keyboardType: TextInputType.number,
                             textAlign: TextAlign.center,
                             style: Style.textBold20,
-                            decoration: InputDecoration(hintText: "0"),
+                            decoration: const InputDecoration(hintText: "0"),
                             inputFormatters: [
                               FilteringTextInputFormatter.allow(
                                   RegExp(r'[0-9]')),
@@ -423,19 +424,17 @@ class _SupervisorSPBFormEditFruitState
                       ],
                     ),
                   ]),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               Column(
                 children: [
-                  Text("Catatan"),
-                  Container(
-                    child: TextFormField(
-                      controller: notifier.notesOPH,
-                      textAlign: TextAlign.center,
-                      decoration: InputDecoration(hintText: "Catatan"),
-                      keyboardType: TextInputType.multiline,
-                      maxLength: 50,
-                      maxLengthEnforcement: MaxLengthEnforcement.enforced,
-                    ),
+                  const Text("Catatan"),
+                  TextFormField(
+                    controller: notifier.notesOPH,
+                    textAlign: TextAlign.center,
+                    decoration: const InputDecoration(hintText: "Catatan"),
+                    keyboardType: TextInputType.multiline,
+                    maxLength: 50,
+                    maxLengthEnforcement: MaxLengthEnforcement.enforced,
                   ),
                 ],
               ),

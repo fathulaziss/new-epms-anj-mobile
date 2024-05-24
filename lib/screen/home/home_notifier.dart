@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_typing_uninitialized_variables, avoid_print, use_build_context_synchronously
+
 import 'dart:developer';
 
 import 'package:epms/base/common/locator.dart';
@@ -38,11 +40,11 @@ import 'package:flutter/material.dart';
 import 'package:open_settings/open_settings.dart';
 
 class HomeNotifier extends ChangeNotifier {
-  NavigatorService _navigationService = locator<NavigatorService>();
+  final NavigatorService _navigationService = locator<NavigatorService>();
 
   NavigatorService get navigationService => _navigationService;
 
-  DialogService _dialogService = locator<DialogService>();
+  final DialogService _dialogService = locator<DialogService>();
 
   DialogService get dialogService => _dialogService;
 
@@ -421,7 +423,7 @@ class HomeNotifier extends ChangeNotifier {
     _dialogService.popDialog();
     _dialogService.showNoOptionDialog(
         title: "Gagal Log Out",
-        subtitle: "$response",
+        subtitle: response,
         onPress: _dialogService.popDialog);
   }
 

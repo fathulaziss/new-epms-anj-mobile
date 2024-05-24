@@ -17,10 +17,10 @@ class MAttendanceSchema extends Equatable {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['attendance_id'] = this.attendanceId;
-    data['attendance_code'] = this.attendanceCode;
-    data['attendance_desc'] = this.attendanceDesc;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['attendance_id'] = attendanceId;
+    data['attendance_code'] = attendanceCode;
+    data['attendance_desc'] = attendanceDesc;
     return data;
   }
 

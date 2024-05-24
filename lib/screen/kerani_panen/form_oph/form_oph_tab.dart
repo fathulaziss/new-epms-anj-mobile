@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:io';
 
 import 'package:epms/base/ui/palette.dart';
@@ -14,7 +16,7 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
 
 class FormOPHTab extends StatefulWidget {
-  const FormOPHTab({Key? key}) : super(key: key);
+  const FormOPHTab({super.key});
 
   @override
   State<FormOPHTab> createState() => _FormOPHTabState();
@@ -34,15 +36,15 @@ class _FormOPHTabState extends State<FormOPHTab> {
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("ID OPH:"),
-                      Text("${notifier.ophID}", style: Style.textBold16)
+                      const Text("ID OPH:"),
+                      Text(notifier.ophID, style: Style.textBold16)
                     ]),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [Text("Tanggal:"), Text("${notifier.date}")],
+                  children: [const Text("Tanggal:"), Text(notifier.date)],
                 ),
               ),
               Padding(
@@ -50,10 +52,10 @@ class _FormOPHTabState extends State<FormOPHTab> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("GPS Geolocation:"),
+                    const Text("GPS Geolocation:"),
                     Expanded(
                         child: Text(
-                      "${notifier.gpsLocation}",
+                      notifier.gpsLocation,
                       textAlign: TextAlign.right,
                     )),
                   ],
@@ -64,17 +66,17 @@ class _FormOPHTabState extends State<FormOPHTab> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Jenis Pekerja:"),
+                    const Text("Jenis Pekerja:"),
                     Flexible(
-                      child: Container(
+                      child: SizedBox(
                         width: 140,
                         child: DropdownButton(
                           isExpanded: true,
                           value: notifier.employeeType,
                           items: notifier.listEmployeeType.map((value) {
                             return DropdownMenuItem(
-                              child: Text(value),
                               value: value,
+                              child: Text(value),
                             );
                           }).toList(),
                           onChanged: (String? value) {
@@ -91,7 +93,7 @@ class _FormOPHTabState extends State<FormOPHTab> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Apakah panen mekanis?"),
+                    const Text("Apakah panen mekanis?"),
                     Row(
                       children: [
                         Checkbox(
@@ -101,7 +103,7 @@ class _FormOPHTabState extends State<FormOPHTab> {
                             notifier.onSetHarvestingMethod(value!);
                           },
                         ),
-                        Text("Ya")
+                        const Text("Ya")
                       ],
                     ),
                   ],
@@ -112,21 +114,21 @@ class _FormOPHTabState extends State<FormOPHTab> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Kemandoran:"),
+                    const Text("Kemandoran:"),
                     notifier.employeeType == "Kontrak"
                         ? Row(
                             children: [
-                              Container(
+                              SizedBox(
                                 width: 180,
                                 child: DropdownButton(
                                   isExpanded: true,
-                                  hint: Text("Pilih Mandor"),
+                                  hint: const Text("Pilih Mandor"),
                                   value: notifier.valueMandorKontrak,
                                   items:
                                       notifier.listMandorKontrak.map((value) {
                                     return DropdownMenuItem(
-                                      child: Text(value.employeeName!),
                                       value: value,
+                                      child: Text(value.employeeName!),
                                     );
                                   }).toList(),
                                   onChanged: (MEmployeeSchema? value) {
@@ -135,8 +137,8 @@ class _FormOPHTabState extends State<FormOPHTab> {
                                 ),
                               ),
                               InkWell(
-                                child: Padding(
-                                  padding: const EdgeInsets.only(right: 2.0),
+                                child: const Padding(
+                                  padding: EdgeInsets.only(right: 2.0),
                                   child: Icon(Icons.search),
                                 ),
                                 onTap: () async {
@@ -145,7 +147,7 @@ class _FormOPHTabState extends State<FormOPHTab> {
                                           context,
                                           MaterialPageRoute(
                                               builder: (context) =>
-                                                  SearchEmployeeScreen()));
+                                                  const SearchEmployeeScreen()));
                                   notifier.onSetMandorKontrak(mEmployee!);
                                 },
                               ),
@@ -168,21 +170,21 @@ class _FormOPHTabState extends State<FormOPHTab> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Flexible(child: Text("Pekerja:")),
+                          const Flexible(child: Text("Pekerja:")),
                           Flexible(
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Container(
+                                SizedBox(
                                   width: 140,
                                   child: DropdownButton(
                                     isExpanded: true,
-                                    hint: Text("Pilih Pekerja"),
+                                    hint: const Text("Pilih Pekerja"),
                                     value: notifier.valueEmployee,
                                     items: notifier.listEmployee.map((value) {
                                       return DropdownMenuItem(
-                                        child: Text(value.employeeName!),
                                         value: value,
+                                        child: Text(value.employeeName!),
                                       );
                                     }).toList(),
                                     onChanged: (MEmployeeSchema? value) {
@@ -192,9 +194,8 @@ class _FormOPHTabState extends State<FormOPHTab> {
                                 ),
                                 Expanded(
                                   child: InkWell(
-                                    child: Padding(
-                                      padding:
-                                          const EdgeInsets.only(right: 2.0),
+                                    child: const Padding(
+                                      padding: EdgeInsets.only(right: 2.0),
                                       child: Icon(Icons.search),
                                     ),
                                     onTap: () async {
@@ -203,7 +204,7 @@ class _FormOPHTabState extends State<FormOPHTab> {
                                               context,
                                               MaterialPageRoute(
                                                   builder: (context) =>
-                                                      SearchEmployeeScreen()));
+                                                      const SearchEmployeeScreen()));
                                       notifier.onSetEmployee(mEmployee!);
                                     },
                                   ),
@@ -221,18 +222,18 @@ class _FormOPHTabState extends State<FormOPHTab> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Flexible(child: Text("Customer:")),
+                          const Flexible(child: Text("Customer:")),
                           Flexible(
-                            child: Container(
+                            child: SizedBox(
                               width: 170,
                               child: DropdownButton(
                                 isExpanded: true,
-                                hint: Text("Pilih Customer"),
+                                hint: const Text("Pilih Customer"),
                                 value: notifier.valueMCustomer,
                                 items: notifier.listMCustomer.map((value) {
                                   return DropdownMenuItem(
-                                    child: Text(value.customerCode!),
                                     value: value,
+                                    child: Text(value.customerCode!),
                                   );
                                 }).toList(),
                                 onChanged: (MCustomerCodeSchema? value) {
@@ -251,18 +252,18 @@ class _FormOPHTabState extends State<FormOPHTab> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Flexible(child: Text("Vendor:")),
+                          const Flexible(child: Text("Vendor:")),
                           Flexible(
-                            child: Container(
+                            child: SizedBox(
                               width: 180,
                               child: DropdownButton(
                                 isExpanded: true,
-                                hint: Text("Pilih Vendor"),
+                                hint: const Text("Pilih Vendor"),
                                 value: notifier.valueVendor,
                                 items: notifier.listVendor.map((value) {
                                   return DropdownMenuItem(
-                                    child: Text(value.vendorName!),
                                     value: value,
+                                    child: Text(value.vendorName!),
                                   );
                                 }).toList(),
                                 onChanged: (MVendorSchema? value) {
@@ -280,10 +281,11 @@ class _FormOPHTabState extends State<FormOPHTab> {
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Estate:"),
+                      const Text("Estate:"),
                       notifier.employeeType == "Pinjam"
-                          ? Text(
-                              "${notifier.valueMCustomer?.customerPlantCode!.substring(2) ?? "Belum memilih customer"}")
+                          ? Text(notifier.valueMCustomer?.customerPlantCode!
+                                  .substring(2) ??
+                              "Belum memilih customer")
                           : Text("${notifier.mConfigSchema?.estateCode}")
                     ]),
               ),
@@ -292,16 +294,17 @@ class _FormOPHTabState extends State<FormOPHTab> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Blok:"),
+                    const Text("Blok:"),
                     Flexible(
-                      child: Container(
+                      child: SizedBox(
                         width: 160,
                         child: Focus(
                           child: TextFormField(
                             controller: notifier.blockNumber,
                             textAlign: TextAlign.center,
                             textCapitalization: TextCapitalization.characters,
-                            decoration: InputDecoration(hintText: "Tulis blok"),
+                            decoration:
+                                const InputDecoration(hintText: "Tulis blok"),
                             onChanged: (value) {
                               if (value.length >= 3) {
                                 notifier.blockNumberCheck(context, value);
@@ -326,9 +329,9 @@ class _FormOPHTabState extends State<FormOPHTab> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Flexible(child: Text("Divisi:")),
-                          Text(
-                              "${notifier.mBlockSchema?.blockDivisionCode ?? "Belum mengisi blok"}")
+                          const Flexible(child: Text("Divisi:")),
+                          Text(notifier.mBlockSchema?.blockDivisionCode ??
+                              "Belum mengisi blok")
                         ],
                       ),
                     )
@@ -338,30 +341,30 @@ class _FormOPHTabState extends State<FormOPHTab> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Estimasi Berat OPH (Kg):"),
+                    const Text("Estimasi Berat OPH (Kg):"),
                     Text("${notifier.ophEstimationWeight}")
                   ],
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Expanded(
                     child: Column(
                       children: [
-                        Text("TPH"),
-                        Container(
+                        const Text("TPH"),
+                        SizedBox(
                           width: 160,
                           child: Focus(
                             child: TextFormField(
                               controller: notifier.tphNumber,
                               textAlign: TextAlign.center,
                               textCapitalization: TextCapitalization.characters,
-                              decoration:
-                                  InputDecoration(hintText: "Tulis Nomor TPH"),
+                              decoration: const InputDecoration(
+                                  hintText: "Tulis Nomor TPH"),
                               onChanged: (value) {
-                                if (value.length >= 1) {
+                                if (value.isNotEmpty) {
                                   notifier.tPHNumberCheck(context, value);
                                 }
                               },
@@ -378,7 +381,8 @@ class _FormOPHTabState extends State<FormOPHTab> {
                               String? result = await Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => QRReaderScreen()));
+                                      builder: (context) =>
+                                          const QRReaderScreen()));
                               if (result != null) {
                                 setState(() {
                                   notifier.tphNumber =
@@ -406,22 +410,22 @@ class _FormOPHTabState extends State<FormOPHTab> {
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 16,
                   ),
                   Expanded(
                     child: Column(
                       children: [
-                        Text("Kartu OPH"),
-                        Container(
+                        const Text("Kartu OPH"),
+                        SizedBox(
                           width: 160,
                           child: Focus(
                             child: TextFormField(
                               controller: notifier.ophNumber,
                               textAlign: TextAlign.center,
                               textCapitalization: TextCapitalization.characters,
-                              decoration:
-                                  InputDecoration(hintText: "Tulis Kartu OPH"),
+                              decoration: const InputDecoration(
+                                  hintText: "Tulis Kartu OPH"),
                               onChanged: (value) {
                                 if (value.length >= 4) {
                                   notifier.cardOPHNumberCheck(context, value);
@@ -440,7 +444,8 @@ class _FormOPHTabState extends State<FormOPHTab> {
                               String? result = await Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => QRReaderScreen()));
+                                      builder: (context) =>
+                                          const QRReaderScreen()));
                               if (result != null) {
                                 setState(() {
                                   notifier.ophNumber =
@@ -479,7 +484,7 @@ class _FormOPHTabState extends State<FormOPHTab> {
                   onTap: () {
                     notifier.getCamera(context);
                   },
-                  child: Container(
+                  child: SizedBox(
                     width: MediaQuery.of(context).size.width,
                     child: Card(
                       shape: RoundedRectangleBorder(
@@ -519,9 +524,9 @@ class _FormOPHTabState extends State<FormOPHTab> {
                       borderRadius: BorderRadius.circular(10.0),
                     ),
                     child: Container(
-                      padding: EdgeInsets.all(14),
+                      padding: const EdgeInsets.all(14),
                       width: MediaQuery.of(context).size.width,
-                      child: Text(
+                      child: const Text(
                         "SIMPAN",
                         style: TextStyle(
                             fontSize: 18,

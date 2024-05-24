@@ -37,10 +37,10 @@ class DatabaseMCSPBCardSchema {
     //   }
     // }
     Batch batch = db.batch();
-    object.forEach((val) {
+    for (var val in object) {
       MCSPBCardSchema mcspbCardSchema = val;
       batch.insert(mCSPBCardSchemaTable, mcspbCardSchema.toJson());
-    });
+    }
     List<Object?> i = await batch.commit();
     return i.length;
   }

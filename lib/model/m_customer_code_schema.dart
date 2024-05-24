@@ -36,10 +36,10 @@ class MCustomerCodeSchema extends Equatable {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['customer_code_id'] = this.customerCodeId;
-    data['customer_plant_code'] = this.customerPlantCode;
-    data['customer_code'] = this.customerCode;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['customer_code_id'] = customerCodeId;
+    data['customer_plant_code'] = customerPlantCode;
+    data['customer_code'] = customerCode;
     // data['created_by'] = this.createdBy;
     // data['created_date'] = this.createdDate;
     // data['created_time'] = this.createdTime;

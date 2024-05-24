@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'dart:async';
 import 'dart:io';
 
@@ -5,14 +7,14 @@ import 'package:camera/camera.dart';
 // import 'package:epms/base/ui/palette.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:image/image.dart' as Image;
+import 'package:image/image.dart' as img;
 import 'package:image/image.dart';
 import 'package:path_provider/path_provider.dart';
 
 /// Camera example home widget.
 class CameraScreen extends StatefulWidget {
   /// Default Constructor
-  const CameraScreen({Key? key}) : super(key: key);
+  const CameraScreen({super.key});
 
   @override
   State<CameraScreen> createState() {
@@ -121,7 +123,7 @@ class _CameraScreenState extends State<CameraScreen>
               padding: const EdgeInsets.all(20.0),
               child: _captureControlRowWidget(),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             )
           ],
@@ -194,10 +196,10 @@ class _CameraScreenState extends State<CameraScreen>
                   !cameraController.value.isRecordingVideo
               ? onTakePictureButtonPressed
               : null,
-          child: Card(
+          child: const Card(
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: const Icon(Icons.camera_alt, size: 45),
+              padding: EdgeInsets.all(8.0),
+              child: Icon(Icons.camera_alt, size: 45),
             ),
           ),
         ),
@@ -312,8 +314,8 @@ class _CameraScreenState extends State<CameraScreen>
     try {
       final XFile file = await cameraController.takePicture();
       File fileTemp = File(file.path);
-      Image.Image? image = decodeImage(fileTemp.readAsBytesSync());
-      Image.Image? resizedImage = copyResize(image!, width: 600, height: 800);
+      img.Image? image = decodeImage(fileTemp.readAsBytesSync());
+      img.Image? resizedImage = copyResize(image!, width: 600, height: 800);
       Directory tempDir = await getTemporaryDirectory();
       File fileResult = File('${tempDir.path}/${file.name}')
         ..writeAsBytesSync(encodeJpg(resizedImage, quality: 70));

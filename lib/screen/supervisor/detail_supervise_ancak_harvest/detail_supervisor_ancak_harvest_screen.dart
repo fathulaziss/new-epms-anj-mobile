@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:epms/base/ui/style.dart';
 import 'package:epms/common_manager/navigator_service.dart';
 import 'package:epms/model/oph_supervise_ancak.dart';
@@ -10,11 +12,12 @@ import 'detail_supervisor_ancak_tab.dart';
 import 'edit_supervisor_ancak_fruit.dart';
 
 class DetailSuperviseAncakHarvestScreen extends StatefulWidget {
-  final OPHSuperviseAncak ophSuperviseAncak;
+  const DetailSuperviseAncakHarvestScreen({
+    super.key,
+    required this.ophSuperviseAncak,
+  });
 
-  const DetailSuperviseAncakHarvestScreen(
-      {Key? key, required this.ophSuperviseAncak})
-      : super(key: key);
+  final OPHSuperviseAncak ophSuperviseAncak;
 
   @override
   State<DetailSuperviseAncakHarvestScreen> createState() =>
@@ -63,8 +66,8 @@ class _DetailSuperviseAncakHarvestScreenState
             data: Style.mediaQueryText(context),
             child: Scaffold(
               appBar: AppBar(
-                title: Text('Detail Laporan Supervisi Ancak Panen'),
-                bottom: TabBar(
+                title: const Text('Detail Laporan Supervisi Ancak Panen'),
+                bottom: const TabBar(
                   tabs: <Widget>[
                     Tab(
                       icon: Text("Form"),
@@ -77,10 +80,10 @@ class _DetailSuperviseAncakHarvestScreenState
               ),
               body: TabBarView(
                 children: <Widget>[
-                  DetailSupervisorAncakTab(),
+                  const DetailSupervisorAncakTab(),
                   notifier.onEdit
-                      ? EditSupervisorAncakFormFruit()
-                      : DetailSupervisorAncakFormFruit()
+                      ? const EditSupervisorAncakFormFruit()
+                      : const DetailSupervisorAncakFormFruit()
                 ],
               ),
             ),

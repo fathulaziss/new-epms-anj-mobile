@@ -5,10 +5,10 @@ import 'harvest_report_yesterday_notifier.dart';
 import 'harvest_report_yesterday_screen.dart';
 
 class HarvestReportYesterdayPage extends StatefulWidget {
-  const HarvestReportYesterdayPage({Key? key}) : super(key: key);
+  const HarvestReportYesterdayPage({super.key});
 
   @override
-  _HarvestReportYesterdayPageState createState() =>
+  State<HarvestReportYesterdayPage> createState() =>
       _HarvestReportYesterdayPageState();
 }
 
@@ -17,7 +17,8 @@ class _HarvestReportYesterdayPageState
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-        create: (context) => HarvestReportYesterdayNotifier(),
-        child: HarvestReportYesterdayScreen());
+      create: (context) => HarvestReportYesterdayNotifier(),
+      child: const HarvestReportYesterdayScreen(),
+    );
   }
 }

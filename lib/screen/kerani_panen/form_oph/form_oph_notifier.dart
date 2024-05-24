@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously, avoid_print
+
 import 'dart:convert';
 
 import 'package:epms/base/common/locator.dart';
@@ -42,11 +44,11 @@ import 'package:intl/intl.dart';
 import 'package:nfc_manager/nfc_manager.dart';
 
 class FormOPHNotifier extends ChangeNotifier {
-  NavigatorService _navigationService = locator<NavigatorService>();
+  final NavigatorService _navigationService = locator<NavigatorService>();
 
   NavigatorService get navigationService => _navigationService;
 
-  DialogService _dialogService = locator<DialogService>();
+  final DialogService _dialogService = locator<DialogService>();
 
   DialogService get dialogService => _dialogService;
 
@@ -82,7 +84,7 @@ class FormOPHNotifier extends ChangeNotifier {
 
   TextEditingController tphNumber = TextEditingController();
 
-  TextEditingController _blockNumber = TextEditingController();
+  final TextEditingController _blockNumber = TextEditingController();
 
   TextEditingController get blockNumber => _blockNumber;
 
@@ -92,7 +94,7 @@ class FormOPHNotifier extends ChangeNotifier {
 
   String? get pickedFile => _pickedFile;
 
-  List<String> _listEmployeeType = ["Internal", "Pinjam", "Kontrak"];
+  final List<String> _listEmployeeType = ["Internal", "Pinjam", "Kontrak"];
 
   List<String> get listEmployeeType => _listEmployeeType;
 
@@ -112,7 +114,7 @@ class FormOPHNotifier extends ChangeNotifier {
 
   List<MEmployeeSchema> get listMandorKontrak => _listMandorKontrak;
 
-  List<MCustomerCodeSchema> _listMCustomer = [];
+  final List<MCustomerCodeSchema> _listMCustomer = [];
 
   List<MCustomerCodeSchema> get listMCustomer => _listMCustomer;
 
@@ -152,43 +154,43 @@ class FormOPHNotifier extends ChangeNotifier {
 
   Supervisor? get supervisor => _supervisor;
 
-  TextEditingController _notesOPH = TextEditingController();
+  final TextEditingController _notesOPH = TextEditingController();
 
   TextEditingController get notesOPH => _notesOPH;
 
-  TextEditingController _bunchesRipe = TextEditingController();
+  final TextEditingController _bunchesRipe = TextEditingController();
 
   TextEditingController get bunchesRipe => _bunchesRipe;
 
-  TextEditingController _bunchesOverRipe = TextEditingController();
+  final TextEditingController _bunchesOverRipe = TextEditingController();
 
   TextEditingController get bunchesOverRipe => _bunchesOverRipe;
 
-  TextEditingController _bunchesHalfRipe = TextEditingController();
+  final TextEditingController _bunchesHalfRipe = TextEditingController();
 
   TextEditingController get bunchesHalfRipe => _bunchesHalfRipe;
 
-  TextEditingController _bunchesUnRipe = TextEditingController();
+  final TextEditingController _bunchesUnRipe = TextEditingController();
 
   TextEditingController get bunchesUnRipe => _bunchesUnRipe;
 
-  TextEditingController _bunchesAbnormal = TextEditingController();
+  final TextEditingController _bunchesAbnormal = TextEditingController();
 
   TextEditingController get bunchesAbnormal => _bunchesAbnormal;
 
-  TextEditingController _bunchesEmpty = TextEditingController();
+  final TextEditingController _bunchesEmpty = TextEditingController();
 
   TextEditingController get bunchesEmpty => _bunchesEmpty;
 
-  TextEditingController _looseFruits = TextEditingController();
+  final TextEditingController _looseFruits = TextEditingController();
 
   TextEditingController get looseFruits => _looseFruits;
 
-  TextEditingController _bunchesTotal = TextEditingController();
+  final TextEditingController _bunchesTotal = TextEditingController();
 
   TextEditingController get bunchesTotal => _bunchesTotal;
 
-  TextEditingController _bunchesNotSent = TextEditingController();
+  final TextEditingController _bunchesNotSent = TextEditingController();
 
   TextEditingController get bunchesNotSent => _bunchesNotSent;
 
@@ -223,14 +225,12 @@ class FormOPHNotifier extends ChangeNotifier {
   generateVariable() async {
     MConfigSchema mConfigSchema = await DatabaseMConfig().selectMConfig();
     DateTime now = DateTime.now();
-    NumberFormat formatterNumber = new NumberFormat("000");
+    NumberFormat formatterNumber = NumberFormat("000");
     String number = formatterNumber.format(mConfigSchema.userId);
     _date = TimeManager.dateWithDash(now);
     _time = TimeManager.timeWithColon(now);
-    _ophID = "${mConfigSchema.estateCode}" +
-        ValueService.generateIDFromDateTime(now) +
-        "$number" +
-        "M";
+    _ophID =
+        "${mConfigSchema.estateCode}${ValueService.generateIDFromDateTime(now)}${number}M";
     _mConfigSchema = mConfigSchema;
     bunchesRipe.text = "0";
     bunchesOverRipe.text = "0";
@@ -262,11 +262,11 @@ class FormOPHNotifier extends ChangeNotifier {
     }
     _listHarvestingPlan =
         await DatabaseTHarvestingPlan().selectTHarvestingPlan();
-    _listEmployee.forEach((element) {
+    for (var element in _listEmployee) {
       if (element.employeeCode == _mConfigSchema?.employeeCode) {
         ophNumber.text = element.employeeDivisionCode!;
       }
-    });
+    }
     final userRoles = await StorageManager.readData("userRoles");
     if (userRoles != null) {
       if (userRoles != 'KR') {
@@ -327,9 +327,9 @@ class FormOPHNotifier extends ChangeNotifier {
     // }
     // notifyListeners();
     while (_gpsLocation.isEmpty) {
-      final _position = await LocationService.getGPSLocation();
-      if (_position != null) {
-        _gpsLocation = "${_position.longitude}, ${_position.latitude}";
+      final position = await LocationService.getGPSLocation();
+      if (position != null) {
+        _gpsLocation = "${position.longitude}, ${position.latitude}";
       }
     }
     notifyListeners();
@@ -550,7 +550,7 @@ class FormOPHNotifier extends ChangeNotifier {
     int count = await DatabaseOPH().insertOPH(oph);
     if (count > 0) {
       try {
-        Future.delayed(Duration(seconds: 1), () {
+        Future.delayed(const Duration(seconds: 1), () {
           NfcManager.instance.stopSession();
         });
         // addLaporanPanenKemarin();
@@ -604,7 +604,7 @@ class FormOPHNotifier extends ChangeNotifier {
 
   onErrorWrite(BuildContext context) {
     _dialogService.popDialog();
-    Future.delayed(Duration(seconds: 1), () {
+    Future.delayed(const Duration(seconds: 1), () {
       NfcManager.instance.stopSession();
     });
     FlushBarManager.showFlushBarWarning(context, "OPH", "Gagal menyimpan OPH");

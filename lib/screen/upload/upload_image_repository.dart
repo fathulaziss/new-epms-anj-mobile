@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:convert';
 import 'dart:io';
 
@@ -24,8 +26,9 @@ class UploadImageOPHRepository extends APIConfiguration {
       var url = baseUrl + APIEndPoint.UPLOAD_IMAGE;
       var uri = Uri.parse(url);
       var request = http.MultipartRequest("POST", uri);
-      var mimeContent = lookupMimeType(
-          '${imageFile.path.toString().substring(imageFile.path.toString().length - 20)}');
+      var mimeContent = lookupMimeType(imageFile.path
+          .toString()
+          .substring(imageFile.path.toString().length - 20));
       var typeMedia = mimeContent!.substring(0, mimeContent.indexOf('/', 0));
       var pos = mimeContent.indexOf('/', 0);
       var subTypeMedia = mimeContent.substring(pos + 1, mimeContent.length);

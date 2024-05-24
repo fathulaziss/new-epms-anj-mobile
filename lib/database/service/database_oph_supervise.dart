@@ -57,7 +57,7 @@ class DatabaseOPHSupervise {
   Future<List<OPHSupervise>> selectOPHSupervise() async {
     Database db = await DatabaseHelper().database;
     var mapList = await db.query(tOPHSuperviseSchemaListTable,
-        groupBy: "${OPHSuperviseEntity.ophSupervisiId}");
+        groupBy: OPHSuperviseEntity.ophSupervisiId);
     List<OPHSupervise> list = [];
     for (int i = 0; i < mapList.length; i++) {
       OPHSupervise oph = OPHSupervise.fromJson(mapList[i]);

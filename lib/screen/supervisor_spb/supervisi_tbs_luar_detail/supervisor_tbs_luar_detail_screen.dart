@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:epms/base/ui/style.dart';
 import 'package:epms/common_manager/navigator_service.dart';
 import 'package:epms/model/tbs_luar.dart';
@@ -9,12 +11,14 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class SupervisorTBSLuarDetailScreen extends StatefulWidget {
+  const SupervisorTBSLuarDetailScreen({
+    super.key,
+    this.tbsLuar,
+    required this.method,
+  });
+
   final TBSLuar? tbsLuar;
   final String method;
-
-  const SupervisorTBSLuarDetailScreen(
-      {Key? key, this.tbsLuar, required this.method})
-      : super(key: key);
 
   @override
   State<SupervisorTBSLuarDetailScreen> createState() =>
@@ -63,8 +67,8 @@ class _SupervisorTBSLuarDetailScreenState
             data: Style.mediaQueryText(context),
             child: Scaffold(
               appBar: AppBar(
-                title: Text('Supervisi TBS Luar'),
-                bottom: TabBar(
+                title: const Text('Supervisi TBS Luar'),
+                bottom: const TabBar(
                   tabs: <Widget>[
                     Tab(
                       icon: Text("Detail"),
@@ -77,10 +81,10 @@ class _SupervisorTBSLuarDetailScreenState
               ),
               body: TabBarView(
                 children: <Widget>[
-                  SupervisorTBSLuarDetailTab(),
+                  const SupervisorTBSLuarDetailTab(),
                   notifier.onEdit
-                      ? SupervisorTBSSortasiEdit()
-                      : SupervisorTBSLuarDetailSortasi()
+                      ? const SupervisorTBSSortasiEdit()
+                      : const SupervisorTBSLuarDetailSortasi()
                 ],
               ),
             ),

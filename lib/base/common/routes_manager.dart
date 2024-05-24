@@ -52,7 +52,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {
     case Routes.ROOT:
       return MaterialPageRoute(
-        builder: (context) => SplashScreen(),
+        builder: (context) => const SplashScreen(),
       );
     case Routes.LOGIN_PAGE:
       return MaterialPageRoute(

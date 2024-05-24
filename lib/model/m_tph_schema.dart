@@ -55,11 +55,11 @@ class MTPHSchema {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['tph_id'] = this.tphId;
-    data['tph_block_code'] = this.tphBlockCode;
-    data['tph_code'] = this.tphCode;
-    data['tph_estate_code'] = this.tphEstateCode;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['tph_id'] = tphId;
+    data['tph_block_code'] = tphBlockCode;
+    data['tph_code'] = tphCode;
+    data['tph_estate_code'] = tphEstateCode;
     // data['tph_division_code'] = this.tphDivisionCode;
     // data['tph_company_code'] = this.tphCompanyCode;
     // data['tph_valid_from'] = this.tphValidFrom;

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class HistorySuperviseHarvestPage extends StatefulWidget {
-  const HistorySuperviseHarvestPage({Key? key}) : super(key: key);
+  const HistorySuperviseHarvestPage({super.key});
 
   @override
   State<HistorySuperviseHarvestPage> createState() =>
@@ -16,7 +16,8 @@ class _HistorySuperviseHarvestPageState
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-        create: (context) => HistorySuperviseHarvestNotifier(),
-        child: HistorySuperviseHarvestScreen());
+      create: (context) => HistorySuperviseHarvestNotifier(),
+      child: const HistorySuperviseHarvestScreen(),
+    );
   }
 }

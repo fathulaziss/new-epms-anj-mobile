@@ -21,7 +21,7 @@ class InspectionUserView extends StatefulWidget {
 }
 
 class _InspectionUserViewState extends State<InspectionUserView> {
-  NavigatorService _navigationService = locator<NavigatorService>();
+  final NavigatorService _navigationService = locator<NavigatorService>();
   final searchController = TextEditingController();
 
   List<UserInspectionModel> listUserInspection = const [];
@@ -87,7 +87,7 @@ class _InspectionUserViewState extends State<InspectionUserView> {
         return MediaQuery(
           data: Style.mediaQueryText(context),
           child: Scaffold(
-            appBar: AppBar(title: Text("Search User Inspection")),
+            appBar: AppBar(title: const Text("Search User Inspection")),
             body: Flex(
               direction: Axis.vertical,
               children: [
@@ -137,7 +137,7 @@ class _InspectionUserViewState extends State<InspectionUserView> {
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 Text(user.name),
-                                                Divider(
+                                                const Divider(
                                                     height: 1,
                                                     color: Colors.grey),
                                                 Text(user.mOccupationName),
@@ -160,7 +160,7 @@ class _InspectionUserViewState extends State<InspectionUserView> {
                               );
                             },
                           )
-                        : Center(child: Text('Data tidak ada')),
+                        : const Center(child: Text('Data tidak ada')),
                   ),
                 const SizedBox(height: 12),
               ],

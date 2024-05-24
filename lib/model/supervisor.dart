@@ -33,16 +33,16 @@ class Supervisor {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    data['employee_code'] = this.employeeCode;
-    data['mandor_name'] = this.mandorName;
-    data['mandor_code'] = this.mandorCode;
-    data['mandor1_code'] = this.mandor1Code;
-    data['mandor1_name'] = this.mandor1Name;
-    data['kerani_panen_name'] = this.keraniPanenName;
-    data['kerani_panen_code'] = this.keraniPanenCode;
-    data['kerani_kirim_name'] = this.keraniKirimName;
-    data['kerani_kirim_code'] = this.keraniKirimCode;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['employee_code'] = employeeCode;
+    data['mandor_name'] = mandorName;
+    data['mandor_code'] = mandorCode;
+    data['mandor1_code'] = mandor1Code;
+    data['mandor1_name'] = mandor1Name;
+    data['kerani_panen_name'] = keraniPanenName;
+    data['kerani_panen_code'] = keraniPanenCode;
+    data['kerani_kirim_name'] = keraniKirimName;
+    data['kerani_kirim_code'] = keraniKirimCode;
     return data;
   }
 }

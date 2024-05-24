@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:io';
 
 import 'package:epms/base/ui/palette.dart';
@@ -11,11 +13,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class DetailSPBScreen extends StatefulWidget {
+  const DetailSPBScreen({super.key, required this.spb, required this.method});
+
   final String method;
   final SPB spb;
-
-  const DetailSPBScreen({Key? key, required this.spb, required this.method})
-      : super(key: key);
 
   @override
   State<DetailSPBScreen> createState() => _DetailSPBScreenState();
@@ -61,11 +62,11 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
             // },
             child: Scaffold(
               appBar: AppBar(
-                title: Text('Detail SPB'),
+                title: const Text('Detail SPB'),
                 bottom: detailSPB.isSPBExist
                     ? TabBar(
                         tabs: <Widget>[
-                          Tab(
+                          const Tab(
                             icon: Text("Detail"),
                           ),
                           Tab(
@@ -78,7 +79,7 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                           ),
                         ],
                       )
-                    : TabBar(
+                    : const TabBar(
                         tabs: <Widget>[
                           Tab(
                             icon: Text("Detail"),
@@ -98,10 +99,10 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text("ID SPB:"),
+                                  const Text("ID SPB:"),
                                   Expanded(
                                     child: Text(
-                                      "${detailSPB.spb?.spbId ?? ""}",
+                                      detailSPB.spb?.spbId ?? "",
                                       style: Style.textBold16,
                                       textAlign: TextAlign.end,
                                     ),
@@ -115,10 +116,10 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text("Tanggal:"),
+                                  const Text("Tanggal:"),
                                   Expanded(
                                       child: Text(
-                                    "${detailSPB.spb?.createdDate ?? ""}",
+                                    detailSPB.spb?.createdDate ?? "",
                                     textAlign: TextAlign.end,
                                   ))
                                 ],
@@ -130,7 +131,7 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text("GPS Geolocation:"),
+                                  const Text("GPS Geolocation:"),
                                   Expanded(
                                     child: Text(
                                       "${detailSPB.spb?.spbLat ?? ""}, ${detailSPB.spb?.spbLong ?? ""}",
@@ -146,7 +147,7 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text("Jenis Pengangkutan:"),
+                                  const Text("Jenis Pengangkutan:"),
                                   Expanded(
                                     child: Text(
                                       "${ValueService.typeOfFormToText(detailSPB.spb?.spbType ?? 1)}",
@@ -162,10 +163,10 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text("Estate:"),
+                                  const Text("Estate:"),
                                   Expanded(
                                       child: Text(
-                                          "${detailSPB.spb?.spbEstateCode ?? ""}",
+                                          detailSPB.spb?.spbEstateCode ?? "",
                                           textAlign: TextAlign.end))
                                 ],
                               ),
@@ -176,7 +177,7 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text("Tujuan:"),
+                                  const Text("Tujuan:"),
                                   Expanded(
                                     child: Text(
                                         "${detailSPB.spb?.spbDeliverToCode ?? ""} ${detailSPB.spb?.spbDeliverToName ?? ""}",
@@ -192,12 +193,14 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   detailSPB.spb?.spbType == 1
-                                      ? Text("Supir:")
-                                      : Text("Vendor:"),
+                                      ? const Text("Supir:")
+                                      : const Text("Vendor:"),
                                   detailSPB.spb?.spbVendorOthers == "1"
                                       ? Expanded(
                                           child: Text(
-                                              "${detailSPB.spb?.spbDriverEmployeeName ?? ""}",
+                                              detailSPB.spb
+                                                      ?.spbDriverEmployeeName ??
+                                                  "",
                                               textAlign: TextAlign.end),
                                         )
                                       : Expanded(
@@ -214,38 +217,38 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text("Divisi:"),
+                                  const Text("Divisi:"),
                                   Expanded(
                                     child: Text(
-                                        "${detailSPB.spb?.spbDivisionCode ?? ""}",
+                                        detailSPB.spb?.spbDivisionCode ?? "",
                                         textAlign: TextAlign.end),
                                   )
                                 ],
                               ),
                             ),
-                            SizedBox(height: 14),
+                            const SizedBox(height: 14),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Column(
                                   children: [
-                                    Text("No. Kendaraan"),
-                                    SizedBox(height: 20),
+                                    const Text("No. Kendaraan"),
+                                    const SizedBox(height: 20),
                                     Text(
-                                      "${detailSPB.spb?.spbLicenseNumber ?? ""}",
-                                      style: TextStyle(fontSize: 18),
+                                      detailSPB.spb?.spbLicenseNumber ?? "",
+                                      style: const TextStyle(fontSize: 18),
                                     ),
                                   ],
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 30,
                                 ),
                                 detailSPB.onChangeCard
                                     ? Column(
                                         children: [
-                                          Text("Kartu SPB"),
-                                          Container(
+                                          const Text("Kartu SPB"),
+                                          SizedBox(
                                             width: 160,
                                             child: Focus(
                                               child: TextFormField(
@@ -267,9 +270,10 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                                                             .spbNumber.text);
                                                   }
                                                 },
-                                                decoration: InputDecoration(
-                                                    hintText:
-                                                        "Tulis Kartu SPB"),
+                                                decoration:
+                                                    const InputDecoration(
+                                                        hintText:
+                                                            "Tulis Kartu SPB"),
                                                 validator: (value) {
                                                   if (value == null ||
                                                       value.isEmpty) {
@@ -289,7 +293,7 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                                                         context,
                                                         MaterialPageRoute(
                                                             builder: (context) =>
-                                                                QRReaderScreen()));
+                                                                const QRReaderScreen()));
                                                 if (result != null) {
                                                   setState(() {
                                                     detailSPB.spbNumber =
@@ -320,23 +324,23 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                                       )
                                     : Column(
                                         children: [
-                                          Text("Kartu SPB"),
-                                          SizedBox(height: 20),
-                                          Text(
-                                              "${detailSPB.spb?.spbCardId ?? ""}",
-                                              style: TextStyle(fontSize: 18)),
+                                          const Text("Kartu SPB"),
+                                          const SizedBox(height: 20),
+                                          Text(detailSPB.spb?.spbCardId ?? "",
+                                              style: const TextStyle(
+                                                  fontSize: 18)),
                                         ],
                                       ),
                               ],
                             ),
-                            SizedBox(height: 14),
+                            const SizedBox(height: 14),
                             Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text("Total OPH:"),
+                                  const Text("Total OPH:"),
                                   Text("${detailSPB.spb?.spbTotalOph}")
                                 ],
                               ),
@@ -347,7 +351,7 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text("Total janjang:"),
+                                  const Text("Total janjang:"),
                                   Text("${detailSPB.spb?.spbTotalBunches ?? 0}")
                                 ],
                               ),
@@ -358,7 +362,7 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text("Total brondolan (kg):"),
+                                  const Text("Total brondolan (kg):"),
                                   Text(
                                       "${detailSPB.spb?.spbTotalLooseFruit ?? 0}")
                                 ],
@@ -370,7 +374,7 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text("Estimasi berat (kg):"),
+                                  const Text("Estimasi berat (kg):"),
                                   Text(
                                       "${detailSPB.spb?.spbEstimateTonnage ?? 0}")
                                 ],
@@ -382,7 +386,7 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text("Sisa kapasitas truk (kg):"),
+                                  const Text("Sisa kapasitas truk (kg):"),
                                   Text(
                                       "${detailSPB.spb?.spbCapacityTonnage ?? 0}")
                                 ],
@@ -394,7 +398,7 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text("Berat aktual (Kg):"),
+                                  const Text("Berat aktual (Kg):"),
                                   Text(
                                       "${detailSPB.spb?.spbActualTonnage ?? ""}")
                                 ],
@@ -406,8 +410,7 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                                 children: [
                                   Text(
                                       "Catatan (${50 - (detailSPB.spb?.spbDeliveryNote?.length ?? 0)})"),
-                                  Text(
-                                      "${detailSPB.spb?.spbDeliveryNote ?? ""}")
+                                  Text(detailSPB.spb?.spbDeliveryNote ?? "")
                                 ],
                               ),
                             ),
@@ -423,7 +426,7 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                               ),
                             ),
                             detailSPB.onChangeCard
-                                ? Container(
+                                ? SizedBox(
                                     width: MediaQuery.of(context).size.width,
                                     child: InkWell(
                                       onTap: () {
@@ -438,8 +441,8 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                                         ),
                                         child: Container(
                                           alignment: Alignment.center,
-                                          padding: EdgeInsets.all(14),
-                                          child: Text(
+                                          padding: const EdgeInsets.all(14),
+                                          child: const Text(
                                             "SIMPAN",
                                             style: TextStyle(
                                                 fontSize: 18,
@@ -453,7 +456,7 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                                   )
                                 : Container(),
                             widget.method == "UBAH" && detailSPB.isSPBExist
-                                ? Container(
+                                ? SizedBox(
                                     width: MediaQuery.of(context).size.width,
                                     child: InkWell(
                                       onTap: () {
@@ -468,8 +471,8 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                                         ),
                                         child: Container(
                                           alignment: Alignment.center,
-                                          padding: EdgeInsets.all(14),
-                                          child: Text(
+                                          padding: const EdgeInsets.all(14),
+                                          child: const Text(
                                             "UBAH DATA SPB",
                                             style: TextStyle(
                                                 fontSize: 18,
@@ -485,7 +488,7 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                             widget.method == "GANTI" &&
                                     detailSPB.isSPBExist &&
                                     !detailSPB.onChangeCard
-                                ? Container(
+                                ? SizedBox(
                                     width: MediaQuery.of(context).size.width,
                                     child: InkWell(
                                       onTap: () {
@@ -500,8 +503,8 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                                         ),
                                         child: Container(
                                           alignment: Alignment.center,
-                                          padding: EdgeInsets.all(14),
-                                          child: Text(
+                                          padding: const EdgeInsets.all(14),
+                                          child: const Text(
                                             "GANTI KARTU SPB",
                                             style: TextStyle(
                                                 fontSize: 18,
@@ -515,7 +518,7 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                                   )
                                 : Container(),
                             widget.method == "DETAIL" && detailSPB.isSPBExist
-                                ? Container(
+                                ? SizedBox(
                                     width: MediaQuery.of(context).size.width,
                                     child: InkWell(
                                       onTap: () {
@@ -530,8 +533,8 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                                         ),
                                         child: Container(
                                           alignment: Alignment.center,
-                                          padding: EdgeInsets.all(14),
-                                          child: Text(
+                                          padding: const EdgeInsets.all(14),
+                                          child: const Text(
                                             "UBAH DATA SPB",
                                             style: TextStyle(
                                                 fontSize: 18,
@@ -545,7 +548,7 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                                   )
                                 : Container(),
                             widget.method == "BACA" && detailSPB.isSPBExist
-                                ? Container(
+                                ? SizedBox(
                                     width: MediaQuery.of(context).size.width,
                                     child: InkWell(
                                       onTap: () {
@@ -560,8 +563,8 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                                         ),
                                         child: Container(
                                           alignment: Alignment.center,
-                                          padding: EdgeInsets.all(14),
-                                          child: Text(
+                                          padding: const EdgeInsets.all(14),
+                                          child: const Text(
                                             "UBAH DATA SPB",
                                             style: TextStyle(
                                                 fontSize: 18,
@@ -659,7 +662,7 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
-                                              Text("Jenis Loader:"),
+                                              const Text("Jenis Loader:"),
                                               Text(
                                                   "${ValueService.typeOfFormToText(detailSPB.listSPBLoader[index].loaderType!)}"),
                                             ],
@@ -669,7 +672,7 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                                                   MainAxisAlignment
                                                       .spaceBetween,
                                               children: [
-                                                Text("Nama Loader:"),
+                                                const Text("Nama Loader:"),
                                                 Text(
                                                   "${detailSPB.listSPBLoader[index].loaderEmployeeCode}\n${detailSPB.listSPBLoader[index].loaderEmployeeName}",
                                                   textAlign: TextAlign.right,
@@ -680,7 +683,7 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                                                   MainAxisAlignment
                                                       .spaceBetween,
                                               children: [
-                                                Text("Jenis Angkut:"),
+                                                const Text("Jenis Angkut:"),
                                                 Text(
                                                     "${ValueService.typeOfDestination(detailSPB.listSPBLoader[index].loaderDestinationType!)}"),
                                               ]),
@@ -689,7 +692,8 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                                                   MainAxisAlignment
                                                       .spaceBetween,
                                               children: [
-                                                Text("Presentase Angkut:"),
+                                                const Text(
+                                                    "Presentase Angkut:"),
                                                 Text(
                                                     "${detailSPB.listSPBLoader[index].loaderPercentage} %"),
                                               ])
@@ -713,9 +717,9 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text("ID SPB:"),
+                                  const Text("ID SPB:"),
                                   Text(
-                                    "${detailSPB.spb?.spbId ?? ""}",
+                                    detailSPB.spb?.spbId ?? "",
                                     style: Style.textBold16,
                                   )
                                 ],
@@ -727,8 +731,8 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text("Tanggal:"),
-                                  Text("${detailSPB.spb?.createdDate ?? ""}")
+                                  const Text("Tanggal:"),
+                                  Text(detailSPB.spb?.createdDate ?? "")
                                 ],
                               ),
                             ),
@@ -738,7 +742,7 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text("GPS Geolocation:"),
+                                  const Text("GPS Geolocation:"),
                                   Text(
                                       "${detailSPB.spb?.spbLat ?? ""}, ${detailSPB.spb?.spbLong ?? ""}")
                                 ],
@@ -750,7 +754,7 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text("Jenis Pengangkutan:"),
+                                  const Text("Jenis Pengangkutan:"),
                                   Text(
                                       "${ValueService.typeOfFormToText(detailSPB.spb?.spbType ?? 1)}")
                                 ],
@@ -762,8 +766,8 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text("Estate:"),
-                                  Text("${detailSPB.spb?.spbEstateCode ?? ""}")
+                                  const Text("Estate:"),
+                                  Text(detailSPB.spb?.spbEstateCode ?? "")
                                 ],
                               ),
                             ),
@@ -773,7 +777,7 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text("Tujuan:"),
+                                  const Text("Tujuan:"),
                                   Text(
                                       "${detailSPB.spb?.spbDeliverToCode ?? ""} ${detailSPB.spb?.spbDeliverToName ?? ""}"),
                                 ],
@@ -786,8 +790,8 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   detailSPB.spb?.spbType == 1
-                                      ? Text("Supir:")
-                                      : Text("Vendor:"),
+                                      ? const Text("Supir:")
+                                      : const Text("Vendor:"),
                                   Text(
                                       "${detailSPB.spb?.spbDriverEmployeeCode ?? ""} ${detailSPB.spb?.spbDriverEmployeeName ?? ""}")
                                 ],
@@ -799,35 +803,34 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text("Divisi:"),
-                                  Text(
-                                      "${detailSPB.spb?.spbDivisionCode ?? ""}")
+                                  const Text("Divisi:"),
+                                  Text(detailSPB.spb?.spbDivisionCode ?? "")
                                 ],
                               ),
                             ),
-                            SizedBox(height: 14),
+                            const SizedBox(height: 14),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Column(
                                   children: [
-                                    Text("No. Kendaraan"),
-                                    SizedBox(height: 20),
+                                    const Text("No. Kendaraan"),
+                                    const SizedBox(height: 20),
                                     Text(
-                                      "${detailSPB.spb?.spbLicenseNumber ?? ""}",
-                                      style: TextStyle(fontSize: 18),
+                                      detailSPB.spb?.spbLicenseNumber ?? "",
+                                      style: const TextStyle(fontSize: 18),
                                     ),
                                   ],
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 30,
                                 ),
                                 detailSPB.onChangeCard
                                     ? Column(
                                         children: [
-                                          Text("Kartu SPB"),
-                                          Container(
+                                          const Text("Kartu SPB"),
+                                          SizedBox(
                                             width: 160,
                                             child: Focus(
                                               child: TextFormField(
@@ -846,9 +849,10 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                                                             .spbNumber.text);
                                                   }
                                                 },
-                                                decoration: InputDecoration(
-                                                    hintText:
-                                                        "Tulis Kartu SPB"),
+                                                decoration:
+                                                    const InputDecoration(
+                                                        hintText:
+                                                            "Tulis Kartu SPB"),
                                                 validator: (value) {
                                                   if (value == null ||
                                                       value.isEmpty) {
@@ -868,7 +872,7 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                                                         context,
                                                         MaterialPageRoute(
                                                             builder: (context) =>
-                                                                QRReaderScreen()));
+                                                                const QRReaderScreen()));
                                                 if (result != null) {
                                                   setState(() {
                                                     detailSPB.spbNumber =
@@ -899,23 +903,23 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                                       )
                                     : Column(
                                         children: [
-                                          Text("Kartu SPB"),
-                                          SizedBox(height: 20),
-                                          Text(
-                                              "${detailSPB.spb?.spbCardId ?? ""}",
-                                              style: TextStyle(fontSize: 18)),
+                                          const Text("Kartu SPB"),
+                                          const SizedBox(height: 20),
+                                          Text(detailSPB.spb?.spbCardId ?? "",
+                                              style: const TextStyle(
+                                                  fontSize: 18)),
                                         ],
                                       ),
                               ],
                             ),
-                            SizedBox(height: 14),
+                            const SizedBox(height: 14),
                             Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text("Total OPH:"),
+                                  const Text("Total OPH:"),
                                   Text("${detailSPB.spb?.spbTotalOph}")
                                 ],
                               ),
@@ -926,7 +930,7 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text("Total janjang:"),
+                                  const Text("Total janjang:"),
                                   Text("${detailSPB.spb?.spbTotalBunches ?? 0}")
                                 ],
                               ),
@@ -937,7 +941,7 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text("Total brondolan (kg):"),
+                                  const Text("Total brondolan (kg):"),
                                   Text(
                                       "${detailSPB.spb?.spbTotalLooseFruit ?? 0}")
                                 ],
@@ -949,7 +953,7 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text("Estimasi berat (kg):"),
+                                  const Text("Estimasi berat (kg):"),
                                   Text(
                                       "${detailSPB.spb?.spbEstimateTonnage ?? 0}")
                                 ],
@@ -961,7 +965,7 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text("Sisa kapasitas truk (kg):"),
+                                  const Text("Sisa kapasitas truk (kg):"),
                                   Text(
                                       "${detailSPB.spb?.spbCapacityTonnage ?? 0}")
                                 ],
@@ -973,7 +977,7 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text("Berat aktual (Kg):"),
+                                  const Text("Berat aktual (Kg):"),
                                   Text(
                                       "${detailSPB.spb?.spbActualTonnage ?? ""}")
                                 ],
@@ -985,8 +989,7 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                                 children: [
                                   Text(
                                       "Catatan (${50 - (detailSPB.spb?.spbDeliveryNote?.length ?? 0)})"),
-                                  Text(
-                                      "${detailSPB.spb?.spbDeliveryNote ?? ""}")
+                                  Text(detailSPB.spb?.spbDeliveryNote ?? "")
                                 ],
                               ),
                             ),
@@ -1002,7 +1005,7 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                               ),
                             ),
                             detailSPB.onChangeCard
-                                ? Container(
+                                ? SizedBox(
                                     width: MediaQuery.of(context).size.width,
                                     child: InkWell(
                                       onTap: () {
@@ -1017,8 +1020,8 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                                         ),
                                         child: Container(
                                           alignment: Alignment.center,
-                                          padding: EdgeInsets.all(14),
-                                          child: Text(
+                                          padding: const EdgeInsets.all(14),
+                                          child: const Text(
                                             "SIMPAN",
                                             style: TextStyle(
                                                 fontSize: 18,
@@ -1032,7 +1035,7 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                                   )
                                 : Container(),
                             widget.method == "UBAH" && detailSPB.isSPBExist
-                                ? Container(
+                                ? SizedBox(
                                     width: MediaQuery.of(context).size.width,
                                     child: InkWell(
                                       onTap: () {
@@ -1047,8 +1050,8 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                                         ),
                                         child: Container(
                                           alignment: Alignment.center,
-                                          padding: EdgeInsets.all(14),
-                                          child: Text(
+                                          padding: const EdgeInsets.all(14),
+                                          child: const Text(
                                             "UBAH DATA SPB",
                                             style: TextStyle(
                                                 fontSize: 18,
@@ -1064,7 +1067,7 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                             widget.method == "GANTI" &&
                                     detailSPB.isSPBExist &&
                                     !detailSPB.onChangeCard
-                                ? Container(
+                                ? SizedBox(
                                     width: MediaQuery.of(context).size.width,
                                     child: InkWell(
                                       onTap: () {
@@ -1079,8 +1082,8 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                                         ),
                                         child: Container(
                                           alignment: Alignment.center,
-                                          padding: EdgeInsets.all(14),
-                                          child: Text(
+                                          padding: const EdgeInsets.all(14),
+                                          child: const Text(
                                             "GANTI KARTU SPB",
                                             style: TextStyle(
                                                 fontSize: 18,
@@ -1094,7 +1097,7 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                                   )
                                 : Container(),
                             widget.method == "DETAIL" && detailSPB.isSPBExist
-                                ? Container(
+                                ? SizedBox(
                                     width: MediaQuery.of(context).size.width,
                                     child: InkWell(
                                       onTap: () {
@@ -1109,8 +1112,8 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                                         ),
                                         child: Container(
                                           alignment: Alignment.center,
-                                          padding: EdgeInsets.all(14),
-                                          child: Text(
+                                          padding: const EdgeInsets.all(14),
+                                          child: const Text(
                                             "UBAH DATA SPB",
                                             style: TextStyle(
                                                 fontSize: 18,
@@ -1124,7 +1127,7 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                                   )
                                 : Container(),
                             widget.method == "BACA" && detailSPB.isSPBExist
-                                ? Container(
+                                ? SizedBox(
                                     width: MediaQuery.of(context).size.width,
                                     child: InkWell(
                                       onTap: () {
@@ -1139,8 +1142,8 @@ class _DetailSPBScreenState extends State<DetailSPBScreen> {
                                         ),
                                         child: Container(
                                           alignment: Alignment.center,
-                                          padding: EdgeInsets.all(14),
-                                          child: Text(
+                                          padding: const EdgeInsets.all(14),
+                                          child: const Text(
                                             "UBAH DATA SPB",
                                             style: TextStyle(
                                                 fontSize: 18,

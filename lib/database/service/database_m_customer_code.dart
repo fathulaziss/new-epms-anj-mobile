@@ -39,10 +39,10 @@ class DatabaseMCustomerCodeSchema {
     // }
     // return count;
     Batch batch = db.batch();
-    object.forEach((val) {
+    for (var val in object) {
       MCustomerCodeSchema mCustomerCodeSchema = val;
       batch.insert(mCustomerCodeSchemaTable, mCustomerCodeSchema.toJson());
-    });
+    }
     List<Object?> i = await batch.commit();
     return i.length;
   }

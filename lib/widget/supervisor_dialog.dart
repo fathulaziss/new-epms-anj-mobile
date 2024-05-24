@@ -4,11 +4,10 @@ import 'package:epms/model/supervisor.dart';
 import 'package:flutter/material.dart';
 
 class SupervisorDialog extends StatefulWidget {
+  const SupervisorDialog({super.key, required this.supervisor, this.onPress});
+
   final Supervisor supervisor;
   final Function()? onPress;
-
-  const SupervisorDialog({Key? key, required this.supervisor, this.onPress})
-      : super(key: key);
 
   @override
   State<SupervisorDialog> createState() => _SupervisorDialogState();
@@ -24,15 +23,15 @@ class _SupervisorDialogState extends State<SupervisorDialog> {
     return MediaQuery(
       data: Style.mediaQueryText(context),
       child: AlertDialog(
-          shape: RoundedRectangleBorder(
+          shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(15))),
-          title: Center(child: Text("Supervisi Kemandoran")),
-          content: Container(
+          title: const Center(child: Text("Supervisi Kemandoran")),
+          content: SizedBox(
             height: MediaQuery.of(context).size.height * 0.35,
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  Text("Mandor:"),
+                  const Text("Mandor:"),
                   Text(
                     "${widget.supervisor.mandorCode}",
                     style: Style.textBold14,
@@ -41,20 +40,20 @@ class _SupervisorDialogState extends State<SupervisorDialog> {
                     "${widget.supervisor.mandorName}",
                     style: Style.textBold14,
                   ),
-                  Divider(),
-                  Text("Mandor 1:"),
+                  const Divider(),
+                  const Text("Mandor 1:"),
                   Text("${widget.supervisor.mandor1Code}",
                       style: Style.textBold14),
                   Text("${widget.supervisor.mandor1Name}",
                       style: Style.textBold14),
-                  Divider(),
-                  Text("Kerani Panen:"),
+                  const Divider(),
+                  const Text("Kerani Panen:"),
                   Text("${widget.supervisor.keraniPanenCode}",
                       style: Style.textBold14),
                   Text("${widget.supervisor.keraniPanenName}",
                       style: Style.textBold14),
-                  Divider(),
-                  Text("Kerani Kirim"),
+                  const Divider(),
+                  const Text("Kerani Kirim"),
                   Text("${widget.supervisor.keraniKirimCode}",
                       style: Style.textBold14),
                   Text("${widget.supervisor.keraniKirimName}",
@@ -66,7 +65,7 @@ class _SupervisorDialogState extends State<SupervisorDialog> {
           actions: <Widget>[
             Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Container(
+                child: SizedBox(
                   width: MediaQuery.of(context).size.width,
                   child: InkWell(
                     onTap: widget.onPress,
@@ -78,7 +77,7 @@ class _SupervisorDialogState extends State<SupervisorDialog> {
                       ),
                       child: Container(
                         alignment: Alignment.center,
-                        padding: EdgeInsets.all(14),
+                        padding: const EdgeInsets.all(14),
                         child: Text("OK",
                             style: Style.whiteBold18,
                             textAlign: TextAlign.center),

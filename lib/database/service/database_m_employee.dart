@@ -50,10 +50,10 @@ class DatabaseMEmployeeSchema {
     // }
     // return count;
     Batch batch = db.batch();
-    object.forEach((val) {
+    for (var val in object) {
       MEmployeeSchema mEmployeeSchema = val;
       batch.insert(mEmployeeSchemaTable, mEmployeeSchema.toJson());
-    });
+    }
     List<Object?> i = await batch.commit();
     return i.length;
   }

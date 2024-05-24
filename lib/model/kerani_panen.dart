@@ -20,45 +20,44 @@ class KeraniPanen {
     if (json['T_Harvesting_Plan_Schema'] != null) {
       tHarvestingPlanSchema = <THarvestingPlanSchema>[];
       json['T_Harvesting_Plan_Schema'].forEach((v) {
-        tHarvestingPlanSchema!.add(new THarvestingPlanSchema.fromJson(v));
+        tHarvestingPlanSchema!.add(THarvestingPlanSchema.fromJson(v));
       });
     }
     if (json['Laporan_Panen_Kemarin'] != null) {
       laporanPanenKemarin = <LaporanPanenKemarin>[];
       json['Laporan_Panen_Kemarin'].forEach((v) {
-        laporanPanenKemarin!.add(new LaporanPanenKemarin.fromJson(v));
+        laporanPanenKemarin!.add(LaporanPanenKemarin.fromJson(v));
       });
     }
     if (json['Laporan_Restan'] != null) {
       laporanRestan = <LaporanRestan>[];
       json['Laporan_Restan'].forEach((v) {
-        laporanRestan!.add(new LaporanRestan.fromJson(v));
+        laporanRestan!.add(LaporanRestan.fromJson(v));
       });
     }
     if (json['T_ABW_Schema'] != null) {
       tABWSchema = <TABWSchema>[];
       json['T_ABW_Schema'].forEach((v) {
-        tABWSchema!.add(new TABWSchema.fromJson(v));
+        tABWSchema!.add(TABWSchema.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.tHarvestingPlanSchema != null) {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (tHarvestingPlanSchema != null) {
       data['T_Harvesting_Plan_Schema'] =
-          this.tHarvestingPlanSchema!.map((v) => v.toJson()).toList();
+          tHarvestingPlanSchema!.map((v) => v.toJson()).toList();
     }
-    if (this.laporanPanenKemarin != null) {
+    if (laporanPanenKemarin != null) {
       data['Laporan_Panen_Kemarin'] =
-          this.laporanPanenKemarin!.map((v) => v.toJson()).toList();
+          laporanPanenKemarin!.map((v) => v.toJson()).toList();
     }
-    if (this.laporanRestan != null) {
-      data['Laporan_Restan'] =
-          this.laporanRestan!.map((v) => v.toJson()).toList();
+    if (laporanRestan != null) {
+      data['Laporan_Restan'] = laporanRestan!.map((v) => v.toJson()).toList();
     }
-    if (this.tABWSchema != null) {
-      data['T_ABW_Schema'] = this.tABWSchema!.map((v) => v.toJson()).toList();
+    if (tABWSchema != null) {
+      data['T_ABW_Schema'] = tABWSchema!.map((v) => v.toJson()).toList();
     }
     return data;
   }

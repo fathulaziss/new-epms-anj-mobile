@@ -47,10 +47,10 @@ class DatabaseMTPHSchema {
     //   // }
     // }
     Batch batch = db.batch();
-    object.forEach((val) {
+    for (var val in object) {
       MTPHSchema mtphSchema = val;
       batch.insert(mTPHSchemaTable, mtphSchema.toJson());
-    });
+    }
     List<Object?> i = await batch.commit();
     return i.length;
   }

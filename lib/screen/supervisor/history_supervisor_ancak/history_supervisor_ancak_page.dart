@@ -5,7 +5,7 @@ import 'history_supervisor_ancak_notifier.dart';
 import 'history_supervisor_ancak_screen.dart';
 
 class HistorySuperviseAncakPage extends StatefulWidget {
-  const HistorySuperviseAncakPage({Key? key}) : super(key: key);
+  const HistorySuperviseAncakPage({super.key});
 
   @override
   State<HistorySuperviseAncakPage> createState() =>
@@ -16,7 +16,8 @@ class _HistorySuperviseAncakPageState extends State<HistorySuperviseAncakPage> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-        create: (context) => HistorySuperviseAncakNotifier(),
-        child: HistorySuperviseAncakScreen());
+      create: (context) => HistorySuperviseAncakNotifier(),
+      child: const HistorySuperviseAncakScreen(),
+    );
   }
 }

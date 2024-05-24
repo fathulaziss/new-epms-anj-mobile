@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class SupervisorAncakHarvestFormPage extends StatefulWidget {
-  const SupervisorAncakHarvestFormPage({Key? key}) : super(key: key);
+  const SupervisorAncakHarvestFormPage({super.key});
 
   @override
   State<SupervisorAncakHarvestFormPage> createState() =>
@@ -16,7 +16,8 @@ class _SupervisorAncakHarvestFormPageState
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-        create: (context) => SupervisorAncakFormNotifier(),
-        child: SupervisorAncakHarvestFormScreen());
+      create: (context) => SupervisorAncakFormNotifier(),
+      child: const SupervisorAncakHarvestFormScreen(),
+    );
   }
 }

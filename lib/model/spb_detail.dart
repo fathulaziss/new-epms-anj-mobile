@@ -36,42 +36,42 @@ class SPBDetail extends Equatable {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['spb_id'] = this.spbId;
-    data['oph_id'] = this.ophId;
-    data['oph_bunches_delivered'] = this.ophBunchesDelivered;
-    data['oph_loose_fruit_delivered'] = this.ophLooseFruitDelivered;
-    data['oph_block_code'] = this.ophBlockCode;
-    data['oph_tph_code'] = this.ophTphCode;
-    data['oph_card_id'] = this.ophCardId;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['spb_id'] = spbId;
+    data['oph_id'] = ophId;
+    data['oph_bunches_delivered'] = ophBunchesDelivered;
+    data['oph_loose_fruit_delivered'] = ophLooseFruitDelivered;
+    data['oph_block_code'] = ophBlockCode;
+    data['oph_tph_code'] = ophTphCode;
+    data['oph_card_id'] = ophCardId;
     return data;
   }
 
   Map<String, dynamic> toJson2() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['spb_id'] = this.spbId;
-    data['oph_id'] = this.ophId;
-    data['oph_bunches_delivered'] = this.ophBunchesDelivered;
-    data['oph_loose_fruit_delivered'] = this.ophLooseFruitDelivered;
-    data['oph_estate_code'] = this.ophEstateCode;
-    data['oph_division_code'] = this.ophDivisionCode;
-    data['oph_block_code'] = this.ophBlockCode;
-    data['oph_tph_code'] = this.ophTphCode;
-    data['oph_card_id'] = this.ophCardId;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['spb_id'] = spbId;
+    data['oph_id'] = ophId;
+    data['oph_bunches_delivered'] = ophBunchesDelivered;
+    data['oph_loose_fruit_delivered'] = ophLooseFruitDelivered;
+    data['oph_estate_code'] = ophEstateCode;
+    data['oph_division_code'] = ophDivisionCode;
+    data['oph_block_code'] = ophBlockCode;
+    data['oph_tph_code'] = ophTphCode;
+    data['oph_card_id'] = ophCardId;
     return data;
   }
 
   Map<String, dynamic> toDatabase() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['spb_id'] = this.spbId;
-    data['oph_id'] = this.ophId;
-    data['oph_bunches_delivered'] = this.ophBunchesDelivered;
-    data['oph_loose_fruit_delivered'] = this.ophLooseFruitDelivered;
-    data['oph_estate_code'] = this.ophEstateCode;
-    data['oph_division_code'] = this.ophDivisionCode;
-    data['oph_block_code'] = this.ophBlockCode;
-    data['oph_tph_code'] = this.ophTphCode;
-    data['oph_card_id'] = this.ophCardId;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['spb_id'] = spbId;
+    data['oph_id'] = ophId;
+    data['oph_bunches_delivered'] = ophBunchesDelivered;
+    data['oph_loose_fruit_delivered'] = ophLooseFruitDelivered;
+    data['oph_estate_code'] = ophEstateCode;
+    data['oph_division_code'] = ophDivisionCode;
+    data['oph_block_code'] = ophBlockCode;
+    data['oph_tph_code'] = ophTphCode;
+    data['oph_card_id'] = ophCardId;
     return data;
   }
 

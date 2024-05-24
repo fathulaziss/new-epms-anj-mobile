@@ -14,15 +14,15 @@ import 'package:epms/model/t_user_assignment_schema.dart';
 import 'package:flutter/material.dart';
 
 class AttendanceNotifier extends ChangeNotifier {
-  NavigatorService _navigationService = locator<NavigatorService>();
+  final NavigatorService _navigationService = locator<NavigatorService>();
 
   NavigatorService get navigationService => _navigationService;
 
-  DialogService _dialogService = locator<DialogService>();
+  final DialogService _dialogService = locator<DialogService>();
 
   DialogService get dialogService => _dialogService;
 
-  MConfigSchema _configSchema = MConfigSchema();
+  final MConfigSchema _configSchema = MConfigSchema();
 
   MConfigSchema get configSchema => _configSchema;
 
@@ -34,7 +34,7 @@ class AttendanceNotifier extends ChangeNotifier {
 
   List<MAttendanceSchema> get mAttendanceSchema => _mAttendanceSchema;
 
-  List<MAttendanceSchema> _listAttendanceValue = [];
+  final List<MAttendanceSchema> _listAttendanceValue = [];
 
   List<MAttendanceSchema> get listAttendanceValue => _listAttendanceValue;
 

@@ -32,10 +32,10 @@ class DatabaseMAttendance {
     //     }
     // }
     Batch batch = db.batch();
-    object.forEach((val) {
+    for (var val in object) {
       MAttendanceSchema mAttendanceSchema = val;
       batch.insert(mAttendanceSchemaTable, mAttendanceSchema.toJson());
-    });
+    }
     List<Object?> i = await batch.commit();
     return i.length;
   }

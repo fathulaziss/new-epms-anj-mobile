@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'dart:async';
 import 'dart:developer';
 
@@ -39,11 +41,11 @@ import 'package:intl/intl.dart';
 import 'package:nfc_manager/nfc_manager.dart';
 
 class SupervisorSPBFormNotifier extends ChangeNotifier {
-  NavigatorService _navigationService = locator<NavigatorService>();
+  final NavigatorService _navigationService = locator<NavigatorService>();
 
   NavigatorService get navigationService => _navigationService;
 
-  DialogService _dialogService = locator<DialogService>();
+  final DialogService _dialogService = locator<DialogService>();
 
   DialogService get dialogService => _dialogService;
 
@@ -79,7 +81,7 @@ class SupervisorSPBFormNotifier extends ChangeNotifier {
 
   List<MEstateSchema> get listMEstateSchema => _listMEstateSchema;
 
-  List<String> _sourceSPB = ["Internal", "External"];
+  final List<String> _sourceSPB = ["Internal", "External"];
 
   List<String> get sourceSPB => _sourceSPB;
 
@@ -87,7 +89,7 @@ class SupervisorSPBFormNotifier extends ChangeNotifier {
 
   String get sourceSPBValue => _sourceSPBValue;
 
-  List<String> _employeeType = ["Internal", "Kontrak"];
+  final List<String> _employeeType = ["Internal", "Kontrak"];
 
   List<String> get employeeType => _employeeType;
 
@@ -111,7 +113,7 @@ class SupervisorSPBFormNotifier extends ChangeNotifier {
 
   List<MDivisionSchema> get listDivision => _listDivision;
 
-  List<MDivisionSchema> _listDivisionResult = [];
+  final List<MDivisionSchema> _listDivisionResult = [];
 
   List<MDivisionSchema> get listDivisionResult => _listDivisionResult;
 
@@ -123,34 +125,35 @@ class SupervisorSPBFormNotifier extends ChangeNotifier {
 
   List<MVendorSchema> get listVendor => _listVendor;
 
-  TextEditingController _estate = TextEditingController();
+  final TextEditingController _estate = TextEditingController();
 
   TextEditingController get estate => _estate;
 
   TextEditingController vehicleNumber = TextEditingController();
 
-  TextEditingController _janjangTangkaiPanjang = TextEditingController();
+  final TextEditingController _janjangTangkaiPanjang = TextEditingController();
 
   TextEditingController get janjangTangkaiPanjang => _janjangTangkaiPanjang;
 
-  TextEditingController _noteJanjangTangkaiPanjang = TextEditingController();
+  final TextEditingController _noteJanjangTangkaiPanjang =
+      TextEditingController();
 
   TextEditingController get noteJanjangTangkaiPanjang =>
       _noteJanjangTangkaiPanjang;
 
-  TextEditingController _sampah = TextEditingController();
+  final TextEditingController _sampah = TextEditingController();
 
   TextEditingController get sampah => _sampah;
 
-  TextEditingController _batu = TextEditingController();
+  final TextEditingController _batu = TextEditingController();
 
   TextEditingController get batu => _batu;
 
-  TextEditingController _vendorOther = TextEditingController();
+  final TextEditingController _vendorOther = TextEditingController();
 
   TextEditingController get vendorOther => _vendorOther;
 
-  TextEditingController _spbID = TextEditingController();
+  final TextEditingController _spbID = TextEditingController();
 
   TextEditingController get spbID => _spbID;
 
@@ -166,43 +169,43 @@ class SupervisorSPBFormNotifier extends ChangeNotifier {
 
   String? get pickedFile => _pickedFile;
 
-  TextEditingController _bunchesRipe = TextEditingController();
+  final TextEditingController _bunchesRipe = TextEditingController();
 
   TextEditingController get bunchesRipe => _bunchesRipe;
 
-  TextEditingController _bunchesOverRipe = TextEditingController();
+  final TextEditingController _bunchesOverRipe = TextEditingController();
 
   TextEditingController get bunchesOverRipe => _bunchesOverRipe;
 
-  TextEditingController _bunchesHalfRipe = TextEditingController();
+  final TextEditingController _bunchesHalfRipe = TextEditingController();
 
   TextEditingController get bunchesHalfRipe => _bunchesHalfRipe;
 
-  TextEditingController _bunchesUnRipe = TextEditingController();
+  final TextEditingController _bunchesUnRipe = TextEditingController();
 
   TextEditingController get bunchesUnRipe => _bunchesUnRipe;
 
-  TextEditingController _bunchesAbnormal = TextEditingController();
+  final TextEditingController _bunchesAbnormal = TextEditingController();
 
   TextEditingController get bunchesAbnormal => _bunchesAbnormal;
 
-  TextEditingController _bunchesEmpty = TextEditingController();
+  final TextEditingController _bunchesEmpty = TextEditingController();
 
   TextEditingController get bunchesEmpty => _bunchesEmpty;
 
-  TextEditingController _looseFruits = TextEditingController();
+  final TextEditingController _looseFruits = TextEditingController();
 
   TextEditingController get looseFruits => _looseFruits;
 
-  TextEditingController _bunchesTotal = TextEditingController();
+  final TextEditingController _bunchesTotal = TextEditingController();
 
   TextEditingController get bunchesTotal => _bunchesTotal;
 
-  TextEditingController _bunchesNormalTotal = TextEditingController();
+  final TextEditingController _bunchesNormalTotal = TextEditingController();
 
   TextEditingController get bunchesNormalTotal => _bunchesNormalTotal;
 
-  TextEditingController _notesOPH = TextEditingController();
+  final TextEditingController _notesOPH = TextEditingController();
 
   TextEditingController get notesOPH => _notesOPH;
 
@@ -210,51 +213,51 @@ class SupervisorSPBFormNotifier extends ChangeNotifier {
 
   SPB? get scannedSPB => _scannedSPB;
 
-  TextEditingController _driverTBSLuar = TextEditingController();
+  final TextEditingController _driverTBSLuar = TextEditingController();
 
   TextEditingController get driverTBSLuar => _driverTBSLuar;
 
-  TextEditingController _bunchesRotten = TextEditingController();
+  final TextEditingController _bunchesRotten = TextEditingController();
 
   TextEditingController get bunchesRotten => _bunchesRotten;
 
-  TextEditingController _water = TextEditingController();
+  final TextEditingController _water = TextEditingController();
 
   TextEditingController get water => _water;
 
-  TextEditingController _longStalk = TextEditingController();
+  final TextEditingController _longStalk = TextEditingController();
 
   TextEditingController get longStalk => _longStalk;
 
-  TextEditingController _deduction = TextEditingController();
+  final TextEditingController _deduction = TextEditingController();
 
   TextEditingController get deduction => _deduction;
 
-  TextEditingController _bunchesLarge = TextEditingController();
+  final TextEditingController _bunchesLarge = TextEditingController();
 
   TextEditingController get bunchesLarge => _bunchesLarge;
 
-  TextEditingController _bunchesMedium = TextEditingController();
+  final TextEditingController _bunchesMedium = TextEditingController();
 
   TextEditingController get bunchesMedium => _bunchesMedium;
 
-  TextEditingController _bunchesSmall = TextEditingController();
+  final TextEditingController _bunchesSmall = TextEditingController();
 
   TextEditingController get bunchesSmall => _bunchesSmall;
 
-  TextEditingController _bunchesLess4Kg = TextEditingController();
+  final TextEditingController _bunchesLess4Kg = TextEditingController();
 
   TextEditingController get bunchesLess4Kg => _bunchesLess4Kg;
 
-  TextEditingController _bunchesCengkeh = TextEditingController();
+  final TextEditingController _bunchesCengkeh = TextEditingController();
 
   TextEditingController get bunchesCengkeh => _bunchesCengkeh;
 
-  TextEditingController _brondolanRotten = TextEditingController();
+  final TextEditingController _brondolanRotten = TextEditingController();
 
   TextEditingController get brondolanRotten => _brondolanRotten;
 
-  TextEditingController _rubbish = TextEditingController();
+  final TextEditingController _rubbish = TextEditingController();
 
   TextEditingController get rubbish => _rubbish;
 
@@ -266,7 +269,7 @@ class SupervisorSPBFormNotifier extends ChangeNotifier {
 
   int get formType => _formType;
 
-  TextEditingController _deliveryID = TextEditingController();
+  final TextEditingController _deliveryID = TextEditingController();
 
   TextEditingController get deliveryID => _deliveryID;
 
@@ -360,7 +363,7 @@ class SupervisorSPBFormNotifier extends ChangeNotifier {
 
   onSuccessRead(BuildContext context, SPB spb) {
     checkSPBExist(spb);
-    Future.delayed(Duration(seconds: 1), () {
+    Future.delayed(const Duration(seconds: 1), () {
       NfcManager.instance.stopSession();
     });
   }
@@ -415,14 +418,14 @@ class SupervisorSPBFormNotifier extends ChangeNotifier {
 
   onStopNFC() {
     _dialogService.popDialog();
-    Future.delayed(Duration(seconds: 1), () {
+    Future.delayed(const Duration(seconds: 1), () {
       NfcManager.instance.stopSession();
     });
   }
 
   onErrorRead(BuildContext context, String response) {
     _dialogService.popDialog();
-    Future.delayed(Duration(seconds: 1), () {
+    Future.delayed(const Duration(seconds: 1), () {
       NfcManager.instance.stopSession();
     });
     FlushBarManager.showFlushBarWarning(context, "Gagal Membaca", response);
@@ -438,12 +441,12 @@ class SupervisorSPBFormNotifier extends ChangeNotifier {
     _formType = await StorageManager.readData('formType');
     DateTime now = DateTime.now();
     String millCode = await StorageManager.readData("millCode");
-    NumberFormat formatterNumber = new NumberFormat("000");
+    NumberFormat formatterNumber = NumberFormat("000");
     String number = formatterNumber.format(mConfigSchema?.userId);
     _date = TimeManager.dateWithDash(now);
     _time = TimeManager.timeWithColon(now);
     _supervisiID =
-        "$millCode" + ValueService.generateIDFromDateTime(now) + "$number" "SM";
+        "$millCode${ValueService.generateIDFromDateTime(now)}${number}SM";
     _bunchesRipe.text = "0";
     _bunchesOverRipe.text = "0";
     _bunchesHalfRipe.text = "0";
@@ -521,7 +524,7 @@ class SupervisorSPBFormNotifier extends ChangeNotifier {
       BuildContext context, TextEditingController textEditingController) {
     if (textEditingController.text.isEmpty ||
         textEditingController.text == "0") {
-      textEditingController.value = TextEditingValue(text: "0");
+      textEditingController.value = const TextEditingValue(text: "0");
       textEditingController.selection = TextSelection.fromPosition(
           TextPosition(offset: textEditingController.text.length));
     } else {
@@ -1044,7 +1047,7 @@ class SupervisorSPBFormNotifier extends ChangeNotifier {
     if (textEditingController.text.isEmpty ||
         textEditingController.text == "0" ||
         textEditingController.text == "00") {
-      textEditingController.value = TextEditingValue(text: "0");
+      textEditingController.value = const TextEditingValue(text: "0");
       textEditingController.selection = TextSelection.fromPosition(
           TextPosition(offset: textEditingController.text.length));
       String deductionText = (double.parse(_bunchesUnRipe.text) +
@@ -1232,12 +1235,12 @@ class SupervisorSPBFormNotifier extends ChangeNotifier {
     if (tbsLuar == null && supervisi3rdParty == null) {
       int totalBunches = 0;
       _spbID.text = tag[0];
-      _listVendor.forEach((element) {
+      for (var element in _listVendor) {
         if (tag[1] == element.vendorCode) {
           _vendor = element;
           notifyListeners();
         }
-      });
+      }
       _driverTBSLuar.text = tag[2];
       vehicleNumber.text = tag[3].split('[').first;
       String farmer = result.split('[').last.split(']').first;

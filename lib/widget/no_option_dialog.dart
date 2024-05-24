@@ -3,16 +3,16 @@ import 'package:epms/base/ui/style.dart';
 import 'package:flutter/material.dart';
 
 class NoOptionDialog extends StatefulWidget {
+  const NoOptionDialog({
+    super.key,
+    required this.title,
+    required this.subtitle,
+    required this.buttonText,
+    this.onPress,
+  });
+
   final String title, subtitle, buttonText;
   final Function()? onPress;
-
-  const NoOptionDialog(
-      {Key? key,
-      required this.title,
-      required this.subtitle,
-      required this.buttonText,
-      this.onPress})
-      : super(key: key);
 
   @override
   State<NoOptionDialog> createState() => _NoOptionDialogState();
@@ -28,12 +28,12 @@ class _NoOptionDialogState extends State<NoOptionDialog> {
     return MediaQuery(
       data: Style.mediaQueryText(context),
       child: AlertDialog(
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(15))),
-        title: Text("${widget.title}", textAlign: TextAlign.center),
-        content: Text("${widget.subtitle}", textAlign: TextAlign.center),
+        title: Text(widget.title, textAlign: TextAlign.center),
+        content: Text(widget.subtitle, textAlign: TextAlign.center),
         actions: <Widget>[
-          Container(
+          SizedBox(
             width: MediaQuery.of(context).size.width,
             child: InkWell(
               onTap: widget.onPress,
@@ -44,9 +44,9 @@ class _NoOptionDialogState extends State<NoOptionDialog> {
                     borderRadius: BorderRadius.circular(10.0)),
                 child: Container(
                   alignment: Alignment.center,
-                  padding: EdgeInsets.all(14),
+                  padding: const EdgeInsets.all(14),
                   child: Text(
-                    "${widget.buttonText}",
+                    widget.buttonText,
                     style: Style.whiteBold18,
                   ),
                 ),

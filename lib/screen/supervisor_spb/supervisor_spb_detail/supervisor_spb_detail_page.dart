@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class SupervisorSPBDetailPage extends StatefulWidget {
+  const SupervisorSPBDetailPage({super.key, required this.spbSupervise});
+
   final SPBSupervise spbSupervise;
-  const SupervisorSPBDetailPage({Key? key, required this.spbSupervise})
-      : super(key: key);
 
   @override
   State<SupervisorSPBDetailPage> createState() =>
@@ -18,7 +18,8 @@ class _SupervisorSPBDetailPageState extends State<SupervisorSPBDetailPage> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-        create: (context) => SupervisorSPBDetailNotifier(),
-        child: SupervisorSPBDetailScreen(spbSupervise: widget.spbSupervise));
+      create: (context) => SupervisorSPBDetailNotifier(),
+      child: SupervisorSPBDetailScreen(spbSupervise: widget.spbSupervise),
+    );
   }
 }

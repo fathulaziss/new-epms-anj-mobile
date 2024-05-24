@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class DetailOPHTab extends StatefulWidget {
-  const DetailOPHTab({Key? key}) : super(key: key);
+  const DetailOPHTab({super.key});
 
   @override
   State<DetailOPHTab> createState() => _DetailOPHTabState();
@@ -28,9 +28,9 @@ class _DetailOPHTabState extends State<DetailOPHTab> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("ID OPH:"),
+                  const Text("ID OPH:"),
                   Text(
-                    "${notifier.oph.ophId ?? ""}",
+                    notifier.oph.ophId ?? "",
                     style: Style.textBold20,
                   )
                 ],
@@ -41,7 +41,7 @@ class _DetailOPHTabState extends State<DetailOPHTab> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Tanggal:"),
+                  const Text("Tanggal:"),
                   Text(
                       "${notifier.oph.createdDate ?? ""} ${notifier.oph.createdTime ?? ""}")
                 ],
@@ -56,8 +56,8 @@ class _DetailOPHTabState extends State<DetailOPHTab> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text("GPS Latitude:"),
-                            Text("${notifier.oph.ophLat ?? ""}")
+                            const Text("GPS Latitude:"),
+                            Text(notifier.oph.ophLat ?? "")
                           ],
                         ),
                       ),
@@ -66,8 +66,8 @@ class _DetailOPHTabState extends State<DetailOPHTab> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text("GPS Longitude:"),
-                            Text("${notifier.oph.ophLong ?? ""}")
+                            const Text("GPS Longitude:"),
+                            Text(notifier.oph.ophLong ?? "")
                           ],
                         ),
                       ),
@@ -78,7 +78,7 @@ class _DetailOPHTabState extends State<DetailOPHTab> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Jenis Pekerja:"),
+                  const Text("Jenis Pekerja:"),
                   Text(
                       "${ValueService.typeOfFormToText(notifier.oph.ophHarvestingType ?? 1)}")
                 ],
@@ -89,7 +89,7 @@ class _DetailOPHTabState extends State<DetailOPHTab> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Apakah Panen Mekanis?"),
+                  const Text("Apakah Panen Mekanis?"),
                   Text(
                       "${ValueService.harvestingType(notifier.oph.ophHarvestingMethod ?? 1)}")
                 ],
@@ -100,8 +100,8 @@ class _DetailOPHTabState extends State<DetailOPHTab> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Kemandoran:"),
-                  Container(
+                  const Text("Kemandoran:"),
+                  SizedBox(
                       width: 200,
                       child: Text(
                         "${notifier.oph.mandorEmployeeCode ?? ""} ${notifier.oph.mandorEmployeeName ?? ""} ",
@@ -116,8 +116,8 @@ class _DetailOPHTabState extends State<DetailOPHTab> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text("Vendor:"),
-                        Container(
+                        const Text("Vendor:"),
+                        SizedBox(
                           width: 200,
                           child: Text(
                               "${notifier.oph.employeeCode ?? ""} ${notifier.oph.employeeName ?? ""}",
@@ -133,8 +133,8 @@ class _DetailOPHTabState extends State<DetailOPHTab> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text("Pekerja:"),
-                        Container(
+                        const Text("Pekerja:"),
+                        SizedBox(
                           width: 200,
                           child: Text(
                               "${notifier.oph.employeeCode ?? ""} ${notifier.oph.employeeName ?? ""}",
@@ -150,10 +150,10 @@ class _DetailOPHTabState extends State<DetailOPHTab> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text("Customer:"),
-                        Container(
+                        const Text("Customer:"),
+                        SizedBox(
                           width: 200,
-                          child: Text("${notifier.oph.ophCustomerCode ?? ""}",
+                          child: Text(notifier.oph.ophCustomerCode ?? "",
                               textAlign: TextAlign.end),
                         )
                       ],
@@ -165,10 +165,10 @@ class _DetailOPHTabState extends State<DetailOPHTab> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Estate:"),
-                  Container(
+                  const Text("Estate:"),
+                  SizedBox(
                     width: 200,
-                    child: Text("${notifier.oph.ophEstateCode ?? ""}",
+                    child: Text(notifier.oph.ophEstateCode ?? "",
                         textAlign: TextAlign.end),
                   )
                 ],
@@ -179,8 +179,8 @@ class _DetailOPHTabState extends State<DetailOPHTab> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Divisi:"),
-                  Text("${notifier.oph.ophDivisionCode ?? ""}",
+                  const Text("Divisi:"),
+                  Text(notifier.oph.ophDivisionCode ?? "",
                       textAlign: TextAlign.end)
                 ],
               ),
@@ -191,9 +191,9 @@ class _DetailOPHTabState extends State<DetailOPHTab> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text("Blok:"),
+                        const Text("Blok:"),
                         Flexible(
-                          child: Container(
+                          child: SizedBox(
                             width: 160,
                             child: Focus(
                               child: TextFormField(
@@ -201,8 +201,8 @@ class _DetailOPHTabState extends State<DetailOPHTab> {
                                 textAlign: TextAlign.center,
                                 textCapitalization:
                                     TextCapitalization.characters,
-                                decoration:
-                                    InputDecoration(hintText: "Tulis blok"),
+                                decoration: const InputDecoration(
+                                    hintText: "Tulis blok"),
                                 onChanged: (value) {
                                   if (value.length >= 3) {
                                     notifier.blockNumberCheck(context, value);
@@ -226,9 +226,9 @@ class _DetailOPHTabState extends State<DetailOPHTab> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text("Blok:"),
+                        const Text("Blok:"),
                         Text(
-                          "${notifier.oph.ophBlockCode ?? ""}",
+                          notifier.oph.ophBlockCode ?? "",
                           textAlign: TextAlign.end,
                         )
                       ],
@@ -239,7 +239,7 @@ class _DetailOPHTabState extends State<DetailOPHTab> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Estimasi berat OPH (Kg):"),
+                  const Text("Estimasi berat OPH (Kg):"),
                   Text(
                     "${notifier.oph.ophEstimateTonnage ?? ""}",
                     textAlign: TextAlign.end,
@@ -247,7 +247,7 @@ class _DetailOPHTabState extends State<DetailOPHTab> {
                 ],
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
@@ -258,35 +258,35 @@ class _DetailOPHTabState extends State<DetailOPHTab> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("TPH"),
+                        const Text("TPH"),
                         Padding(
                           padding: const EdgeInsets.all(20.0),
                           child: Text(
-                            "${notifier.oph.ophTphCode ?? ""}",
+                            notifier.oph.ophTphCode ?? "",
                             style: Style.textBold18,
                           ),
                         )
                       ],
                     ),
                   ),
-                  SizedBox(width: 80),
+                  const SizedBox(width: 80),
                   Flexible(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("Kartu OPH"),
+                        const Text("Kartu OPH"),
                         notifier.onChangeCard
                             ? Column(
                                 children: [
-                                  Container(
+                                  SizedBox(
                                     width: 160,
                                     child: TextFormField(
                                       controller: notifier.ophNumber,
                                       textAlign: TextAlign.center,
                                       textCapitalization:
                                           TextCapitalization.characters,
-                                      decoration: InputDecoration(
+                                      decoration: const InputDecoration(
                                           hintText: "Tulis Kartu OPH"),
                                       validator: (value) {
                                         if (value == null || value.isEmpty) {
@@ -304,7 +304,7 @@ class _DetailOPHTabState extends State<DetailOPHTab> {
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    QRReaderScreen()));
+                                                    const QRReaderScreen()));
                                         if (result != null) {
                                           setState(() {
                                             notifier.ophNumber =
@@ -335,7 +335,7 @@ class _DetailOPHTabState extends State<DetailOPHTab> {
                             : Padding(
                                 padding: const EdgeInsets.all(20.0),
                                 child: Text(
-                                  "${notifier.oph.ophCardId ?? ""}",
+                                  notifier.oph.ophCardId ?? "",
                                   style: Style.textBold18,
                                 ),
                               )
@@ -345,7 +345,7 @@ class _DetailOPHTabState extends State<DetailOPHTab> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Image.file(
@@ -356,11 +356,11 @@ class _DetailOPHTabState extends State<DetailOPHTab> {
                 return Container();
               },
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             notifier.onEdit
-                ? Container(
+                ? SizedBox(
                     width: MediaQuery.of(context).size.width,
                     child: InkWell(
                       onTap: () {
@@ -374,8 +374,8 @@ class _DetailOPHTabState extends State<DetailOPHTab> {
                         ),
                         child: Container(
                           alignment: Alignment.center,
-                          padding: EdgeInsets.all(14),
-                          child: Text(
+                          padding: const EdgeInsets.all(14),
+                          child: const Text(
                             "FOTO HASIL PANEN",
                             style: TextStyle(
                                 fontSize: 18,
@@ -389,7 +389,7 @@ class _DetailOPHTabState extends State<DetailOPHTab> {
                   )
                 : Container(),
             notifier.isChangeCard
-                ? Container(
+                ? SizedBox(
                     width: MediaQuery.of(context).size.width,
                     child: InkWell(
                       onTap: () {
@@ -403,8 +403,8 @@ class _DetailOPHTabState extends State<DetailOPHTab> {
                         ),
                         child: Container(
                           alignment: Alignment.center,
-                          padding: EdgeInsets.all(14),
-                          child: Text(
+                          padding: const EdgeInsets.all(14),
+                          child: const Text(
                             "GANTI KARTU OPH",
                             style: TextStyle(
                                 fontSize: 18,
@@ -418,7 +418,7 @@ class _DetailOPHTabState extends State<DetailOPHTab> {
                   )
                 : Container(),
             notifier.onEdit || notifier.onChangeCard
-                ? Container(
+                ? SizedBox(
                     width: MediaQuery.of(context).size.width,
                     child: InkWell(
                       onTap: () {
@@ -432,8 +432,8 @@ class _DetailOPHTabState extends State<DetailOPHTab> {
                         ),
                         child: Container(
                           alignment: Alignment.center,
-                          padding: EdgeInsets.all(14),
-                          child: Text(
+                          padding: const EdgeInsets.all(14),
+                          child: const Text(
                             "SIMPAN",
                             style: TextStyle(
                                 fontSize: 18,
@@ -450,7 +450,7 @@ class _DetailOPHTabState extends State<DetailOPHTab> {
                 ? Container()
                 : notifier.onEdit
                     ? Container()
-                    : Container(
+                    : SizedBox(
                         width: MediaQuery.of(context).size.width,
                         child: InkWell(
                           onTap: () {
@@ -464,8 +464,8 @@ class _DetailOPHTabState extends State<DetailOPHTab> {
                             ),
                             child: Container(
                               alignment: Alignment.center,
-                              padding: EdgeInsets.all(14),
-                              child: Text(
+                              padding: const EdgeInsets.all(14),
+                              child: const Text(
                                 "UBAH DATA OPH",
                                 style: TextStyle(
                                     fontSize: 18,

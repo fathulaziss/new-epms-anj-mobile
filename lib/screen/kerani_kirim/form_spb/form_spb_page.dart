@@ -5,16 +5,18 @@ import 'form_spb_notifier.dart';
 import 'form_spb_screen.dart';
 
 class FormSPBPage extends StatefulWidget {
-  const FormSPBPage({Key? key}) : super(key: key);
+  const FormSPBPage({super.key});
 
   @override
-  _FormSPBPageState createState() => _FormSPBPageState();
+  State<FormSPBPage> createState() => _FormSPBPageState();
 }
 
 class _FormSPBPageState extends State<FormSPBPage> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-        create: (context) => FormSPBNotifier(), child: FormSPBScreen());
+      create: (context) => FormSPBNotifier(),
+      child: const FormSPBScreen(),
+    );
   }
 }

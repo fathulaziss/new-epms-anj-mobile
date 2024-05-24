@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class WorkPlanScreen extends StatefulWidget {
-  const WorkPlanScreen({Key? key}) : super(key: key);
+  const WorkPlanScreen({super.key});
 
   @override
   State<WorkPlanScreen> createState() => _WorkPlanScreenState();
@@ -30,7 +30,7 @@ class _WorkPlanScreenState extends State<WorkPlanScreen> {
         data: Style.mediaQueryText(context),
         child: Scaffold(
           appBar: AppBar(
-            title: Text("Work Plan Hari Ini"),
+            title: const Text("Work Plan Hari Ini"),
           ),
           body: Padding(
             padding: const EdgeInsets.all(12.0),
@@ -38,19 +38,19 @@ class _WorkPlanScreenState extends State<WorkPlanScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Tanggal:"),
-                  Text("${TimeManager.todayWithSlash(DateTime.now())}")
+                  const Text("Tanggal:"),
+                  Text(TimeManager.todayWithSlash(DateTime.now()))
                 ],
               ),
-              SizedBox(height: 12),
+              const SizedBox(height: 12),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Jumlah Workplan:"),
+                  const Text("Jumlah Workplan:"),
                   Text("${notifier.listWorkPlan.length}")
                 ],
               ),
-              SizedBox(height: 14),
+              const SizedBox(height: 14),
               notifier.listWorkPlan.isEmpty
                   ? Container(
                       alignment: Alignment.center,
@@ -79,12 +79,12 @@ class _WorkPlanScreenState extends State<WorkPlanScreen> {
                                             "Total HK: ${notifier.listWorkPlan[index].workplanTotalHk}")
                                       ],
                                     ),
-                                    SizedBox(height: 10),
+                                    const SizedBox(height: 10),
                                     Text(
                                       "${notifier.listWorkPlan[index].workplanActivityName}",
                                       style: Style.textBold14,
                                     ),
-                                    SizedBox(height: 10),
+                                    const SizedBox(height: 10),
                                     Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
@@ -95,14 +95,14 @@ class _WorkPlanScreenState extends State<WorkPlanScreen> {
                                             "Blok: ${notifier.listWorkPlan[index].workplanBlockCode}")
                                       ],
                                     ),
-                                    SizedBox(height: 10),
+                                    const SizedBox(height: 10),
                                     Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Column(
                                           children: [
-                                            Text("Remark:"),
+                                            const Text("Remark:"),
                                             Text(
                                                 "${notifier.listWorkPlan[index].workplanRemark}")
                                           ],
@@ -111,12 +111,12 @@ class _WorkPlanScreenState extends State<WorkPlanScreen> {
                                             "Target: ${notifier.listWorkPlan[index].workplanTarget} H")
                                       ],
                                     ),
-                                    SizedBox(height: 10),
+                                    const SizedBox(height: 10),
                                     Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Text("Jumlah Material:"),
+                                        const Text("Jumlah Material:"),
                                         Text(
                                             "${notifier.listWorkPlan[index].materials?.length ?? 0}")
                                       ],
@@ -146,16 +146,16 @@ class _WorkPlanScreenState extends State<WorkPlanScreen> {
                                                 crossAxisAlignment:
                                                     CrossAxisAlignment.start,
                                                 children: [
-                                                  Text("Nama material:"),
+                                                  const Text("Nama material:"),
                                                   Text(
                                                       "${notifier.listWorkPlan[index].materials?[indexInt].workplanMaterialName}"),
-                                                  SizedBox(height: 8),
+                                                  const SizedBox(height: 8),
                                                   Row(
                                                     mainAxisAlignment:
                                                         MainAxisAlignment
                                                             .spaceBetween,
                                                     children: [
-                                                      Text(
+                                                      const Text(
                                                           "Kuantitas Material:"),
                                                       Text(
                                                           "${notifier.listWorkPlan[index].materials?[indexInt].workplanMaterialQty} ${notifier.listWorkPlan[index].materials?[indexInt].workplanMaterialUom}"),

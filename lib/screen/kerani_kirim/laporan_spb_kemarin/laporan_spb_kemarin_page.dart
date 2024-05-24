@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class LaporanSPBKemarinPage extends StatefulWidget {
-  const LaporanSPBKemarinPage({Key? key}) : super(key: key);
+  const LaporanSPBKemarinPage({super.key});
 
   @override
   State<LaporanSPBKemarinPage> createState() => _LaporanSPBKemarinPageState();
@@ -14,7 +14,8 @@ class _LaporanSPBKemarinPageState extends State<LaporanSPBKemarinPage> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-        create: (context) => LaporanSPBKemarinNotifier(),
-        child: LaporanSPBKemarinScreen());
+      create: (context) => LaporanSPBKemarinNotifier(),
+      child: const LaporanSPBKemarinScreen(),
+    );
   }
 }

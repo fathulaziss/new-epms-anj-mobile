@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously, avoid_print
+
 import 'dart:convert';
 
 import 'package:epms/base/common/locator.dart';
@@ -27,43 +29,43 @@ class BagiOPHNotifier extends ChangeNotifier {
 
   TextEditingController ophNumber = TextEditingController();
 
-  TextEditingController _notesOPH = TextEditingController();
+  final TextEditingController _notesOPH = TextEditingController();
 
   TextEditingController get notesOPH => _notesOPH;
 
-  TextEditingController _bunchesRipe = TextEditingController();
+  final TextEditingController _bunchesRipe = TextEditingController();
 
   TextEditingController get bunchesRipe => _bunchesRipe;
 
-  TextEditingController _bunchesOverRipe = TextEditingController();
+  final TextEditingController _bunchesOverRipe = TextEditingController();
 
   TextEditingController get bunchesOverRipe => _bunchesOverRipe;
 
-  TextEditingController _bunchesHalfRipe = TextEditingController();
+  final TextEditingController _bunchesHalfRipe = TextEditingController();
 
   TextEditingController get bunchesHalfRipe => _bunchesHalfRipe;
 
-  TextEditingController _bunchesUnRipe = TextEditingController();
+  final TextEditingController _bunchesUnRipe = TextEditingController();
 
   TextEditingController get bunchesUnRipe => _bunchesUnRipe;
 
-  TextEditingController _bunchesAbnormal = TextEditingController();
+  final TextEditingController _bunchesAbnormal = TextEditingController();
 
   TextEditingController get bunchesAbnormal => _bunchesAbnormal;
 
-  TextEditingController _bunchesEmpty = TextEditingController();
+  final TextEditingController _bunchesEmpty = TextEditingController();
 
   TextEditingController get bunchesEmpty => _bunchesEmpty;
 
-  TextEditingController _looseFruits = TextEditingController();
+  final TextEditingController _looseFruits = TextEditingController();
 
   TextEditingController get looseFruits => _looseFruits;
 
-  TextEditingController _bunchesTotal = TextEditingController();
+  final TextEditingController _bunchesTotal = TextEditingController();
 
   TextEditingController get bunchesTotal => _bunchesTotal;
 
-  TextEditingController _bunchesNotSent = TextEditingController();
+  final TextEditingController _bunchesNotSent = TextEditingController();
 
   TextEditingController get bunchesNotSent => _bunchesNotSent;
 
@@ -87,11 +89,11 @@ class BagiOPHNotifier extends ChangeNotifier {
 
   bool get isNewSaved => _isNewSaved;
 
-  OPH _oph = new OPH();
+  OPH _oph = OPH();
 
   OPH get oph => _oph;
 
-  OPHNew _newOPH = new OPHNew();
+  OPHNew _newOPH = OPHNew();
 
   OPHNew get newOPH => _newOPH;
 
@@ -143,11 +145,11 @@ class BagiOPHNotifier extends ChangeNotifier {
 
   String? get pickedFileNewOPH => _pickedFileNewOPH;
 
-  NavigatorService _navigationService = locator<NavigatorService>();
+  final NavigatorService _navigationService = locator<NavigatorService>();
 
   NavigatorService get navigationService => _navigationService;
 
-  DialogService _dialogService = locator<DialogService>();
+  final DialogService _dialogService = locator<DialogService>();
 
   DialogService get dialogService => _dialogService;
 
@@ -229,7 +231,7 @@ class BagiOPHNotifier extends ChangeNotifier {
   }
 
   onInit(BuildContext context) async {
-    await Future.delayed(Duration(milliseconds: 50));
+    await Future.delayed(const Duration(milliseconds: 50));
     OPHCardManager().readOPHCard(context, onSuccessRead, onErrorRead);
     _dialogService.showNFCDialog(
         title: "Tempel Kartu NFC",
@@ -290,16 +292,14 @@ class BagiOPHNotifier extends ChangeNotifier {
   generateNewOPH(OPH oph) async {
     MConfigSchema mConfigSchema = await DatabaseMConfig().selectMConfig();
     DateTime now = DateTime.now();
-    NumberFormat formatterNumber = new NumberFormat("000");
+    NumberFormat formatterNumber = NumberFormat("000");
     String number = formatterNumber.format(mConfigSchema.userId);
     String ophString = jsonEncode(oph);
     Map<String, dynamic> ophNewJson = jsonDecode(ophString);
     OPHNew ophTemp = OPHNew.fromJson(ophNewJson);
     _newOPH = ophTemp;
-    _newOPH.ophId = "${mConfigSchema.estateCode}" +
-        ValueService.generateIDFromDateTime(now) +
-        "$number" +
-        "M";
+    _newOPH.ophId =
+        "${mConfigSchema.estateCode}${ValueService.generateIDFromDateTime(now)}${number}M";
     _newOPH.createdDate = TimeManager.dateWithDash(now);
     _newOPH.createdTime = TimeManager.timeWithColon(now);
     _newOPH.ophPhoto = null;
@@ -318,7 +318,7 @@ class BagiOPHNotifier extends ChangeNotifier {
   countBunches(BuildContext context,
       TextEditingController textEditingController, int value) {
     if (int.parse(textEditingController.text) > value) {
-      textEditingController.value = TextEditingValue(text: "0");
+      textEditingController.value = const TextEditingValue(text: "0");
       textEditingController.selection = TextSelection.fromPosition(
           TextPosition(offset: textEditingController.text.length));
     }
@@ -445,7 +445,7 @@ class BagiOPHNotifier extends ChangeNotifier {
 
   onErrorWriteOld() {
     _dialogService.popDialog();
-    Future.delayed(Duration(seconds: 1), () {
+    Future.delayed(const Duration(seconds: 1), () {
       NfcManager.instance.stopSession();
     });
     FlushBarManager.showFlushBarWarning(
@@ -528,7 +528,7 @@ class BagiOPHNotifier extends ChangeNotifier {
 
   onErrorWriteNew() {
     _dialogService.popDialog();
-    Future.delayed(Duration(seconds: 1), () {
+    Future.delayed(const Duration(seconds: 1), () {
       NfcManager.instance.stopSession();
     });
     FlushBarManager.showFlushBarWarning(
@@ -582,7 +582,7 @@ class BagiOPHNotifier extends ChangeNotifier {
           "Save OPH Baru",
           "Gagal tersimpan");
     }
-    Future.delayed(Duration(seconds: 1), () {
+    Future.delayed(const Duration(seconds: 1), () {
       NfcManager.instance.stopSession();
     });
     notifyListeners();
@@ -608,7 +608,7 @@ class BagiOPHNotifier extends ChangeNotifier {
           "Save OPH Lama",
           "Gagal tersimpan");
     }
-    Future.delayed(Duration(seconds: 1), () {
+    Future.delayed(const Duration(seconds: 1), () {
       NfcManager.instance.stopSession();
     });
     notifyListeners();
@@ -634,7 +634,7 @@ class BagiOPHNotifier extends ChangeNotifier {
           "Save OPH Lama",
           "Berhasil tersimpan");
     }
-    Future.delayed(Duration(seconds: 1), () {
+    Future.delayed(const Duration(seconds: 1), () {
       NfcManager.instance.stopSession();
     });
   }

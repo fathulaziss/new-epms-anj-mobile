@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously, avoid_print
+
 import 'package:epms/base/common/locator.dart';
 import 'package:epms/common_manager/camera_service.dart';
 import 'package:epms/common_manager/dialog_services.dart';
@@ -23,11 +25,11 @@ import 'package:intl/intl.dart';
 import 'package:nfc_manager/nfc_manager.dart';
 
 class SupervisorHarvestFormNotifier extends ChangeNotifier {
-  NavigatorService _navigationService = locator<NavigatorService>();
+  final NavigatorService _navigationService = locator<NavigatorService>();
 
   NavigatorService get navigationService => _navigationService;
 
-  DialogService _dialogService = locator<DialogService>();
+  final DialogService _dialogService = locator<DialogService>();
 
   DialogService get dialogService => _dialogService;
 
@@ -51,43 +53,43 @@ class SupervisorHarvestFormNotifier extends ChangeNotifier {
 
   String get gpsLocation => _gpsLocation;
 
-  TextEditingController _bunchesRipe = TextEditingController();
+  final TextEditingController _bunchesRipe = TextEditingController();
 
   TextEditingController get bunchesRipe => _bunchesRipe;
 
-  TextEditingController _bunchesOverRipe = TextEditingController();
+  final TextEditingController _bunchesOverRipe = TextEditingController();
 
   TextEditingController get bunchesOverRipe => _bunchesOverRipe;
 
-  TextEditingController _bunchesHalfRipe = TextEditingController();
+  final TextEditingController _bunchesHalfRipe = TextEditingController();
 
   TextEditingController get bunchesHalfRipe => _bunchesHalfRipe;
 
-  TextEditingController _bunchesUnRipe = TextEditingController();
+  final TextEditingController _bunchesUnRipe = TextEditingController();
 
   TextEditingController get bunchesUnRipe => _bunchesUnRipe;
 
-  TextEditingController _bunchesAbnormal = TextEditingController();
+  final TextEditingController _bunchesAbnormal = TextEditingController();
 
   TextEditingController get bunchesAbnormal => _bunchesAbnormal;
 
-  TextEditingController _bunchesEmpty = TextEditingController();
+  final TextEditingController _bunchesEmpty = TextEditingController();
 
   TextEditingController get bunchesEmpty => _bunchesEmpty;
 
-  TextEditingController _looseFruits = TextEditingController();
+  final TextEditingController _looseFruits = TextEditingController();
 
   TextEditingController get looseFruits => _looseFruits;
 
-  TextEditingController _bunchesTotal = TextEditingController();
+  final TextEditingController _bunchesTotal = TextEditingController();
 
   TextEditingController get bunchesTotal => _bunchesTotal;
 
-  TextEditingController _bunchesNotSent = TextEditingController();
+  final TextEditingController _bunchesNotSent = TextEditingController();
 
   TextEditingController get bunchesNotSent => _bunchesNotSent;
 
-  TextEditingController _notesOPH = TextEditingController();
+  final TextEditingController _notesOPH = TextEditingController();
 
   TextEditingController get notesOPH => _notesOPH;
 
@@ -152,13 +154,12 @@ class SupervisorHarvestFormNotifier extends ChangeNotifier {
     _mConfigSchema = await DatabaseMConfig().selectMConfig();
     _listEmployee = await DatabaseMEmployeeSchema().selectMEmployeeSchema();
     DateTime now = DateTime.now();
-    NumberFormat formatterNumber = new NumberFormat("000");
+    NumberFormat formatterNumber = NumberFormat("000");
     String number = formatterNumber.format(mConfigSchema?.userId);
     _date = TimeManager.dateWithDash(now);
     _time = TimeManager.timeWithColon(now);
-    _harvestingID = "${mConfigSchema?.estateCode}" +
-        ValueService.generateIDFromDateTime(now) +
-        "$number" "SM";
+    _harvestingID =
+        "${mConfigSchema?.estateCode}${ValueService.generateIDFromDateTime(now)}${number}SM";
     bunchesRipe.text = "0";
     bunchesOverRipe.text = "0";
     bunchesHalfRipe.text = "0";
@@ -367,7 +368,7 @@ class SupervisorHarvestFormNotifier extends ChangeNotifier {
           "Scan OPH",
           "OPH ini sudah pernah discan");
     }
-    Future.delayed(Duration(seconds: 1), () {
+    Future.delayed(const Duration(seconds: 1), () {
       NfcManager.instance.stopSession();
     });
   }
@@ -382,7 +383,7 @@ class SupervisorHarvestFormNotifier extends ChangeNotifier {
   }
 
   onErrorRead(BuildContext context, String message) {
-    Future.delayed(Duration(seconds: 1), () {
+    Future.delayed(const Duration(seconds: 1), () {
       NfcManager.instance.stopSession();
     });
     FlushBarManager.showFlushBarWarning(context, "Gagal Membaca", message);

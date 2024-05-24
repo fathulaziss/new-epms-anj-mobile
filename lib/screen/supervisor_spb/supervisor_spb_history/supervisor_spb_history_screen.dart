@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class SupervisorSPBHistoryScreen extends StatefulWidget {
-  const SupervisorSPBHistoryScreen({Key? key}) : super(key: key);
+  const SupervisorSPBHistoryScreen({super.key});
 
   @override
   State<SupervisorSPBHistoryScreen> createState() =>
@@ -36,7 +36,7 @@ class _SupervisorSPBHistoryScreenState
           data: Style.mediaQueryText(context),
           child: Scaffold(
             appBar: AppBar(
-              title: Text("Laporan Supervisi SPB"),
+              title: const Text("Laporan Supervisi SPB"),
             ),
             body: Padding(
               padding: const EdgeInsets.all(8.0),
@@ -48,25 +48,25 @@ class _SupervisorSPBHistoryScreenState
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("Tanggal:"),
-                          Text("${TimeManager.dateWithDash(DateTime.now())}")
+                          const Text("Tanggal:"),
+                          Text(TimeManager.dateWithDash(DateTime.now()))
                         ],
                       ),
-                      SizedBox(height: 14),
+                      const SizedBox(height: 14),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("Sumber SPB:"),
+                          const Text("Sumber SPB:"),
                           Flexible(
-                            child: Container(
+                            child: SizedBox(
                               width: 120,
                               child: DropdownButton(
                                 isExpanded: true,
                                 value: notifier.sourceSPBValue,
                                 items: notifier.sourceSPB.map((value) {
                                   return DropdownMenuItem(
-                                    child: Text(value),
                                     value: value,
+                                    child: Text(value),
                                   );
                                 }).toList(),
                                 onChanged: (String? value) {
@@ -77,35 +77,35 @@ class _SupervisorSPBHistoryScreenState
                           ),
                         ],
                       ),
-                      SizedBox(height: 14),
+                      const SizedBox(height: 14),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("Jumlah Supervisi SPB:"),
+                          const Text("Jumlah Supervisi SPB:"),
                           Text(
-                              "${notifier.listSPBSuperviseResult.length == 0 ? notifier.listSPBSupervise.length : notifier.listSPBSuperviseResult.length}")
+                              "${notifier.listSPBSuperviseResult.isEmpty ? notifier.listSPBSupervise.length : notifier.listSPBSuperviseResult.length}")
                         ],
                       ),
-                      SizedBox(height: 14),
+                      const SizedBox(height: 14),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("Total Janjang:"),
+                          const Text("Total Janjang:"),
                           Text("${notifier.totalBunches}")
                         ],
                       ),
-                      SizedBox(height: 14),
+                      const SizedBox(height: 14),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("Total Brondolan (Kg):"),
+                          const Text("Total Brondolan (Kg):"),
                           Text("${notifier.totalLooseFruits}")
                         ],
                       ),
                     ],
                   ),
                 ),
-                SizedBox(height: 14),
+                const SizedBox(height: 14),
                 if (notifier.listSPBSupervise.isEmpty)
                   Container(
                       alignment: Alignment.center,
@@ -143,37 +143,37 @@ class _SupervisorSPBHistoryScreenState
                                             ),
                                           ],
                                         ),
-                                        SizedBox(height: 8),
+                                        const SizedBox(height: 8),
                                         Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
                                           children: [
-                                            Text("Total Janjang:"),
+                                            const Text("Total Janjang:"),
                                             Text(
                                                 "${notifier.listSPBSuperviseResult[index].bunchesTotal} Janjang"),
                                           ],
                                         ),
-                                        SizedBox(height: 8),
+                                        const SizedBox(height: 8),
                                         Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
                                           children: [
-                                            Text("Total Janjang Normal:"),
+                                            const Text("Total Janjang Normal:"),
                                             Text(
                                                 "${notifier.listSPBSuperviseResult[index].bunchesTotalNormal} Janjang"),
                                           ],
                                         ),
-                                        SizedBox(height: 8),
+                                        const SizedBox(height: 8),
                                         Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
                                           children: [
-                                            Text("Total Brondolan:"),
+                                            const Text("Total Brondolan:"),
                                             Text(
                                                 "${notifier.listSPBSuperviseResult[index].looseFruits} Kg"),
                                           ],
                                         ),
-                                        SizedBox(height: 8),
+                                        const SizedBox(height: 8),
                                         Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
@@ -183,8 +183,8 @@ class _SupervisorSPBHistoryScreenState
                                                             index]
                                                         .supervisiSpbMethod ==
                                                     3
-                                                ? Text("Vendor:")
-                                                : Text("Supir:"),
+                                                ? const Text("Vendor:")
+                                                : const Text("Supir:"),
                                             notifier
                                                         .listSPBSuperviseResult[
                                                             index]
@@ -199,7 +199,7 @@ class _SupervisorSPBHistoryScreenState
                                                     "${notifier.listSPBSuperviseResult[index].supervisiSpbDriverEmployeeCode} ${notifier.listSPBSupervise[index].supervisiSpbDriverEmployeeName}"),
                                           ],
                                         ),
-                                        SizedBox(height: 8),
+                                        const SizedBox(height: 8),
                                         Row(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceBetween,
@@ -209,16 +209,16 @@ class _SupervisorSPBHistoryScreenState
                                               Text(
                                                   "SPB Sumber: ${ValueService.spbSourceDataText(notifier.listSPBSuperviseResult[index].supervisiSpbType!)}"),
                                             ]),
-                                        SizedBox(height: 8),
+                                        const SizedBox(height: 8),
                                         Row(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
-                                              Text("Jenis Pengangkutan:"),
+                                              const Text("Jenis Pengangkutan:"),
                                               Text(
                                                   "${ValueService.typeOfFormToText(notifier.listSPBSuperviseResult[index].supervisiSpbMethod!)}"),
                                             ]),
-                                        SizedBox(height: 8),
+                                        const SizedBox(height: 8),
                                         Row(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceBetween,
@@ -260,37 +260,37 @@ class _SupervisorSPBHistoryScreenState
                                             ),
                                           ],
                                         ),
-                                        SizedBox(height: 8),
+                                        const SizedBox(height: 8),
                                         Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
                                           children: [
-                                            Text("Total Janjang:"),
+                                            const Text("Total Janjang:"),
                                             Text(
                                                 "${notifier.listSPBSupervise[index].bunchesTotal} Janjang"),
                                           ],
                                         ),
-                                        SizedBox(height: 8),
+                                        const SizedBox(height: 8),
                                         Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
                                           children: [
-                                            Text("Total Janjang Normal:"),
+                                            const Text("Total Janjang Normal:"),
                                             Text(
                                                 "${notifier.listSPBSupervise[index].bunchesTotalNormal} Janjang"),
                                           ],
                                         ),
-                                        SizedBox(height: 8),
+                                        const SizedBox(height: 8),
                                         Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
                                           children: [
-                                            Text("Total Brondolan:"),
+                                            const Text("Total Brondolan:"),
                                             Text(
                                                 "${notifier.listSPBSupervise[index].looseFruits} Kg"),
                                           ],
                                         ),
-                                        SizedBox(height: 8),
+                                        const SizedBox(height: 8),
                                         Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
@@ -298,8 +298,8 @@ class _SupervisorSPBHistoryScreenState
                                             notifier.listSPBSupervise[index]
                                                         .supervisiSpbMethod ==
                                                     3
-                                                ? Text("Vendor:")
-                                                : Text("Supir:"),
+                                                ? const Text("Vendor:")
+                                                : const Text("Supir:"),
                                             notifier.listSPBSupervise[index]
                                                         .supervisiSpbDriverEmployeeCode ==
                                                     notifier
@@ -311,7 +311,7 @@ class _SupervisorSPBHistoryScreenState
                                                     "${notifier.listSPBSupervise[index].supervisiSpbDriverEmployeeCode} ${notifier.listSPBSupervise[index].supervisiSpbDriverEmployeeName}"),
                                           ],
                                         ),
-                                        SizedBox(height: 8),
+                                        const SizedBox(height: 8),
                                         Row(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceBetween,
@@ -321,16 +321,16 @@ class _SupervisorSPBHistoryScreenState
                                               Text(
                                                   "SPB Sumber: ${ValueService.spbSourceDataText(notifier.listSPBSupervise[index].supervisiSpbType!)}"),
                                             ]),
-                                        SizedBox(height: 8),
+                                        const SizedBox(height: 8),
                                         Row(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
-                                              Text("Jenis Pengangkutan:"),
+                                              const Text("Jenis Pengangkutan:"),
                                               Text(
                                                   "${ValueService.typeOfFormToText(notifier.listSPBSupervise[index].supervisiSpbMethod!)}"),
                                             ]),
-                                        SizedBox(height: 8),
+                                        const SizedBox(height: 8),
                                         Row(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceBetween,

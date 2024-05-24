@@ -3,11 +3,11 @@ import 'package:epms/model/oph_supervise.dart';
 import 'package:flutter/material.dart';
 
 class HistorySuperviseHarvestNotifier extends ChangeNotifier {
-  List<String> _listDivision = ["Semua"];
+  final List<String> _listDivision = ["Semua"];
 
   List<String> get listDivision => _listDivision;
 
-  List<String> _listKeraniPanen = ["Semua"];
+  final List<String> _listKeraniPanen = ["Semua"];
 
   List<String> get listKeraniPanen => _listKeraniPanen;
 
@@ -23,7 +23,7 @@ class HistorySuperviseHarvestNotifier extends ChangeNotifier {
 
   List<OPHSupervise> get listOPHSupervise => _listOPHSupervise;
 
-  List<OPHSupervise> _listOPHSuperviseResult = [];
+  final List<OPHSupervise> _listOPHSuperviseResult = [];
 
   List<OPHSupervise> get listOPHSuperviseResult => _listOPHSuperviseResult;
 
@@ -63,31 +63,34 @@ class HistorySuperviseHarvestNotifier extends ChangeNotifier {
       notifyListeners();
       return;
     } else if (division == "Semua") {
-      _listOPHSupervise.forEach((element) {
+      for (var element in _listOPHSupervise) {
         if (element.supervisiDivisionCode!
             .toLowerCase()
-            .contains(division.toLowerCase()))
+            .contains(division.toLowerCase())) {
           _listOPHSuperviseResult.add(element);
-      });
+        }
+      }
       notifyListeners();
     } else if (keraniPanen == "Semua") {
-      _listOPHSupervise.forEach((element) {
+      for (var element in _listOPHSupervise) {
         if (element.supervisiKeraniPanenEmployeeName!
             .toLowerCase()
-            .contains(keraniPanen.toLowerCase()))
+            .contains(keraniPanen.toLowerCase())) {
           _listOPHSuperviseResult.add(element);
-      });
+        }
+      }
       notifyListeners();
     } else {
-      _listOPHSupervise.forEach((element) {
+      for (var element in _listOPHSupervise) {
         if (element.supervisiDivisionCode!
                 .toLowerCase()
                 .contains(division.toLowerCase()) &&
             element.supervisiKeraniPanenEmployeeName!
                 .toLowerCase()
-                .contains(keraniPanen.toLowerCase()))
+                .contains(keraniPanen.toLowerCase())) {
           _listOPHSuperviseResult.add(element);
-      });
+        }
+      }
       notifyListeners();
     }
   }

@@ -12,10 +12,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class KeraniKirimScreen extends StatefulWidget {
-  const KeraniKirimScreen({Key? key}) : super(key: key);
+  const KeraniKirimScreen({super.key});
 
   @override
-  _KeraniKirimScreenState createState() => _KeraniKirimScreenState();
+  State<KeraniKirimScreen> createState() => _KeraniKirimScreenState();
 }
 
 class _KeraniKirimScreenState extends State<KeraniKirimScreen> {
@@ -77,19 +77,19 @@ class _KeraniKirimScreenState extends State<KeraniKirimScreen> {
                 ],
               ),
               body: Padding(
-                padding: EdgeInsets.only(bottom: 10, left: 5, right: 5),
+                padding: const EdgeInsets.only(bottom: 10, left: 5, right: 5),
                 child: SingleChildScrollView(
                   child: Padding(
                     padding: const EdgeInsets.all(18),
                     child: Column(
                       children: [
                         Padding(
-                          padding:
-                              EdgeInsets.only(left: 10, right: 10, bottom: 10),
+                          padding: const EdgeInsets.only(
+                              left: 10, right: 10, bottom: 10),
                           child: Image.asset(ImageAssets.ANJ_LOGO, height: 60),
                         ),
                         Padding(
-                          padding: EdgeInsets.all(6),
+                          padding: const EdgeInsets.all(6),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -128,7 +128,7 @@ class _KeraniKirimScreenState extends State<KeraniKirimScreen> {
                               KeraniKirimNotifier()
                                   .onClickMenu(context, 'BACA KARTU OPH');
                             },
-                            child: Text("BACA KARTU OPH",
+                            child: const Text("BACA KARTU OPH",
                                 style: TextStyle(
                                     fontSize: 14, fontWeight: FontWeight.bold)),
                           ),
@@ -153,7 +153,7 @@ class _KeraniKirimScreenState extends State<KeraniKirimScreen> {
                               KeraniKirimNotifier()
                                   .onClickMenu(context, 'BUAT FORM SPB');
                             },
-                            child: Text("BUAT FORM SPB",
+                            child: const Text("BUAT FORM SPB",
                                 style: TextStyle(
                                     fontSize: 14, fontWeight: FontWeight.bold)),
                           ),
@@ -178,7 +178,7 @@ class _KeraniKirimScreenState extends State<KeraniKirimScreen> {
                               KeraniKirimNotifier()
                                   .onClickMenu(context, 'RIWAYAT SPB');
                             },
-                            child: Text("RIWAYAT SPB",
+                            child: const Text("RIWAYAT SPB",
                                 style: TextStyle(
                                     fontSize: 14, fontWeight: FontWeight.bold)),
                           ),
@@ -203,7 +203,7 @@ class _KeraniKirimScreenState extends State<KeraniKirimScreen> {
                               KeraniKirimNotifier()
                                   .onClickMenu(context, 'BACA KARTU SPB');
                             },
-                            child: Text("BACA KARTU SPB",
+                            child: const Text("BACA KARTU SPB",
                                 style: TextStyle(
                                     fontSize: 14, fontWeight: FontWeight.bold)),
                           ),
@@ -228,7 +228,7 @@ class _KeraniKirimScreenState extends State<KeraniKirimScreen> {
                               KeraniKirimNotifier()
                                   .onClickMenu(context, 'LAPORAN SPB KEMARIN');
                             },
-                            child: Text("LAPORAN SPB KEMARIN",
+                            child: const Text("LAPORAN SPB KEMARIN",
                                 style: TextStyle(
                                     fontSize: 14, fontWeight: FontWeight.bold)),
                           ),
@@ -256,19 +256,19 @@ class _KeraniKirimScreenState extends State<KeraniKirimScreen> {
                             child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Text("LAPORAN RESTAN HARI INI",
+                                  const Text("LAPORAN RESTAN HARI INI",
                                       style: TextStyle(
                                           fontSize: 14,
                                           fontWeight: FontWeight.bold)),
-                                  SizedBox(width: 4),
+                                  const SizedBox(width: 4),
                                   countRestan == 0
                                       ? const SizedBox()
                                       : Row(children: [
-                                          Icon(Icons.warning,
+                                          const Icon(Icons.warning,
                                               color: Colors.yellow),
-                                          SizedBox(width: 10),
+                                          const SizedBox(width: 10),
                                           Text("$countRestan",
-                                              style: TextStyle(
+                                              style: const TextStyle(
                                                   fontSize: 14,
                                                   fontWeight: FontWeight.bold)),
                                         ])
@@ -299,20 +299,20 @@ class _KeraniKirimScreenState extends State<KeraniKirimScreen> {
                                 child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Text("INSPECTION",
+                                      const Text("INSPECTION",
                                           style: TextStyle(
                                               fontSize: 14,
                                               fontWeight: FontWeight.bold)),
-                                      SizedBox(width: 10),
+                                      const SizedBox(width: 10),
                                       homeNotifier.countInspection == 0
                                           ? const SizedBox()
                                           : Row(children: [
-                                              Icon(Icons.warning,
+                                              const Icon(Icons.warning,
                                                   color: Colors.yellow),
-                                              SizedBox(width: 10),
+                                              const SizedBox(width: 10),
                                               Text(
                                                   "${homeNotifier.countInspection}",
-                                                  style: TextStyle(
+                                                  style: const TextStyle(
                                                       fontSize: 14,
                                                       fontWeight:
                                                           FontWeight.bold)),
@@ -339,7 +339,7 @@ class _KeraniKirimScreenState extends State<KeraniKirimScreen> {
                               KeraniKirimNotifier()
                                   .onClickMenu(context, 'ADMINISTRASI SPB');
                             },
-                            child: Text("ADMINISTRASI SPB",
+                            child: const Text("ADMINISTRASI SPB",
                                 style: TextStyle(
                                     fontSize: 14, fontWeight: FontWeight.bold)),
                           ),
@@ -354,7 +354,7 @@ class _KeraniKirimScreenState extends State<KeraniKirimScreen> {
                                   Size(MediaQuery.of(context).size.width, 50),
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(5.0),
-                                  side: BorderSide(color: Colors.green)),
+                                  side: const BorderSide(color: Colors.green)),
                               padding: const EdgeInsets.all(16.0),
                               textStyle: const TextStyle(
                                   fontSize: 20, color: Colors.white),
@@ -363,7 +363,7 @@ class _KeraniKirimScreenState extends State<KeraniKirimScreen> {
                               KeraniKirimNotifier()
                                   .onClickMenu(context, 'UPLOAD DATA');
                             },
-                            child: Text("UPLOAD DATA",
+                            child: const Text("UPLOAD DATA",
                                 style: TextStyle(
                                     fontSize: 14, fontWeight: FontWeight.bold)),
                           ),
@@ -388,48 +388,48 @@ class _KeraniKirimScreenState extends State<KeraniKirimScreen> {
                               KeraniKirimNotifier()
                                   .onClickMenu(context, 'KELUAR');
                             },
-                            child: Text("KELUAR",
+                            child: const Text("KELUAR",
                                 style: TextStyle(
                                     fontSize: 14, fontWeight: FontWeight.bold)),
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.only(top: 16),
+                          padding: const EdgeInsets.only(top: 16),
                           child: Column(
                             children: [
                               Text("${homeNotifier.configSchema.employeeCode}",
                                   style: Style.textBold14),
                               Text("${homeNotifier.configSchema.employeeName}",
                                   style: Style.textBold14),
-                              SizedBox(height: 20),
+                              const SizedBox(height: 20),
                               Text(
                                   "Estate ${homeNotifier.configSchema.estateCode}",
                                   style: Style.textBold14),
-                              SizedBox(height: 30),
+                              const SizedBox(height: 30),
                               Card(
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: InkWell(
-                                    child: Text("Sync Ulang"),
+                                    child: const Text("Sync Ulang"),
                                     onTap: () {
                                       KeraniKirimNotifier().reSynch();
                                     },
                                   ),
                                 ),
                               ),
-                              SizedBox(height: 10),
+                              const SizedBox(height: 10),
                               Card(
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: InkWell(
-                                    child: Text("Export Json"),
+                                    child: const Text("Export Json"),
                                     onTap: () {
                                       KeraniKirimNotifier().exportJson(context);
                                     },
                                   ),
                                 ),
                               ),
-                              Divider(),
+                              const Divider(),
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Image.asset(
@@ -437,7 +437,7 @@ class _KeraniKirimScreenState extends State<KeraniKirimScreen> {
                                   height: 25,
                                 ),
                               ),
-                              Text("ePMS ANJ Group")
+                              const Text("ePMS ANJ Group")
                             ],
                           ),
                         ),

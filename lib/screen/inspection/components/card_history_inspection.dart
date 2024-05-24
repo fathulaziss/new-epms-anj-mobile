@@ -46,7 +46,7 @@ class _CardHistoryInspectionState extends State<CardHistoryInspection> {
                   style: Style.whiteBold12.copyWith(
                       color: Colors.white, fontWeight: FontWeight.normal),
                 ),
-                SizedBox(width: 4),
+                const SizedBox(width: 4),
                 Expanded(
                   child: Text(
                     widget.data.trTime,
@@ -56,8 +56,8 @@ class _CardHistoryInspectionState extends State<CardHistoryInspection> {
                 )
               ],
             ),
-            Divider(color: Colors.white24, height: 1),
-            SizedBox(height: 4),
+            const Divider(color: Colors.white24, height: 1),
+            const SizedBox(height: 4),
             Row(
               children: [
                 Text(
@@ -65,7 +65,7 @@ class _CardHistoryInspectionState extends State<CardHistoryInspection> {
                   style: Style.whiteBold12.copyWith(
                       color: Colors.white, fontWeight: FontWeight.normal),
                 ),
-                SizedBox(width: 4),
+                const SizedBox(width: 4),
                 Expanded(
                   child: Text(
                     ConvertHelper.titleCase(
@@ -79,8 +79,8 @@ class _CardHistoryInspectionState extends State<CardHistoryInspection> {
                 )
               ],
             ),
-            Divider(color: Colors.white24, height: 1),
-            SizedBox(height: 4),
+            const Divider(color: Colors.white24, height: 1),
+            const SizedBox(height: 4),
             Text(
               'Dibuat Oleh :',
               style: Style.whiteBold12
@@ -95,8 +95,8 @@ class _CardHistoryInspectionState extends State<CardHistoryInspection> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Divider(color: Colors.white24, height: 1),
-                  SizedBox(height: 4),
+                  const Divider(color: Colors.white24, height: 1),
+                  const SizedBox(height: 4),
                   Text(
                     'Reassign To :',
                     style: Style.whiteBold12.copyWith(
@@ -113,8 +113,8 @@ class _CardHistoryInspectionState extends State<CardHistoryInspection> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Divider(color: Colors.white24, height: 1),
-                  SizedBox(height: 4),
+                  const Divider(color: Colors.white24, height: 1),
+                  const SizedBox(height: 4),
                   Text(
                     'Consulted With :',
                     style: Style.whiteBold12.copyWith(
@@ -131,8 +131,8 @@ class _CardHistoryInspectionState extends State<CardHistoryInspection> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Divider(color: Colors.white24, height: 1),
-                  SizedBox(height: 4),
+                  const Divider(color: Colors.white24, height: 1),
+                  const SizedBox(height: 4),
                   Text(
                     'Deskripsi :',
                     style: Style.whiteBold12.copyWith(
@@ -149,14 +149,14 @@ class _CardHistoryInspectionState extends State<CardHistoryInspection> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Divider(color: Colors.white24, height: 1),
-                  SizedBox(height: 4),
+                  const Divider(color: Colors.white24, height: 1),
+                  const SizedBox(height: 4),
                   Text(
                     'Attachment :',
                     style: Style.whiteBold12.copyWith(
                         color: Colors.white, fontWeight: FontWeight.normal),
                   ),
-                  SizedBox(height: 4),
+                  const SizedBox(height: 4),
                   SizedBox(
                     height: MediaQuery.of(context).size.width / 6,
                     child: ListView.builder(

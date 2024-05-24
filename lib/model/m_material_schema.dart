@@ -37,11 +37,11 @@ class MMaterialSchema {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['material_id'] = this.materialId;
-    data['material_code'] = this.materialCode;
-    data['material_name'] = this.materialName;
-    data['material_uom'] = this.materialUom;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['material_id'] = materialId;
+    data['material_code'] = materialCode;
+    data['material_name'] = materialName;
+    data['material_uom'] = materialUom;
     // data['created_by'] = this.createdBy;
     // data['created_date'] = this.createdDate;
     // data['created_time'] = this.createdTime;

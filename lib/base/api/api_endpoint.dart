@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 class APIEndPoint {
   static const LOGIN_ENDPOINT = "/auth/login";
   static const UPLOAD_ENDPOINT = "/in/upload";

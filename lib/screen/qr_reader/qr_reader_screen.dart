@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
 class QRReaderScreen extends StatefulWidget {
-  const QRReaderScreen({Key? key}) : super(key: key);
+  const QRReaderScreen({super.key});
 
   @override
   State<QRReaderScreen> createState() => _QRReaderScreenState();
@@ -29,7 +29,7 @@ class _QRReaderScreenState extends State<QRReaderScreen> {
             MediaQuery.of(context).size.height < 400)
         ? 250.0
         : 300.0;
-    return Container(
+    return SizedBox(
       height: 300,
       child: QRView(
         key: qrKeyTPH,
