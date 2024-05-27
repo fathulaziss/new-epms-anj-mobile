@@ -44,6 +44,8 @@ class AttendanceNotifier extends ChangeNotifier {
 
   getMAttendanceSchema() async {
     _mAttendanceSchema = await DatabaseMAttendance().selectEmployeeAttendance();
+    _mAttendanceSchema.add(MAttendanceSchema(
+        attendanceCode: 'L', attendanceDesc: 'Libur', attendanceId: 0));
     notifyListeners();
   }
 

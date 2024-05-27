@@ -47,6 +47,8 @@ class KeraniPanenNotifier extends ChangeNotifier {
     List<OPH> listOPH0 = await DatabaseOPH().selectOPH();
     List<TAttendanceSchema> listAttendance0 =
         await DatabaseAttendance().selectEmployeeAttendance();
+    listAttendance0.removeWhere((element) => element.attendanceCode == 'L');
+
     if (listOPH0.isNotEmpty) {
       List<OPH> photo = await DatabaseOPH().selectOPHPhoto();
       if (photo.isNotEmpty) {
@@ -76,8 +78,7 @@ class KeraniPanenNotifier extends ChangeNotifier {
     } else if (listAttendance0.isNotEmpty) {
       _dialogService.showLoadingDialog(title: "Upload OPH");
       List<String> mapListAttendance = [];
-      List<TAttendanceSchema> listAttendance0 =
-          await DatabaseAttendance().selectEmployeeAttendance();
+
       for (int i = 0; i < listAttendance0.length; i++) {
         String jsonString = jsonEncode(listAttendance0[i]);
         mapListAttendance.add("\"$i\":$jsonString");

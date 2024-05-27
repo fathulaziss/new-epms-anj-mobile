@@ -73,4 +73,9 @@ class TAttendanceSchema {
     data['updated_time'] = updatedTime;
     return data;
   }
+
+  @override
+  String toString() {
+    return 'TAttendanceSchema(attendance_desc : $attendanceDesc)';
+  }
 }

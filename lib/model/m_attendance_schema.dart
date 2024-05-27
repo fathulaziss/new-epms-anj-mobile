@@ -25,6 +25,11 @@ class MAttendanceSchema extends Equatable {
   }
 
   @override
+  String toString() {
+    return 'MAttendanceSchema(attendance_id : $attendanceId, attendance_code: $attendanceCode, attendance_desc: $attendanceDesc)';
+  }
+
+  @override
   List<Object> get props => [attendanceCode!, attendanceDesc!];
 
   @override
