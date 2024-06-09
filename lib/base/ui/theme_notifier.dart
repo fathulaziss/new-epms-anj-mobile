@@ -22,7 +22,7 @@ class ThemeNotifier with ChangeNotifier {
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all(Palette.primaryColorProd),
+        backgroundColor: WidgetStateProperty.all(Palette.primaryColorProd),
       ),
     ),
     scaffoldBackgroundColor: Colors.black,
@@ -48,13 +48,13 @@ class ThemeNotifier with ChangeNotifier {
     cardColor: Colors.white,
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all(Palette.greenColor),
+        backgroundColor: WidgetStateProperty.all(Palette.greenColor),
       ),
     ),
     colorScheme: ColorScheme.fromSwatch(
       primarySwatch: Colors.orange,
       brightness: Brightness.light,
-    ).copyWith(background: Colors.white),
+    ).copyWith(surface: Colors.white),
     useMaterial3: true,
   );
 
