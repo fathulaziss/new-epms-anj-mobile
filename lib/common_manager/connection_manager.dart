@@ -4,17 +4,13 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/services.dart';
 
 class ConnectionManager {
-  final ConnectivityResult _connectionStatus = ConnectivityResult.none;
-  final Connectivity _connectivity = Connectivity();
-
-  Future<ConnectivityResult> checkConnection() async {
-    late ConnectivityResult result;
+  Future<List<ConnectivityResult>> checkConnection() async {
     try {
-      result = await _connectivity.checkConnectivity();
+      final result = await (Connectivity().checkConnectivity());
+      return result;
     } on PlatformException catch (e) {
       print('Couldn\'t check connectivity status $e');
-      return _connectionStatus;
+      return <ConnectivityResult>[ConnectivityResult.none];
     }
-    return result;
   }
 }
