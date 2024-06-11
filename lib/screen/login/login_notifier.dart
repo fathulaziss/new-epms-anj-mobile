@@ -240,12 +240,13 @@ class LoginNotifier extends ChangeNotifier {
     StorageManager.saveData("inspectionToken", data.token);
     StorageManager.saveData('inspectionTokenExpired', data.tokenExpiredAt);
     StorageManager.saveData("userName", username);
-    StorageManager.saveData('topic', 'development_user_${data.user.username}');
+    StorageManager.saveData(
+        'topic', '${AppConfig.firebaseTopic}_user_${data.user.username}');
     DatabaseHelper().deleteMasterDataInspection();
     await DatabaseUserInspectionConfig.insetData(data.user);
     await DatabaseAccessInspection.insetData(data.access);
-    await FirebaseMessaging.instance
-        .subscribeToTopic('development_user_${data.user.username}');
+    await FirebaseMessaging.instance.subscribeToTopic(
+        '${AppConfig.firebaseTopic}_user_${data.user.username}');
   }
 
   onPressResetData(BuildContext context) {

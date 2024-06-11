@@ -37,4 +37,14 @@ class AppConfig {
         return 'EPMS';
     }
   }
+
+  static String get firebaseTopic {
+    switch (appFlavor) {
+      case Flavor.development:
+        return 'development';
+
+      case Flavor.production:
+        return 'production';
+    }
+  }
 }
