@@ -255,7 +255,10 @@ class FormOPHNotifier extends ChangeNotifier {
         await DatabaseMCustomerCodeSchema().selectMCustomerCodeSchema();
     if (dataMCustomer.isNotEmpty) {
       for (var data in dataMCustomer) {
-        if (data.customerCode == 'INT_PMA1') {
+        if (_supervisor!.mandorCode!.contains('PM') &&
+            data.customerCode == 'INT_PMA1') {
+          _listMCustomer.add(data);
+        } else {
           _listMCustomer.add(data);
         }
       }

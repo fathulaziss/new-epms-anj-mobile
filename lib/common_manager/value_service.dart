@@ -45,8 +45,8 @@ class ValueService {
 
     int countInti = 0;
     int countPlasma = 0;
-    // typeTBS = 1 Inti, 2 Plasma, 3 Campuran
-    int typeTBS = checkTypeTBS(list);
+    // typeTBS = 1 Inti PMP, 2 Plasma PMP, 3 Campuran PMP, 4 Inti PPM, 5 Plasma PPM, 6 Campuran PPM
+    int typeTBS = checkTypeTBS(spb, list);
 
     MEstateSchema? mEstateSchemaInti;
     MEstateSchema? mEstateSchemaPlasma;
@@ -71,14 +71,29 @@ class ValueService {
     }
 
     if (countInti > 0 && countPlasma > 0) {
-      typeTBS = 3;
+      if (spb.spbKeraniTransportEmployeeCode!.contains('PM')) {
+        typeTBS = 3;
+        // typeTBS = 6;
+      } else {
+        typeTBS = 6;
+      }
     } else if (countInti > 0) {
-      typeTBS = 1;
+      if (spb.spbKeraniTransportEmployeeCode!.contains('PM')) {
+        typeTBS = 1;
+        // typeTBS = 4;
+      } else {
+        typeTBS = 4;
+      }
     } else if (countPlasma > 0) {
-      typeTBS = 2;
+      if (spb.spbKeraniTransportEmployeeCode!.contains('PM')) {
+        typeTBS = 2;
+        // typeTBS = 5;
+      } else {
+        typeTBS = 5;
+      }
     }
 
-    if (typeTBS == 3) {
+    if (typeTBS == 3 || typeTBS == 6) {
 // Check Most Estate & Division Inti
       int maxCountEstateInti = 0;
       for (int i = 0; i < listSPBDetailInti.length; i++) {
@@ -214,7 +229,7 @@ class ValueService {
     //   }
     // }
 
-    if (typeTBS == 3) {
+    if (typeTBS == 3 || typeTBS == 6) {
       int fghInti = 0;
       int tempInti = 0;
       int temp2Inti = 0;
@@ -341,7 +356,7 @@ class ValueService {
 
     // obj.sort((a, b) => b.tbsType!.compareTo(a.tbsType!));
     // obj.forEach((element) {
-    //   if (typeTBS == 3) {
+    //   if (typeTBS == 3 || typeTBS == 6) {
     //     if (plasmaValidator(element.ophEstateCode!) == 1) {
     //       print(
     //           'cek blockFormatInti : ${plasmaValidator(element.ophEstateCode!)}');
@@ -370,18 +385,18 @@ class ValueService {
     });
  */
 
-    if (typeTBS == 3) {
+    if (typeTBS == 3 || typeTBS == 6) {
       // spbTag = spbTagCampuran;
       String blockListInti = blockFormatInti.join("#");
       String blockListPlasma = blockFormatPlasma.join("#");
       var spbTagCampuranNew =
-          "S${spb.spbCardId},${spb.spbId},${spb.spbType},${spb.spbKeraniTransportEmployeeCode},${spb.spbDriverEmployeeCode},${spb.spbDeliverToCode},${spb.spbDeliverToName},${spb.spbLicenseNumber},$mostEstateCodePlasma,$mostDivisionCodePlasma,${spb.spbTotalOph},${spb.spbTotalBunches},${spb.spbTotalLooseFruit},${spb.spbEstimateTonnage},${spb.createdDate},${spb.createdTime},${mEstateSchemaPlasma?.estateVendorCode},$typeTBS,${mEstateSchemaPlasma?.estateVendorCode!.substring(4)}[$blockListPlasma],${mEstateSchemaInti?.estateVendorCode},$mostDivisionCodeInti,${mEstateSchemaInti?.estateVendorCode!.substring(4)}[$blockListInti]";
+          "S${spb.spbCardId},${spb.spbId},${(spb.spbKeraniTransportEmployeeCode!.contains('PM')) ? (spb.spbType == 1) ? 1 : 2 : (spb.spbType == 1) ? 4 : 5},${spb.spbKeraniTransportEmployeeCode},${spb.spbDriverEmployeeCode},${spb.spbDeliverToCode},${spb.spbDeliverToName},${spb.spbLicenseNumber},$mostEstateCodePlasma,$mostDivisionCodePlasma,${spb.spbTotalOph},${spb.spbTotalBunches},${spb.spbTotalLooseFruit},${spb.spbEstimateTonnage},${spb.createdDate},${spb.createdTime},${mEstateSchemaPlasma?.estateVendorCode},$typeTBS,${mEstateSchemaPlasma?.estateVendorCode?.substring(4)}[$blockListPlasma],${mEstateSchemaInti?.estateVendorCode},$mostDivisionCodeInti,${mEstateSchemaInti?.estateVendorCode?.substring(4)}[$blockListInti]";
       spbTag = spbTagCampuranNew;
     } else {
       int isPlasma = plasmaValidator(spb.spbEstateCode!);
       String blockList = blockFormatIntiOrPlasma.join("#");
       var spbTagIntiOrPlasma =
-          "S${spb.spbCardId},${spb.spbId},${spb.spbType},${spb.spbKeraniTransportEmployeeCode},${spb.spbDriverEmployeeCode},${spb.spbDeliverToCode},${spb.spbDeliverToName},${spb.spbLicenseNumber},${spb.spbEstateCode},${spb.spbDivisionCode},${spb.spbTotalOph},${spb.spbTotalBunches},${spb.spbTotalLooseFruit},${spb.spbEstimateTonnage},${spb.createdDate},${spb.createdTime},${spb.spbEstateVendorCode},$isPlasma,${spb.spbEstateVendorCode!.substring(4)}[$blockList]";
+          "S${spb.spbCardId},${spb.spbId},${(spb.spbKeraniTransportEmployeeCode!.contains('PM')) ? (spb.spbType == 1) ? 1 : 2 : (spb.spbType == 1) ? 4 : 5},${spb.spbKeraniTransportEmployeeCode},${spb.spbDriverEmployeeCode},${spb.spbDeliverToCode},${spb.spbDeliverToName},${spb.spbLicenseNumber},${spb.spbEstateCode},${spb.spbDivisionCode},${spb.spbTotalOph},${spb.spbTotalBunches},${spb.spbTotalLooseFruit},${spb.spbEstimateTonnage},${spb.createdDate},${spb.createdTime},${spb.spbEstateVendorCode},${(spb.spbKeraniTransportEmployeeCode!.contains('PM')) ? (isPlasma == 1) ? 1 : 2 : (isPlasma == 1) ? 4 : 5},${spb.spbEstateVendorCode!.substring(4)}[$blockList]";
       spbTag = spbTagIntiOrPlasma;
     }
 
@@ -594,7 +609,8 @@ class ValueService {
     return i;
   }
 
-  static int checkTypeTBS(List<SPBDetail> listSPBDetail) {
+  static int checkTypeTBS(SPB spb, List<SPBDetail> listSPBDetail) {
+    // typeTBS = 1 Inti PMP, 2 Plasma PMP, 3 Campuran PMP, 4 Inti PPM, 5 Plasma PPM, 6 Campuran PPM
     int countInti = 0;
     int countPlasma = 0;
     for (var i = 0; i < listSPBDetail.length; i++) {
@@ -606,11 +622,26 @@ class ValueService {
     }
 
     if (countInti > 0 && countPlasma > 0) {
-      return 3;
+      if (spb.spbKeraniTransportEmployeeCode!.contains('PM')) {
+        return 3;
+        // return 6;
+      } else {
+        return 6;
+      }
     } else if (countInti > 0) {
-      return 1;
+      if (spb.spbKeraniTransportEmployeeCode!.contains('PM')) {
+        return 1;
+        // return 4;
+      } else {
+        return 4;
+      }
     } else if (countPlasma > 0) {
-      return 2;
+      if (spb.spbKeraniTransportEmployeeCode!.contains('PM')) {
+        return 2;
+        // return 5;
+      } else {
+        return 5;
+      }
     } else {
       return 0;
     }

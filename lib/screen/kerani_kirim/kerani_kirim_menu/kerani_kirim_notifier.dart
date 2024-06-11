@@ -67,8 +67,9 @@ class KeraniKirimNotifier extends ChangeNotifier {
           return SPBDetail.fromJson(e.toJson2());
         }));
 
-        int typeTBS = ValueService.checkTypeTBS(listSPBDetailTemp);
-        if (typeTBS == 3) {
+        int typeTBS =
+            ValueService.checkTypeTBS(listSPB0.first, listSPBDetailTemp);
+        if (typeTBS == 3 || typeTBS == 6) {
           String jsonString2 = jsonEncode(
             SPBLoader(
               loaderDestinationType: listSPBLoader0[i].loaderDestinationType,
@@ -110,8 +111,9 @@ class KeraniKirimNotifier extends ChangeNotifier {
         }));
 
         // Mapping listSPB by Checking TBS Type is Mix / Original
-        // typeTBS = 1 Inti, 2 Plasma, 3 Campuran
-        int typeTBS = ValueService.checkTypeTBS(listSPBDetailTemp);
+        // typeTBS = 1 Inti PMP, 2 Plasma PMP, 3 Campuran PMP, 4 Inti PPM, 5 Plasma PPM, 6 Campuran PPM
+        int typeTBS =
+            ValueService.checkTypeTBS(listSPB0.first, listSPBDetailTemp);
 
         int totalOphInti = 0;
         int totalJanjangInti = 0;
@@ -127,7 +129,7 @@ class KeraniKirimNotifier extends ChangeNotifier {
         String mostEstateCodePlasma = '';
         String mostDivisionCodePlasma = '';
 
-        if (typeTBS == 3) {
+        if (typeTBS == 3 || typeTBS == 6) {
           for (int i = 0; i < listSPBDetailTemp.length; i++) {
             if (ValueService.plasmaValidator(
                     listSPBDetailTemp[i].ophEstateCode!) ==
@@ -248,7 +250,7 @@ class KeraniKirimNotifier extends ChangeNotifier {
           }
         }
 
-        if (typeTBS == 3) {
+        if (typeTBS == 3 || typeTBS == 6) {
           SPB spbPlasmaTemp = listSPB0[i];
           spbPlasmaTemp.spbId = '${listSPB0[i].spbId}_1';
           spbPlasmaTemp.spbEstateCode = mostEstateCodePlasma;
