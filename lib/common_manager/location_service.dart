@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_print
+// ignore_for_file: avoid_print, no_wildcard_variable_uses
 
 import 'dart:async';
 

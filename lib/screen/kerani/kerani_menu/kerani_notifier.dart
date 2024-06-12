@@ -600,7 +600,7 @@ class KeraniNotifier extends ChangeNotifier {
   onPressYes() {
     _dialogService.popDialog();
     ConnectionManager().checkConnection().then((value) {
-      if (value == ConnectivityResult.none) {
+      if (value.contains(ConnectivityResult.none)) {
         FlushBarManager.showFlushBarWarning(
             _navigationService.navigatorKey.currentContext!,
             "Koneksi",

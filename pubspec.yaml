@@ -29,26 +29,26 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   another_flushbar: ^1.10.28
-  camera: ^0.10.5
+  camera: ^0.11.0+1
   change_app_package_name: ^1.1.0
   collection: ^1.18.0
-  connectivity_plus: ^5.0.2
+  connectivity_plus: ^6.0.3
   cron: ^0.6.0
   cupertino_icons: ^1.0.6
   date_format: ^2.0.5
-  device_info_plus: ^9.1.1
+  device_info_plus: ^10.1.0
   encrypt: ^5.0.1
   equatable: ^2.0.3
   expandable: ^5.0.1
-  firebase_core: ^2.24.1
-  firebase_messaging: ^14.7.10
+  firebase_core: ^3.1.0
+  firebase_messaging: ^15.0.1
   flutter:
     sdk: flutter
   flutter_launcher_icons: ^0.13.1
-  flutter_local_notifications: ^16.2.0
+  flutter_local_notifications: ^17.1.2
   flutter_spinkit: any
   fluttericon: ^2.0.0
-  geolocator: ^10.1.0
+  geolocator: ^12.0.0
   get_it: ^7.7.0
   http: any
   http_parser: ^4.0.2
@@ -62,16 +62,16 @@ dependencies:
   path: ^1.9.0
   path_provider: ^2.0.8
   permission_handler: any
-  photo_view: ^0.14.0
+  photo_view: ^0.15.0
   provider: ^6.0.2
   qr_code_scanner: ^1.0.1
   responsive_framework: ^1.4.0
   shared_preferences: ^2.0.11
   sqflite: ^2.0.1
-  syncfusion_flutter_maps: ^24.1.45
+  syncfusion_flutter_maps: ^26.1.35
 
 dev_dependencies:
-  flutter_lints: ^3.0.0
+  flutter_lints: ^4.0.0
   flutter_test:
     sdk: flutter
 
