@@ -20,188 +20,1159 @@ class _SupervisorSPBFormFruitState extends State<SupervisorSPBFormFruit> {
         child: Center(
           child: Padding(
             padding: const EdgeInsets.all(22.0),
-            child: Column(children: [
-              Table(
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Expanded(
+                      flex: 3,
+                      child: Text("Masak", style: Style.textBold16),
+                    ),
+                    Expanded(
+                      flex: 6,
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              const Expanded(child: Text('Normal')),
+                              Expanded(
+                                child: TextFormField(
+                                  // controller: notifier.bunchesRipe,
+                                  keyboardType: TextInputType.number,
+                                  textAlign: TextAlign.center,
+                                  style: Style.textBold20,
+                                  inputFormatters: [
+                                    FilteringTextInputFormatter.allow(
+                                        RegExp(r'[0-9]')),
+                                  ],
+                                  decoration: const InputDecoration(
+                                    hintText: "0",
+                                    isDense: true,
+                                  ),
+                                  onChanged: (value) {
+                                    // notifier.countBunches(
+                                    //     context, notifier.bunchesRipe);
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 8),
+                          Row(
+                            children: [
+                              const Expanded(child: Text('Abnormal')),
+                              Expanded(
+                                child: TextFormField(
+                                  enabled: false,
+                                  controller: notifier.bunchesTotal,
+                                  keyboardType: TextInputType.number,
+                                  textAlign: TextAlign.center,
+                                  style: Style.textBold20,
+                                  inputFormatters: [
+                                    FilteringTextInputFormatter.allow(
+                                        RegExp(r'[0-9]')),
+                                  ],
+                                  decoration: const InputDecoration(
+                                    hintText: "0",
+                                    border: InputBorder.none,
+                                    isDense: true,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              const Expanded(child: Text('Partenocarpi')),
+                              Expanded(
+                                child: TextFormField(
+                                  // controller: notifier.bunchesRipe,
+                                  keyboardType: TextInputType.number,
+                                  textAlign: TextAlign.center,
+                                  style: Style.textBold20,
+                                  inputFormatters: [
+                                    FilteringTextInputFormatter.allow(
+                                        RegExp(r'[0-9]')),
+                                  ],
+                                  decoration: const InputDecoration(
+                                    hintText: "0",
+                                    isDense: true,
+                                  ),
+                                  onChanged: (value) {
+                                    // notifier.countBunches(
+                                    //     context, notifier.bunchesRipe);
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 8),
+                          Row(
+                            children: [
+                              const Expanded(child: Text('Buah Patah')),
+                              Expanded(
+                                child: TextFormField(
+                                  // controller: notifier.bunchesRipe,
+                                  keyboardType: TextInputType.number,
+                                  textAlign: TextAlign.center,
+                                  style: Style.textBold20,
+                                  inputFormatters: [
+                                    FilteringTextInputFormatter.allow(
+                                        RegExp(r'[0-9]')),
+                                  ],
+                                  decoration: const InputDecoration(
+                                    hintText: "0",
+                                    isDense: true,
+                                  ),
+                                  onChanged: (value) {
+                                    // notifier.countBunches(
+                                    //     context, notifier.bunchesRipe);
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 8),
+                          Row(
+                            children: [
+                              const Expanded(child: Text('Buah Dimakan Tikus')),
+                              Expanded(
+                                child: TextFormField(
+                                  // controller: notifier.bunchesRipe,
+                                  keyboardType: TextInputType.number,
+                                  textAlign: TextAlign.center,
+                                  style: Style.textBold20,
+                                  inputFormatters: [
+                                    FilteringTextInputFormatter.allow(
+                                        RegExp(r'[0-9]')),
+                                  ],
+                                  decoration: const InputDecoration(
+                                    hintText: "0",
+                                    isDense: true,
+                                  ),
+                                  onChanged: (value) {
+                                    // notifier.countBunches(
+                                    //     context, notifier.bunchesRipe);
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 8),
+                          Row(
+                            children: [
+                              const Expanded(child: Text('Buah Busuk')),
+                              Expanded(
+                                child: TextFormField(
+                                  // controller: notifier.bunchesRipe,
+                                  keyboardType: TextInputType.number,
+                                  textAlign: TextAlign.center,
+                                  style: Style.textBold20,
+                                  inputFormatters: [
+                                    FilteringTextInputFormatter.allow(
+                                        RegExp(r'[0-9]')),
+                                  ],
+                                  decoration: const InputDecoration(
+                                    hintText: "0",
+                                    isDense: true,
+                                  ),
+                                  onChanged: (value) {
+                                    // notifier.countBunches(
+                                    //     context, notifier.bunchesRipe);
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 8),
+                          Row(
+                            children: [
+                              const Expanded(child: Text('Dsb')),
+                              Expanded(
+                                child: TextFormField(
+                                  // controller: notifier.bunchesRipe,
+                                  keyboardType: TextInputType.number,
+                                  textAlign: TextAlign.center,
+                                  style: Style.textBold20,
+                                  inputFormatters: [
+                                    FilteringTextInputFormatter.allow(
+                                        RegExp(r'[0-9]')),
+                                  ],
+                                  decoration: const InputDecoration(
+                                    hintText: "0",
+                                    isDense: true,
+                                  ),
+                                  onChanged: (value) {
+                                    // notifier.countBunches(
+                                    //     context, notifier.bunchesRipe);
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                const Divider(),
+                Row(
+                  children: [
+                    Expanded(
+                      flex: 3,
+                      child: Text("Lewat\nMasak", style: Style.textBold16),
+                    ),
+                    Expanded(
+                      flex: 6,
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              const Expanded(child: Text('Normal')),
+                              Expanded(
+                                child: TextFormField(
+                                  // controller: notifier.bunchesRipe,
+                                  keyboardType: TextInputType.number,
+                                  textAlign: TextAlign.center,
+                                  style: Style.textBold20,
+                                  inputFormatters: [
+                                    FilteringTextInputFormatter.allow(
+                                        RegExp(r'[0-9]')),
+                                  ],
+                                  decoration: const InputDecoration(
+                                    hintText: "0",
+                                    isDense: true,
+                                  ),
+                                  onChanged: (value) {
+                                    // notifier.countBunches(
+                                    //     context, notifier.bunchesRipe);
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 8),
+                          Row(
+                            children: [
+                              const Expanded(child: Text('Abnormal')),
+                              Expanded(
+                                child: TextFormField(
+                                  enabled: false,
+                                  controller: notifier.bunchesTotal,
+                                  keyboardType: TextInputType.number,
+                                  textAlign: TextAlign.center,
+                                  style: Style.textBold20,
+                                  inputFormatters: [
+                                    FilteringTextInputFormatter.allow(
+                                        RegExp(r'[0-9]')),
+                                  ],
+                                  decoration: const InputDecoration(
+                                    hintText: "0",
+                                    border: InputBorder.none,
+                                    isDense: true,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              const Expanded(child: Text('Partenocarpi')),
+                              Expanded(
+                                child: TextFormField(
+                                  // controller: notifier.bunchesRipe,
+                                  keyboardType: TextInputType.number,
+                                  textAlign: TextAlign.center,
+                                  style: Style.textBold20,
+                                  inputFormatters: [
+                                    FilteringTextInputFormatter.allow(
+                                        RegExp(r'[0-9]')),
+                                  ],
+                                  decoration: const InputDecoration(
+                                    hintText: "0",
+                                    isDense: true,
+                                  ),
+                                  onChanged: (value) {
+                                    // notifier.countBunches(
+                                    //     context, notifier.bunchesRipe);
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 8),
+                          Row(
+                            children: [
+                              const Expanded(child: Text('Buah Patah')),
+                              Expanded(
+                                child: TextFormField(
+                                  // controller: notifier.bunchesRipe,
+                                  keyboardType: TextInputType.number,
+                                  textAlign: TextAlign.center,
+                                  style: Style.textBold20,
+                                  inputFormatters: [
+                                    FilteringTextInputFormatter.allow(
+                                        RegExp(r'[0-9]')),
+                                  ],
+                                  decoration: const InputDecoration(
+                                    hintText: "0",
+                                    isDense: true,
+                                  ),
+                                  onChanged: (value) {
+                                    // notifier.countBunches(
+                                    //     context, notifier.bunchesRipe);
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 8),
+                          Row(
+                            children: [
+                              const Expanded(child: Text('Buah Dimakan Tikus')),
+                              Expanded(
+                                child: TextFormField(
+                                  // controller: notifier.bunchesRipe,
+                                  keyboardType: TextInputType.number,
+                                  textAlign: TextAlign.center,
+                                  style: Style.textBold20,
+                                  inputFormatters: [
+                                    FilteringTextInputFormatter.allow(
+                                        RegExp(r'[0-9]')),
+                                  ],
+                                  decoration: const InputDecoration(
+                                    hintText: "0",
+                                    isDense: true,
+                                  ),
+                                  onChanged: (value) {
+                                    // notifier.countBunches(
+                                    //     context, notifier.bunchesRipe);
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 8),
+                          Row(
+                            children: [
+                              const Expanded(child: Text('Buah Busuk')),
+                              Expanded(
+                                child: TextFormField(
+                                  // controller: notifier.bunchesRipe,
+                                  keyboardType: TextInputType.number,
+                                  textAlign: TextAlign.center,
+                                  style: Style.textBold20,
+                                  inputFormatters: [
+                                    FilteringTextInputFormatter.allow(
+                                        RegExp(r'[0-9]')),
+                                  ],
+                                  decoration: const InputDecoration(
+                                    hintText: "0",
+                                    isDense: true,
+                                  ),
+                                  onChanged: (value) {
+                                    // notifier.countBunches(
+                                    //     context, notifier.bunchesRipe);
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 8),
+                          Row(
+                            children: [
+                              const Expanded(child: Text('Dsb')),
+                              Expanded(
+                                child: TextFormField(
+                                  // controller: notifier.bunchesRipe,
+                                  keyboardType: TextInputType.number,
+                                  textAlign: TextAlign.center,
+                                  style: Style.textBold20,
+                                  inputFormatters: [
+                                    FilteringTextInputFormatter.allow(
+                                        RegExp(r'[0-9]')),
+                                  ],
+                                  decoration: const InputDecoration(
+                                    hintText: "0",
+                                    isDense: true,
+                                  ),
+                                  onChanged: (value) {
+                                    // notifier.countBunches(
+                                    //     context, notifier.bunchesRipe);
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                const Divider(),
+                Row(
+                  children: [
+                    Expanded(
+                      flex: 3,
+                      child: Text("Mengkal", style: Style.textBold16),
+                    ),
+                    Expanded(
+                      flex: 6,
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              const Expanded(child: Text('Normal')),
+                              Expanded(
+                                child: TextFormField(
+                                  // controller: notifier.bunchesRipe,
+                                  keyboardType: TextInputType.number,
+                                  textAlign: TextAlign.center,
+                                  style: Style.textBold20,
+                                  inputFormatters: [
+                                    FilteringTextInputFormatter.allow(
+                                        RegExp(r'[0-9]')),
+                                  ],
+                                  decoration: const InputDecoration(
+                                    hintText: "0",
+                                    isDense: true,
+                                  ),
+                                  onChanged: (value) {
+                                    // notifier.countBunches(
+                                    //     context, notifier.bunchesRipe);
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 8),
+                          Row(
+                            children: [
+                              const Expanded(child: Text('Abnormal')),
+                              Expanded(
+                                child: TextFormField(
+                                  enabled: false,
+                                  controller: notifier.bunchesTotal,
+                                  keyboardType: TextInputType.number,
+                                  textAlign: TextAlign.center,
+                                  style: Style.textBold20,
+                                  inputFormatters: [
+                                    FilteringTextInputFormatter.allow(
+                                        RegExp(r'[0-9]')),
+                                  ],
+                                  decoration: const InputDecoration(
+                                    hintText: "0",
+                                    border: InputBorder.none,
+                                    isDense: true,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              const Expanded(child: Text('Partenocarpi')),
+                              Expanded(
+                                child: TextFormField(
+                                  // controller: notifier.bunchesRipe,
+                                  keyboardType: TextInputType.number,
+                                  textAlign: TextAlign.center,
+                                  style: Style.textBold20,
+                                  inputFormatters: [
+                                    FilteringTextInputFormatter.allow(
+                                        RegExp(r'[0-9]')),
+                                  ],
+                                  decoration: const InputDecoration(
+                                    hintText: "0",
+                                    isDense: true,
+                                  ),
+                                  onChanged: (value) {
+                                    // notifier.countBunches(
+                                    //     context, notifier.bunchesRipe);
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 8),
+                          Row(
+                            children: [
+                              const Expanded(child: Text('Buah Patah')),
+                              Expanded(
+                                child: TextFormField(
+                                  // controller: notifier.bunchesRipe,
+                                  keyboardType: TextInputType.number,
+                                  textAlign: TextAlign.center,
+                                  style: Style.textBold20,
+                                  inputFormatters: [
+                                    FilteringTextInputFormatter.allow(
+                                        RegExp(r'[0-9]')),
+                                  ],
+                                  decoration: const InputDecoration(
+                                    hintText: "0",
+                                    isDense: true,
+                                  ),
+                                  onChanged: (value) {
+                                    // notifier.countBunches(
+                                    //     context, notifier.bunchesRipe);
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 8),
+                          Row(
+                            children: [
+                              const Expanded(child: Text('Buah Dimakan Tikus')),
+                              Expanded(
+                                child: TextFormField(
+                                  // controller: notifier.bunchesRipe,
+                                  keyboardType: TextInputType.number,
+                                  textAlign: TextAlign.center,
+                                  style: Style.textBold20,
+                                  inputFormatters: [
+                                    FilteringTextInputFormatter.allow(
+                                        RegExp(r'[0-9]')),
+                                  ],
+                                  decoration: const InputDecoration(
+                                    hintText: "0",
+                                    isDense: true,
+                                  ),
+                                  onChanged: (value) {
+                                    // notifier.countBunches(
+                                    //     context, notifier.bunchesRipe);
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 8),
+                          Row(
+                            children: [
+                              const Expanded(child: Text('Buah Busuk')),
+                              Expanded(
+                                child: TextFormField(
+                                  // controller: notifier.bunchesRipe,
+                                  keyboardType: TextInputType.number,
+                                  textAlign: TextAlign.center,
+                                  style: Style.textBold20,
+                                  inputFormatters: [
+                                    FilteringTextInputFormatter.allow(
+                                        RegExp(r'[0-9]')),
+                                  ],
+                                  decoration: const InputDecoration(
+                                    hintText: "0",
+                                    isDense: true,
+                                  ),
+                                  onChanged: (value) {
+                                    // notifier.countBunches(
+                                    //     context, notifier.bunchesRipe);
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 8),
+                          Row(
+                            children: [
+                              const Expanded(child: Text('Dsb')),
+                              Expanded(
+                                child: TextFormField(
+                                  // controller: notifier.bunchesRipe,
+                                  keyboardType: TextInputType.number,
+                                  textAlign: TextAlign.center,
+                                  style: Style.textBold20,
+                                  inputFormatters: [
+                                    FilteringTextInputFormatter.allow(
+                                        RegExp(r'[0-9]')),
+                                  ],
+                                  decoration: const InputDecoration(
+                                    hintText: "0",
+                                    isDense: true,
+                                  ),
+                                  onChanged: (value) {
+                                    // notifier.countBunches(
+                                    //     context, notifier.bunchesRipe);
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                const Divider(),
+                Row(
+                  children: [
+                    Expanded(
+                      flex: 3,
+                      child: Text("Mentah", style: Style.textBold16),
+                    ),
+                    Expanded(
+                      flex: 6,
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              const Expanded(child: Text('Normal')),
+                              Expanded(
+                                child: TextFormField(
+                                  // controller: notifier.bunchesRipe,
+                                  keyboardType: TextInputType.number,
+                                  textAlign: TextAlign.center,
+                                  style: Style.textBold20,
+                                  inputFormatters: [
+                                    FilteringTextInputFormatter.allow(
+                                        RegExp(r'[0-9]')),
+                                  ],
+                                  decoration: const InputDecoration(
+                                    hintText: "0",
+                                    isDense: true,
+                                  ),
+                                  onChanged: (value) {
+                                    // notifier.countBunches(
+                                    //     context, notifier.bunchesRipe);
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 8),
+                          Row(
+                            children: [
+                              const Expanded(child: Text('Abnormal')),
+                              Expanded(
+                                child: TextFormField(
+                                  enabled: false,
+                                  controller: notifier.bunchesTotal,
+                                  keyboardType: TextInputType.number,
+                                  textAlign: TextAlign.center,
+                                  style: Style.textBold20,
+                                  inputFormatters: [
+                                    FilteringTextInputFormatter.allow(
+                                        RegExp(r'[0-9]')),
+                                  ],
+                                  decoration: const InputDecoration(
+                                    hintText: "0",
+                                    border: InputBorder.none,
+                                    isDense: true,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              const Expanded(child: Text('Partenocarpi')),
+                              Expanded(
+                                child: TextFormField(
+                                  // controller: notifier.bunchesRipe,
+                                  keyboardType: TextInputType.number,
+                                  textAlign: TextAlign.center,
+                                  style: Style.textBold20,
+                                  inputFormatters: [
+                                    FilteringTextInputFormatter.allow(
+                                        RegExp(r'[0-9]')),
+                                  ],
+                                  decoration: const InputDecoration(
+                                    hintText: "0",
+                                    isDense: true,
+                                  ),
+                                  onChanged: (value) {
+                                    // notifier.countBunches(
+                                    //     context, notifier.bunchesRipe);
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 8),
+                          Row(
+                            children: [
+                              const Expanded(child: Text('Buah Patah')),
+                              Expanded(
+                                child: TextFormField(
+                                  // controller: notifier.bunchesRipe,
+                                  keyboardType: TextInputType.number,
+                                  textAlign: TextAlign.center,
+                                  style: Style.textBold20,
+                                  inputFormatters: [
+                                    FilteringTextInputFormatter.allow(
+                                        RegExp(r'[0-9]')),
+                                  ],
+                                  decoration: const InputDecoration(
+                                    hintText: "0",
+                                    isDense: true,
+                                  ),
+                                  onChanged: (value) {
+                                    // notifier.countBunches(
+                                    //     context, notifier.bunchesRipe);
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 8),
+                          Row(
+                            children: [
+                              const Expanded(child: Text('Buah Dimakan Tikus')),
+                              Expanded(
+                                child: TextFormField(
+                                  // controller: notifier.bunchesRipe,
+                                  keyboardType: TextInputType.number,
+                                  textAlign: TextAlign.center,
+                                  style: Style.textBold20,
+                                  inputFormatters: [
+                                    FilteringTextInputFormatter.allow(
+                                        RegExp(r'[0-9]')),
+                                  ],
+                                  decoration: const InputDecoration(
+                                    hintText: "0",
+                                    isDense: true,
+                                  ),
+                                  onChanged: (value) {
+                                    // notifier.countBunches(
+                                    //     context, notifier.bunchesRipe);
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 8),
+                          Row(
+                            children: [
+                              const Expanded(child: Text('Buah Busuk')),
+                              Expanded(
+                                child: TextFormField(
+                                  // controller: notifier.bunchesRipe,
+                                  keyboardType: TextInputType.number,
+                                  textAlign: TextAlign.center,
+                                  style: Style.textBold20,
+                                  inputFormatters: [
+                                    FilteringTextInputFormatter.allow(
+                                        RegExp(r'[0-9]')),
+                                  ],
+                                  decoration: const InputDecoration(
+                                    hintText: "0",
+                                    isDense: true,
+                                  ),
+                                  onChanged: (value) {
+                                    // notifier.countBunches(
+                                    //     context, notifier.bunchesRipe);
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 8),
+                          Row(
+                            children: [
+                              const Expanded(child: Text('Dsb')),
+                              Expanded(
+                                child: TextFormField(
+                                  // controller: notifier.bunchesRipe,
+                                  keyboardType: TextInputType.number,
+                                  textAlign: TextAlign.center,
+                                  style: Style.textBold20,
+                                  inputFormatters: [
+                                    FilteringTextInputFormatter.allow(
+                                        RegExp(r'[0-9]')),
+                                  ],
+                                  decoration: const InputDecoration(
+                                    hintText: "0",
+                                    isDense: true,
+                                  ),
+                                  onChanged: (value) {
+                                    // notifier.countBunches(
+                                    //     context, notifier.bunchesRipe);
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                const Divider(),
+                Row(
+                  children: [
+                    Expanded(
+                      flex: 3,
+                      child: Text("Janjang\nKosong", style: Style.textBold16),
+                    ),
+                    Expanded(
+                      flex: 6,
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              const Expanded(child: Text('Normal')),
+                              Expanded(
+                                child: TextFormField(
+                                  // controller: notifier.bunchesRipe,
+                                  keyboardType: TextInputType.number,
+                                  textAlign: TextAlign.center,
+                                  style: Style.textBold20,
+                                  inputFormatters: [
+                                    FilteringTextInputFormatter.allow(
+                                        RegExp(r'[0-9]')),
+                                  ],
+                                  decoration: const InputDecoration(
+                                    hintText: "0",
+                                    isDense: true,
+                                  ),
+                                  onChanged: (value) {
+                                    // notifier.countBunches(
+                                    //     context, notifier.bunchesRipe);
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 8),
+                          Row(
+                            children: [
+                              const Expanded(child: Text('Abnormal')),
+                              Expanded(
+                                child: TextFormField(
+                                  enabled: false,
+                                  controller: notifier.bunchesTotal,
+                                  keyboardType: TextInputType.number,
+                                  textAlign: TextAlign.center,
+                                  style: Style.textBold20,
+                                  inputFormatters: [
+                                    FilteringTextInputFormatter.allow(
+                                        RegExp(r'[0-9]')),
+                                  ],
+                                  decoration: const InputDecoration(
+                                    hintText: "0",
+                                    border: InputBorder.none,
+                                    isDense: true,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              const Expanded(child: Text('Partenocarpi')),
+                              Expanded(
+                                child: TextFormField(
+                                  // controller: notifier.bunchesRipe,
+                                  keyboardType: TextInputType.number,
+                                  textAlign: TextAlign.center,
+                                  style: Style.textBold20,
+                                  inputFormatters: [
+                                    FilteringTextInputFormatter.allow(
+                                        RegExp(r'[0-9]')),
+                                  ],
+                                  decoration: const InputDecoration(
+                                    hintText: "0",
+                                    isDense: true,
+                                  ),
+                                  onChanged: (value) {
+                                    // notifier.countBunches(
+                                    //     context, notifier.bunchesRipe);
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 8),
+                          Row(
+                            children: [
+                              const Expanded(child: Text('Buah Patah')),
+                              Expanded(
+                                child: TextFormField(
+                                  // controller: notifier.bunchesRipe,
+                                  keyboardType: TextInputType.number,
+                                  textAlign: TextAlign.center,
+                                  style: Style.textBold20,
+                                  inputFormatters: [
+                                    FilteringTextInputFormatter.allow(
+                                        RegExp(r'[0-9]')),
+                                  ],
+                                  decoration: const InputDecoration(
+                                    hintText: "0",
+                                    isDense: true,
+                                  ),
+                                  onChanged: (value) {
+                                    // notifier.countBunches(
+                                    //     context, notifier.bunchesRipe);
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 8),
+                          Row(
+                            children: [
+                              const Expanded(child: Text('Buah Dimakan Tikus')),
+                              Expanded(
+                                child: TextFormField(
+                                  // controller: notifier.bunchesRipe,
+                                  keyboardType: TextInputType.number,
+                                  textAlign: TextAlign.center,
+                                  style: Style.textBold20,
+                                  inputFormatters: [
+                                    FilteringTextInputFormatter.allow(
+                                        RegExp(r'[0-9]')),
+                                  ],
+                                  decoration: const InputDecoration(
+                                    hintText: "0",
+                                    isDense: true,
+                                  ),
+                                  onChanged: (value) {
+                                    // notifier.countBunches(
+                                    //     context, notifier.bunchesRipe);
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 8),
+                          Row(
+                            children: [
+                              const Expanded(child: Text('Buah Busuk')),
+                              Expanded(
+                                child: TextFormField(
+                                  // controller: notifier.bunchesRipe,
+                                  keyboardType: TextInputType.number,
+                                  textAlign: TextAlign.center,
+                                  style: Style.textBold20,
+                                  inputFormatters: [
+                                    FilteringTextInputFormatter.allow(
+                                        RegExp(r'[0-9]')),
+                                  ],
+                                  decoration: const InputDecoration(
+                                    hintText: "0",
+                                    isDense: true,
+                                  ),
+                                  onChanged: (value) {
+                                    // notifier.countBunches(
+                                    //     context, notifier.bunchesRipe);
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 8),
+                          Row(
+                            children: [
+                              const Expanded(child: Text('Dsb')),
+                              Expanded(
+                                child: TextFormField(
+                                  // controller: notifier.bunchesRipe,
+                                  keyboardType: TextInputType.number,
+                                  textAlign: TextAlign.center,
+                                  style: Style.textBold20,
+                                  inputFormatters: [
+                                    FilteringTextInputFormatter.allow(
+                                        RegExp(r'[0-9]')),
+                                  ],
+                                  decoration: const InputDecoration(
+                                    hintText: "0",
+                                    isDense: true,
+                                  ),
+                                  onChanged: (value) {
+                                    // notifier.countBunches(
+                                    //     context, notifier.bunchesRipe);
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                const Divider(),
+                Table(
                   defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                   children: <TableRow>[
-                    const TableRow(
-                      children: <Widget>[
-                        SizedBox(
-                          width: 110,
-                          child: Column(children: [
-                            SizedBox(height: 12),
-                            Text("Masak"),
-                            SizedBox(height: 6),
-                          ]),
-                        ),
-                        SizedBox(
-                          width: 110,
-                          child: Column(children: [
-                            SizedBox(height: 12),
-                            Text("Lewat Masak"),
-                            SizedBox(height: 6),
-                          ]),
-                        ),
-                        SizedBox(
-                          width: 110,
-                          child: Column(children: [
-                            SizedBox(height: 12),
-                            Text("Mengkal"),
-                            SizedBox(height: 6),
-                          ]),
-                        ),
-                      ],
-                    ),
-                    TableRow(
-                      children: <Widget>[
-                        Container(
-                          width: 100,
-                          padding: const EdgeInsets.symmetric(horizontal: 16),
-                          child: TextFormField(
-                            controller: notifier.bunchesRipe,
-                            keyboardType: TextInputType.number,
-                            textAlign: TextAlign.center,
-                            style: Style.textBold20,
-                            inputFormatters: [
-                              FilteringTextInputFormatter.allow(
-                                  RegExp(r'[0-9]')),
-                            ],
-                            decoration: const InputDecoration(hintText: "0"),
-                            onChanged: (value) {
-                              notifier.countBunches(
-                                  context, notifier.bunchesRipe);
-                            },
-                          ),
-                        ),
-                        Container(
-                          width: 100,
-                          padding: const EdgeInsets.symmetric(horizontal: 16),
-                          child: TextFormField(
-                            controller: notifier.bunchesOverRipe,
-                            keyboardType: TextInputType.number,
-                            textAlign: TextAlign.center,
-                            style: Style.textBold20,
-                            inputFormatters: [
-                              FilteringTextInputFormatter.allow(
-                                  RegExp(r'[0-9]')),
-                            ],
-                            decoration: const InputDecoration(hintText: "0"),
-                            onChanged: (value) {
-                              notifier.countBunches(
-                                  context, notifier.bunchesOverRipe);
-                            },
-                          ),
-                        ),
-                        Container(
-                          width: 100,
-                          padding: const EdgeInsets.symmetric(horizontal: 16),
-                          child: TextFormField(
-                            controller: notifier.bunchesHalfRipe,
-                            keyboardType: TextInputType.number,
-                            textAlign: TextAlign.center,
-                            style: Style.textBold20,
-                            inputFormatters: [
-                              FilteringTextInputFormatter.allow(
-                                  RegExp(r'[0-9]')),
-                            ],
-                            decoration: const InputDecoration(hintText: "0"),
-                            onChanged: (value) {
-                              notifier.countBunches(
-                                  context, notifier.bunchesHalfRipe);
-                            },
-                          ),
-                        ),
-                      ],
-                    ),
-                    const TableRow(
-                      children: <Widget>[
-                        SizedBox(
-                          width: 110,
-                          child: Column(children: [
-                            SizedBox(height: 12),
-                            Text("Mentah"),
-                            SizedBox(height: 6),
-                          ]),
-                        ),
-                        SizedBox(
-                          width: 110,
-                          child: Column(children: [
-                            SizedBox(height: 12),
-                            Text("Tidak Normal"),
-                            SizedBox(height: 6),
-                          ]),
-                        ),
-                        SizedBox(
-                          width: 110,
-                          child: Column(children: [
-                            SizedBox(height: 12),
-                            Text("Janjang Kosong"),
-                            SizedBox(height: 6),
-                          ]),
-                        ),
-                      ],
-                    ),
-                    TableRow(
-                      children: <Widget>[
-                        Container(
-                          width: 100,
-                          padding: const EdgeInsets.symmetric(horizontal: 16),
-                          child: TextFormField(
-                            controller: notifier.bunchesUnRipe,
-                            keyboardType: TextInputType.number,
-                            textAlign: TextAlign.center,
-                            style: Style.textBold20,
-                            inputFormatters: [
-                              FilteringTextInputFormatter.allow(
-                                  RegExp(r'[0-9]')),
-                            ],
-                            decoration: const InputDecoration(hintText: "0"),
-                            onChanged: (value) {
-                              notifier.countBunches(
-                                  context, notifier.bunchesUnRipe);
-                            },
-                          ),
-                        ),
-                        Container(
-                          width: 100,
-                          padding: const EdgeInsets.symmetric(horizontal: 16),
-                          child: TextFormField(
-                            controller: notifier.bunchesAbnormal,
-                            keyboardType: TextInputType.number,
-                            textAlign: TextAlign.center,
-                            style: Style.textBold20,
-                            inputFormatters: [
-                              FilteringTextInputFormatter.allow(
-                                  RegExp(r'[0-9]')),
-                            ],
-                            decoration: const InputDecoration(hintText: "0"),
-                            onChanged: (value) {
-                              notifier.countBunches(
-                                  context, notifier.bunchesAbnormal);
-                            },
-                          ),
-                        ),
-                        Container(
-                          width: 100,
-                          padding: const EdgeInsets.symmetric(horizontal: 16),
-                          child: TextFormField(
-                            controller: notifier.bunchesEmpty,
-                            keyboardType: TextInputType.number,
-                            textAlign: TextAlign.center,
-                            style: Style.textBold20,
-                            inputFormatters: [
-                              FilteringTextInputFormatter.allow(
-                                  RegExp(r'[0-9]')),
-                            ],
-                            decoration: const InputDecoration(hintText: "0"),
-                            onChanged: (value) {
-                              notifier.countBunches(
-                                  context, notifier.bunchesEmpty);
-                            },
-                          ),
-                        ),
-                      ],
-                    ),
+                    // const TableRow(
+                    //   children: <Widget>[
+                    //     SizedBox(
+                    //       width: 110,
+                    //       child: Column(children: [
+                    //         SizedBox(height: 12),
+                    //         Text("Masak"),
+                    //         SizedBox(height: 6),
+                    //       ]),
+                    //     ),
+                    //     SizedBox(
+                    //       width: 110,
+                    //       child: Column(children: [
+                    //         SizedBox(height: 12),
+                    //         Text("Lewat Masak"),
+                    //         SizedBox(height: 6),
+                    //       ]),
+                    //     ),
+                    //     SizedBox(
+                    //       width: 110,
+                    //       child: Column(children: [
+                    //         SizedBox(height: 12),
+                    //         Text("Mengkal"),
+                    //         SizedBox(height: 6),
+                    //       ]),
+                    //     ),
+                    //   ],
+                    // ),
+                    // TableRow(
+                    //   children: <Widget>[
+                    //     Container(
+                    //       width: 100,
+                    //       padding: const EdgeInsets.symmetric(horizontal: 16),
+                    //       child: TextFormField(
+                    //         controller: notifier.bunchesRipe,
+                    //         keyboardType: TextInputType.number,
+                    //         textAlign: TextAlign.center,
+                    //         style: Style.textBold20,
+                    //         inputFormatters: [
+                    //           FilteringTextInputFormatter.allow(
+                    //               RegExp(r'[0-9]')),
+                    //         ],
+                    //         decoration: const InputDecoration(hintText: "0"),
+                    //         onChanged: (value) {
+                    //           notifier.countBunches(
+                    //               context, notifier.bunchesRipe);
+                    //         },
+                    //       ),
+                    //     ),
+                    //     Container(
+                    //       width: 100,
+                    //       padding: const EdgeInsets.symmetric(horizontal: 16),
+                    //       child: TextFormField(
+                    //         controller: notifier.bunchesOverRipe,
+                    //         keyboardType: TextInputType.number,
+                    //         textAlign: TextAlign.center,
+                    //         style: Style.textBold20,
+                    //         inputFormatters: [
+                    //           FilteringTextInputFormatter.allow(
+                    //               RegExp(r'[0-9]')),
+                    //         ],
+                    //         decoration: const InputDecoration(hintText: "0"),
+                    //         onChanged: (value) {
+                    //           notifier.countBunches(
+                    //               context, notifier.bunchesOverRipe);
+                    //         },
+                    //       ),
+                    //     ),
+                    //     Container(
+                    //       width: 100,
+                    //       padding: const EdgeInsets.symmetric(horizontal: 16),
+                    //       child: TextFormField(
+                    //         controller: notifier.bunchesHalfRipe,
+                    //         keyboardType: TextInputType.number,
+                    //         textAlign: TextAlign.center,
+                    //         style: Style.textBold20,
+                    //         inputFormatters: [
+                    //           FilteringTextInputFormatter.allow(
+                    //               RegExp(r'[0-9]')),
+                    //         ],
+                    //         decoration: const InputDecoration(hintText: "0"),
+                    //         onChanged: (value) {
+                    //           notifier.countBunches(
+                    //               context, notifier.bunchesHalfRipe);
+                    //         },
+                    //       ),
+                    //     ),
+                    //   ],
+                    // ),
+                    // const TableRow(
+                    //   children: <Widget>[
+                    //     SizedBox(
+                    //       width: 110,
+                    //       child: Column(children: [
+                    //         SizedBox(height: 12),
+                    //         Text("Mentah"),
+                    //         SizedBox(height: 6),
+                    //       ]),
+                    //     ),
+                    //     SizedBox(
+                    //       width: 110,
+                    //       child: Column(children: [
+                    //         SizedBox(height: 12),
+                    //         Text("Tidak Normal"),
+                    //         SizedBox(height: 6),
+                    //       ]),
+                    //     ),
+                    //     SizedBox(
+                    //       width: 110,
+                    //       child: Column(children: [
+                    //         SizedBox(height: 12),
+                    //         Text("Janjang Kosong"),
+                    //         SizedBox(height: 6),
+                    //       ]),
+                    //     ),
+                    //   ],
+                    // ),
+                    // TableRow(
+                    //   children: <Widget>[
+                    //     Container(
+                    //       width: 100,
+                    //       padding: const EdgeInsets.symmetric(horizontal: 16),
+                    //       child: TextFormField(
+                    //         controller: notifier.bunchesUnRipe,
+                    //         keyboardType: TextInputType.number,
+                    //         textAlign: TextAlign.center,
+                    //         style: Style.textBold20,
+                    //         inputFormatters: [
+                    //           FilteringTextInputFormatter.allow(
+                    //               RegExp(r'[0-9]')),
+                    //         ],
+                    //         decoration: const InputDecoration(hintText: "0"),
+                    //         onChanged: (value) {
+                    //           notifier.countBunches(
+                    //               context, notifier.bunchesUnRipe);
+                    //         },
+                    //       ),
+                    //     ),
+                    //     Container(
+                    //       width: 100,
+                    //       padding: const EdgeInsets.symmetric(horizontal: 16),
+                    //       child: TextFormField(
+                    //         controller: notifier.bunchesAbnormal,
+                    //         keyboardType: TextInputType.number,
+                    //         textAlign: TextAlign.center,
+                    //         style: Style.textBold20,
+                    //         inputFormatters: [
+                    //           FilteringTextInputFormatter.allow(
+                    //               RegExp(r'[0-9]')),
+                    //         ],
+                    //         decoration: const InputDecoration(hintText: "0"),
+                    //         onChanged: (value) {
+                    //           notifier.countBunches(
+                    //               context, notifier.bunchesAbnormal);
+                    //         },
+                    //       ),
+                    //     ),
+                    //     Container(
+                    //       width: 100,
+                    //       padding: const EdgeInsets.symmetric(horizontal: 16),
+                    //       child: TextFormField(
+                    //         controller: notifier.bunchesEmpty,
+                    //         keyboardType: TextInputType.number,
+                    //         textAlign: TextAlign.center,
+                    //         style: Style.textBold20,
+                    //         inputFormatters: [
+                    //           FilteringTextInputFormatter.allow(
+                    //               RegExp(r'[0-9]')),
+                    //         ],
+                    //         decoration: const InputDecoration(hintText: "0"),
+                    //         onChanged: (value) {
+                    //           notifier.countBunches(
+                    //               context, notifier.bunchesEmpty);
+                    //         },
+                    //       ),
+                    //     ),
+                    //   ],
+                    // ),
                     const TableRow(
                       children: <Widget>[
                         SizedBox(
@@ -235,77 +1206,84 @@ class _SupervisorSPBFormFruitState extends State<SupervisorSPBFormFruit> {
                         ),
                       ],
                     ),
-                    TableRow(children: <Widget>[
-                      Container(
-                        width: 100,
-                        padding: const EdgeInsets.symmetric(horizontal: 16),
-                        child: TextFormField(
-                          enabled: false,
-                          controller: notifier.bunchesTotal,
-                          keyboardType: TextInputType.number,
-                          textAlign: TextAlign.center,
-                          style: Style.textBold20,
-                          inputFormatters: [
-                            FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
-                          ],
-                          decoration: const InputDecoration(
-                              hintText: "0", border: InputBorder.none),
+                    TableRow(
+                      children: <Widget>[
+                        Container(
+                          width: 100,
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
+                          child: TextFormField(
+                            enabled: false,
+                            controller: notifier.bunchesTotal,
+                            keyboardType: TextInputType.number,
+                            textAlign: TextAlign.center,
+                            style: Style.textBold20,
+                            inputFormatters: [
+                              FilteringTextInputFormatter.allow(
+                                  RegExp(r'[0-9]')),
+                            ],
+                            decoration: const InputDecoration(
+                                hintText: "0", border: InputBorder.none),
+                          ),
                         ),
-                      ),
-                      Container(
-                        width: 100,
-                        padding: const EdgeInsets.symmetric(horizontal: 16),
-                        child: TextFormField(
-                          controller: notifier.looseFruits,
-                          keyboardType: TextInputType.number,
-                          textAlign: TextAlign.center,
-                          style: Style.textBold20,
-                          inputFormatters: [
-                            FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
-                          ],
-                          decoration: const InputDecoration(hintText: "0"),
-                          onChanged: (value) {
-                            notifier.countBunches(
-                                context, notifier.looseFruits);
-                          },
+                        Container(
+                          width: 100,
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
+                          child: TextFormField(
+                            controller: notifier.looseFruits,
+                            keyboardType: TextInputType.number,
+                            textAlign: TextAlign.center,
+                            style: Style.textBold20,
+                            inputFormatters: [
+                              FilteringTextInputFormatter.allow(
+                                  RegExp(r'[0-9]')),
+                            ],
+                            decoration: const InputDecoration(hintText: "0"),
+                            onChanged: (value) {
+                              notifier.countBunches(
+                                  context, notifier.looseFruits);
+                            },
+                          ),
                         ),
-                      ),
-                      Container(
-                        width: 100,
-                        padding: const EdgeInsets.symmetric(horizontal: 16),
-                        child: TextFormField(
-                          enabled: false,
-                          controller: notifier.bunchesNormalTotal,
-                          keyboardType: TextInputType.number,
-                          textAlign: TextAlign.center,
-                          style: Style.textBold20,
-                          inputFormatters: [
-                            FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
-                          ],
-                          decoration: const InputDecoration(
-                              hintText: "0", border: InputBorder.none),
-                          onChanged: (value) {
-                            notifier.countBunches(
-                                context, notifier.bunchesNormalTotal);
-                          },
+                        Container(
+                          width: 100,
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
+                          child: TextFormField(
+                            enabled: false,
+                            controller: notifier.bunchesNormalTotal,
+                            keyboardType: TextInputType.number,
+                            textAlign: TextAlign.center,
+                            style: Style.textBold20,
+                            inputFormatters: [
+                              FilteringTextInputFormatter.allow(
+                                  RegExp(r'[0-9]')),
+                            ],
+                            decoration: const InputDecoration(
+                                hintText: "0", border: InputBorder.none),
+                            onChanged: (value) {
+                              notifier.countBunches(
+                                  context, notifier.bunchesNormalTotal);
+                            },
+                          ),
                         ),
-                      ),
-                    ]),
-                  ]),
-              const SizedBox(height: 30),
-              Text("KUALITAS JANJANG", style: Style.textBold16),
-              const SizedBox(height: 20),
-              Table(
-                  defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-                  children: <TableRow>[
+                      ],
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 30),
+                Text("KUALITAS JANJANG", style: Style.textBold16),
+                const SizedBox(height: 20),
+                Table(
+                  children: [
                     const TableRow(
                       children: <Widget>[
                         SizedBox(
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
-                            Text("Janjang tangkai panjang",
-                                textAlign: TextAlign.center),
+                            Text(
+                              "Total Janjang Tidak Normal",
+                              textAlign: TextAlign.center,
+                            ),
                             SizedBox(height: 6),
                           ]),
                         ),
@@ -313,8 +1291,23 @@ class _SupervisorSPBFormFruitState extends State<SupervisorSPBFormFruit> {
                           width: 110,
                           child: Column(children: [
                             SizedBox(height: 12),
-                            Text("Catatan janjang tangkai panjang",
-                                textAlign: TextAlign.center),
+                            Text(
+                              "Janjang Tangkai Panjang",
+                              textAlign: TextAlign.center,
+                            ),
+                            SizedBox(height: 6),
+                          ]),
+                        ),
+                        SizedBox(
+                          width: 110,
+                          child: Column(children: [
+                            SizedBox(height: 12),
+                            SizedBox(
+                                width: 100,
+                                child: Text(
+                                  "Catatan Janjang Tangkai Panjang",
+                                  textAlign: TextAlign.center,
+                                )),
                             SizedBox(height: 6),
                           ]),
                         ),
@@ -322,6 +1315,23 @@ class _SupervisorSPBFormFruitState extends State<SupervisorSPBFormFruit> {
                     ),
                     TableRow(
                       children: <Widget>[
+                        Container(
+                          width: 100,
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
+                          child: TextFormField(
+                            enabled: false,
+                            controller: notifier.bunchesTotal,
+                            keyboardType: TextInputType.number,
+                            textAlign: TextAlign.center,
+                            style: Style.textBold20,
+                            inputFormatters: [
+                              FilteringTextInputFormatter.allow(
+                                  RegExp(r'[0-9]')),
+                            ],
+                            decoration: const InputDecoration(
+                                hintText: "0", border: InputBorder.none),
+                          ),
+                        ),
                         Container(
                           width: 100,
                           padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -354,89 +1364,91 @@ class _SupervisorSPBFormFruitState extends State<SupervisorSPBFormFruit> {
                         ),
                       ],
                     ),
-                  ]),
-              const SizedBox(height: 30),
-              Text("KUALITAS BRONDOLAN", style: Style.textBold16),
-              const SizedBox(height: 20),
-              Table(
-                  defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-                  children: <TableRow>[
-                    const TableRow(
-                      children: <Widget>[
-                        SizedBox(
-                          width: 110,
-                          child: Column(children: [
-                            SizedBox(height: 12),
-                            Text("Sampah"),
-                            SizedBox(height: 6),
-                          ]),
-                        ),
-                        SizedBox(
-                          width: 110,
-                          child: Column(children: [
-                            SizedBox(height: 12),
-                            Text("Batu"),
-                            SizedBox(height: 6),
-                          ]),
-                        ),
-                      ],
-                    ),
-                    TableRow(
-                      children: <Widget>[
-                        Container(
-                          width: 100,
-                          padding: const EdgeInsets.symmetric(horizontal: 16),
-                          child: TextFormField(
-                            controller: notifier.sampah,
-                            keyboardType: TextInputType.number,
-                            textAlign: TextAlign.center,
-                            style: Style.textBold20,
-                            inputFormatters: [
-                              FilteringTextInputFormatter.allow(
-                                  RegExp(r'[0-9]')),
-                            ],
-                            decoration: const InputDecoration(hintText: "0"),
-                            onChanged: (value) {
-                              notifier.countBunches(context, notifier.sampah);
-                            },
+                  ],
+                ),
+                const SizedBox(height: 30),
+                Text("KUALITAS BRONDOLAN", style: Style.textBold16),
+                const SizedBox(height: 20),
+                Table(
+                    defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+                    children: <TableRow>[
+                      const TableRow(
+                        children: <Widget>[
+                          SizedBox(
+                            width: 110,
+                            child: Column(children: [
+                              SizedBox(height: 12),
+                              Text("Sampah"),
+                              SizedBox(height: 6),
+                            ]),
                           ),
-                        ),
-                        Container(
-                          width: 100,
-                          padding: const EdgeInsets.symmetric(horizontal: 16),
-                          child: TextFormField(
-                            controller: notifier.batu,
-                            keyboardType: TextInputType.number,
-                            textAlign: TextAlign.center,
-                            style: Style.textBold20,
-                            decoration: const InputDecoration(hintText: "0"),
-                            inputFormatters: [
-                              FilteringTextInputFormatter.allow(
-                                  RegExp(r'[0-9]')),
-                            ],
-                            onChanged: (value) {
-                              notifier.countBunches(context, notifier.batu);
-                            },
+                          SizedBox(
+                            width: 110,
+                            child: Column(children: [
+                              SizedBox(height: 12),
+                              Text("Batu"),
+                              SizedBox(height: 6),
+                            ]),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
+                      TableRow(
+                        children: <Widget>[
+                          Container(
+                            width: 100,
+                            padding: const EdgeInsets.symmetric(horizontal: 16),
+                            child: TextFormField(
+                              controller: notifier.sampah,
+                              keyboardType: TextInputType.number,
+                              textAlign: TextAlign.center,
+                              style: Style.textBold20,
+                              inputFormatters: [
+                                FilteringTextInputFormatter.allow(
+                                    RegExp(r'[0-9]')),
+                              ],
+                              decoration: const InputDecoration(hintText: "0"),
+                              onChanged: (value) {
+                                notifier.countBunches(context, notifier.sampah);
+                              },
+                            ),
+                          ),
+                          Container(
+                            width: 100,
+                            padding: const EdgeInsets.symmetric(horizontal: 16),
+                            child: TextFormField(
+                              controller: notifier.batu,
+                              keyboardType: TextInputType.number,
+                              textAlign: TextAlign.center,
+                              style: Style.textBold20,
+                              decoration: const InputDecoration(hintText: "0"),
+                              inputFormatters: [
+                                FilteringTextInputFormatter.allow(
+                                    RegExp(r'[0-9]')),
+                              ],
+                              onChanged: (value) {
+                                notifier.countBunches(context, notifier.batu);
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                    ]),
+                const SizedBox(height: 30),
+                Column(
+                  children: [
+                    const Text("Catatan"),
+                    TextFormField(
+                      controller: notifier.notesOPH,
+                      textAlign: TextAlign.center,
+                      decoration: const InputDecoration(hintText: "Catatan"),
+                      keyboardType: TextInputType.multiline,
+                      maxLength: 50,
+                      maxLengthEnforcement: MaxLengthEnforcement.enforced,
                     ),
-                  ]),
-              const SizedBox(height: 30),
-              Column(
-                children: [
-                  const Text("Catatan"),
-                  TextFormField(
-                    controller: notifier.notesOPH,
-                    textAlign: TextAlign.center,
-                    decoration: const InputDecoration(hintText: "Catatan"),
-                    keyboardType: TextInputType.multiline,
-                    maxLength: 50,
-                    maxLengthEnforcement: MaxLengthEnforcement.enforced,
-                  ),
-                ],
-              ),
-            ]),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       );
