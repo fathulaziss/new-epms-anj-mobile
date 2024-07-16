@@ -6,6 +6,7 @@ import 'package:epms/model/m_division_schema.dart';
 import 'package:epms/model/m_employee_schema.dart';
 import 'package:epms/model/m_estate_schema.dart';
 import 'package:epms/model/m_vendor_schema.dart';
+import 'package:epms/screen/inspection/components/inspection_photo.dart';
 import 'package:epms/screen/qr_reader/qr_reader_screen.dart';
 import 'package:epms/screen/search/search_driver_screen.dart';
 import 'package:epms/screen/supervisor_spb/supervisi_spb_form/supervisor_spb_form_notifier.dart';
@@ -487,12 +488,44 @@ class _SupervisorSPBFormTabState extends State<SupervisorSPBFormTab> {
                 ),
               ],
             ),
-            notifier.pickedFile != null
-                ? Image.file(
-                    File("${notifier.pickedFile}"),
-                    height: 400,
-                  )
-                : Container(),
+            if (notifier.sourceSPBValue == 'Internal')
+              if (notifier.listPickedFile.isNotEmpty)
+                SizedBox(
+                  height: MediaQuery.of(context).size.width / 4,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: notifier.listPickedFile.length,
+                    itemBuilder: (context, index) {
+                      final imagePath = notifier.listPickedFile[index];
+                      return Padding(
+                        padding: const EdgeInsets.only(right: 12),
+                        child: InspectionPhoto(
+                          imagePath: imagePath,
+                          onTapView: () {
+                            notifier.dialogService.showDialogPreviewPhoto(
+                              imagePath: imagePath,
+                              onTapClose: () {
+                                notifier.dialogService.popDialog();
+                              },
+                            );
+                          },
+                          onTapRemove: () {
+                            notifier.removeListPickedFile(imagePath);
+                          },
+                        ),
+                      );
+                    },
+                  ),
+                )
+              else
+                const SizedBox()
+            else
+              notifier.pickedFile != null
+                  ? Image.file(
+                      File("${notifier.pickedFile}"),
+                      height: 400,
+                    )
+                  : Container(),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: InkWell(

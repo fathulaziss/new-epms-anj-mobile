@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_print, prefer_typing_uninitialized_variables
 
 import 'dart:convert';
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:epms/common_manager/storage_manager.dart';
@@ -344,7 +345,7 @@ class FileManagerJson {
       var jsonMap = jsonEncode(mapTP);
       epmsData['epms_data'] = jsonMap;
       epmsData['user_token'] = token;
-      print(jsonMap);
+      log(jsonMap);
       var json = jsonEncode(epmsData);
       Directory? tempDir = await getExternalStorageDirectory();
       File fileResult = File('${tempDir?.path}/SupervisiSPB.json')

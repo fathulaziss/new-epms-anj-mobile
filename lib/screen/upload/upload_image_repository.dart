@@ -7,6 +7,7 @@ import 'package:epms/base/api/api_configuration.dart';
 import 'package:epms/base/api/api_endpoint.dart';
 import 'package:epms/common_manager/delete_image_service.dart';
 import 'package:epms/common_manager/storage_manager.dart';
+import 'package:epms/model/spb_supervise.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 import 'package:http_parser/http_parser.dart';
@@ -49,6 +50,119 @@ class UploadImageOPHRepository extends APIConfiguration {
         if (response.statusCode == 200) {
           onSuccess(context, response);
           DeleteImageService().deleteImage(imageFile.path);
+        } else {
+          onError(context, response.toString());
+        }
+      });
+    } on SocketException {
+      onError(context, 'No Internet');
+    } on HttpException {
+      onError(context, 'No Service Found');
+    } on FormatException {
+      onError(context, 'Invalid Response format');
+    } catch (exception) {
+      onError(context, exception.toString());
+    }
+  }
+
+  Future<void> doUploadPhotoNew(BuildContext context, SPBSupervise data,
+      String module, onSuccess, onError) async {
+    String token = await StorageManager.readData("userToken");
+    String baseUrl = await StorageManager.readData("apiServer");
+
+    try {
+      var url = baseUrl + APIEndPoint.UPLOAD_IMAGE;
+      var uri = Uri.parse(url);
+      var request = http.MultipartRequest("POST", uri);
+      if (data.supervisiSpbPhoto!.isNotEmpty ||
+          data.supervisiSpbPhoto != null) {
+        File imageFile = File(data.supervisiSpbPhoto!);
+        var stream = http.ByteStream(imageFile.openRead());
+        var length = await imageFile.length();
+
+        var mimeContent = lookupMimeType(imageFile.path
+            .toString()
+            .substring(imageFile.path.toString().length - 20));
+        var typeMedia = mimeContent!.substring(0, mimeContent.indexOf('/', 0));
+
+        var pos = mimeContent.indexOf('/', 0);
+        var subTypeMedia = mimeContent.substring(pos + 1, mimeContent.length);
+
+        var multipartFile = http.MultipartFile(
+          'image',
+          stream,
+          length,
+          filename: basename(imageFile.path),
+          contentType: MediaType(typeMedia, subTypeMedia),
+        );
+        request.files.add(multipartFile);
+      }
+      if (data.supervisiSpbPhoto1!.isNotEmpty ||
+          data.supervisiSpbPhoto1 != null) {
+        File imageFile = File(data.supervisiSpbPhoto1!);
+        var stream = http.ByteStream(imageFile.openRead());
+        var length = await imageFile.length();
+
+        var mimeContent = lookupMimeType(imageFile.path
+            .toString()
+            .substring(imageFile.path.toString().length - 20));
+        var typeMedia = mimeContent!.substring(0, mimeContent.indexOf('/', 0));
+
+        var pos = mimeContent.indexOf('/', 0);
+        var subTypeMedia = mimeContent.substring(pos + 1, mimeContent.length);
+
+        var multipartFile = http.MultipartFile(
+          'image',
+          stream,
+          length,
+          filename: basename(imageFile.path),
+          contentType: MediaType(typeMedia, subTypeMedia),
+        );
+        request.files.add(multipartFile);
+      }
+      if (data.supervisiSpbPhoto2!.isNotEmpty ||
+          data.supervisiSpbPhoto2 != null) {
+        File imageFile = File(data.supervisiSpbPhoto2!);
+        var stream = http.ByteStream(imageFile.openRead());
+        var length = await imageFile.length();
+
+        var mimeContent = lookupMimeType(imageFile.path
+            .toString()
+            .substring(imageFile.path.toString().length - 20));
+        var typeMedia = mimeContent!.substring(0, mimeContent.indexOf('/', 0));
+
+        var pos = mimeContent.indexOf('/', 0);
+        var subTypeMedia = mimeContent.substring(pos + 1, mimeContent.length);
+
+        var multipartFile = http.MultipartFile(
+          'image',
+          stream,
+          length,
+          filename: basename(imageFile.path),
+          contentType: MediaType(typeMedia, subTypeMedia),
+        );
+        request.files.add(multipartFile);
+      }
+      request.fields['module_id'] = data.spbSuperviseId!;
+      request.fields['module'] = module;
+      request.fields['name'] = "image";
+      request.fields['user_token'] = token;
+      var response = await request.send();
+      response.stream.transform(utf8.decoder).listen((value) {
+        if (response.statusCode == 200) {
+          onSuccess(context, response);
+          if (data.supervisiSpbPhoto != null) {
+            File imageFile = File(data.supervisiSpbPhoto!);
+            DeleteImageService().deleteImage(imageFile.path);
+          }
+          if (data.supervisiSpbPhoto1 != null) {
+            File imageFile = File(data.supervisiSpbPhoto1!);
+            DeleteImageService().deleteImage(imageFile.path);
+          }
+          if (data.supervisiSpbPhoto2 != null) {
+            File imageFile = File(data.supervisiSpbPhoto2!);
+            DeleteImageService().deleteImage(imageFile.path);
+          }
         } else {
           onError(context, response.toString());
         }

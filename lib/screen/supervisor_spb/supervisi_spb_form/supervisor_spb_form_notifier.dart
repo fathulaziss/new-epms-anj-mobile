@@ -169,6 +169,120 @@ class SupervisorSPBFormNotifier extends ChangeNotifier {
 
   String? get pickedFile => _pickedFile;
 
+  final List<String> _listPickedFile = [];
+
+  List<String> get listPickedFile => _listPickedFile;
+
+  // Masak
+  final TextEditingController _masakNormal = TextEditingController();
+  TextEditingController get masakNormal => _masakNormal;
+
+  final TextEditingController _masakAbnormal = TextEditingController();
+  TextEditingController get masakAbnormal => _masakAbnormal;
+
+  final TextEditingController _masakParteno = TextEditingController();
+  TextEditingController get masakParteno => _masakParteno;
+
+  final TextEditingController _masakPatah = TextEditingController();
+  TextEditingController get masakPatah => _masakPatah;
+
+  final TextEditingController _masakDimakanTikus = TextEditingController();
+  TextEditingController get masakDimakanTikus => _masakDimakanTikus;
+
+  final TextEditingController _masakBusuk = TextEditingController();
+  TextEditingController get masakBusuk => _masakBusuk;
+
+  final TextEditingController _masakOther = TextEditingController();
+  TextEditingController get masakOther => _masakOther;
+
+  // Lewat Masak
+  final TextEditingController _lewatMasakNormal = TextEditingController();
+  TextEditingController get lewatMasakNormal => _lewatMasakNormal;
+
+  final TextEditingController _lewatMasakAbnormal = TextEditingController();
+  TextEditingController get lewatMasakAbnormal => _lewatMasakAbnormal;
+
+  final TextEditingController _lewatMasakParteno = TextEditingController();
+  TextEditingController get lewatMasakParteno => _lewatMasakParteno;
+
+  final TextEditingController _lewatMasakPatah = TextEditingController();
+  TextEditingController get lewatMasakPatah => _lewatMasakPatah;
+
+  final TextEditingController _lewatMasakDimakanTikus = TextEditingController();
+  TextEditingController get lewatMasakDimakanTikus => _lewatMasakDimakanTikus;
+
+  final TextEditingController _lewatMasakBusuk = TextEditingController();
+  TextEditingController get lewatMasakBusuk => _lewatMasakBusuk;
+
+  final TextEditingController _lewatMasakOther = TextEditingController();
+  TextEditingController get lewatMasakOther => _lewatMasakOther;
+
+  // Mengkal
+  final TextEditingController _mengkalNormal = TextEditingController();
+  TextEditingController get mengkalNormal => _mengkalNormal;
+
+  final TextEditingController _mengkalAbnormal = TextEditingController();
+  TextEditingController get mengkalAbnormal => _mengkalAbnormal;
+
+  final TextEditingController _mengkalParteno = TextEditingController();
+  TextEditingController get mengkalParteno => _mengkalParteno;
+
+  final TextEditingController _mengkalPatah = TextEditingController();
+  TextEditingController get mengkalPatah => _mengkalPatah;
+
+  final TextEditingController _mengkalDimakanTikus = TextEditingController();
+  TextEditingController get mengkalDimakanTikus => _mengkalDimakanTikus;
+
+  final TextEditingController _mengkalBusuk = TextEditingController();
+  TextEditingController get mengkalBusuk => _mengkalBusuk;
+
+  final TextEditingController _mengkalOther = TextEditingController();
+  TextEditingController get mengkalOther => _mengkalOther;
+
+  // Mentah
+  final TextEditingController _mentahNormal = TextEditingController();
+  TextEditingController get mentahNormal => _mentahNormal;
+
+  final TextEditingController _mentahAbnormal = TextEditingController();
+  TextEditingController get mentahAbnormal => _mentahAbnormal;
+
+  final TextEditingController _mentahParteno = TextEditingController();
+  TextEditingController get mentahParteno => _mentahParteno;
+
+  final TextEditingController _mentahPatah = TextEditingController();
+  TextEditingController get mentahPatah => _mentahPatah;
+
+  final TextEditingController _mentahDimakanTikus = TextEditingController();
+  TextEditingController get mentahDimakanTikus => _mentahDimakanTikus;
+
+  final TextEditingController _mentahBusuk = TextEditingController();
+  TextEditingController get mentahBusuk => _mentahBusuk;
+
+  final TextEditingController _mentahOther = TextEditingController();
+  TextEditingController get mentahOther => _mentahOther;
+
+  // Janjang Kosong
+  final TextEditingController _jangkosNormal = TextEditingController();
+  TextEditingController get jangkosNormal => _jangkosNormal;
+
+  final TextEditingController _jangkosAbnormal = TextEditingController();
+  TextEditingController get jangkosAbnormal => _jangkosAbnormal;
+
+  final TextEditingController _jangkosParteno = TextEditingController();
+  TextEditingController get jangkosParteno => _jangkosParteno;
+
+  final TextEditingController _jangkosPatah = TextEditingController();
+  TextEditingController get jangkosPatah => _jangkosPatah;
+
+  final TextEditingController _jangkosDimakanTikus = TextEditingController();
+  TextEditingController get jangkosDimakanTikus => _jangkosDimakanTikus;
+
+  final TextEditingController _jangkosBusuk = TextEditingController();
+  TextEditingController get jangkosBusuk => _jangkosBusuk;
+
+  final TextEditingController _jangkosOther = TextEditingController();
+  TextEditingController get jangkosOther => _jangkosOther;
+
   final TextEditingController _bunchesRipe = TextEditingController();
 
   TextEditingController get bunchesRipe => _bunchesRipe;
@@ -204,6 +318,10 @@ class SupervisorSPBFormNotifier extends ChangeNotifier {
   final TextEditingController _bunchesNormalTotal = TextEditingController();
 
   TextEditingController get bunchesNormalTotal => _bunchesNormalTotal;
+
+  final TextEditingController _bunchesUnNormalTotal = TextEditingController();
+
+  TextEditingController get bunchesUnNormalTotal => _bunchesUnNormalTotal;
 
   final TextEditingController _notesOPH = TextEditingController();
 
@@ -324,6 +442,67 @@ class SupervisorSPBFormNotifier extends ChangeNotifier {
 
   onChangeSourceSPB(String value) {
     _sourceSPBValue = value;
+    _janjangTangkaiPanjang.text = "0";
+    _noteJanjangTangkaiPanjang.clear();
+    _sampah.text = "0";
+    _batu.text = "0";
+    _masakNormal.text = "0";
+    _masakAbnormal.text = "0";
+    _masakParteno.text = "0";
+    _masakPatah.text = "0";
+    _masakDimakanTikus.text = "0";
+    _masakBusuk.text = "0";
+    _masakOther.text = "0";
+    _lewatMasakNormal.text = "0";
+    _lewatMasakAbnormal.text = "0";
+    _lewatMasakParteno.text = "0";
+    _lewatMasakPatah.text = "0";
+    _lewatMasakDimakanTikus.text = "0";
+    _lewatMasakBusuk.text = "0";
+    _lewatMasakOther.text = "0";
+    _mengkalNormal.text = "0";
+    _mengkalAbnormal.text = "0";
+    _mengkalParteno.text = "0";
+    _mengkalPatah.text = "0";
+    _mengkalDimakanTikus.text = "0";
+    _mengkalBusuk.text = "0";
+    _mengkalOther.text = "0";
+    _mentahNormal.text = "0";
+    _mentahAbnormal.text = "0";
+    _mentahParteno.text = "0";
+    _mentahPatah.text = "0";
+    _mentahDimakanTikus.text = "0";
+    _mentahBusuk.text = "0";
+    _mentahOther.text = "0";
+    _jangkosNormal.text = "0";
+    _jangkosAbnormal.text = "0";
+    _jangkosParteno.text = "0";
+    _jangkosPatah.text = "0";
+    _jangkosDimakanTikus.text = "0";
+    _jangkosBusuk.text = "0";
+    _jangkosOther.text = "0";
+    _bunchesRipe.text = "0";
+    _bunchesOverRipe.text = "0";
+    _bunchesHalfRipe.text = "0";
+    _bunchesUnRipe.text = "0";
+    _bunchesAbnormal.text = "0";
+    _bunchesEmpty.text = "0";
+    _looseFruits.text = "0";
+    _bunchesTotal.text = "0";
+    _bunchesNormalTotal.text = "0";
+    _bunchesUnNormalTotal.text = "0";
+    _notesOPH.clear();
+    _bunchesRotten.text = "0";
+    _water.text = "0";
+    _longStalk.text = "0";
+    _deduction.text = "0";
+    _bunchesLarge.text = "0";
+    _bunchesMedium.text = "0";
+    _bunchesSmall.text = "0";
+    _bunchesLess4Kg.text = "0";
+    _bunchesCengkeh.text = "0";
+    _brondolanRotten.text = "0";
+    _rubbish.text = "0";
     notifyListeners();
   }
 
@@ -476,6 +655,41 @@ class SupervisorSPBFormNotifier extends ChangeNotifier {
     _brondolanRotten.text = "0";
     _bunchesCengkeh.text = "0";
     _bunchesLess4Kg.text = "0";
+    _masakNormal.text = "0";
+    _masakAbnormal.text = "0";
+    _masakParteno.text = "0";
+    _masakPatah.text = "0";
+    _masakDimakanTikus.text = "0";
+    _masakBusuk.text = "0";
+    _masakOther.text = "0";
+    _lewatMasakNormal.text = "0";
+    _lewatMasakAbnormal.text = "0";
+    _lewatMasakParteno.text = "0";
+    _lewatMasakPatah.text = "0";
+    _lewatMasakDimakanTikus.text = "0";
+    _lewatMasakBusuk.text = "0";
+    _lewatMasakOther.text = "0";
+    _mengkalNormal.text = "0";
+    _mengkalAbnormal.text = "0";
+    _mengkalParteno.text = "0";
+    _mengkalPatah.text = "0";
+    _mengkalDimakanTikus.text = "0";
+    _mengkalBusuk.text = "0";
+    _mengkalOther.text = "0";
+    _mentahNormal.text = "0";
+    _mentahAbnormal.text = "0";
+    _mentahParteno.text = "0";
+    _mentahPatah.text = "0";
+    _mentahDimakanTikus.text = "0";
+    _mentahBusuk.text = "0";
+    _mentahOther.text = "0";
+    _jangkosNormal.text = "0";
+    _jangkosAbnormal.text = "0";
+    _jangkosParteno.text = "0";
+    _jangkosPatah.text = "0";
+    _jangkosDimakanTikus.text = "0";
+    _jangkosBusuk.text = "0";
+    _jangkosOther.text = "0";
     notifyListeners();
   }
 
@@ -484,11 +698,31 @@ class SupervisorSPBFormNotifier extends ChangeNotifier {
     notifyListeners();
   }
 
+  void removeListPickedFile(String value) {
+    _listPickedFile.remove(value);
+    notifyListeners();
+  }
+
   getCamera(BuildContext context) async {
-    String? picked = await CameraService.getImageByCamera(context);
-    if (picked != null) {
-      _pickedFile = picked;
-      notifyListeners();
+    if (sourceSPBValue == 'Internal') {
+      if (listPickedFile.length < 3) {
+        String? picked = await CameraService.getImageByCamera(context);
+        if (picked != null) {
+          _listPickedFile.add(picked);
+          notifyListeners();
+        }
+      } else {
+        FlushBarManager.showFlushBarWarning(
+            _navigationService.navigatorKey.currentContext!,
+            "Foto Hasil Supervisi",
+            "Maksimal 3 foto yang dapat Anda lampirkan");
+      }
+    } else {
+      String? picked = await CameraService.getImageByCamera(context);
+      if (picked != null) {
+        _pickedFile = picked;
+        notifyListeners();
+      }
     }
   }
 
@@ -517,6 +751,209 @@ class SupervisorSPBFormNotifier extends ChangeNotifier {
 
   onChangeActiveText(bool checked) {
     _activeText = checked;
+    notifyListeners();
+  }
+
+  countBuahMasakAbnormal(
+      BuildContext context, TextEditingController textEditingController) {
+    if (textEditingController.text.isEmpty ||
+        textEditingController.text == "0") {
+      textEditingController.value = const TextEditingValue(text: "0");
+      textEditingController.selection = TextSelection.fromPosition(
+          TextPosition(offset: textEditingController.text.length));
+    } else {
+      textEditingController.text =
+          textEditingController.text.replaceFirst(RegExp(r'^0+'), "");
+      textEditingController.selection = TextSelection.fromPosition(
+          TextPosition(offset: textEditingController.text.length));
+    }
+    masakAbnormal.text =
+        (int.parse(masakParteno.text.isNotEmpty ? masakParteno.text : "0") +
+                int.parse(masakPatah.text.isNotEmpty ? masakPatah.text : "0") +
+                int.parse(masakDimakanTikus.text.isNotEmpty
+                    ? masakDimakanTikus.text
+                    : "0") +
+                int.parse(masakBusuk.text.isNotEmpty ? masakBusuk.text : "0") +
+                int.parse(masakOther.text.isNotEmpty ? masakOther.text : "0"))
+            .toString();
+    countTotalJanjangTidakNormal();
+    countTotalJanjang();
+  }
+
+  countBuahLewatMasakAbnormal(
+      BuildContext context, TextEditingController textEditingController) {
+    if (textEditingController.text.isEmpty ||
+        textEditingController.text == "0") {
+      textEditingController.value = const TextEditingValue(text: "0");
+      textEditingController.selection = TextSelection.fromPosition(
+          TextPosition(offset: textEditingController.text.length));
+    } else {
+      textEditingController.text =
+          textEditingController.text.replaceFirst(RegExp(r'^0+'), "");
+      textEditingController.selection = TextSelection.fromPosition(
+          TextPosition(offset: textEditingController.text.length));
+    }
+    lewatMasakAbnormal.text = (int.parse(lewatMasakParteno.text.isNotEmpty
+                ? lewatMasakParteno.text
+                : "0") +
+            int.parse(
+                lewatMasakPatah.text.isNotEmpty ? lewatMasakPatah.text : "0") +
+            int.parse(lewatMasakDimakanTikus.text.isNotEmpty
+                ? lewatMasakDimakanTikus.text
+                : "0") +
+            int.parse(
+                lewatMasakBusuk.text.isNotEmpty ? lewatMasakBusuk.text : "0") +
+            int.parse(
+                lewatMasakOther.text.isNotEmpty ? lewatMasakOther.text : "0"))
+        .toString();
+    countTotalJanjangTidakNormal();
+    countTotalJanjang();
+  }
+
+  countBuahMengkalAbnormal(
+      BuildContext context, TextEditingController textEditingController) {
+    if (textEditingController.text.isEmpty ||
+        textEditingController.text == "0") {
+      textEditingController.value = const TextEditingValue(text: "0");
+      textEditingController.selection = TextSelection.fromPosition(
+          TextPosition(offset: textEditingController.text.length));
+    } else {
+      textEditingController.text =
+          textEditingController.text.replaceFirst(RegExp(r'^0+'), "");
+      textEditingController.selection = TextSelection.fromPosition(
+          TextPosition(offset: textEditingController.text.length));
+    }
+    mengkalAbnormal.text = (int.parse(
+                mengkalParteno.text.isNotEmpty ? mengkalParteno.text : "0") +
+            int.parse(mengkalPatah.text.isNotEmpty ? mengkalPatah.text : "0") +
+            int.parse(mengkalDimakanTikus.text.isNotEmpty
+                ? mengkalDimakanTikus.text
+                : "0") +
+            int.parse(mengkalBusuk.text.isNotEmpty ? mengkalBusuk.text : "0") +
+            int.parse(mengkalOther.text.isNotEmpty ? mengkalOther.text : "0"))
+        .toString();
+    countTotalJanjangTidakNormal();
+    countTotalJanjang();
+  }
+
+  countBuahMentahAbnormal(
+      BuildContext context, TextEditingController textEditingController) {
+    if (textEditingController.text.isEmpty ||
+        textEditingController.text == "0") {
+      textEditingController.value = const TextEditingValue(text: "0");
+      textEditingController.selection = TextSelection.fromPosition(
+          TextPosition(offset: textEditingController.text.length));
+    } else {
+      textEditingController.text =
+          textEditingController.text.replaceFirst(RegExp(r'^0+'), "");
+      textEditingController.selection = TextSelection.fromPosition(
+          TextPosition(offset: textEditingController.text.length));
+    }
+    mentahAbnormal.text = (int.parse(
+                mentahParteno.text.isNotEmpty ? mentahParteno.text : "0") +
+            int.parse(mentahPatah.text.isNotEmpty ? mentahPatah.text : "0") +
+            int.parse(mentahDimakanTikus.text.isNotEmpty
+                ? mentahDimakanTikus.text
+                : "0") +
+            int.parse(mentahBusuk.text.isNotEmpty ? mentahBusuk.text : "0") +
+            int.parse(mentahOther.text.isNotEmpty ? mentahOther.text : "0"))
+        .toString();
+    countTotalJanjangTidakNormal();
+    countTotalJanjang();
+  }
+
+  countBuahJangkosAbnormal(
+      BuildContext context, TextEditingController textEditingController) {
+    if (textEditingController.text.isEmpty ||
+        textEditingController.text == "0") {
+      textEditingController.value = const TextEditingValue(text: "0");
+      textEditingController.selection = TextSelection.fromPosition(
+          TextPosition(offset: textEditingController.text.length));
+    } else {
+      textEditingController.text =
+          textEditingController.text.replaceFirst(RegExp(r'^0+'), "");
+      textEditingController.selection = TextSelection.fromPosition(
+          TextPosition(offset: textEditingController.text.length));
+    }
+    jangkosAbnormal.text = (int.parse(
+                jangkosParteno.text.isNotEmpty ? jangkosParteno.text : "0") +
+            int.parse(jangkosPatah.text.isNotEmpty ? jangkosPatah.text : "0") +
+            int.parse(jangkosDimakanTikus.text.isNotEmpty
+                ? jangkosDimakanTikus.text
+                : "0") +
+            int.parse(jangkosBusuk.text.isNotEmpty ? jangkosBusuk.text : "0") +
+            int.parse(jangkosOther.text.isNotEmpty ? jangkosOther.text : "0"))
+        .toString();
+    countTotalJanjangTidakNormal();
+    countTotalJanjang();
+  }
+
+  countTotalJanjangNormal(
+      BuildContext context, TextEditingController textEditingController) {
+    if (textEditingController.text.isEmpty ||
+        textEditingController.text == "0") {
+      textEditingController.value = const TextEditingValue(text: "0");
+      textEditingController.selection = TextSelection.fromPosition(
+          TextPosition(offset: textEditingController.text.length));
+    } else {
+      textEditingController.text =
+          textEditingController.text.replaceFirst(RegExp(r'^0+'), "");
+      textEditingController.selection = TextSelection.fromPosition(
+          TextPosition(offset: textEditingController.text.length));
+    }
+    bunchesNormalTotal.text = (int.parse(
+                masakNormal.text.isNotEmpty ? masakNormal.text : "0") +
+            int.parse(lewatMasakNormal.text.isNotEmpty
+                ? lewatMasakNormal.text
+                : "0") +
+            int.parse(
+                mengkalNormal.text.isNotEmpty ? mengkalNormal.text : "0") +
+            int.parse(mentahNormal.text.isNotEmpty ? mentahNormal.text : "0") +
+            int.parse(jangkosNormal.text.isNotEmpty ? jangkosNormal.text : "0"))
+        .toString();
+    countTotalJanjang();
+    notifyListeners();
+  }
+
+  countTotalJanjangTidakNormal() {
+    bunchesUnNormalTotal.text = (int.parse(
+                masakAbnormal.text.isNotEmpty ? masakAbnormal.text : "0") +
+            int.parse(lewatMasakAbnormal.text.isNotEmpty
+                ? lewatMasakAbnormal.text
+                : "0") +
+            int.parse(
+                mengkalAbnormal.text.isNotEmpty ? mengkalAbnormal.text : "0") +
+            int.parse(
+                mentahAbnormal.text.isNotEmpty ? mentahAbnormal.text : "0") +
+            int.parse(
+                jangkosAbnormal.text.isNotEmpty ? jangkosAbnormal.text : "0"))
+        .toString();
+    notifyListeners();
+  }
+
+  countTotalJanjang() {
+    bunchesTotal.text = (int.parse(
+                masakNormal.text.isNotEmpty ? masakNormal.text : "0") +
+            int.parse(
+                masakAbnormal.text.isNotEmpty ? masakAbnormal.text : "0") +
+            int.parse(lewatMasakNormal.text.isNotEmpty
+                ? lewatMasakNormal.text
+                : "0") +
+            int.parse(lewatMasakAbnormal.text.isNotEmpty
+                ? lewatMasakAbnormal.text
+                : "0") +
+            int.parse(
+                mengkalNormal.text.isNotEmpty ? mengkalNormal.text : "0") +
+            int.parse(
+                mengkalAbnormal.text.isNotEmpty ? mengkalAbnormal.text : "0") +
+            int.parse(mentahNormal.text.isNotEmpty ? mentahNormal.text : "0") +
+            int.parse(
+                mentahAbnormal.text.isNotEmpty ? mentahAbnormal.text : "0") +
+            int.parse(
+                jangkosNormal.text.isNotEmpty ? jangkosNormal.text : "0") +
+            int.parse(
+                jangkosAbnormal.text.isNotEmpty ? jangkosAbnormal.text : "0"))
+        .toString();
     notifyListeners();
   }
 
@@ -763,12 +1200,12 @@ class SupervisorSPBFormNotifier extends ChangeNotifier {
                     SPBSupervise spbSupervise = SPBSupervise();
                     spbSupervise.spbSuperviseId = _supervisiID;
                     spbSupervise.spbId = _spbID.text;
-                    spbSupervise.supervisiEstateCode =
-                        _mEstateSchemaValue?.estateCode;
                     spbSupervise.supervisiSpbEmployeeCode =
                         _mConfigSchema?.employeeCode;
                     spbSupervise.supervisiSpbEmployeeName =
                         _mConfigSchema?.employeeName;
+                    spbSupervise.supervisiEstateCode =
+                        _mEstateSchemaValue?.estateCode;
                     spbSupervise.supervisiSpbLat =
                         _position?.latitude.toString();
                     spbSupervise.supervisiSpbLong =
@@ -784,24 +1221,166 @@ class SupervisorSPBFormNotifier extends ChangeNotifier {
                         ValueService.spbSourceData(_sourceSPBValue);
                     spbSupervise.supervisiSpbMethod =
                         ValueService.typeOfFormToInt(_employeeTypeValue);
-                    spbSupervise.supervisiSpbPhoto = _pickedFile;
-                    spbSupervise.bunchesRipe = int.parse(_bunchesRipe.text);
-                    spbSupervise.bunchesOverripe =
-                        int.parse(_bunchesOverRipe.text);
-                    spbSupervise.bunchesHalfripe =
-                        int.parse(_bunchesHalfRipe.text);
-                    spbSupervise.bunchesUnripe = int.parse(_bunchesUnRipe.text);
-                    spbSupervise.bunchesTangkaiPanjang =
-                        int.parse(_janjangTangkaiPanjang.text);
-                    spbSupervise.bunchesAbnormal =
-                        int.parse(_bunchesAbnormal.text);
-                    spbSupervise.bunchesEmpty = int.parse(_bunchesEmpty.text);
-                    spbSupervise.looseFruits = int.parse(_looseFruits.text);
-                    spbSupervise.bunchesTotal = int.parse(_bunchesTotal.text);
-                    spbSupervise.bunchesTotalNormal =
-                        int.parse(_bunchesNormalTotal.text);
-                    spbSupervise.bunchesSampah = int.parse(_sampah.text);
-                    spbSupervise.bunchesBatu = int.parse(_batu.text);
+                    spbSupervise.supervisiSpbPhoto =
+                        _listPickedFile.isNotEmpty ? _listPickedFile[0] : null;
+                    spbSupervise.supervisiSpbPhoto1 =
+                        _listPickedFile.length > 1 ? _listPickedFile[1] : null;
+                    spbSupervise.supervisiSpbPhoto2 =
+                        _listPickedFile.length > 2 ? _listPickedFile[2] : null;
+                    spbSupervise.bunchesRipe = int.parse(
+                        _masakNormal.text.isNotEmpty ? _masakNormal.text : "0");
+                    spbSupervise.bunchesOverripe = int.parse(
+                        _lewatMasakNormal.text.isNotEmpty
+                            ? _lewatMasakNormal.text
+                            : "0");
+                    spbSupervise.bunchesHalfripe = int.parse(
+                        _mengkalNormal.text.isNotEmpty
+                            ? _mengkalNormal.text
+                            : "0");
+                    spbSupervise.bunchesUnripe = int.parse(
+                        _mentahNormal.text.isNotEmpty
+                            ? _mentahNormal.text
+                            : "0");
+                    spbSupervise.bunchesAbnormal = int.parse(
+                        _bunchesUnNormalTotal.text.isNotEmpty
+                            ? _bunchesUnNormalTotal.text
+                            : "0");
+                    spbSupervise.bunchesEmpty = int.parse(
+                        _jangkosNormal.text.isNotEmpty
+                            ? _jangkosNormal.text
+                            : "0");
+                    spbSupervise.looseFruits = int.parse(
+                        _looseFruits.text.isNotEmpty ? _looseFruits.text : "0");
+                    spbSupervise.bunchesTotal = int.parse(
+                        _bunchesTotal.text.isNotEmpty
+                            ? _bunchesTotal.text
+                            : "0");
+                    spbSupervise.bunchesTotalNormal = int.parse(
+                        _bunchesNormalTotal.text.isNotEmpty
+                            ? _bunchesNormalTotal.text
+                            : "0");
+                    spbSupervise.bunchesTangkaiPanjang = int.parse(
+                        _janjangTangkaiPanjang.text.isNotEmpty
+                            ? _janjangTangkaiPanjang.text
+                            : "0");
+                    spbSupervise.bunchesSampah =
+                        int.parse(_sampah.text.isNotEmpty ? _sampah.text : "0");
+                    spbSupervise.bunchesBatu =
+                        int.parse(_batu.text.isNotEmpty ? _batu.text : "0");
+
+                    spbSupervise.unripeParteno = int.parse(
+                        _mentahParteno.text.isNotEmpty
+                            ? _mentahParteno.text
+                            : "0");
+                    spbSupervise.unripeBroken = int.parse(
+                        _mentahPatah.text.isNotEmpty ? _mentahPatah.text : "0");
+                    spbSupervise.unripeRat = int.parse(
+                        _mentahDimakanTikus.text.isNotEmpty
+                            ? _mentahDimakanTikus.text
+                            : "0");
+                    spbSupervise.unripeRotten = int.parse(
+                        _mentahBusuk.text.isNotEmpty ? _mentahBusuk.text : "0");
+                    spbSupervise.unripeOther = int.parse(
+                        _mentahOther.text.isNotEmpty ? _mentahOther.text : "0");
+                    spbSupervise.unripeAbnormalTotal = int.parse(
+                        _mentahAbnormal.text.isNotEmpty
+                            ? _mentahAbnormal.text
+                            : "0");
+
+                    spbSupervise.halfripeParteno = int.parse(
+                        _mengkalParteno.text.isNotEmpty
+                            ? _mengkalParteno.text
+                            : "0");
+                    spbSupervise.halfripeBroken = int.parse(
+                        _mengkalPatah.text.isNotEmpty
+                            ? _mengkalPatah.text
+                            : "0");
+                    spbSupervise.halfripeRat = int.parse(
+                        _mengkalDimakanTikus.text.isNotEmpty
+                            ? _mengkalDimakanTikus.text
+                            : "0");
+                    spbSupervise.halfripeRotten = int.parse(
+                        _mengkalBusuk.text.isNotEmpty
+                            ? _mengkalBusuk.text
+                            : "0");
+                    spbSupervise.halfripeOther = int.parse(
+                        _mengkalOther.text.isNotEmpty
+                            ? _mengkalOther.text
+                            : "0");
+                    spbSupervise.halfripeAbnormalTotal = int.parse(
+                        _mengkalAbnormal.text.isNotEmpty
+                            ? _mengkalAbnormal.text
+                            : "0");
+
+                    spbSupervise.ripeParteno = int.parse(
+                        _masakParteno.text.isNotEmpty
+                            ? _masakParteno.text
+                            : "0");
+                    spbSupervise.ripeBroken = int.parse(
+                        _masakPatah.text.isNotEmpty ? _masakPatah.text : "0");
+                    spbSupervise.ripeRat = int.parse(
+                        _masakDimakanTikus.text.isNotEmpty
+                            ? _masakDimakanTikus.text
+                            : "0");
+                    spbSupervise.ripeRotten = int.parse(
+                        _masakBusuk.text.isNotEmpty ? _masakBusuk.text : "0");
+                    spbSupervise.ripeOther = int.parse(
+                        _masakOther.text.isNotEmpty ? _masakOther.text : "0");
+                    spbSupervise.ripeAbnormalTotal = int.parse(
+                        _masakAbnormal.text.isNotEmpty
+                            ? _masakAbnormal.text
+                            : "0");
+
+                    spbSupervise.overripeParteno = int.parse(
+                        _lewatMasakParteno.text.isNotEmpty
+                            ? _lewatMasakParteno.text
+                            : "0");
+                    spbSupervise.overripeBroken = int.parse(
+                        _lewatMasakPatah.text.isNotEmpty
+                            ? _lewatMasakPatah.text
+                            : "0");
+                    spbSupervise.overripeRat = int.parse(
+                        _lewatMasakDimakanTikus.text.isNotEmpty
+                            ? _lewatMasakDimakanTikus.text
+                            : "0");
+                    spbSupervise.overripeRotten = int.parse(
+                        _lewatMasakBusuk.text.isNotEmpty
+                            ? _lewatMasakBusuk.text
+                            : "0");
+                    spbSupervise.overripeOther = int.parse(
+                        _lewatMasakOther.text.isNotEmpty
+                            ? _lewatMasakOther.text
+                            : "0");
+                    spbSupervise.overripeAbnormalTotal = int.parse(
+                        _lewatMasakAbnormal.text.isNotEmpty
+                            ? _lewatMasakAbnormal.text
+                            : "0");
+
+                    spbSupervise.emptyParteno = int.parse(
+                        _jangkosParteno.text.isNotEmpty
+                            ? _jangkosParteno.text
+                            : "0");
+                    spbSupervise.emptyBroken = int.parse(
+                        _jangkosPatah.text.isNotEmpty
+                            ? _jangkosPatah.text
+                            : "0");
+                    spbSupervise.emptyRat = int.parse(
+                        _jangkosDimakanTikus.text.isNotEmpty
+                            ? _jangkosDimakanTikus.text
+                            : "0");
+                    spbSupervise.emptyRotten = int.parse(
+                        _jangkosBusuk.text.isNotEmpty
+                            ? _jangkosBusuk.text
+                            : "0");
+                    spbSupervise.emptyOther = int.parse(
+                        _jangkosOther.text.isNotEmpty
+                            ? _jangkosOther.text
+                            : "0");
+                    spbSupervise.emptyAbnormalTotal = int.parse(
+                        _jangkosAbnormal.text.isNotEmpty
+                            ? _jangkosAbnormal.text
+                            : "0");
+
                     spbSupervise.catatanBunchesTangkaiPanjang =
                         noteJanjangTangkaiPanjang.text;
                     spbSupervise.supervisiNotes = _notesOPH.text;
@@ -878,24 +1457,166 @@ class SupervisorSPBFormNotifier extends ChangeNotifier {
                         ValueService.spbSourceData(_sourceSPBValue);
                     spbSupervise.supervisiSpbMethod =
                         ValueService.typeOfFormToInt(_employeeTypeValue);
-                    spbSupervise.supervisiSpbPhoto = _pickedFile;
-                    spbSupervise.bunchesRipe = int.parse(_bunchesRipe.text);
-                    spbSupervise.bunchesOverripe =
-                        int.parse(_bunchesOverRipe.text);
-                    spbSupervise.bunchesHalfripe =
-                        int.parse(_bunchesHalfRipe.text);
-                    spbSupervise.bunchesUnripe = int.parse(_bunchesUnRipe.text);
-                    spbSupervise.bunchesAbnormal =
-                        int.parse(_bunchesAbnormal.text);
-                    spbSupervise.bunchesTangkaiPanjang =
-                        int.parse(_janjangTangkaiPanjang.text);
-                    spbSupervise.bunchesEmpty = int.parse(_bunchesEmpty.text);
-                    spbSupervise.looseFruits = int.parse(_looseFruits.text);
-                    spbSupervise.bunchesTotal = int.parse(_bunchesTotal.text);
-                    spbSupervise.bunchesTotalNormal =
-                        int.parse(_bunchesNormalTotal.text);
-                    spbSupervise.bunchesSampah = int.parse(_sampah.text);
-                    spbSupervise.bunchesBatu = int.parse(_batu.text);
+                    spbSupervise.supervisiSpbPhoto =
+                        _listPickedFile.isNotEmpty ? _listPickedFile[0] : null;
+                    spbSupervise.supervisiSpbPhoto1 =
+                        _listPickedFile.length > 1 ? _listPickedFile[1] : null;
+                    spbSupervise.supervisiSpbPhoto2 =
+                        _listPickedFile.length > 2 ? _listPickedFile[2] : null;
+                    spbSupervise.bunchesRipe = int.parse(
+                        _masakNormal.text.isNotEmpty ? _masakNormal.text : "0");
+                    spbSupervise.bunchesOverripe = int.parse(
+                        _lewatMasakNormal.text.isNotEmpty
+                            ? _lewatMasakNormal.text
+                            : "0");
+                    spbSupervise.bunchesHalfripe = int.parse(
+                        _mengkalNormal.text.isNotEmpty
+                            ? _mengkalNormal.text
+                            : "0");
+                    spbSupervise.bunchesUnripe = int.parse(
+                        _mentahNormal.text.isNotEmpty
+                            ? _mentahNormal.text
+                            : "0");
+                    spbSupervise.bunchesAbnormal = int.parse(
+                        _bunchesUnNormalTotal.text.isNotEmpty
+                            ? _bunchesUnNormalTotal.text
+                            : "0");
+                    spbSupervise.bunchesEmpty = int.parse(
+                        _jangkosNormal.text.isNotEmpty
+                            ? _jangkosNormal.text
+                            : "0");
+                    spbSupervise.looseFruits = int.parse(
+                        _looseFruits.text.isNotEmpty ? _looseFruits.text : "0");
+                    spbSupervise.bunchesTotal = int.parse(
+                        _bunchesTotal.text.isNotEmpty
+                            ? _bunchesTotal.text
+                            : "0");
+                    spbSupervise.bunchesTotalNormal = int.parse(
+                        _bunchesNormalTotal.text.isNotEmpty
+                            ? _bunchesNormalTotal.text
+                            : "0");
+                    spbSupervise.bunchesTangkaiPanjang = int.parse(
+                        _janjangTangkaiPanjang.text.isNotEmpty
+                            ? _janjangTangkaiPanjang.text
+                            : "0");
+                    spbSupervise.bunchesSampah =
+                        int.parse(_sampah.text.isNotEmpty ? _sampah.text : "0");
+                    spbSupervise.bunchesBatu =
+                        int.parse(_batu.text.isNotEmpty ? _batu.text : "0");
+
+                    spbSupervise.unripeParteno = int.parse(
+                        _mentahParteno.text.isNotEmpty
+                            ? _mentahParteno.text
+                            : "0");
+                    spbSupervise.unripeBroken = int.parse(
+                        _mentahPatah.text.isNotEmpty ? _mentahPatah.text : "0");
+                    spbSupervise.unripeRat = int.parse(
+                        _mentahDimakanTikus.text.isNotEmpty
+                            ? _mentahDimakanTikus.text
+                            : "0");
+                    spbSupervise.unripeRotten = int.parse(
+                        _mentahBusuk.text.isNotEmpty ? _mentahBusuk.text : "0");
+                    spbSupervise.unripeOther = int.parse(
+                        _mentahOther.text.isNotEmpty ? _mentahOther.text : "0");
+                    spbSupervise.unripeAbnormalTotal = int.parse(
+                        _mentahAbnormal.text.isNotEmpty
+                            ? _mentahAbnormal.text
+                            : "0");
+
+                    spbSupervise.halfripeParteno = int.parse(
+                        _mengkalParteno.text.isNotEmpty
+                            ? _mengkalParteno.text
+                            : "0");
+                    spbSupervise.halfripeBroken = int.parse(
+                        _mengkalPatah.text.isNotEmpty
+                            ? _mengkalPatah.text
+                            : "0");
+                    spbSupervise.halfripeRat = int.parse(
+                        _mengkalDimakanTikus.text.isNotEmpty
+                            ? _mengkalDimakanTikus.text
+                            : "0");
+                    spbSupervise.halfripeRotten = int.parse(
+                        _mengkalBusuk.text.isNotEmpty
+                            ? _mengkalBusuk.text
+                            : "0");
+                    spbSupervise.halfripeOther = int.parse(
+                        _mengkalOther.text.isNotEmpty
+                            ? _mengkalOther.text
+                            : "0");
+                    spbSupervise.halfripeAbnormalTotal = int.parse(
+                        _mengkalAbnormal.text.isNotEmpty
+                            ? _mengkalAbnormal.text
+                            : "0");
+
+                    spbSupervise.ripeParteno = int.parse(
+                        _masakParteno.text.isNotEmpty
+                            ? _masakParteno.text
+                            : "0");
+                    spbSupervise.ripeBroken = int.parse(
+                        _masakPatah.text.isNotEmpty ? _masakPatah.text : "0");
+                    spbSupervise.ripeRat = int.parse(
+                        _masakDimakanTikus.text.isNotEmpty
+                            ? _masakDimakanTikus.text
+                            : "0");
+                    spbSupervise.ripeRotten = int.parse(
+                        _masakBusuk.text.isNotEmpty ? _masakBusuk.text : "0");
+                    spbSupervise.ripeOther = int.parse(
+                        _masakOther.text.isNotEmpty ? _masakOther.text : "0");
+                    spbSupervise.ripeAbnormalTotal = int.parse(
+                        _masakAbnormal.text.isNotEmpty
+                            ? _masakAbnormal.text
+                            : "0");
+
+                    spbSupervise.overripeParteno = int.parse(
+                        _lewatMasakParteno.text.isNotEmpty
+                            ? _lewatMasakParteno.text
+                            : "0");
+                    spbSupervise.overripeBroken = int.parse(
+                        _lewatMasakPatah.text.isNotEmpty
+                            ? _lewatMasakPatah.text
+                            : "0");
+                    spbSupervise.overripeRat = int.parse(
+                        _lewatMasakDimakanTikus.text.isNotEmpty
+                            ? _lewatMasakDimakanTikus.text
+                            : "0");
+                    spbSupervise.overripeRotten = int.parse(
+                        _lewatMasakBusuk.text.isNotEmpty
+                            ? _lewatMasakBusuk.text
+                            : "0");
+                    spbSupervise.overripeOther = int.parse(
+                        _lewatMasakOther.text.isNotEmpty
+                            ? _lewatMasakOther.text
+                            : "0");
+                    spbSupervise.overripeAbnormalTotal = int.parse(
+                        _lewatMasakAbnormal.text.isNotEmpty
+                            ? _lewatMasakAbnormal.text
+                            : "0");
+
+                    spbSupervise.emptyParteno = int.parse(
+                        _jangkosParteno.text.isNotEmpty
+                            ? _jangkosParteno.text
+                            : "0");
+                    spbSupervise.emptyBroken = int.parse(
+                        _jangkosPatah.text.isNotEmpty
+                            ? _jangkosPatah.text
+                            : "0");
+                    spbSupervise.emptyRat = int.parse(
+                        _jangkosDimakanTikus.text.isNotEmpty
+                            ? _jangkosDimakanTikus.text
+                            : "0");
+                    spbSupervise.emptyRotten = int.parse(
+                        _jangkosBusuk.text.isNotEmpty
+                            ? _jangkosBusuk.text
+                            : "0");
+                    spbSupervise.emptyOther = int.parse(
+                        _jangkosOther.text.isNotEmpty
+                            ? _jangkosOther.text
+                            : "0");
+                    spbSupervise.emptyAbnormalTotal = int.parse(
+                        _jangkosAbnormal.text.isNotEmpty
+                            ? _jangkosAbnormal.text
+                            : "0");
+
                     spbSupervise.catatanBunchesTangkaiPanjang =
                         noteJanjangTangkaiPanjang.text;
                     spbSupervise.supervisiNotes = _notesOPH.text;
@@ -964,24 +1685,166 @@ class SupervisorSPBFormNotifier extends ChangeNotifier {
                         ValueService.spbSourceData(_sourceSPBValue);
                     spbSupervise.supervisiSpbMethod =
                         ValueService.typeOfFormToInt(_employeeTypeValue);
-                    spbSupervise.supervisiSpbPhoto = _pickedFile;
-                    spbSupervise.bunchesRipe = int.parse(_bunchesRipe.text);
-                    spbSupervise.bunchesOverripe =
-                        int.parse(_bunchesOverRipe.text);
-                    spbSupervise.bunchesHalfripe =
-                        int.parse(_bunchesHalfRipe.text);
-                    spbSupervise.bunchesUnripe = int.parse(_bunchesUnRipe.text);
-                    spbSupervise.bunchesAbnormal =
-                        int.parse(_bunchesAbnormal.text);
-                    spbSupervise.bunchesEmpty = int.parse(_bunchesEmpty.text);
-                    spbSupervise.looseFruits = int.parse(_looseFruits.text);
-                    spbSupervise.bunchesTotal = int.parse(_bunchesTotal.text);
-                    spbSupervise.bunchesTotalNormal =
-                        int.parse(_bunchesNormalTotal.text);
-                    spbSupervise.bunchesTangkaiPanjang =
-                        int.parse(_janjangTangkaiPanjang.text);
-                    spbSupervise.bunchesSampah = int.parse(_sampah.text);
-                    spbSupervise.bunchesBatu = int.parse(_batu.text);
+                    spbSupervise.supervisiSpbPhoto =
+                        _listPickedFile.isNotEmpty ? _listPickedFile[0] : null;
+                    spbSupervise.supervisiSpbPhoto1 =
+                        _listPickedFile.length > 1 ? _listPickedFile[1] : null;
+                    spbSupervise.supervisiSpbPhoto2 =
+                        _listPickedFile.length > 2 ? _listPickedFile[2] : null;
+                    spbSupervise.bunchesRipe = int.parse(
+                        _masakNormal.text.isNotEmpty ? _masakNormal.text : "0");
+                    spbSupervise.bunchesOverripe = int.parse(
+                        _lewatMasakNormal.text.isNotEmpty
+                            ? _lewatMasakNormal.text
+                            : "0");
+                    spbSupervise.bunchesHalfripe = int.parse(
+                        _mengkalNormal.text.isNotEmpty
+                            ? _mengkalNormal.text
+                            : "0");
+                    spbSupervise.bunchesUnripe = int.parse(
+                        _mentahNormal.text.isNotEmpty
+                            ? _mentahNormal.text
+                            : "0");
+                    spbSupervise.bunchesAbnormal = int.parse(
+                        _bunchesUnNormalTotal.text.isNotEmpty
+                            ? _bunchesUnNormalTotal.text
+                            : "0");
+                    spbSupervise.bunchesEmpty = int.parse(
+                        _jangkosNormal.text.isNotEmpty
+                            ? _jangkosNormal.text
+                            : "0");
+                    spbSupervise.looseFruits = int.parse(
+                        _looseFruits.text.isNotEmpty ? _looseFruits.text : "0");
+                    spbSupervise.bunchesTotal = int.parse(
+                        _bunchesTotal.text.isNotEmpty
+                            ? _bunchesTotal.text
+                            : "0");
+                    spbSupervise.bunchesTotalNormal = int.parse(
+                        _bunchesNormalTotal.text.isNotEmpty
+                            ? _bunchesNormalTotal.text
+                            : "0");
+                    spbSupervise.bunchesTangkaiPanjang = int.parse(
+                        _janjangTangkaiPanjang.text.isNotEmpty
+                            ? _janjangTangkaiPanjang.text
+                            : "0");
+                    spbSupervise.bunchesSampah =
+                        int.parse(_sampah.text.isNotEmpty ? _sampah.text : "0");
+                    spbSupervise.bunchesBatu =
+                        int.parse(_batu.text.isNotEmpty ? _batu.text : "0");
+
+                    spbSupervise.unripeParteno = int.parse(
+                        _mentahParteno.text.isNotEmpty
+                            ? _mentahParteno.text
+                            : "0");
+                    spbSupervise.unripeBroken = int.parse(
+                        _mentahPatah.text.isNotEmpty ? _mentahPatah.text : "0");
+                    spbSupervise.unripeRat = int.parse(
+                        _mentahDimakanTikus.text.isNotEmpty
+                            ? _mentahDimakanTikus.text
+                            : "0");
+                    spbSupervise.unripeRotten = int.parse(
+                        _mentahBusuk.text.isNotEmpty ? _mentahBusuk.text : "0");
+                    spbSupervise.unripeOther = int.parse(
+                        _mentahOther.text.isNotEmpty ? _mentahOther.text : "0");
+                    spbSupervise.unripeAbnormalTotal = int.parse(
+                        _mentahAbnormal.text.isNotEmpty
+                            ? _mentahAbnormal.text
+                            : "0");
+
+                    spbSupervise.halfripeParteno = int.parse(
+                        _mengkalParteno.text.isNotEmpty
+                            ? _mengkalParteno.text
+                            : "0");
+                    spbSupervise.halfripeBroken = int.parse(
+                        _mengkalPatah.text.isNotEmpty
+                            ? _mengkalPatah.text
+                            : "0");
+                    spbSupervise.halfripeRat = int.parse(
+                        _mengkalDimakanTikus.text.isNotEmpty
+                            ? _mengkalDimakanTikus.text
+                            : "0");
+                    spbSupervise.halfripeRotten = int.parse(
+                        _mengkalBusuk.text.isNotEmpty
+                            ? _mengkalBusuk.text
+                            : "0");
+                    spbSupervise.halfripeOther = int.parse(
+                        _mengkalOther.text.isNotEmpty
+                            ? _mengkalOther.text
+                            : "0");
+                    spbSupervise.halfripeAbnormalTotal = int.parse(
+                        _mengkalAbnormal.text.isNotEmpty
+                            ? _mengkalAbnormal.text
+                            : "0");
+
+                    spbSupervise.ripeParteno = int.parse(
+                        _masakParteno.text.isNotEmpty
+                            ? _masakParteno.text
+                            : "0");
+                    spbSupervise.ripeBroken = int.parse(
+                        _masakPatah.text.isNotEmpty ? _masakPatah.text : "0");
+                    spbSupervise.ripeRat = int.parse(
+                        _masakDimakanTikus.text.isNotEmpty
+                            ? _masakDimakanTikus.text
+                            : "0");
+                    spbSupervise.ripeRotten = int.parse(
+                        _masakBusuk.text.isNotEmpty ? _masakBusuk.text : "0");
+                    spbSupervise.ripeOther = int.parse(
+                        _masakOther.text.isNotEmpty ? _masakOther.text : "0");
+                    spbSupervise.ripeAbnormalTotal = int.parse(
+                        _masakAbnormal.text.isNotEmpty
+                            ? _masakAbnormal.text
+                            : "0");
+
+                    spbSupervise.overripeParteno = int.parse(
+                        _lewatMasakParteno.text.isNotEmpty
+                            ? _lewatMasakParteno.text
+                            : "0");
+                    spbSupervise.overripeBroken = int.parse(
+                        _lewatMasakPatah.text.isNotEmpty
+                            ? _lewatMasakPatah.text
+                            : "0");
+                    spbSupervise.overripeRat = int.parse(
+                        _lewatMasakDimakanTikus.text.isNotEmpty
+                            ? _lewatMasakDimakanTikus.text
+                            : "0");
+                    spbSupervise.overripeRotten = int.parse(
+                        _lewatMasakBusuk.text.isNotEmpty
+                            ? _lewatMasakBusuk.text
+                            : "0");
+                    spbSupervise.overripeOther = int.parse(
+                        _lewatMasakOther.text.isNotEmpty
+                            ? _lewatMasakOther.text
+                            : "0");
+                    spbSupervise.overripeAbnormalTotal = int.parse(
+                        _lewatMasakAbnormal.text.isNotEmpty
+                            ? _lewatMasakAbnormal.text
+                            : "0");
+
+                    spbSupervise.emptyParteno = int.parse(
+                        _jangkosParteno.text.isNotEmpty
+                            ? _jangkosParteno.text
+                            : "0");
+                    spbSupervise.emptyBroken = int.parse(
+                        _jangkosPatah.text.isNotEmpty
+                            ? _jangkosPatah.text
+                            : "0");
+                    spbSupervise.emptyRat = int.parse(
+                        _jangkosDimakanTikus.text.isNotEmpty
+                            ? _jangkosDimakanTikus.text
+                            : "0");
+                    spbSupervise.emptyRotten = int.parse(
+                        _jangkosBusuk.text.isNotEmpty
+                            ? _jangkosBusuk.text
+                            : "0");
+                    spbSupervise.emptyOther = int.parse(
+                        _jangkosOther.text.isNotEmpty
+                            ? _jangkosOther.text
+                            : "0");
+                    spbSupervise.emptyAbnormalTotal = int.parse(
+                        _jangkosAbnormal.text.isNotEmpty
+                            ? _jangkosAbnormal.text
+                            : "0");
+
                     spbSupervise.catatanBunchesTangkaiPanjang =
                         noteJanjangTangkaiPanjang.text;
                     spbSupervise.supervisiNotes = _notesOPH.text;
