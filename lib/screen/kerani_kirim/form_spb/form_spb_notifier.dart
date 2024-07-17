@@ -499,13 +499,13 @@ class FormSPBNotifier extends ChangeNotifier {
         FlushBarManager.showFlushBarWarning(
             context, "Scan OPH", "OPH ini sudah masuk SPB");
       } else {
-        //  print("spb");
-        // print(json.encode(spbDetail));
+        print("spbDetail : $spbDetail");
+        print("oph : $oph");
         _listSPBDetail.add(spbDetail);
         _listOPHScanned.add(oph);
-        print(json.encode(_listSPBDetail)); // check : ok
-        //  print("oph");
-        print(json.encode(_listOPHScanned)); //check : ok
+        // print(json.encode(_listSPBDetail));
+
+        // print(json.encode(_listOPHScanned));
         _lastOPH = _listSPBDetail.last.ophCardId!;
         _countOPH = _listSPBDetail.length;
         // azis
@@ -879,7 +879,7 @@ class FormSPBNotifier extends ChangeNotifier {
                           if (!_isLoaderZero) {
                             if (_totalPercentageAngkut == 100) {
                               if (_totalPercentageAngkut >= 100) {
-                                showDialogQuestion(context);
+                                checkBunchesEmpty(context);
                               } else {
                                 FlushBarManager.showFlushBarWarning(context,
                                     "Daftar Loader", "Lebih dari dari 100 %");
@@ -947,7 +947,7 @@ class FormSPBNotifier extends ChangeNotifier {
                             if (!_isLoaderZero) {
                               if (_totalPercentageAngkut == 100) {
                                 if (_totalPercentageAngkut >= 100) {
-                                  showDialogQuestion(context);
+                                  checkBunchesEmpty(context);
                                 } else {
                                   FlushBarManager.showFlushBarWarning(context,
                                       "Daftar Loader", "Lebih dari dari 100 %");
@@ -1007,7 +1007,7 @@ class FormSPBNotifier extends ChangeNotifier {
                           if (!_isLoaderZero) {
                             if (_totalPercentageAngkut == 100) {
                               if (_totalPercentageAngkut >= 100) {
-                                showDialogQuestion(context);
+                                checkBunchesEmpty(context);
                               } else {
                                 FlushBarManager.showFlushBarWarning(context,
                                     "Daftar Loader", "Lebih dari dari 100 %");
@@ -1143,5 +1143,81 @@ class FormSPBNotifier extends ChangeNotifier {
       }
     }
     return mDivisionCode;
+  }
+
+  void checkBunchesEmpty(BuildContext context) {
+    final listBunchesInti = listSPBDetail
+        .where(
+            (element) => element.ophEstateCode!.contains(RegExp(r'^[0-9]+$')))
+        .toList();
+    final totalBunchesInti = listBunchesInti
+        .map((e) => e.ophBunchesDelivered ?? 0)
+        .toList()
+        .fold(0, (previousValue, element) => previousValue + element);
+    final listBunchesPlasma = listSPBDetail
+        .where(
+            (element) => !element.ophEstateCode!.contains(RegExp(r'^[0-9]+$')))
+        .toList();
+    final totalBunchesPlasma = listBunchesPlasma
+        .map((e) => e.ophBunchesDelivered ?? 0)
+        .toList()
+        .fold(0, (previousValue, element) => previousValue + element);
+
+    print('check totalBunchesInti : $totalBunchesInti');
+    print('check listBunchesInti : $listBunchesInti');
+    print('check totalBunchesPlasma : $totalBunchesPlasma');
+    print('check listBunchesPlasma : $listBunchesPlasma');
+
+    if (listBunchesInti.isNotEmpty && totalBunchesInti == 0) {
+      final listBunchesIntiFilter = listBunchesInti
+          .where((element) => element.ophBunchesDelivered == 0)
+          .toList();
+      for (var item in listBunchesIntiFilter) {
+        final spbDetailIndex = listSPBDetail.indexOf(item);
+        final spbDetailItem =
+            listSPBDetail.firstWhere((element) => element == item);
+        spbDetailItem.isBunchesDeliveredValid = false;
+        _listSPBDetail[spbDetailIndex] = spbDetailItem;
+      }
+
+      notifyListeners();
+      FlushBarManager.showFlushBarWarning(
+        context,
+        "Total Janjang Kirim",
+        "Total janjang kirim tidak boleh 0",
+      );
+      return;
+    }
+
+    if (listBunchesPlasma.isNotEmpty && totalBunchesPlasma == 0) {
+      final listBunchesPlasmaFilter = listBunchesPlasma
+          .where((element) => element.ophBunchesDelivered == 0)
+          .toList();
+      for (var item in listBunchesPlasmaFilter) {
+        final spbDetailIndex = listSPBDetail.indexOf(item);
+        final spbDetailItem =
+            listSPBDetail.firstWhere((element) => element == item);
+        spbDetailItem.isBunchesDeliveredValid = false;
+        _listSPBDetail[spbDetailIndex] = spbDetailItem;
+      }
+
+      notifyListeners();
+      FlushBarManager.showFlushBarWarning(
+        context,
+        "Total Janjang Kirim",
+        "Total janjang kirim tidak boleh 0",
+      );
+      return;
+    }
+
+    for (var item in listSPBDetail) {
+      final index = listSPBDetail.indexOf(item);
+      final itemEdit = item;
+      itemEdit.isBunchesDeliveredValid = true;
+      _listSPBDetail[index] = itemEdit;
+    }
+
+    notifyListeners();
+    showDialogQuestion(context);
   }
 }

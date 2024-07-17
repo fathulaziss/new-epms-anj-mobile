@@ -11,17 +11,20 @@ class SPBDetail extends Equatable {
   String? ophBlockCode;
   String? ophTphCode;
   String? ophCardId;
+  bool? isBunchesDeliveredValid;
 
-  SPBDetail(
-      {this.spbId,
-      this.ophId,
-      this.ophBunchesDelivered,
-      this.ophLooseFruitDelivered,
-      this.ophEstateCode,
-      this.ophDivisionCode,
-      this.ophBlockCode,
-      this.ophTphCode,
-      this.ophCardId});
+  SPBDetail({
+    this.spbId,
+    this.ophId,
+    this.ophBunchesDelivered,
+    this.ophLooseFruitDelivered,
+    this.ophEstateCode,
+    this.ophDivisionCode,
+    this.ophBlockCode,
+    this.ophTphCode,
+    this.ophCardId,
+    this.isBunchesDeliveredValid = true,
+  });
 
   SPBDetail.fromJson(Map<String, dynamic> json) {
     spbId = json['spb_id'];

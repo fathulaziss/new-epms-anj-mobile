@@ -65,9 +65,21 @@ class _FormSPBOPHTabState extends State<FormSPBOPHTab> {
                         child: ListView.builder(
                             itemCount: formSPB.listSPBDetail.length,
                             itemBuilder: (BuildContext context, int index) {
+                              final item = formSPB.listSPBDetail[index];
                               return Consumer<ThemeNotifier>(
                                 builder: (context, themeNotifier, _) {
                                   return Card(
+                                    shape: item.isBunchesDeliveredValid ?? true
+                                        ? null
+                                        : const RoundedRectangleBorder(
+                                            side: BorderSide(
+                                              color: Colors.red,
+                                              width: 2,
+                                            ),
+                                            borderRadius: BorderRadius.all(
+                                              Radius.circular(20),
+                                            ),
+                                          ),
                                     child: Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: Column(

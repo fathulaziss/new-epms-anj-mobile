@@ -94,6 +94,32 @@ class KeraniKirimNotifier extends ChangeNotifier {
             ),
           );
           mapListSPBLoader.add("\"${mapListSPBLoader.length}\":$jsonString1");
+        } else if (typeTBS == 4) {
+          String jsonString = jsonEncode(
+            SPBLoader(
+              loaderDestinationType: listSPBLoader0[i].loaderDestinationType,
+              loaderEmployeeCode: listSPBLoader0[i].loaderEmployeeCode,
+              loaderEmployeeName: listSPBLoader0[i].loaderEmployeeName,
+              loaderPercentage: listSPBLoader0[i].loaderPercentage,
+              loaderType: listSPBLoader0[i].loaderType,
+              spbId: "${listSPBLoader0[i].spbId}_2",
+              spbLoaderId: listSPBLoader0[i].spbLoaderId,
+            ),
+          );
+          mapListSPBLoader.add("\"${mapListSPBLoader.length}\":$jsonString");
+        } else if (typeTBS == 5) {
+          String jsonString = jsonEncode(
+            SPBLoader(
+              loaderDestinationType: listSPBLoader0[i].loaderDestinationType,
+              loaderEmployeeCode: listSPBLoader0[i].loaderEmployeeCode,
+              loaderEmployeeName: listSPBLoader0[i].loaderEmployeeName,
+              loaderPercentage: listSPBLoader0[i].loaderPercentage,
+              loaderType: listSPBLoader0[i].loaderType,
+              spbId: "${listSPBLoader0[i].spbId}_1",
+              spbLoaderId: listSPBLoader0[i].spbLoaderId,
+            ),
+          );
+          mapListSPBLoader.add("\"${mapListSPBLoader.length}\":$jsonString");
         } else {
           String jsonString = jsonEncode(listSPBLoader0[i]);
           mapListSPBLoader.add("\"${mapListSPBLoader.length}\":$jsonString");
@@ -156,6 +182,30 @@ class KeraniKirimNotifier extends ChangeNotifier {
               totalBrondolanPlasma = totalBrondolanPlasma +
                   listSPBDetailTemp[i].ophLooseFruitDelivered!;
               listSPBDetailPlasma.add(spbDetailTemp);
+              String jsonString = jsonEncode(spbDetailTemp);
+              mapListSPBDetail
+                  .add("\"${mapListSPBDetail.length}\":$jsonString");
+            }
+          }
+        } else if (typeTBS == 4) {
+          for (int i = 0; i < listSPBDetailTemp.length; i++) {
+            if (ValueService.plasmaValidator(
+                    listSPBDetailTemp[i].ophEstateCode!) ==
+                1) {
+              SPBDetail spbDetailTemp = listSPBDetailTemp[i];
+              spbDetailTemp.spbId = '${listSPBDetailTemp[i].spbId}_2';
+              String jsonString = jsonEncode(spbDetailTemp);
+              mapListSPBDetail
+                  .add("\"${mapListSPBDetail.length}\":$jsonString");
+            }
+          }
+        } else if (typeTBS == 5) {
+          for (int i = 0; i < listSPBDetailTemp.length; i++) {
+            if (ValueService.plasmaValidator(
+                    listSPBDetailTemp[i].ophEstateCode!) ==
+                2) {
+              SPBDetail spbDetailTemp = listSPBDetailTemp[i];
+              spbDetailTemp.spbId = '${listSPBDetailTemp[i].spbId}_1';
               String jsonString = jsonEncode(spbDetailTemp);
               mapListSPBDetail
                   .add("\"${mapListSPBDetail.length}\":$jsonString");
@@ -280,6 +330,30 @@ class KeraniKirimNotifier extends ChangeNotifier {
           listFotoSPB.add(
             {
               'id': listSPB0[i].spbId!.replaceAll(RegExp(r'_1'), '_2'),
+              'foto': listSPB0[i].spbPhoto,
+            },
+          );
+        } else if (typeTBS == 4) {
+          SPB spbIntiTemp = listSPB0[i];
+          spbIntiTemp.spbId = '${listSPB0[i].spbId!}_2';
+
+          String jsonStringInti = jsonEncode(spbIntiTemp);
+          mapListSPB.add("\"${mapListSPB.length}\":$jsonStringInti");
+          listFotoSPB.add(
+            {
+              'id': listSPB0[i].spbId!.replaceAll(RegExp(r'_2'), '_2'),
+              'foto': listSPB0[i].spbPhoto,
+            },
+          );
+        } else if (typeTBS == 5) {
+          SPB spbPlasmaTemp = listSPB0[i];
+          spbPlasmaTemp.spbId = '${listSPB0[i].spbId}_1';
+
+          String jsonStringPlasma = jsonEncode(spbPlasmaTemp);
+          mapListSPB.add("\"${mapListSPB.length}\":$jsonStringPlasma");
+          listFotoSPB.add(
+            {
+              'id': listSPB0[i].spbId!.replaceAll(RegExp(r'_1'), '_1'),
               'foto': listSPB0[i].spbPhoto,
             },
           );
