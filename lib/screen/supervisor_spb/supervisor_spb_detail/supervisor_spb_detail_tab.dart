@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:epms/base/ui/palette.dart';
 import 'package:epms/base/ui/style.dart';
 import 'package:epms/common_manager/value_service.dart';
+import 'package:epms/screen/inspection/components/inspection_photo.dart';
 import 'package:epms/screen/supervisor_spb/supervisor_spb_detail/supervisor_spb_detail_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -80,7 +81,7 @@ class _SupervisorSPBDetailTabState extends State<SupervisorSPBDetailTab> {
                       children: [
                         const Text("Sumber SPB:"),
                         Text(
-                            "${ValueService.spbSourceDataText(notifier.spbSupervise.supervisiSpbType!)}")
+                            "${notifier.spbSupervise.supervisiSpbType != null ? ValueService.spbSourceDataText(notifier.spbSupervise.supervisiSpbType!) : ""}")
                       ],
                     ),
                     const SizedBox(height: 8),
@@ -89,7 +90,7 @@ class _SupervisorSPBDetailTabState extends State<SupervisorSPBDetailTab> {
                       children: [
                         const Text("Jenis Pekerja:"),
                         Text(
-                            "${ValueService.typeOfFormToText(notifier.spbSupervise.supervisiSpbMethod!)}")
+                            "${notifier.spbSupervise.supervisiSpbMethod != null ? ValueService.typeOfFormToText(notifier.spbSupervise.supervisiSpbMethod!) : ""}")
                       ],
                     ),
                     const SizedBox(height: 8),
@@ -214,12 +215,71 @@ class _SupervisorSPBDetailTabState extends State<SupervisorSPBDetailTab> {
                   ]),
             ),
             const SizedBox(height: 10),
-            notifier.spbSupervise.supervisiSpbPhoto != null
-                ? Image.file(
-                    File("${notifier.spbSupervise.supervisiSpbPhoto}"),
-                    height: 400,
-                  )
-                : Container(),
+            if (notifier.listPickedFile.isNotEmpty)
+              if (notifier.onEdit)
+                SizedBox(
+                  height: MediaQuery.of(context).size.width / 4,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: notifier.listPickedFile.length,
+                    itemBuilder: (context, index) {
+                      final imagePath = notifier.listPickedFile[index];
+                      return Padding(
+                        padding: const EdgeInsets.only(right: 12),
+                        child: InspectionPhoto(
+                          imagePath: imagePath,
+                          onTapView: () {
+                            notifier.dialogService.showDialogPreviewPhoto(
+                              imagePath: imagePath,
+                              onTapClose: () {
+                                notifier.dialogService.popDialog();
+                              },
+                            );
+                          },
+                          onTapRemove: () {
+                            notifier.removeListPickedFile(imagePath);
+                          },
+                        ),
+                      );
+                    },
+                  ),
+                )
+              else
+                SizedBox(
+                  height: MediaQuery.of(context).size.width / 4,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: notifier.listPickedFile.length,
+                    itemBuilder: (context, index) {
+                      final image = notifier.listPickedFile[index];
+                      return Padding(
+                        padding: const EdgeInsets.only(right: 8),
+                        child: InkWell(
+                          onTap: () {
+                            notifier.dialogService.showDialogPreviewPhoto(
+                              imagePath: image,
+                              onTapClose: () {
+                                notifier.dialogService.popDialog();
+                              },
+                            );
+                          },
+                          child: Image.file(
+                            File(image),
+                            width: MediaQuery.of(context).size.width / 4,
+                            height: MediaQuery.of(context).size.height / 4,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+            // notifier.spbSupervise.supervisiSpbPhoto != null
+            //     ? Image.file(
+            //         File("${notifier.spbSupervise.supervisiSpbPhoto}"),
+            //         height: 400,
+            //       )
+            //     : Container(),
             notifier.onEdit
                 ? Padding(
                     padding: const EdgeInsets.all(8.0),

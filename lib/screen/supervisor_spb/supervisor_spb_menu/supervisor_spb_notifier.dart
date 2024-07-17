@@ -115,14 +115,25 @@ class SupervisorSPBNotifier extends ChangeNotifier {
         await DatabaseSPBSupervise().selectSPBSupervise();
     List<TBSLuar> listTBSLuar = await DatabaseTBSLuar().selectTBSLuar();
     for (int i = 0; i < listSPB.length; i++) {
-      if (listSPB[i].supervisiSpbPhoto != null) {
-        UploadImageOPHRepository().doUploadPhoto(
+      if (listSPB[i].supervisiSpbType == 1) {
+        UploadImageOPHRepository().doUploadPhotoNew(
+          context,
+          listSPB[i],
+          "spb_supervise",
+          onSuccessUploadImage,
+          onErrorUploadImage,
+        );
+      } else {
+        if (listSPB[i].supervisiSpbPhoto != null) {
+          UploadImageOPHRepository().doUploadPhoto(
             context,
             listSPB[i].supervisiSpbPhoto!,
             listSPB[i].spbSuperviseId!,
             "spb_supervise",
             onSuccessUploadImage,
-            onErrorUploadImage);
+            onErrorUploadImage,
+          );
+        }
       }
     }
     for (int i = 0; i < listTBSLuar.length; i++) {
