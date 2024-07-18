@@ -396,7 +396,7 @@ class ValueService {
       int isPlasma = plasmaValidator(spb.spbEstateCode!);
       String blockList = blockFormatIntiOrPlasma.join("#");
       var spbTagIntiOrPlasma =
-          "S${spb.spbCardId},${spb.spbId},${(spb.spbKeraniTransportEmployeeCode!.contains('PM')) ? (spb.spbType == 1) ? 1 : 2 : (spb.spbType == 1) ? 4 : 5},${spb.spbKeraniTransportEmployeeCode},${spb.spbDriverEmployeeCode},${spb.spbDeliverToCode},${spb.spbDeliverToName},${spb.spbLicenseNumber},${spb.spbEstateCode},${spb.spbDivisionCode},${spb.spbTotalOph},${spb.spbTotalBunches},${spb.spbTotalLooseFruit},${spb.spbEstimateTonnage},${spb.createdDate},${spb.createdTime},${spb.spbEstateVendorCode},${(spb.spbKeraniTransportEmployeeCode!.contains('PM')) ? (isPlasma == 1) ? 1 : 2 : (isPlasma == 1) ? 4 : 5},${spb.spbEstateVendorCode!.substring(4)}[$blockList]";
+          "S${spb.spbCardId},${spb.spbId}${(spb.spbKeraniTransportEmployeeCode!.contains('PM')) ? '' : (isPlasma == 1) ? '_2' : '_1'},${(spb.spbKeraniTransportEmployeeCode!.contains('PM')) ? (spb.spbType == 1) ? 1 : 2 : (spb.spbType == 1) ? 4 : 5},${spb.spbKeraniTransportEmployeeCode},${spb.spbDriverEmployeeCode},${spb.spbDeliverToCode},${spb.spbDeliverToName},${spb.spbLicenseNumber},${spb.spbEstateCode},${spb.spbDivisionCode},${spb.spbTotalOph},${spb.spbTotalBunches},${spb.spbTotalLooseFruit},${spb.spbEstimateTonnage},${spb.createdDate},${spb.createdTime},${spb.spbEstateVendorCode},${(spb.spbKeraniTransportEmployeeCode!.contains('PM')) ? (isPlasma == 1) ? 1 : 2 : (isPlasma == 1) ? 4 : 5},${spb.spbEstateVendorCode!.substring(4)}[$blockList]";
       spbTag = spbTagIntiOrPlasma;
     }
 
